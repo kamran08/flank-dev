@@ -1,0 +1,1899 @@
+
+<template>
+
+     <div class="pt-120">
+
+        <div class="flank-page-header"> 
+            <div class="flank-page-top">
+                <div class="container">
+                    <div class="flank-full">
+                        <div class="flank-item-1">
+                            <figure>
+                               
+                                <img src="/image/fl_lg.png" alt="">
+                            </figure>
+                            <div class="flank-header-cap">
+                                <h1>Coach <br><span>{{legendData.name}}</span></h1>
+                                <ul>
+                                    <li><img  :src="legendData.school.logo" alt="">{{legendData.school.schoolName}}</li>
+                                    <li>&bull;</li>
+                                    <li>{{legendData.school.sport}}</li>
+                                </ul>
+                                <div class="flank-head-btn"  @click="$router.push(`/scoach_review/${legendData.id}`)"> 
+                                    <button>Review</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flank-item-2">
+                            <div class="flank-item-2-inner">
+                                <div class="flank-item-left-list">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>Program type:</td>
+                                                <td>{{legendData.school.schoolName}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>City/state:</td>
+                                                <td>{{legendData.school.city}} {{legendData.school.state}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Profile views:</td>
+                                                <td>123 views</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Status:</td>
+                                                <td><span class="green"></span>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Streak:</td>
+                                                <td>W5</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="flank-item-right-list">
+                                    <div class="linear-border">
+                                        <p>2019-20 season stats</p>
+                                    </div>
+                                    <div class="right-list-inner">
+                                        <div class="right-list-inner-item">
+                                            <h4>RTG</h4>
+                                            <div class="review-star">
+                                                <ul>
+                                                    <li  :class="(averageRating>0)? 'review-star-5' : 'star_half_1'"><span><i class="fas fa-star"></i></span></li>
+                                                    <li :class="(averageRating>1)? 'review-star-5' :  'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                    <li :class="(averageRating>2)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                    <li :class="(averageRating>3)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                    <li :class="(averageRating>4)? 'review-star-5' : 'star_half_1'"  ><span><i class="fas fa-star"></i></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="right-list-inner-item" v-if="allTableData.metrice">
+                                            <h4>Hs</h4>
+                                            <div class="ti">
+                                                <p>{{ (allTableData.healthSore) ? allTableData.healthSore.toFixed(2) : 0}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="right-list-inner-item" v-if="allTableData.metrice">
+                                            <h4>Heali</h4>
+                                            <div class="ti">
+                                                <p>{{ (allTableData.healthSoreIndex.healthyIndex) ? allTableData.healthSoreIndex.healthyIndex.toFixed(2) : 0}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="right-list-inner-item" v-if="allTableData.metrice">
+                                            <h4>Harmi</h4>
+                                            <div class="ti">
+                                                <p>{{ (allTableData.healthSoreIndex.harmfulIndex) ? allTableData.healthSoreIndex.harmfulIndex.toFixed(2) : 0}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flank-page-bottom">
+                <div class="container">
+                    <div class="flank-page-bottom-nav">
+                        <ul>
+                            <li class="active"><a href="#">Overview</a></li>
+                            <!-- <li><a href="#">Bio</a></li> -->
+                        </ul>
+                        <!-- <div class="flank-page-bottom-btn">
+                            <button><img src="/images/fl-new-btn.gif" alt=""> Write a Review</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="new-banner-section new-banner-section-1">
+            <div class="container-fluid">
+                <div class="inner-banner inner-banner-2">
+                    <figure>
+                        <img src="/images/long-form-example.png" alt="">
+                    </figure>
+                </div>
+            </div>
+        </div>
+
+        <div class="new-section-content">
+            <div class="container">
+                <div class="new-content-inner">
+                    <div class="row flex-row">
+                        
+                        <div class="col-md-3 col-sm-3" v-if="!isSmallScreen">
+                            <div class="new-inner-item-1">
+                                <div class="switch-link-content">
+                                    <div class="switch-link-title">  
+                                          <h4>Coach Selection</h4>
+                                    </div>
+                                    <div class="switch-new-coach">
+                                        <div class="switch-new-coach-item">
+                                            <figure>
+                                                <img src="/images/new-man.gif" alt="">
+                                            </figure>
+                                            <div class="new-coach-item-text">
+                                                <h3>Not here? Tell us what we're missing.</h3>
+                                                <p>If the coach you are looking for isn't here, add it.</p>
+                                            </div>
+                                        </div>
+                                        <div class="coach-btn" @click="addNew.modal = true"><button>Add a Coach</button></div>
+                                    </div>
+                                </div>
+                                <div class="switch-link-content">
+                                    <div class="switch-link-title">  
+                                        <h4>Switch coach</h4>
+                                    </div>
+                                    <div class="switch-link-btn">
+                                        <ul>
+                                            <!-- <li><button>{{legendData.name}}</button></li> -->
+                                            <li><input type="text" placeholder="Search Coach"></li>
+                                            <li><button>Best rated coach</button></li>
+                                        </ul>
+                                    </div>
+                                    <div class="switch-coach-sec">
+                                        <div class="switch-coach active" v-for="(item,index) in similarCoaches" :key="index" v-if="item.id != legendData.id">
+                                            <figure :href="`/school_coach/${item.id}`" > 
+                                                <img src="/images/new-man.gif" alt="">
+                                            </figure>
+                                            <div class="switch-coach-caption" style="padding-top: 0;" >
+                                                <p><a :href="`/school_coach/${item.id}`"  style="padding-top: 0; color: #000 !important; font-weight: 600;">{{item.name}}</a></p>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="switch-link-foot">
+                                        <p><a href="#">Full staff</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div  :class="(!isSmallScreen)? 'col-md-6 col-sm-6 col-xs-12' : 'col-md-8 col-sm-8 col-xs-12'" >
+                            <div class="new-inner-item-2">
+                                <div class="inner-item-table-sec">
+                                    <div class="inner-item-table-title">
+                                        <h4>Stats</h4>
+                                    </div>
+                                    <div class="inner-item-table">
+                                        <table> 
+                                            <thead>
+                                                <tr>
+                                                    <th class="th-nor">Stats</th>
+                                                    <th>HS <p>Health Score</p></th>
+                                                    <th>PC <p>Program chemistry</p></th>
+                                                    <th>PR <p>Positive review</p></th>
+                                                    <th>NR <p>Negative review</p></th>
+                                                    <th>PCT <p>Winning percentage</p></th>
+                                                    <th>HEALI <p>Healthy index</p></th>
+                                                    <th>HARMI <p>Hermful index</p></th>
+                                                    <th>DIFF <p>Differential</p></th>
+                                                    <th>STRK <p>Streak</p></th>
+                                                    <th>L10 <p>Last 10</p></th>
+                                                    <th>PCI </th>
+                                                    <th>STI <p>Strength of Team Index</p></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-if="allTableData.metrice">
+                                                    <td class="th-nor" style="text-transform: capitalize;">Regular season</td>
+                                                    <td>{{ allTableData.healthSore.toFixed(2) }}</td>
+                                                    <td>{{ allTableData.ps }}</td>
+                                                    <td>{{ (allTableData.metrice.PositiveReview) ? allTableData.metrice.PositiveReview : 0 }}</td>
+                                                    <td>{{ (allTableData.metrice.NegativeReview) ? allTableData.metrice.NegativeReview : 0 }}</td>
+                                                    <td>{{ allTableData.PCT }}</td>
+                                                    <td>{{ (allTableData.healthSoreIndex.healthyIndex) ? allTableData.healthSoreIndex.healthyIndex.toFixed(2) : 0}}</td>
+                                                    <td>{{ (allTableData.healthSoreIndex.harmfulIndex) ? allTableData.healthSoreIndex.harmfulIndex.toFixed(2) : 0 }}</td>
+                                                    <td>{{ ( allTableData.metrice ) ? allTableData.metrice.PositiveReview - allTableData.metrice.NegativeReview : ''}}</td>
+                                                    <td>{{ allTableData.streak }}</td>
+                                                    <td>{{ allTableData.last10.PositiveReview + "-" + allTableData.last10.NegativeReview }}</td>
+                                                    <td>{{ allTableData.ps }}</td>
+                                                    <td>{{ allTableData.STI.toFixed(2) }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="th-nor" style="text-transform: capitalize;">Overall</td>
+                                                    <td>00</td>
+                                                    <td>00</td>
+                                                    <td>00</td>
+                                                    <td>00</td>
+                                                    <td>00</td>
+                                                    <td>00</td>
+                                                    <td>0.0</td>
+                                                    <td>+01</td>
+                                                    <td>00</td>
+                                                    <td>01</td>
+                                                    <td>01</td>
+                                                    <td>1.00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- new flank -->
+                                <div class="inner-item-review-sec">
+                                    <div class="left-linear-border">
+
+                                    </div>
+                                    <div class="inner-item-review-title">
+                                        <h4>Review Highlights</h4>
+                                    </div>
+                                    <div class="inner-item-reco-details">
+                                        <div class="inner-item-rev-item" v-for="(item,index) in topReviews" :key="index" >
+                                            <figure>
+                                                <img src="/images/act.png" alt="">
+                                            </figure>
+                                            <div class="rev-item-caption">
+                                                <p class="readmore">"{{item.content}}"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inner-item-review-sec">
+                                    <div class="inner-item-known-title">
+                                        <h4>Known For</h4>
+                                    </div>
+                                    <div class="inner-item-known-details" v-if="legendData.topAtrribute" >
+                                        <div class="inner-item-known-item" v-for="(item,index) in legendData.topAtrribute" :key="index" >
+                                            <figure>
+                                                <img :src="item.info.image" alt="">
+                                            </figure>
+                                            <div class="known-item-caption">
+                                                <p>{{item.info.content}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="more-att">
+                                        <!-- <p><a href="">26 More Attributes</a></p> -->
+                                    </div>
+                                </div> 
+                                <div class="inner-item-reco-sec inner-item-reco-sec-one">
+                                    <div class="inner-item-reco-title">
+                                        <h4>Ask The Community</h4>
+                                    </div>
+                                    <div class="inner-item-top-con inner-one-item-top-con">
+                                        <figure>
+                                            <img src="/images/sticker-3.png" alt="">
+                                        </figure>
+                                        <div class="top-con-cap one-top-cont-cap">
+                                            <p>Don't see your question? <span style="cursor:pointer;" @click="$router.push(`/coachquestionlist/${legendData.id}`)">Ask your verified audience! </span> </p>
+                                            <!-- <a >(Click Here)</a> -->
+                                        </div>
+                                    </div>
+                                    <div class="new-flank-form" v-if="legendData.question" >
+                                        <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;">Question:</p>
+                                        <div class="new-qu">
+                                            
+                                            <div class="new-qu-text">
+                                                <p>Does this coach have college connections? If so, to what schools?</p>
+                                            </div>
+                                            <!-- <div class="new-qu-img">
+                                                <img src="/images/nf.png" alt="">
+                                            </div> -->
+                                        </div>
+                                        <!-- <div class="inner-one-item-cont">
+                                            <div class="new-flank-search inner-item-one-cont-left">
+                                                <h4>Question:</h4>
+                                                <p style="font-size: 15px;font-family: CeraPro;">{{legendData.question.content}}</p>
+                                            </div>
+                                            
+                                        </div> -->
+                                        <div class="new-flank-coach-rev">
+                                            <div class="coach-rev-con">
+                                                <figure>
+                                                    <img src="/images/ms.jpg" alt="">
+                                                </figure>
+                                                <div class="coach-rev-text-content">
+                                                    <h4>Nazmul Chowdhury</h4>
+                                                    <h5>Sylhet, Bangladesh</h5>
+                                                    <ul class="fixed-list">
+                                                        <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
+                                                        <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                         
+                                            <div class="inner-one-item-help-area2"  >
+                                                <h6 class="help-ans"><span>1</span> answer</h6>
+                                                <div v-if="legendData.question.answers">
+                                                     
+                                                    <p class="help-text">{{legendData.question.answers.content}}</p>
+                                                </div>
+                                              
+                                               <div class="inner-one-item-help-btn">
+                                                   <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                   <div class="helpful-btn-full">
+                                                       <ul>
+                                                           <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
+                                                           <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                       </ul>
+                                                   </div>
+                                                   
+                                               </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="new-flank-form" v-if="legendData.question" >
+                                        <div class="new-qu">
+                                            <div class="new-qu-text">
+                                                <p>Another question</p>
+                                            </div>
+                                            <div class="new-qu-img">
+                                                <img src="/images/nf.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="inner-one-item-cont">
+                                            <div class="new-flank-search inner-item-one-cont-left">
+                                                <h4>Question:</h4>
+                                                <p style="font-size: 15px;font-family: CeraPro;">{{legendData.question.content}}</p>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="new-flank-coach-rev">
+                                            <div class="coach-rev-con">
+                                                <figure>
+                                                    <img src="/images/ms.jpg" alt="">
+                                                </figure>
+                                                <div class="coach-rev-text-content">
+                                                    <h4>Nazmul Chowdhury</h4>
+                                                    <h5>Sylhet, Bangladesh</h5>
+                                                    <ul class="fixed-list">
+                                                        <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
+                                                        <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                         
+                                            <div class="inner-one-item-help-area2"  >
+                                                <div v-if="legendData.question.answers">
+                                                     <h6 class="help-ans"><span>1</span> answer</h6>
+                                                    <p class="help-text">{{legendData.question.answers.content}}</p>
+                                                </div>
+                                              
+                                               <div class="inner-one-item-help-btn">
+                                                   <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                   <div class="helpful-btn-full">
+                                                       <ul>
+                                                           <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
+                                                           <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                       </ul>
+                                                   </div>
+                                                   
+                                               </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                    <div class="show-more-ac">
+                                        <p><a href=""><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
+                                    </div>
+                                </div>
+                                 <!-- <GChart
+                                    type="LineChart"
+                                    :data="chartData"
+                                    :options="chartOptions"
+                                    class="full"
+                                    /> -->
+                                <div class="inner-item-reco-sec">
+                                    <div class="inner-item-reco-title">
+                                        <h4>Recommended Reviews for<span> Coach {{legendData.name}}</span></h4>
+                                    </div>
+                                    <div class="inner-item-top-con">
+                                        <figure>
+                                            <img src="/images/sticker-3.png" alt="">
+                                        </figure>
+                                        <div class="top-con-cap">
+                                            <p><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="new-flank-form">
+                                        <div class="new-flank-sort-sec">
+                                            <div class="new-flank-search">
+                                                <form v-on:submit.prevent>
+                                                    <div class="search-new-box">
+                                                        <input type="text" placeholder="Search within the reviews" v-model="reviewSearch" >
+                                                        <button type="submit"  @click="SearchReviewResult" ><span><i class="fas fa-search"></i></span></button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="new-flank-sort">
+                                                <div class="new-flank-select">
+                                                    <h4>Sort by</h4>
+                                                    <select v-model="sort" @change="SearchReviewResult">
+                                                        <option value="" disabled selected>Flank Sort</option>
+                                                        <option value="desc">Top Rated</option>
+                                                        <option value="asc">Worst Rated</option>
+                                                    </select>
+                                                </div>
+                                                <div class="new-flank-img">
+                                                    <figure>
+                                                        <img src="/images/nf.png" alt="">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="new-flank-coach-rev">
+                                            <div class="coach-rev-fixed">
+                                                <figure>
+                                                    <img src="/images/fixed-img.png" alt="">
+                                                </figure>
+                                                <div class="coach-rev-fixed-content">
+                                                    <h4></h4>
+                                                    <h5></h5>
+                                                    <ul class="fixed-list">
+                                                        <li><img src="/images/mw.png" alt=""><span></span></li>
+                                                        <li><img src="/images/mstar.png" alt=""><span></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="coach-rev-push">
+                                                <ul class="coa-rev">
+                                                   <li @mouseover="changeDataHover(1)"    @click="reviewPageWith(1)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 0)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                    <li  @mouseover="changeDataHover(2)"  @click="reviewPageWith(2)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 1)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                    <li  @mouseover="changeDataHover(3)"  @click="reviewPageWith(3)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 2)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                    <li @mouseover="changeDataHover(4)"   @click="reviewPageWith(4)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 3)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                    <li @mouseover="changeDataHover(5)"   @click="reviewPageWith(5)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 4)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                </ul>
+                                                <div class="start-link">
+                                                    <p>Start your review of <span>{{legendData.name}}</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="new-flank-given-review">
+                                    <div class="flank-given-review-item" v-for="(item,index) in reviews" :key="index" >
+                                        <div class="linear-border"></div>
+                                        <div class="review-item-inner">
+                                            <div class="review-item-left">
+                                                <div class="review-item-left-fig">
+                                                    <figure>
+                                                        <img :src="item.reviwer.img" alt="">
+                                                    </figure>
+                                                    <div class="review-item-left-fig-c">
+                                                        <h4>{{item.reviwer.firstName}} {{item.reviwer.lastName}}</h4>
+                                                        <!-- <h5>{{item.reviwer.address}}</h5> -->
+                                                        <ul class="left-fig-link">
+                                                            <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
+                                                            <li><img src="/images/mstar.png" alt=""><span>{{item.reviwer.__meta__.totalreviewbyuser}} reviews</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="review-figure-exper">
+                                                    <ul>
+                                                        <li @click="isShareModalOn">
+                                                            <img src="/images/new-mstar.png" alt=""> 
+                                                            <p><a>Share review</a></p>
+                                                        </li>
+                                                        <li @click="embeddedModalOn(item)">
+                                                            <img src="/images/new-mstar1.png" alt="">
+                                                            <p><a>Embeded Review</a></p>
+                                                        </li>
+                                                        <li @click="messageModal = true"> 
+                                                            <img src="/images/new-mstar2.png" alt="">
+                                                            <p><a>Send message</a></p>
+                                                        </li>
+                                                         <li>
+                                                            <img src="/images/new-mstar3.png" alt="">
+                                                            <p><a>Follow valerie C.</a></p>
+                                                        </li>
+                                                    </ul>
+                                                </div> 
+                                            </div>
+                                            <div class="review-item-right">
+                                                <div class="review-item-right-rat">
+                                                    <ul>
+                                                        <li  :class="(item.rating>0)? 'review-star-5' : 'star_half_1'"><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(item.rating>1)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(item.rating>2)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(item.rating>3)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(item.rating>4)? 'review-star-5' : 'star_half_1'"  ><span><i class="fas fa-star"></i></span></li>
+                                                    </ul>
+                                                    <div class="review-date">
+                                                        <!-- <p>5/8/2019 <span>5:25:36</span></p> -->
+                                                        <!-- <p>{{item.created_at}}</p> -->
+                                                        <p>07/24/2019</p>
+                                                    </div>
+                                                    <div class="review-checkin">
+                                                        <p><span><i class="far fa-check-circle"></i></span> Verified</p>
+                                                    </div>
+                                                </div>
+                                                <div class="review-item-right-details">
+                                                    <p>{{item.content}}</p>
+                                                </div>
+                                                
+                                                <!-- <div class="review-gallary">
+                                                    <figure>
+                                                        <img src="/images/1000s.jpg" alt="">
+                                                        <figcaption><p>Very simple menu</p></figcaption>
+                                                    </figure>
+                                                </div> -->
+                                                <div class="review-btn-sec">
+                                                    <p>Was this review ...?</p>
+                                                    <div class="review-btn">
+                                                        <ul>
+                                                            <li @click="reviewImo('cool',index,item)"  :class="(item.imosall.cool >= 1)? 'active_imo' : ''" ><img src="/images/ic1.png" alt=""><span>Official</span> &nbsp;&nbsp;{{item.official}}</li>
+                                                            <li  @click="reviewImo('funny',index,item)" :class="(item.imosall.funny >= 1)? 'active_imo' : ''" ><img src="/images/ic2.png" alt=""><span>Bravery Badge</span> &nbsp;&nbsp;{{item.bravery}}</li>
+                                                            <li @click="reviewImo('useful',index,item)" :class="(item.imosall.useful >= 1)? 'active_imo' : ''" ><img src="/images/ic3.png" alt=""><span>Distinguished</span> &nbsp;&nbsp;{{item.distinguished}}</li>
+                                                        </ul>
+                                                         <!-- <template v-if="item.imos" >
+                                                                    <li   :class="(item.imos.acool)? 'imo_back' : ''" ><i class="fas fa-grin-beam"></i>&nbsp;Cool&nbsp;&nbsp;{{item.imos.cool}}</li>
+                                                                    <li  :class="(item.imos.afunny)? 'imo_back' : ''" ><i class="fas fa-grin-beam"></i>&nbsp;Funny&nbsp;&nbsp;{{item.imos.funny}}</li>
+                                                                    <li   :class="(item.imos.auseful)? 'imo_back' : ''" ><i class="fas fa-grin-beam"></i>&nbsp;Useful&nbsp;&nbsp;{{item.imos.useful}}</li>
+                                                        </template> -->
+                                                        <div class="review-btn-img">
+                                                            <figure>
+                                                                <img src="/images/nf.png" alt="">
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div  :class="(!isSmallScreen)? 'col-md-3 col-sm-3' : 'col-md-4 col-sm-4'">
+                            <div class="new-inner-item-1">
+                                <div  v-if="isSmallScreen">
+                                    <div class="switch-link-content">
+                                        <div class="switch-link-title">  
+                                            <h4>Coach Selection</h4>
+                                        </div>
+                                        <div class="switch-new-coach">
+                                            <div class="switch-new-coach-item">
+                                                <figure>
+                                                    <img src="/images/new-man.gif" alt="">
+                                                </figure>
+                                                <div class="new-coach-item-text">
+                                                    <h3>Not here? Tell us what we're missing.</h3>
+                                                    <p>If the coach you are looking for isn't here, add it.</p>
+                                                </div>
+                                            </div>
+                                            <div class="coach-btn" @click="addNew.modal = true"><button>Add a Coach</button></div>
+                                        </div>
+                                    </div>
+                                    <div class="switch-link-content">
+                                        <div class="switch-link-title">  
+                                            <h4>Switch coach</h4>
+                                        </div>
+                                        <div class="switch-link-btn">
+                                            <ul>
+                                                <!-- <li><button>{{legendData.name}}</button></li> -->
+                                                <li><input type="text" placeholder="Search Coach"></li>
+                                                <li><button>Best rated coach</button></li>
+                                            </ul>
+                                        </div>
+                                        <div class="switch-coach-sec">
+                                            <div class="switch-coach active" v-for="(item,index) in similarCoaches" :key="index" v-if="item.id != legendData.id">
+                                                <figure :href="`/school_coach/${item.id}`" > 
+                                                    <img src="/images/new-man.gif" alt="">
+                                                </figure>
+                                                <div class="switch-coach-caption" style="padding-top: 0;" >
+                                                    <p><a :href="`/school_coach/${item.id}`"  style="padding-top: 0; color: #000 !important; font-weight: 600;">{{item.name}}</a></p>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="switch-link-foot">
+                                            <p><a href="#">Full staff</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Health Meter -->
+                                <div class="switch-link-content _1health">
+                                    <div class="_1health_title">
+                                        <p class="_1health_title_text">Health Meter</p>
+
+                                        <img class="_1health_img" src="/image/coach-review45.jpg" alt="" title="">
+
+                                        <p class="_1health_value">100%</p>
+                                    </div>
+
+                                    <p class="_1health_subtitle">HEALTHY</p>
+
+                                    <div class="_1health_numbers" v-if="allTableData.healthSore">
+                                        <p class="_1health_numbers_text"><span>100</span></p>
+                                        <p class="_1health_numbers_text" v-bind:style="{ top: (100-allTableData.healthSore.toFixed(2)  )+'%'}"><span>{{ allTableData.healthSore.toFixed(1)}}</span></p>
+                                        <p class="_1health_numbers_text"><span>00</span></p>
+                                    </div>
+
+                                    <p class="_1health_subtitle _1health_subtitle_border">Harmful</p>
+
+                                    <div class="_1healtfh_main">
+                                        <p class="_1health_main_title">Flank News: We've enhanced our Health Meter</p>
+
+                                        <ul class="_1health_main_list">
+                                            <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
+                                            <li>We now have Verified Ratings and Reviews to make our Health Score more useful</li>
+                                            <li>When you see “Verified” it means we’ve confirmed a user verified their identity </li>
+                                        </ul>
+                                    </div>
+
+                                    <p class="_1health_more">
+                                        <a class="_1health_more_a" href="">LEARN MORE</a>
+                                    </p>
+                                </div>
+                                <!-- Health Meter -->
+
+                                <div class="switch-link-content"></div>
+
+                                <div class="switch-link-content">
+                                    <div class="switch-link-title">
+                                        <h4>Latest videos</h4>
+                                    </div>
+                                    <div class="flank-video">
+                                        <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                    </div>
+
+                                    <div class="playing-list">
+                                        <ul>
+                                            <li>
+                                                <div class="playing-btn">
+                                                    <span><i class="fas fa-play"></i></span>
+                                                </div>
+                                                <div class="video-info" @click="openVideo(1)" style="cursor:pointer;">
+                                                    <p>Out of control coaches' Abusive Behavior Often Under Reported</p>
+                                                    <ul>
+                                                        <li>Now playing <span>•</span></li>
+                                                        <li><p>2:18</p></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="playing-btn">
+                                                    <span><i class="fas fa-play"></i></span>
+                                                </div>
+                                                <div class="video-info" @click="openVideo(2)" style="cursor:pointer;">
+                                                    <p>Players accuse GCU women's soccer coach of verbal, mental, physical abuse.</p>
+                                                    <ul>
+                                                        <li><p>4:27</p></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="playing-btn" >
+                                                    <span><i class="fas fa-play"></i></span>
+                                                </div>
+                                                <div class="video-info" @click="openVideo(3)" style="cursor:pointer;">
+                                                    <p>Rutgers coach fired for abuse of players.</p>
+                                                    <ul>
+                                                        <li><p>1:38</p></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="playing-btn" >
+                                                    <span><i class="fas fa-play"></i></span>
+                                                </div>
+                                                <div class="video-info" @click="openVideo(4)" style="cursor:pointer;">
+                                                    <p>The abuse of child athletes by their coaches.</p>
+                                                    <ul>
+                                                        <li><p>3:55</p></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="video-foot-img">
+                                        <figure>
+                                            <img src="/images/flank.png" alt="">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="flank-banner-two">
+                                    <figure>
+                                        <img src="/images/worstbanner.png" alt=""> 
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <Modal v-model="loginModal">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="signcont-left" style="border: 0;">
+                            <h3 class="create-account">Sign-In</h3>
+                            <form v-on:submit.prevent>
+                                <div class="group-item">
+                                    <label >Email</label>
+                                    <input type="email" v-model="formData.email">
+                                </div>
+                                <div class="group-item">
+                                    <label >Password</label>
+                                    <nuxt-link  class="group-item-right red-alert group-item-forgot-pass"  to='/authentication/resetpassword' >Forgot your password?</nuxt-link>
+                                    <input type="password" v-model="formData.password">
+                                </div>
+                                <div class="group-item">
+                                    <input type="submit" @click="onSubmit" value="Sign-In" class="g-btn">
+                                </div>
+                            </form>
+                            <p class="mar_b20" style="font-weight: 400;font-family: CeraPro;line-height: 19px;font-size: 14px;">By continuing, you agree to Flank's <nuxt-link to="/guidlines">Conditions of Use</nuxt-link> and <nuxt-link to="/policy">Privacy Notice</nuxt-link>.</p>
+                            <h5 class="mar_b30 new-input-check-box"><input type="checkbox" name="vehicle1" value="Bike" id="new-ch"> <label for="new-ch">Keep me Signed in.</label> <a href="#" class="sign-in" style="color: #e51837 !important; font-family: CeraPro;">Details</a></h5>
+                            <p class="new-flank">
+                                <span class="new-flank-cont">
+                                    New to Flank?
+                                </span>               
+                            </p>
+                                <nuxt-link   to='/signup' > <button class="create-btn">Create your Flank account</button></nuxt-link>
+                            
+                        </div>
+                        <!-- <div class="signcont-left">
+                           
+                            <form v-on:submit.prevent>
+                                <div class="group-item">
+                                    <label >Email</label>
+                                    <input type="email" v-model="formData.email">
+                                </div>
+                                <div class="group-item">
+                                    <label >Password</label>
+                                    <nuxt-link  class="group-item-right red-alert group-item-forgot-pass"  to='/authentication/resetpassword' >Fogot password?</nuxt-link>
+                                    <input type="password" v-model="formData.password">
+                                </div>
+                            </form>
+                            <p class="mar_b20">By continuing, you agree to Conditions Flank's of Use and Privacy Notice</p>
+                            <h5 class="mar_b30"><input type="checkbox" name="vehicle1" value="Bike"> Keep me sign in. <a href="#" class="sign-in">Details</a></h5>
+                            
+                            <div class="group-item">
+                                    <input type="submit" @click="onSubmit" value="Sign-In">
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            
+        </Modal>
+        <Modal  v-model="isVideo.modal" :mask-closable='true'  :footer-hide='true' >
+            <div slot="header">
+                <h3 v-html="isVideo.header"></h3>
+            </div>
+            <div slot="close">
+                 <span style="font-size: 20px;color: #a8a8a8dd;" @click="closeVideo" ><i class="fas fa-times"></i></span>
+            </div>
+            <div  >
+                <p v-html="isVideo.link" ></p>
+            </div>
+        </Modal>
+        <div class="authentication-full-modal" v-if="isShareModal">
+            <div class="full-modal-box">
+                <div class="modal-top">
+                    <div class="modal-title">
+                        <h2>share review</h2>
+                    </div>
+                    <div class="modal-close" @click="isShareModal = false">
+                        <span><i class="fas fa-times"></i></span>
+                    </div>
+                </div>
+                <div class="modal-details">
+                    <div class="modal-details-top">
+                        <div class="modal-details-social">
+                            <ul>
+                                <li><button class="fb-btn"  :data-href="location" ><span><i class="fab fa-facebook-square"></i></span> <a style="color:#ffff;"  :href="'https://www.facebook.com/sharer/sharer.php?u='+location" target="_blank" >Share on facebook</a> </button></li>
+                                <li><button class="tw-btn"><span><i class="fab fa-twitter-square"></i></span><a  style="color:#ffff;" :href="`https://twitter.com/share?ref_src=${location}`" target="_blank" rel="noopener noreferrer">Share on twitter</a></button></li>
+                            </ul>
+                        </div>
+                        <div class="modal-input-value">
+                            <label for=""><span><i class="fas fa-upload"></i></span></label>
+                            <input type="text" v-model="location">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-divider">
+                    <p>or</p>
+                </div>
+                <div class="modal-form">
+                    <form action="">
+                        <div class="modal-form-item">
+                            <label for="">your name</label>
+                            <input type="text" v-model="shareForm.name">
+                        </div>
+                        <div class="modal-form-item">
+                            <label for="">your email</label>
+                            <input type="text" v-model="shareForm.email">
+                        </div>
+                        <div class="modal-form-item">
+                            <label for="">to <small>Email address</small></label>
+                            <input type="text" v-model="shareForm.to">
+                        </div>
+                        <div class="modal-form-item">
+                            <label for="">Add a note</label>
+                            <textarea name="" id=""  rows="5" v-model="shareForm.note"></textarea>
+                        </div>
+                        <div class="modal-btn" >
+                            <button @click="submitShare">Share</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+         <Modal v-model="embeddedModal" width="900px"> 
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="signcont-left" style="background: #ddd;">
+                            <h3 style="color:red; margin-bottom:13px;">Embed This Review</h3>
+                            <form v-on:submit.prevent>
+                                
+                                <div class="group-item flex_item" style="margin-bottom:15px">
+                                    <label >Embedding Code</label>
+                                     <textarea id=""  rows="5" value ="yes" v-html="embededText" >
+                                        
+                                     </textarea>
+                                </div>
+                                <!-- <div class="group-item">
+                                    <label >Password</label>
+                                    <nuxt-link  class="group-item-right red-alert group-item-forgot-pass"  to='/authentication/resetpassword' >Fogot password?</nuxt-link>
+                                    <input type="password" v-model="formData.password">
+                                </div> -->
+                                <button class="_primary" @click="copyToClipBoard"><span>Copy Code</span></button>
+                            </form>
+                            <h4>Preview</h4>
+                            <div>
+                                    <link href="https://widget.goflank.com/flank-review/css/app.css" rel=stylesheet>
+                                    <forehand-rank :lid="embeded_id"></forehand-rank>
+                                    <script src="https://widget.goflank.com/flank-review/js/app.js"></script>
+                                                            </div>
+                            <!-- <div class="group-item">
+                                    <input type="submit" @click="scheduleSubmit" value="Contact For Schedule">
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </Modal>
+        <Modal title="Send Message" v-model="messageModal">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="signcont-left">
+                           
+                            <form v-on:submit.prevent>
+                                <div class="group-item flex_item">
+                                    <label >Your Email</label>
+                                    <input type="email" v-model="message.email">
+                                </div>
+                                <div class="group-item flex_item">
+                                    <label >Subject</label>
+                                    <input type="email" v-model="message.submit">
+                                </div>
+                                <div class="group-item flex_item">
+                                    <label >Message</label>
+                                    <textarea id="" v-model="message.message" rows="5"></textarea>
+                                </div>
+                                
+                            </form>
+                            
+                            <div class="group-item">
+                                    <input type="submit" @click="messageSubmit" value="Send Message">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </Modal>
+
+        <!-- <footer class="new-footer">
+            <div class="new-footer-top"></div>
+        </footer> -->
+     <Modal width="850px" v-model="addNew.modal" :closable='false'>
+            <div class="sss">
+                <div class="">
+                    <div class="bulid-section build-section-1" v-if="addNew.step == 1">
+                        <div class="build-section-title">
+                            <h3>Build together</h3>
+                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
+                                <img src="/images/Step-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="build-section-inner">
+                            <div class="build-section-inner-top">
+                                <div class="build-left">
+                                    <div class="build-item-box active">
+                                        <div class="build-item-box-active">
+                                            <span>1</span>
+                                        </div>
+                                        <p>Add School/Coach</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>2</span>
+                                        </div>
+                                        <p>Registration</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>3</span>
+                                        </div>
+                                        <p>Submit Review</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>4</span>
+                                        </div>
+                                        <p>Confirmation</p>
+                                    </div>
+                                </div>
+                                <div class="build-right">
+                                    <div class="build-right-title">
+                                        <h3>What are you working on?</h3>
+                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                    </div>
+                                    <div class="build-right-form">
+                                        <p>(Avg. Time of Completion - 2 minutes)</p>
+                                        <div class="build-right-form-inner">
+                                            <form action="#">
+                                                <div class="build-input">
+                                                    <label for="">School name <span class="required">*</span></label>
+                                                    <input disabled type="text" v-model="step1Form.schoolName">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Coach name <span class="required">*</span></label>
+                                                    <input type="text" v-model="step1Form.name">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">City <span class="required">*</span></label>
+                                                    <input disabled type="text" v-model="step1Form.city">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Division <span class="required">*</span></label>
+                                                     <input disabled type="text" v-model="step1Form.division">
+                                                    
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">State <span class="required">*</span></label>
+                                                    <input disabled type="text" v-model="step1Form.state">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Sport </label>
+                                                    <input disabled type="text" v-model="step1Form.sport">
+                                                    
+                                                </div>
+                                            </form>
+                                            <div class="build-redirect">
+                                                <p>Information submitted on this site is subject to the <a href="#">Privacy Policy.</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bulid-section build-section-2" v-if="addNew.step == 2">
+                        <div class="build-section-title">
+                            <h3>Build together</h3>
+                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
+                                <img src="/images/Step-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="build-section-inner">
+                            <div class="build-section-inner-top">
+                                <div class="build-left">
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <!-- <span>1</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Add School/Coach</p>
+                                    </div>
+                                    <div class="build-item-box active">
+                                        <div class="build-item-box-active">
+                                            <span>2</span>
+                                        </div>
+                                        <p>Registration/Login</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>3</span>
+                                        </div>
+                                        <p>Submit Review</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>4</span>
+                                        </div>
+                                        <p>Confirmation</p>
+                                    </div>
+                                </div>
+                                <div class="build-right">
+                                    <div class="build-right-title">
+                                        <h3>What are you working on?</h3>
+                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                    </div>
+                                    <div class="build-right-form">
+                                        <p>(Avg. Time of Completion - 2 minutes)</p>
+                                        <div class="build-right-form-inner" v-if="addNew.isReg ">
+                                            <form action="#">
+                                                <div class="build-input">
+                                                    <label for="">Your First name <span class="required">*</span></label>
+                                                    <input type="text" v-model="step2Form.firstName">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Your Last name <span class="required">*</span></label>
+                                                    <input type="text" v-model="step2Form.lastName">
+                                                </div>
+                                                <div class="build-input full_input">
+                                                    <label for="">Email <span class="required">*</span></label>
+                                                    <input type="email" v-model="step2Form.email">
+                                                </div>
+                                                
+                                                <div class="build-input">
+                                                    <label for="">Password <span class="required">*</span></label>
+                                                    <input type="password" v-model="step2Form.password">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Confirm password <span class="required">*</span></label>
+                                                    <input type="password" v-model="step2Form.password_confirmation">
+                                                </div>
+                                                
+                                            </form>
+                                            <div class="build-redirect">
+                                                <p>Already have an account Please <a @click="addNew.isReg = false"> Login .</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="build-right-form-inner" v-else>
+                                            <form action="#">
+
+                                                <div class="build-input full_input">
+                                                    <label for="">Email <span class="required">*</span></label>
+                                                    <input type="email" v-model="formData.email">
+                                                </div>
+
+                                                <div class="build-input full_input">
+                                                    <label for="">Password <span class="required">*</span></label>
+                                                    <input type="password" v-model="formData.password">
+                                                </div>
+                                            </form>
+                                            <div class="build-redirect">
+                                                <p>Don't have any account. Please <a @click="addNew.isReg = true">Register</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bulid-section build-section-2" v-if="addNew.step == 3">
+                        <div class="build-section-title">
+                            <h3>Build together</h3>
+                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
+                                <img src="/images/Step-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="build-section-inner">
+                            <div class="build-section-inner-top">
+                                <div class="build-left">
+                                    <div class="build-item-box active">
+                                        <div class="build-box-round">
+                                            <!-- <span>1</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Your work</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <!-- <span>1</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Registration/Login</p>
+                                    </div>
+                                    <div class="build-item-box active">
+                                        <div class="build-item-box-active">
+                                            <span>3</span>
+                                        </div>
+                                        <p>Submit Review</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>4</span>
+                                        </div>
+                                        <p>Confirmation</p>
+                                    </div>
+                                </div>
+                                <div class="build-right">
+                                    <div class="build-right-title">
+                                        <h3>What are you working on?</h3>
+                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                    </div>
+                                    <div class="build-right-form">
+                                        <p>(Avg. Time of Completion - 2 minutes)</p>
+                                        <div class="build-right-form-inner build-right-form-non">
+                                            <form action="#">
+                                                <div class="build-review">
+                                                    <div v-if="onHover">
+                                                        <ul>
+                                                            <li @mouseover="changeDataHover(1)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(1)" :class="(drating.index > 0)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(2)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(2)" :class="(drating.index > 1)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(3)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(3)" :class="(drating.index > 2)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(4)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(4)" :class="(drating.index > 3)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(5)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(5)" :class="(drating.index > 4)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p>Select your rating</p>
+                                                    </div>
+                                                    <div v-else>
+                                                        <ul>
+                                                            <li @mouseover="changeDataHover(1)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(1)" :class="(oldrating.index > 0)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(2)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(2)" :class="(oldrating.index > 1)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(3)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(3)" :class="(oldrating.index > 2)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(4)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(4)" :class="(oldrating.index > 3)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(5)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(5)" :class="(oldrating.index > 4)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p>Select your rating</p>
+                                                    </div>
+
+                                                </div>
+                                                <div class="build-textarea">
+                                                    <textarea v-model="step3Form.content" name="" id="" rows="10" placeholder="Your review helps others learn about good and bad coaches.
+
+                                                            You have been lied to. 
+                                                            Your values don't count.
+                                                            They don't take you seriously.                                                                                                                                                                                                                                                                     
+                                                            You owe this to yourself"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bulid-section build-section-2" v-if="addNew.step == 4">
+                        <div class="build-section-title">
+                            <h3>Build together</h3>
+                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
+                                <img src="/images/Step-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="build-section-inner">
+                            <div class="build-section-inner-top">
+                                <div class="build-left">
+                                    <div class="build-item-box ">
+                                        <div class="build-box-round">
+                                            <!-- <span>1</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Add School/Coach</p>
+                                    </div>
+                                    <div class="build-item-box ">
+                                        <div class="build-box-round">
+                                            <!-- <span>2</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Registration/Login</p>
+                                    </div>
+                                    <div class="build-item-box ">
+                                        <div class="build-box-round">
+                                            <!-- <span>2</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Submit Review</p>
+                                    </div>
+                                    <div class="build-item-box active">
+                                        <div class="build-item-box-active">
+                                            <!-- <span>3</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Confirmation</p>
+                                    </div>
+                                </div>
+                                <div class="build-right">
+                                    <div class="build-right-title">
+                                        <h3>What are you working on?</h3>
+                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                    </div>
+                                    <div class="build-right-form">
+                                        <div class="build-right-form-inner build-right-form-non">
+                                            <div class="build-confirmation-text">
+                                                <h3>Great! Way to Flank! <br> Your review has been submitted</h3>
+                                                <p>Please allow us 24-48 hours to pull your information into one place, and see your low risk insight instantly benefit the player communities where you play(ed).</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="_footer_noCoach">
+                <div v-if="addNew.step == 1" class="mFooter">
+                    <p class="mCancel" @click="addNew.modal=false">Cancel</p>
+
+                    <Button class="mNext" @click="addNewItem">Next</Button>
+                </div>
+                <div v-if="addNew.step == 2" class="mFooter">
+                    <p class="mCancel" @click="addNew.modal=false">Cancel</p>
+                    <Button class="mBack" @click="addNew.modal=false">Back</Button>
+
+                    <Button v-if="addNew.isReg" class="mNext" @click="register">Next</Button>
+                    <Button v-else class="mNext" @click="login">Next</Button>
+                </div>
+
+                <div v-if="addNew.step == 3" class="mFooter">
+                    <p class="mCancel" @click="addNew.modal=false">Cancel</p>
+
+                    <Button class="mNext" @click="reviewSubmit">Submit</Button>
+                </div>
+
+                <div v-if="addNew.step == 4" class="mFooter">
+
+                    <Button class="mNext" @click="addNew.modal=false">Continue Browsing</Button>
+                </div>
+
+            </div>
+        </Modal>
+
+        
+    </div>
+</template>
+
+<script>
+import { GChart } from 'vue-google-charts'
+
+export default {
+   
+    data(){
+        return{
+            isSmallScreen:false,
+             drating:{
+                class:'',
+                text:'Select your rating',
+                index: 0
+            },
+            oldrating:{
+                class:'',
+                text:'',
+                index:0,
+            },
+            step1Form:{
+                schoolName:'',
+                city:'',
+                division:'',
+                state:'',
+                sport:'',
+                name:'',
+
+            },
+             step2Form:{
+                firstName:'',
+                lastName:'',
+                email:'',
+                password:'',
+                
+                password_confirmation :'',
+                birthday:'',
+                packType:''
+            },
+            onHover: false,
+            step3Form:{
+                reviewFor:'',
+                school_id:'',
+                content:"",
+                review_type:'school',
+                rating:'',
+            },
+            addNew:{
+                step:1,
+                modal:false,
+                onHover:false,
+                isReg: true
+            },
+            location:{},
+           shareForm:{
+               name:'',
+               email:'',
+               to:'',
+               note:'',
+           },
+             messageModal:false,
+            isShareModal:false,
+            embeddedModal:false,
+             loginModal:false,
+             formData:{
+                email:'',
+                password:'',
+                remember: false,
+            },
+            isVideo:{
+                modal :false,
+                header:'',
+                link:''
+            },
+            imgName: '/uploads/default.png',
+            askModal:false,
+            answerModal:false,
+            askData:{
+                content:'',
+            },
+           
+            tempAIndex:'',
+            atrrtributepoint:'',
+            reviews:[],
+            hours:[],
+            similarCoaches:[],
+            galleryIndex:0,
+            todayHour:{},
+            healthSore:{},
+            rpagination:{},
+            reviewSearch:'',
+            reviewStar:0,
+            isLoading:true,
+            flip:-1,
+            coach_id:-1,
+            coach_index:-1,
+            page:1,
+            sort:'',
+            value2: 0,
+            topReviews: [],
+            allTableData: {},
+            drating:{
+                class:'',
+                index: 0
+            },
+            chartData: [
+                ["HealthScore",'HealthScore'],
+                [ 5,5],
+            ],
+            chartOptions: {
+                width: 400,
+                height: 400,
+                colors: ['#000',],
+                backgroundColor:'#fff',
+                vAxis:{
+                        maxValue: 100,
+                        minValue: 1,
+                    
+                    textStyle:{
+                        color: '#000',
+                    }
+                },
+                hAxis:{
+                        maxValue: 1,
+                        minValue: 1,
+                    // format: '#%',
+                        textStyle:{
+                        color: '#fff',
+                    },
+                },
+                trendlines: { 0: {} } ,
+                
+            },
+            newCoach:{},
+            message:{
+                email:'',
+                submit: '',
+                message: '',
+            },
+            embeded_id:16,
+            embededText:'',
+       
+        }
+    },
+    head () {
+    return {
+      title: this.title,
+    }
+  },
+    methods:{
+         copyToClipBoard(){
+           this.$clipboard(this.embededText);
+            this.$Message.info('code copied');
+        },
+        messageSubmit(){
+            this.s("Message has been  sent  Successfull !")
+            let  message ={
+                email:'',
+                submit: '',
+                message: '',
+            }
+            this.message = message
+            this.messageModal = false
+        },
+        embeddedModalOn(item){
+            
+            this.embeded_id = item.id
+            this.embededText = `<link href="https://widget.goflank.com/flank-review/css/app.css" rel=stylesheet><forehand-rank lid="${this.embeded_id}"><\/forehand-rank><script src="https://widget.goflank.com/flank-review/js/app.js"><\/script>`
+            this.embeddedModal = true
+        },
+         selectContactDate(date){
+            
+            this.contact.date = date
+        },
+        async  addNewItem(){
+            if(this.step1Form.schoolName == '') return this.i("All Fields are required!")
+            if(this.step1Form.city == '') return this.i("All Fields are required!")
+            if(this.step1Form.division == '') return this.i("All Fields are required!")
+            if(this.step1Form.name == '') return this.i("All Fields are required!")
+            if(this.step1Form.sport == '') return this.i("All Fields are required!")
+            if(this.step1Form.state == '') return this.i("All Fields are required!")
+            this.step1Form.id = this.legendData.id
+            const res = await this.callApi('post','/schools',this.step1Form)
+
+            if(res.status == 200){
+                this.similarCoaches.push(res.data)
+                this.newCoach = res.data
+                this.i("New Coach Created !")
+                if(this.isLoggedIn) this.addNew.step = 3
+                else this.addNew.step = 2
+            }
+            else{
+                this.swr()
+                this.addNew.modal = false
+            }
+            
+        },
+        async reviewSubmit(){
+            
+            if(this.step3Form.content == ''){
+                this.i("You must write something in the review box!")
+                return
+            }
+            if(this.drating.index == 0 ){
+                this.i('Please rate this coach !')
+                return;
+            }
+            this.step3Form.rating = this.oldrating.index
+            if(this.newCoach.name){
+                this.step3Form.reviewFor =this.newCoach.id
+                this.step3Form.school_id = this.newCoach.school_id
+               
+            }
+            else {
+                 this.addNew.modal = false
+               
+                return this.swr()
+            }
+          
+            
+           // this.reviewData.uploadList = this.uploadList
+          //  this.reviewData.AttributeInfo = this.AttributeInfo
+
+            const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
+            if(res.status===200){
+                this.s('Review posted successfully!')
+                this.addNew.step = 4
+            }
+            else{
+                this.swr();
+            }
+           
+            
+        },
+        async login(){
+            if(this.formData.email == '') return this.i("email is empty")
+            if(this.formData.password == '') return this.i("Password is empty")
+            const res = await this.callApi('post','authentication/login',this.formData) 
+            if(res.status===200){
+                this.s("Login Successfully !")
+                this.$store.dispatch('setAuthInfo',res.data)
+
+               
+                 
+                 this.addNew.step = 3
+                  
+                
+            }
+            else if(res.status==401){
+                this.e(res.data.message)
+            }
+            else{
+                this.swr();
+            }
+        },
+        async register(){
+
+             if(this.step2Form.firstName == '') return this.i("Frist name is empty!")
+            if(this.step2Form.lastName == '') return this.i("Last name is empty!")
+            if(this.step2Form.email == '') return this.i("Email  is empty!")
+            if(this.step2Form.password == '') return this.i("Password  is empty!")
+             if(this.step2Form.password_confirmation  !==  this.step2Form.password) return this.i("Password Doesn't match !")
+                
+            this.step2Form.packType = 1
+            const res = await this.callApi('post','/users',this.step2Form)
+            if(res.status==200){
+                this.s('Registration Completed !')
+                this.$store.dispatch('setAuthInfo',res.data)
+                this.addNew.step = 3
+                 
+            }
+            else if(res.status === 400){
+                for(let d of res.data){
+            
+                    this.e(d.message)
+                }
+            }
+            else{
+                console.log(res)
+                this.swr()
+            }
+        },
+        isShareModalOn(){
+            
+            this.isShareModal = true
+        },
+        submitShare(){
+            this.s("Share Successfull !")
+            let  shareForm ={
+                name:'',
+                email:'',
+                to:'',
+                note:'',
+            }
+            this.shareForm = shareForm
+            this.isShareModal = false
+        },
+        openVideo(no){ 
+            if(no == 1){
+                this.isVideo.link = `<div class="inner-video-iframe">
+                                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Vz738aqEI5w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            </div> `
+                this.isVideo.header = `Out of control Coache's abusive behaviour caught on tape.`
+            }
+            else if(no == 2){
+                this.isVideo.link = `<div class="inner-video-iframe">
+                                                            <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            </div> `
+                this.isVideo.header = `Players accuse GCU women's soccer coach of verbal, mental, physial abuse.`
+            }
+            else if(no == 3){
+                this.isVideo.link = `<div class="inner-video-iframe">
+                                                            <iframe src="https://www.youtube.com/embed/AzcPG9sRDMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            </div> `
+                this.isVideo.header = `Rutgers coach fired for abuse of players.`
+            }
+            else if(no == 4){
+                this.isVideo.link = `<div class="inner-video-iframe">
+                                                            <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                            </div> `
+                this.isVideo.header = `The abuse of child atheletes by their coaches.`
+            }
+            this.isVideo.modal= true
+        },
+        closeVideo(){
+            this.isVideo.modal = false
+            this.isVideo.link = ''
+            this.isVideo.header = ''
+        },
+        reviewPageWith(num){
+            setTimeout(()=>{ this.$router.push(`/scoach_review/${this.$route.params.id}?star=${num}`) }, 1000)
+            
+        },
+         async onSubmit(){
+            if(this.formData.email == '') return this.i("email is empty")
+            if(this.formData.password == '') return this.i("Password is empty")
+            const res = await this.callApi('post','authentication/login',this.formData) 
+            if(res.status===200){
+                this.s("Login Successfully !")
+                this.$store.dispatch('setAuthInfo',res.data)
+
+               
+                 
+                  this.loginModal =false
+                  
+                
+            }
+            else if(res.status==401){
+                this.e(res.data.message)
+            }
+            else{
+                this.swr();
+            }
+        },
+        async SearchReviewResult(){
+           
+            const res = await this.callApi('get', `reviews/${this.$route.params.id}?str=${this.reviewSearch}&type=school&sort=${this.sort}`)
+            if(res.status===200){
+                this.reviews = res.data.data
+                this.rpagination = res.data
+                delete this.rpagination.data
+            }
+            else{
+                this.swr()
+            }
+
+        },
+        setPage(index){
+            this.page = index
+            this.pageniateReview()
+        },
+        async pageniateReview(){
+            console.log( ' aim here')
+            if(this.coach_index != '-1'){
+                this.coach_id = this.coaches[this.coach_index].id
+            }
+           let link = `/app/SchoolCoachReview/${this.$route.params.id}?page=${this.page}&str=${this.str}`
+           if(this.coach_id != -1){
+               link = link+`&coach=${this.coach_id}`
+           }
+            const res = await this.callApi('get',link )
+            if(res.status===200){
+                this.reviews = res.data.data
+                this.rpagination = res.data
+                delete this.rpagination.data
+            }
+            else{
+                this.swr()
+            }
+        },
+        prevModalImage(){
+            if(this.galleryIndex>0){
+                this.galleryIndex--;
+            }
+        },
+        async answerModalOpen(item,index){
+            this.answerData.question_id = item.id
+            this.tempAIndex = index
+            this.answerModal = true
+
+        },
+        // async askQuestion(){
+        //     if(this.askData.content == ''){
+        //         this.i('You question field is empty!')
+        //         return
+        //     }
+        //     if(this.isLoggedIn == false){
+        //         this.i('Please login first !')
+        //         this.$router.push('/login');
+        //         return
+        //     }
+
+        //     this.askData.school_id = this.legendData.school.id
+        //     const res = await this.callApi('post','/storequestions',this.askData)
+        //     if(res.status===200){
+        //         this.s("Your question has been posted successfully!")
+        //         this.questionList.push(res.data)
+        //         this.totalQuestion++
+        //         this.askModal = false
+        //     }
+        //     else{
+        //         this.swr();
+        //     }
+
+        // },
+        async reviewImo(imo,index,imoItem){
+             if(this.isLoggedIn == false){
+                this.i('Please login first !')
+                this.loginModal = true
+                return
+            }
+            let imoData = {
+                review_id:this.reviews[index].id,
+            }
+            imoData[imo] = (imoItem.imosall[imo] >= 1)? -1: 1
+            imoData.key = imo
+            const res = await this.callApi('post','/stoteCoachReviewImo',imoData)
+            if(res.status===200){
+               
+                if(imo=='cool'){
+                    imoItem.official += imoData[imo]
+                    this.s("you marked this review as Official  ")
+                }
+                else if(imo=='funny'){
+                    imoItem.bravery += imoData[imo]
+                     this.s("you marked this review as Bravery Bagde  ")
+                }
+                else if(imo=='useful'){
+                    imoItem.distinguished += imoData[imo]
+                     this.s("you marked this review as Distinguished  ")
+                }
+                  imoItem.imosall[imo] = imoData[imo]
+            }
+            else{
+                this.swr();
+            }
+
+        },
+        handleView (item) {
+                this.imgName = item;
+                
+        },
+        getImoName(name,index){
+           return 
+        },
+        handleView (item) {
+            this.imgName = item;
+        },
+        async getcoachatrributeConteptData(id,index){
+            this.atrrtributepoint = []
+            this.coach_index = index
+            const res = await this.callApi('get', `/app/coachatrributeConteptData/${id}`)
+            if(res.status == 200){
+                this.atrrtributepoint = res.data
+                this.flip = index
+            }
+            else{
+                this.swr()
+            }
+        },
+         
+         changeOldRatingV2(index){
+             this.oldrating.index = index
+            if(index == 1){
+                this.oldrating.class = 'review-star-1'
+                this.oldrating.text = 'Eek! Methinks not.'
+
+            }
+            else if(index == 2){
+                this.oldrating.class = 'review-star-2'
+                this.oldrating.text = "Meh. I've experienced better."
+            }
+            else if(index == 3){
+                this.oldrating.class = 'review-star-3'
+                this.oldrating.text = 'A-OK.'
+            }
+            else if(index == 4){
+                this.oldrating.class = 'review-star-4'
+                this.oldrating.text = "Yay! I'm a fan"
+            }
+            else if(index == 5){
+                this.oldrating.class = 'review-star-5'
+                this.oldrating.text = "Woohoo! As good as it gets!"
+            }
+
+            
+
+        },
+        changeDataHover(index){
+            this.drating.index = index
+            this.onHover = true
+            if(index == 1){
+                this.drating.class = 'review-star-1'
+                this.drating.text = 'Eek! Methinks not.'
+
+            }
+            else if(index == 2){
+                this.drating.class = 'review-star-2'
+                this.drating.text = "Meh. I've experienced better."
+            }
+            else if(index == 3){
+                this.drating.class = 'review-star-3'
+                this.drating.text = 'A-OK.'
+            }
+            else if(index == 4){
+                this.drating.class = 'review-star-4'
+                this.drating.text = "Yay! I'm a fan"
+            }
+            else if(index == 5){
+                this.drating.class = 'review-star-5'
+                this.drating.text = "Woohoo! As good as it gets!"
+            }
+           
+        },
+        changeDataHoverLeave(){
+            this.onHover = false
+            
+        },
+         
+    },
+    filters:{
+        totalPercent(item){
+            if(item.totalPoints<=0){
+                return '0%'
+            }
+            return parseInt((item.totalPoints*100)/(item.points*item.totalvotes))+"%"
+        },
+        heathMeter(a){
+          
+            
+            if( a < 7) a += 5
+            if(a >93) a -= 5
+
+            return a
+        }
+    },
+    mounted(){
+        this.step1Form.schoolName = this.legendData.school.schoolName
+        this.step1Form.city = this.legendData.school.city
+        this.step1Form.division = this.legendData.school.division
+        this.step1Form.state = this.legendData.school.state
+        this.step1Form.sport = this.legendData.school.sport
+        if(window.innerWidth < 1460){
+            this.isSmallScreen = true
+        }
+    },
+    
+    async asyncData({app, store,redirect, params}){
+        try {
+            let {data} = await app.$axios.get(`/coaches/${params.id}`)
+          
+            return{
+                legendData : data.School,
+                title : data.School.name+' Coach',
+                school_id : data.School.school_id,
+                totalReview : data.School.__meta__.allreview_count,
+                averageRating : (data.School.avgRating)? data.School.avgRating.averageRating : 0 , 
+                totalRating : (data.School.avgRating)? data.School.avgRating.totalRating : 0 , 
+                
+            }
+		}catch (error) {
+            console.log(error)
+           // return redirect('/')
+		}
+    },
+   
+   async created(){
+       this.location = window.location.href
+      
+        const [ res2, res4,res5,res6] = await Promise.all([
+            this.callApi('get', `/app/getAdditionCoachInfo/${this.$route.params.id}`),  
+            this.callApi('get', `/reviews/${this.$route.params.id}?type=school`),
+            this.callApi('get', `/app/getCoachTopReviews/${this.$route.params.id}?type=school`),
+            this.callApi('get', `/app/getSimilarCoach/${this.school_id}`), 
+        ])
+        if( res2.status===200 && res4.status === 200){
+            
+            this.reviews = res4.data.data
+            this.similarCoaches = res6.data
+            this.rpagination = res4.data
+            this.topReviews = res5.data
+            delete this.rpagination.data
+            this.healthSore = res2.data.healthSore
+            
+            this.isLoading = false
+
+            this.allTableData = res2.data
+            
+        } else{
+            this.swr()
+            this.isLoading = false
+        }
+    }
+}
+</script>
+
+<style>
+/* .readmore {
+  white-space: nowrap; 
+    width: 441px;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  
+} */
+.star_half_1{
+    background: #c7b3b3 !important;
+}
+
+
+</style>
+
+
+
+
+
+
+
+       
+
+
+
+
+
+

@@ -1,0 +1,142 @@
+/*mobile*/
+@media only screen and (max-width: 767px) { 
+.sign-up-topbar {
+    margin-bottom: 15px;
+}
+.sign-up-search select {
+    padding: 5px 2px;
+    border: none;
+    outline: none;
+}
+.sign-up-search li:nth-child(2), .sign-up-search li:nth-child(4) {
+    width: 100%;
+}
+.sign-up-search li:nth-child(3) {
+    padding: 6px 7px;
+}
+.sign-up-search li:nth-child(4) input {
+    width: 60px;
+}
+.sign-up-search {
+    margin-bottom: 10px;
+    width: 100%;
+}
+/* Menu */
+.sign-up-menu {
+    display: inherit;
+}
+.sign-up-reviw {
+    margin: 0 auto;
+}
+.sign-up-list {
+    display: grid;
+}
+.sign-up-list li {
+    border-right: 1px solid #bdbdbd4d;
+    height: 44px;
+    margin-bottom: 10px;
+}
+.sign-up-reviw li {
+    height: 44px;
+    line-height: 44px;
+}
+.signcont-img {
+    padding: 50px 8px;
+}
+/* Step 3 */
+.step3_left_head {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+.step3_social_list li a {
+    padding: 12px;
+    font-size: 15px;
+}
+.step3-title {
+    font-size: 20px;
+    line-height: 24px;
+    margin-top: 10px;
+}
+.step3-sub {
+    font-size: 14px;
+}
+.step5_right input[type="email"] {
+    width: 100%;
+}
+
+
+}
+
+
+/* ipad Tablet Layout: 768px._________________________________________________________________________________________________ */
+@media only screen and (min-width: 768px) and (max-width: 991px) { 
+
+.sign-up-search li:nth-child(2) {
+    width: 200px;
+}
+.sign-up-list li , .sign-up-reviw li{
+    padding: 0px 9px;
+    height: 48px;
+}
+.sign-up-reviw li{
+    line-height: 48px;
+}
+.sign-up-list li select {
+    font-size: 13px;
+}
+.sign-up-reviw {
+    margin-left:30px;
+}
+.group-item {
+    margin-bottom: 12px;
+}
+.create-account {
+    font-size: 21px;
+}
+/* Step 2 */
+.upload-btn {
+    padding: 7px 8px;
+    font-size: 12px;
+}
+/* Step 3 */
+.step3_left_head {
+    font-size: 22px;
+}
+.step3_social_list li a {
+    padding: 11px;
+    font-size: 15px;
+}
+.step3-title {
+    font-size: 20px;
+    line-height: 27px;
+}
+.step3-sub {
+    font-size: 14px;
+}
+.find-fb-friend {
+    font-size: 12px;
+}
+.find-fb-friend i {
+    font-size: 16px;
+}
+.step5_right input[type="email"] {
+    width: 100%;
+}
+.signcont-img {
+    padding: 80px 20px;
+}
+
+
+}
+
+
+/* Medium Layout: 1280px.__________________________________________________________________________________________________ */
+@media only screen and (min-width: 992px) and (max-width: 1200px) { 
+
+
+}
+
+/* Wide Mobile Layout: 480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) { 
+
+}
