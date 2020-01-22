@@ -91,8 +91,8 @@
                         <!-- <li :class="(div == '')? 'active' : ''" ><a @click="SearchByKeyV2('coach')">More<span><i class="fas fa-chevron-down"></i></span></a></li> -->
                     </ul>
                     <ul class="header-nav-indi-right">
-                        <li><a @click="$router.push('/write_review')"><img src="/images/like.png" alt="">Write a Review<span><i class="fas fa-chevron-down"></i></span></a></li>
-                        <li><a @click="$router.push('/local_bussniess')" ><img src="/images/bag.png" alt="">For Business<span><i class="fas fa-chevron-down"></i></span></a></li>
+                        <li><a @click="$router.push('/write_review')"><img src="/images/like.png" alt="">Write a Review</a></li>
+                        <li><a @click="$router.push('/local_bussniess')" ><img src="/images/bag.png" alt="">For Business</a></li>
                     </ul>
                 </div>
             </div>

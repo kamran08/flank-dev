@@ -2,7 +2,7 @@
 <template>
     <div class="pt-120">
         <div class="new-banner-section" >
-            <div class="container-fluid">
+            <div class="container">
                 <div class="inner-banner">
                     <figure>
                         <img src="/images/new-top.png" alt=""> 

@@ -1085,13 +1085,14 @@ a.sign-social-facebook:focus {
 .header-nav-indi ul li a {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 10px 20px;
   color: #000 !important;
   border-right: 1px solid #000;
   height: 100%;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   font-weight: 400;
+  font-size: 13px;
 }
 
 .header-nav-indi ul li a img {
