@@ -20,38 +20,39 @@
                                 <div class="flank-head-btn"><button>Review</button></div>
                                
                             </div>
-                        </div>
-                        <div class="flank-item-2">
-                            <div class="flank-item-2-inner">
-                                <div class="flank-item-left-list">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>School Name type:</td>
-                                                <td>{{legendData.division}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>City/state:</td>
-                                                <td>{{legendData.city}} {{legendData.state}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Profile views:</td>
-                                                <td>123 views</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Status:</td>
-                                                <td><span class="green"></span>Active</td>
-                                            </tr>
-                                            <!-- <tr>
-                                                <td>Streak:</td>
-                                                <td>W5</td>
-                                            </tr> -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                               
+                            <div class="flank-item-left-list">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>School Name type:</td>
+                                            <td>{{legendData.division}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>City/state:</td>
+                                            <td>{{legendData.city}} {{legendData.state}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Profile views:</td>
+                                            <td>123 views</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Status:</td>
+                                            <td><span class="green"></span>Active</td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td>Streak:</td>
+                                            <td>W5</td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
+                        <!-- <div class="flank-item-2">
+                            <div class="flank-item-2-inner">
+                                
+                               
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -120,23 +121,24 @@
                                         <p>Full staff</p>
                                     </div> -->
                                 </div>
-                                <div class="switch-link-content" >
+                                <div class="switch-link-content">
                                     <div class="switch-link-title">  
-                                        <h4>Switch coach</h4>
+                                        <h4 class="mb-6">Switch coach</h4>
                                     </div>
                                     <div class="switch-link-btn">
                                         <ul>
-                                            <!-- <li><button>Coach name1</button></li> -->
+                                            <!-- <li><button>{{legendData.name}}</button></li> -->
+                                            <li><input type="text" placeholder="Search Coach"></li>
                                             <li><button>Best rated coach</button></li>
                                         </ul>
                                     </div>
                                     <div class="switch-coach-sec">
-                                        <div class="switch-coach active" v-for="(item,index) in similarCoaches" :key="index">
-                                            <figure>
+                                        <div class="switch-coach active" v-for="(item,index) in similarCoaches" :key="index" v-if="item.id != legendData.id">
+                                            <figure :href="`/school_coach/${item.id}`" > 
                                                 <img src="/images/new-man.gif" alt="">
                                             </figure>
                                             <div class="switch-coach-caption" style="padding-top: 0;" >
-                                                <p><a :href="`/school_coach/${item.id}`" style="padding-top: 0; color: #000 !important; font-weight: 600;">{{item.name}}</a></p>
+                                                <p><a :href="`/school_coach/${item.id}`"  style="padding-top: 0; color: #000 !important; font-weight: 600;">{{item.name}}</a></p>
                                                 
                                             </div>
                                         </div>
@@ -448,7 +450,7 @@
 
                                 <div class="switch-link-content">
                                     <div class="switch-link-title">
-                                        <h4>Latest videos</h4>
+                                        <h4 style="margin-bottom: 15px;">Latest videos</h4>
                                     </div>
                                     <div class="flank-video">
                                         <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>

@@ -519,7 +519,7 @@
 Elon Musk of the fine dining world, and it's the equivalent of paying a lot of money
 for something that Musk thought up - it could very well be brilliant, because he's
 clearly off on his own planet with everything he's doing,or it could be a disaster and
-you wont know until you give it a go... <a href="#" style="color: rgb(1, 142, 231) !important;font-weight: 400;">Continue reading</a>
+you wont know until you give it a go... <a href="#" style="color: #8AB4E6  !important;font-weight: 400;">Continue reading</a>
  
                                             </p>
                                         </div>
@@ -537,8 +537,8 @@ you wont know until you give it a go... <a href="#" style="color: rgb(1, 142, 23
                                 </div>
                                 <div class="vertising-opportunity-sec">
                                     <div class="review-sect">
-                                        <div class="drop-title new-font">
-                                            <h2 class=" pad-border">ADVERTISING OPPORTUNITIES</h2>
+                                        <div class="drop-title new-font mb-10">
+                                            <h2 class="">ADVERTISING OPPORTUNITIES</h2>
                                         </div>
                                         <div class="vertising-bg">
                                             <div class="vertising-title">
@@ -614,7 +614,7 @@ you wont know until you give it a go... <a href="#" style="color: rgb(1, 142, 23
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="drop-item" style="margin-top: 15px">
+                                                <div class="drop-item" style="margin-top: 10px">
                                                     <div class="drop-item-inner">
                                                         <div class="linear-border"></div>
                                                         <div class="drop-item-title" style="padding: 10px 10px 10px 25px">
@@ -670,7 +670,7 @@ you wont know until you give it a go... <a href="#" style="color: rgb(1, 142, 23
                                             <h2 class="pad-border">Browse coaches by category</h2>
                                         </div>
                                         <div class="activity-sec mt-10">
-                                            <div class="row plus-row">
+                                            <div class="row plus-row no-margin">
                                                 <div class="activity-item"  @click="$router.push(`/coach_search?pageOption=coach&div=High School`)">
                                                     <div class="activity-inner">
                                                         <!-- <div class="linear-border"></div> -->

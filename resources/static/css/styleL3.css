@@ -282,6 +282,12 @@ p {
   color: #000;
 }
 
+@media only screen and (max-width: 499px) {
+  .signcont-left {
+      padding: 20px;
+  }
+}
+
 .create-account {
   margin: 0px 0px 20px 0px;
 }
@@ -342,8 +348,8 @@ a.sign-social-facebook:focus {
 }
 
 .signcont-left form {
-  margin-top: 6px;
-  background: url("../images/ad.png");
+  /* margin-top: 6px;
+  background: url("../images/ad.png"); */
 }
 
 .group-item input:focus {
@@ -448,7 +454,11 @@ a.sign-social-facebook:focus {
 @media only screen and (max-width: 991px) {
   
   .signcont-img {
-    padding: 50px 100px;
+    padding: 15px 100px;
+  }
+
+  .signcont-right img {
+      max-width: 45%;
   }
 }
 
@@ -2232,6 +2242,7 @@ a.sign-social-facebook:focus {
 
 .new-mob-textarea {
   border-radius: 10px;
+  width: 100%;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2475,7 +2486,7 @@ a.sign-social-facebook:focus {
   }
 
   .signcont-img {
-    padding: 40px 40px;
+    padding: 10px 40px;
   }
 }
 
@@ -2550,7 +2561,7 @@ html.modal-open {
   } */
 
   .nav-review-title h2 {
-      font-size: 19px;
+      /* font-size: 19px; */
   }
 }
 
@@ -2578,6 +2589,7 @@ html.modal-open {
   flex-flow: row;
 }
 
+
 .flanker-photo-up {
   flex: 0 0 30%;
   width: 30%;
@@ -2594,6 +2606,8 @@ html.modal-open {
   -ms-flex: auto;
   padding: 0 20px 0 15px;
 }
+
+
 
 @media only screen and (max-width: 399px) {
 
@@ -2773,6 +2787,33 @@ html.modal-open {
 .next-btn p a:hover {
   color: #0864a0 !important;
 }
+
+@media only screen and (max-width: 499px) {
+  
+  .new-flanker-photo {
+      display: flex;
+      flex-flow: column;
+  }
+
+  .flanker-photo-soc {
+    flex: 0 0 100%;
+    width: 100%;
+    -ms-flex: auto;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .next-btn {
+    flex-wrap: wrap;
+  }
+  
+  .next-btn button {
+    flex: 1;
+    width: 100%;
+    -ms-flex: auto;
+  }
+}
+
 
 .flanker-find-sec {
   display: flex;
@@ -3154,11 +3195,11 @@ html.modal-open {
 
 @media only screen and (max-width: 767px) {
   .new-flank-fr {
-    display: none;
+    /* display: none; */
   }
 
   .write-review-left h3 {
-    display: block;
+    /* display: block; */
   }
 
   .new-flank-nav {
@@ -3305,7 +3346,7 @@ body {
 
 .new-box-shadow {
   box-shadow: 0px 4px 4px 0px rgba(1, 2, 2, 0.36);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   padding: 10px 20px;
   border-radius: 10px;
   background-color: #fff;
@@ -3364,4 +3405,57 @@ body {
 
 .mb-new-red-border {
   border-top: 2px solid #a60202;
+}
+
+.nav-review-title {
+  padding-left: 15px;
+}
+
+.mb-pt-54 {
+  padding-top: 54px;
+}
+
+.review-pof {
+  height: 54px;
+}
+
+@media only screen and (max-width: 992px) {
+  .review-pof {
+    height: 54px;
+  }
+
+  .mb-pt-54 {
+    padding-top: 54px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .review-pof {
+    height: 95px;
+  }
+
+  .mb-pt-54 {
+    padding-top: 54px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .mb-pt-54 {
+    padding-top: 106px;
+  }
+}
+
+.new-div {
+  background: url(../images/ad.png);
+  background-repeat: no-repeat;
+  padding: 30px 0 0;
+  background-position: top center;
+}
+
+
+.single-coaches-right h5 {
+  color: #000;
+  font-family: CeraPro;
+  font-size: 18px;
+  margin-bottom: 5px;
 }

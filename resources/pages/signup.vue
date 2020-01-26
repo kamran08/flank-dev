@@ -65,13 +65,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="by">You also understand that Flank may send marketing emails about <a href="#">Flank products services</a>. You can unsubscribe at any time.</p>
+                                <p class="by">You also understand that Flank may send marketing emails about Flank products services. You can unsubscribe at any time.</p>
                                 <div class="group-item" style="margin-top: 20px;">
                                     <input type="submit"  @click="onSubmit"   value="Sign Up">
                                 </div>
                             </form>
                             <!-- <div class="authen-bill-action"></div> -->
-                            <p style="font-weight: 400;font-family: CeraPro;font-size: 13px;">Already have an account? <router-link to='/login' class="sign-in">Sign-In</router-link></p>
+                            <div class="new-div">
+                                <p style="font-weight: 400;font-family: CeraPro;font-size: 13px;">Already have an account? <router-link to='/login' class="sign-in">Sign-In</router-link></p>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="col-md-5">

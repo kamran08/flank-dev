@@ -2085,3 +2085,9 @@ body{
   font-weight: 400;
   color: #000;
 }
+
+@media only screen and (max-width: 991px) {
+  .sign-up-content {
+    padding: 15px 40px;
+  }
+}

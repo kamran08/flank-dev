@@ -1,18 +1,18 @@
-    <template>
-  <div class="pt-120">
+<template>
+  <div class="pt-120 mb-pt-54">
 
 
     <div class="write-review-area" style="font-family: CeraPro">
       <div class="container">
         <div class="row">
           <!-- Write Review Left -->
-          <div class="col-md-6 col-md-offset-2 col-sm-7 col-sm-offset-1">
+          <div class="col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1">
             <div class="write-review-left">
-              <h3 style="margin-top: 15px;color: #000;">Write a Review</h3>
+              <!-- <h3 style="margin-top: 15px;color: #000;">Write a Review</h3> -->
               <div class="write-review-title-area mar_b10">
                 
                 <h2 class="red-alert write-review-title">Coach {{coachData.name}}</h2>
-                <p class="red-alert write-review-sub"><nuxt-link to="/guidlines">Read our Review Guidelines</nuxt-link></p>
+                <p class="red-alert write-review-sub"><nuxt-link to="/guidlines">Read our Content Guidelines</nuxt-link></p>
               </div>
               <div class="write-review-box">
                 <form v-on:submit.prevent>

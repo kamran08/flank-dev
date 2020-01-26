@@ -543,7 +543,7 @@ a.sign-social-facebook:focus{
 .single-coaches .row {
     display: flex;
     flex-flow: row;
-    height: 135px;
+    height: 145px;
     align-items: flex-start;
 }
 
@@ -604,6 +604,9 @@ a.sign-social-facebook:focus{
     font-family: CeraPro;
     text-transform: capitalize;
 }
+
+
+
 .review-star-list {
     list-style: none;
 }
@@ -618,7 +621,7 @@ a.sign-social-facebook:focus{
     font-size: 12px;
     margin-bottom: 3px;
     margin-right: 0px;
-    line-height: 22px;
+    line-height: 20px;
 }
 
 .review-star-list li i {
@@ -876,7 +879,7 @@ a.sign-social-facebook:focus{
 }
 @media only screen and (max-width: 599px) {
     .review-date{
-        padding-left: 0;
+        /* padding-left: 0; */
     }
 }
 footer {
@@ -896,7 +899,7 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding-top: 160px;
+    padding-top: 90px;
     z-index: 1;
     scroll-behavior: smooth;
     transition: .25s all ease;
@@ -932,7 +935,7 @@ footer {
     border: 1px solid #ddd;
     border-right: 0;
     border-radius: 0;
-    top: 156px;
+    top: 85px;
     left: -25px;
     font-size: 12px;
     z-index: 111;
@@ -957,6 +960,8 @@ footer {
 
 }
 
+
+
 @media only screen and (max-width: 900px) {
     .review-sidebar {
         transform: translateX(100%);
@@ -968,7 +973,7 @@ footer {
     }
 
     .review-sidebar-arrow {
-        top: 200px;
+        top: 80px;
     }
 
     .review-sidebar-arrow i {
@@ -978,6 +983,20 @@ footer {
 
     .review-sidebar-arrow.active i {
         transform: rotateY(0);
+    }
+}
+
+@media only screen and (max-width: 499px) {
+    .review-sidebar {
+        width: 80% !important;
+    }
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    .review-sidebar-arrow {
+        top: 118px;
     }
 }
 .coach-attribute-title {
@@ -1158,6 +1177,21 @@ footer {
     right: 0;
     font-family: CeraPro;
     color: #e51837 !important;
+}
+
+@media only screen and (max-width: 499px) {
+
+    .new-mob-forget-hide {
+        display: none;
+    }
+
+    .mob-forget-password .group-item-right.group-item-forgot-pass {
+        position: unset;
+        top: 0;
+        right: 0;
+        font-family: CeraPro;
+        color: #e51837 !important;
+    }
 }
 
 .play-coach {
@@ -1538,6 +1572,7 @@ border: 1px solid #dc4f4f;
     color: #000;
     font-size: 20px;
     font-weight: 900;
+    font-family: CeraPro;
 }
 
 .new-input-check-box input{

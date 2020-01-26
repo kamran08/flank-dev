@@ -157,7 +157,8 @@
                                         </div>
                                         <div class="col-sm-8 padding-left-0">
                                             <div class="single-coaches-right">
-                                               <h4 class="single-coaches-right-title">Coach name - Baseball</h4>
+                                               <h4 class="single-coaches-right-title">Coach name</h4>
+                                               <h5>Baseball</h5>
                                                <p class="single-coaches-right-sub">208 E 8th St</p>
                                                <ul class="review-star-list">
                                                    <li><span><i class="fas fa-star"></i></span></li>

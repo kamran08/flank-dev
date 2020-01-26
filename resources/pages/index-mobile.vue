@@ -2,7 +2,7 @@
 <template>
     <div class="pt-120">
         <div class="new-banner-section" >
-            <div class="container-fluid">
+            <div class="container no-padding">
                 <div class="inner-banner">
                     <figure>
                         <img src="/images/new-top.png" alt=""> 
@@ -135,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <div class="new-section-content">
+        <div class="new-section-content no-padding">
             <div class="container no-padding">
                 <div class="new-content-inner">
                     <div class="row">
@@ -149,8 +149,8 @@
                             </div>
                             <div class="vertising-opportunity-sec mobile-signup-sec new-box-shadow">
                                 <div class="review-sect">
-                                    <div class="drop-title new-font">
-                                        <h2 class=" pad-border">Sign In For The Best Experience</h2>
+                                    <div class="drop-title new-font mb-10">
+                                        <h2 class="">Sign In For The Best Experience</h2>
                                     </div>
                                     <div class="new-auth-bx">
                                         <div class="new-auth-bx-in">
@@ -425,10 +425,7 @@
                                         </div>
                                         <div class="col-md-3 col-sm-6">
                                             <div class="inner-scandal-video-item">
-                                                <!-- <div class="inner-video-iframe">
-                                                    <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                    </div> -->
-                                                <figure @click="openVideo(2)">
+                                                <figure @click="openVideo(1)">
                                                     <img src="/newFile/2.png" alt="">
                                                     <!-- <div class="play-caption">
                                                         <span><i class="fas fa-play"></i></span>
@@ -438,20 +435,25 @@
                                                     </div> -->
                                                 </figure>
                                                 <div class="scandal-video-caption">
-                                                    <p>Rutgers coach fired for abuse of players.</p>
+                                                    <div class="scandal-latest-coach">
+                                                        <div class="new-coach">
+                                                            <h3 class="new-red">Coach Name</h3>
+                                                            <p>School Name</p>
+                                                        </div>
+                                                        <div class="new-coach-des">
+                                                            <p>Lorem ipsum dolor sit amet</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="video-logo">
-                                                    <img src="/images/flank.png" alt="">
+                                                    <img src="/image/flank.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-3 col-sm-6">
                                             <div class="inner-scandal-video-item">
-                                                <!-- <div class="inner-video-iframe">
-                                                    <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                    </div> -->
-                                                <figure @click="openVideo(4)">
-                                                    <img src="/newFile/4.png" alt="">
+                                                <figure @click="openVideo(1)">
+                                                    <img src="/newFile/3.png" alt="">
                                                     <!-- <div class="play-caption">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
@@ -460,27 +462,21 @@
                                                     </div> -->
                                                 </figure>
                                                 <div class="scandal-video-caption">
-                                                    <p>The abuse of child atheletes by their coaches. </p>
+                                                    <div class="scandal-latest-coach">
+                                                        <div class="new-coach">
+                                                            <h3 class="new-red">Coach Name</h3>
+                                                            <p>School Name</p>
+                                                        </div>
+                                                        <div class="new-coach-des">
+                                                            <p>Lorem ipsum dolor sit amet</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="video-logo">
-                                                    <img src="/images/flank.png" alt="">
+                                                    <img src="/image/flank.png" alt="">
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-md-3 col-sm-6">
-                                            <div class="inner-scandal-video-item">
-                                                <figure @click="openVideo(3)">
-                                                    <img src="/newFile/3.png" alt="">
-                                                </figure>
-                                                <div class="scandal-video-caption">
-                                                    <p>Players accuse GCU women's soccer coach of verbal, mental, physical abuse.</p>
-                                                </div>
-                                                <div class="video-logo">
-                                                    <img src="/images/flank.png" alt="">
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        
                                     </div>
                                 </div>
                             </div>
@@ -537,7 +533,7 @@
 Elon Musk of the fine dining world, and it's the equivalent of paying a lot of money
 for something that Musk thought up - it could very well be brilliant, because he's
 clearly off on his own planet with everything he's doing,or it could be a disaster and
-you wont know until you give it a go... <a href="#" style="color: rgb(1, 142, 231) !important;font-weight: 400;">Continue reading</a>
+you wont know until you give it a go... <a href="#" style="color: #8AB4E6 !important;font-weight: 400;">Continue reading</a>
 
                                         </p>
                                     </div>
@@ -555,8 +551,8 @@ you wont know until you give it a go... <a href="#" style="color: rgb(1, 142, 23
                             </div>
                             <div class="vertising-opportunity-sec new-box-shadow new-mt-10">
                                 <div class="review-sect no-box-shadow">
-                                    <div class="drop-title new-font">
-                                        <h2 class=" pad-border">ADVERTISING OPPORTUNITIES</h2>
+                                    <div class="drop-title new-font mb-10">
+                                        <h2 class="">ADVERTISING OPPORTUNITIES</h2>
                                     </div>
                                     <div class="vertising-bg">
                                         <div class="vertising-title">
@@ -631,7 +627,7 @@ you wont know until you give it a go... <a href="#" style="color: rgb(1, 142, 23
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row plus-row">
                                             <div class="drop-item" style="margin-top: 15px">
                                                 <div class="drop-item-inner">
                                                     <div class="linear-border"></div>

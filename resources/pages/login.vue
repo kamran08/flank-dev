@@ -16,15 +16,19 @@
                                 </div>
                                 <div class="group-item">
                                     <label >Password</label>
-                                    <nuxt-link  class="group-item-right red-alert group-item-forgot-pass"  to='/authentication/resetpassword' >Forgot your password?</nuxt-link>
+                                    <nuxt-link  class="group-item-right red-alert group-item-forgot-pass new-mob-forget-hide"  to='/authentication/resetpassword' >Forgot your password?</nuxt-link>
                                     <input type="password" v-model="formData.password">
+                                    <div class="mob-forget-password">
+                                        <nuxt-link  class="group-item-right red-alert group-item-forgot-pass"  to='/authentication/resetpassword' >Forgot your password?</nuxt-link>
+                                    </div>
                                 </div>
                                 <div class="group-item">
                                     <input type="submit" @click="onSubmit" value="Sign-In" class="g-btn">
                                 </div>
                             </form>
                             <p class="mar_b20" style="font-weight: 400;font-family: CeraPro;line-height: 19px;font-size: 14px;">By continuing, you agree to Flank's <nuxt-link to="/guidlines">Conditions of Use</nuxt-link> and <nuxt-link to="/policy">Privacy Notice</nuxt-link>.</p>
-                            <h5 class="mar_b30 new-input-check-box"><input type="checkbox" name="vehicle1" value="Bike" id="new-ch"> <label for="new-ch">Keep me Signed in.</label> <a href="#" class="sign-in" style="color: #e51837 !important; font-family: CeraPro;">Details</a></h5>
+                            <h5 class="mar_b30 new-input-check-box"><input type="checkbox" name="vehicle1" value="Bike" id="new-ch"> <label for="new-ch">Keep me Signed in.</label></h5>
+                             <!-- <a href="#" class="sign-in" style="color: #e51837 !important; font-family: CeraPro;">Details</a> -->
                             <p class="new-flank">
                                 <span class="new-flank-cont">
                                     New to Flank?

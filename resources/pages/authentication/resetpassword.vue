@@ -14,7 +14,7 @@
 
     <section class="second-section">
       <div class="container">
-        <div class="section-content sign-up-content">
+        <div class="section-content sign-up-content padd_tb40" >
           <div class="row  flex-row" style="align-items: center;">
             <div class="col-md-4 col-md-offset-2">
               <div class="signcont-left">

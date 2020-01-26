@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pt-120">
         <div class="flank-page-header">
             <div class="flank-page-top">
                 <div class="container">
@@ -19,35 +19,36 @@
                                     <button>Review</button>
                                 </div>
                             </div>
+                            <div class="flank-item-left-list">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Program type:</td>
+                                            <td>High school example</td>
+                                        </tr>
+                                        <tr>
+                                            <td>City/state:</td>
+                                            <td>Los angeles, CA</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Profile views:</td>
+                                            <td>123 views</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Status:</td>
+                                            <td><span class="green"></span>Active</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Streak:</td>
+                                            <td>W5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="flank-item-2">
                             <div class="flank-item-2-inner">
-                                <div class="flank-item-left-list">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Program type:</td>
-                                                <td>High school example</td>
-                                            </tr>
-                                            <tr>
-                                                <td>City/state:</td>
-                                                <td>Los angeles, CA</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Profile views:</td>
-                                                <td>123 views</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Status:</td>
-                                                <td><span class="green"></span>Active</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Streak:</td>
-                                                <td>W5</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                
                                 <div class="flank-item-right-list">
                                     <div class="linear-border">
                                         <p>2018-19 season stats</p>

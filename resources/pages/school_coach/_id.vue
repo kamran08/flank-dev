@@ -189,11 +189,11 @@
                                                     <th>NR <p>Negative review</p></th>
                                                     <th>PCT <p>Winning percentage</p></th>
                                                     <th>HEALI <p>Healthy index</p></th>
-                                                    <th>HARMI <p>Hermful index</p></th>
+                                                    <th>HARMI <p>Harmful index</p></th>
                                                     <th>DIFF <p>Differential</p></th>
                                                     <th>STRK <p>Streak</p></th>
                                                     <th>L10 <p>Last 10</p></th>
-                                                    <th>PCI </th>
+                                                    <th>PCI <p>Program Chemistry Index</p></th>
                                                     <th>STI <p>Strength of Team Index</p></th>
                                                 </tr>
                                             </thead>

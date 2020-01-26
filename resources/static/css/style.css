@@ -2058,6 +2058,13 @@ h1:hover a {
   border-radius: 5px;
 }
 
+@media only screen and (max-width: 991px) {
+
+  .abp-list-box {
+    margin-bottom: 15px;
+  }
+}
+
 .abp-list-box ul {
   border-top: 1px solid #ccccc8;
   background: #f5f5f1;
@@ -6581,8 +6588,9 @@ ul.pull-right.navbar-nav.nav li {
 }
 
 .nav-review-title h2 {
-  font-weight: 900;
+  font-weight: 400;
   color: #fff;
+  font-family: CeraPro;
 }
 
 .mb-20 {
@@ -6782,4 +6790,16 @@ ul.pull-right.navbar-nav.nav li {
 .new-about-content ol li table tr td {
   border: 1px solid #e6e6e6;
   padding: 10px 1.4rem;
+}
+
+@media only screen and (max-width: 992px) {
+  .new-flank-fr-hide {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .new-flank-fr-hide {
+    display: none;
+  }
 }

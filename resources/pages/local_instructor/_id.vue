@@ -19,40 +19,41 @@
                                     <button>Review</button>
                                 </div>
                             </div>
+                            <div class="flank-item-left-list">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Program type:</td>
+                                            <td>{{legendData.division}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>City/state:</td>
+                                            <td>{{legendData.city}}, {{legendData.state}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Profile views:</td>
+                                            <td>{{legendData.views}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Status:</td>
+                                            <td v-if="todayHour.today ==1 && todayHour.open == true ">
+                                                <span class="green"></span>Active
+                                            </td>
+                                            <td v-else>
+                                                Offline
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Streak:</td> 
+                                            <td>W5</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="flank-item-2">
                             <div class="flank-item-2-inner">
-                                <div class="flank-item-left-list">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <td>Program type:</td>
-                                                <td>{{legendData.division}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>City/state:</td>
-                                                <td>{{legendData.city}}, {{legendData.state}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Profile views:</td>
-                                                <td>{{legendData.views}}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Status:</td>
-                                                <td v-if="todayHour.today ==1 && todayHour.open == true ">
-                                                    <span class="green"></span>Active
-                                                </td>
-                                                <td v-else>
-                                                    Offline
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Streak:</td> 
-                                                <td>W5</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                
                                 <div class="flank-item-right-list"> 
                                     <div class="linear-border">
                                         <p>2018-19 season stats</p>
@@ -816,7 +817,7 @@
                                 </div>
                                 <div class="switch-link-content">
                                     <div class="switch-link-title">
-                                        <h4>Latest videos</h4>
+                                        <h4 style="margin-bottom: 15px;">Latest videos</h4>
                                     </div>
                                     <div class="flank-video">
                                         <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>

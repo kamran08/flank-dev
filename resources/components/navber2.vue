@@ -1,37 +1,77 @@
 
 <template>
-        <div class="pof">
+        <div class="pof review-pof new-review-pof">
             <div class="new-flank-nav">
-                <div class="new-flank-nav-con">
-                <div class="flank-new-brand new-flank-br">
-                    <a @click="$router.push('/')">
-                    <img src="/images/logo-new.png" alt />
-                    </a>
-                    <div class="mobile-button">
-                            <span>
-                            <i class="fas fa-bars"></i>
-                            </span>
-                    </div>
-                </div>
-                <div class="flank-new-form new-flank-fr">
-                    <div class="nav-review-title">
-                    <h2>Write a Review</h2>
-                    </div>
-                </div>
-                <div class="flank-new-autho" v-if="!isLoggedIn">
-                    <div class="autho-in">
-                    <button @click="$router.push('/login')">Log in</button>
-                    </div>
-                    <div class="autho-up">
-                    <button @click="$router.push('/signup')">Sign Up</button>
-                    </div>
-                </div>
-                <div class="flank-new-autho" v-else>
+                <div class="container">
+                    <!-- <div class="new-flank-nav-con">
+                        <div class="flank-new-brand new-flank-br">
+                            <a @click="$router.push('/')">
+                            <img src="/images/logo-new.png" alt />
+                            </a>
+                            <div class="mobile-button">
+                                    <span>
+                                    <i class="fas fa-bars"></i>
+                                    </span>
+                            </div>
+                        </div>
+                        <div class="flank-new-form new-flank-fr">
+                            <div class="nav-review-title">
+                            <h2>Write a Review</h2>
+                            </div>
+                        </div>
+                        <div class="flank-new-autho" v-if="!isLoggedIn">
+                            <div class="autho-in">
+                            <button @click="$router.push('/login')">Log in</button>
+                            </div>
+                            <div class="autho-up">
+                            <button @click="$router.push('/signup')">Sign Up</button>
+                            </div>
+                        </div>
+                        <div class="flank-new-autho" v-else>
                             <div class="autho-in">
                                 <button @click="logout" >Logout</button>
                             </div>
                             
                         </div>
+                    </div> -->
+                    <div class="new-flank-nav-con">
+                        <!-- <div class="flank-coll-bar">
+                            <img src="/images/three-bar.png" alt="">
+                        </div> -->
+                        <div class="flank-new-brand">
+                            <a @click="$router.push('/')"><img src="/images/new-l.png" alt=""></a>
+                            <!-- <div class="mobile-button" @click="isMobileMenu = true" >
+                                <span><i class="fas fa-bars"></i></span>
+                            </div> -->
+                        </div>
+                        <div class=" new-flank-fr new-flank-fr-hide">
+                            <div class="nav-review-title">
+                                <h2>Write a Review</h2>
+                            </div>
+                        </div>
+                        
+                        <div class="flank-new-autho" v-if="!isLoggedIn" >
+                            <div class="autho-in">
+                                <button @click="$router.push('/login')">Log in</button>
+                            </div>
+                            <div class="autho-up">
+                                <button @click="$router.push('/signup')">Sign Up</button>
+                            </div>
+                        </div>
+                        <div class="flank-new-autho" v-else>
+                            <div class="autho-in">
+                                <button @click="logout" >Logout</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="new-flank-nav-form rev-new-flank-nav-form">
+                        <div class=" new-flank-fr">
+                            <div class="nav-review-title">
+                                <h2>Write a Review</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

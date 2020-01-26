@@ -595,6 +595,7 @@
     display: inline-block !important;
     padding-right: 15px;
     width: auto !important;
+    font-family: CeraPro;
 }
 
 .breadcrumbs ul li a {
@@ -621,6 +622,7 @@
 .question-button p {
     font-weight: 600;
     font-size: 16px;
+    font-family: CeraPro
 }
 
 .question-button button {
@@ -632,6 +634,7 @@
   outline: 0;
   font-size: 13px;
   font-weight: 600;
+  font-family: CeraPro
 }
 
 .question-button button:active, .question-button button:focus {
@@ -1037,12 +1040,15 @@
   margin-bottom: 4px;
 }
 .nearby-part .media .media-body .star-review p span {
-  padding: 3px;
+  padding: 4px;
   color: #fff;
   margin-right: 3px;
   border-radius: 3px;
   display: inline-block;
   margin-bottom: 3px;
+  height: 19px;
+  width: 19px;
+  line-height: 1px;
 }
 .nearby-part .media .media-body .star-review p span i {
   font-weight: 900;
