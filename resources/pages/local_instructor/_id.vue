@@ -3,7 +3,7 @@
         <div class="flank-page-header">
             <div class="flank-page-top">
                 <div class="container">
-                    <div class="flank-full" v-if="legendData.name">
+                    <div class="flank-full" v-if="legendData.name"> 
                         <div class="flank-item-1">  
                             <figure>
                                 <img src="/image/fl_lg.png" alt="">

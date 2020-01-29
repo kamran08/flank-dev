@@ -15,10 +15,11 @@ module.exports = {
   ],
   
   axios: {
-      //  baseURL: 'https://goflank.com/'                             
+      baseURL: 'https://goflank.com/'                             
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360
+    
   //   plugins: [
   //     new webpack.ProvidePlugin({\
 

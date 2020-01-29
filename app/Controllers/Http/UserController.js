@@ -12,6 +12,7 @@ const Review = use('App/Models/Review')
 const Product = use('App/Models/Product')
 const Database = use('Database')
 const Hash = use('Hash')
+const uniqid = require('uniqid');
 const axios = require('axios')
 /**
  * Resourceful controller for interacting with users
@@ -233,7 +234,8 @@ class UserController {
    * @param {Response} ctx.response
    */
   async update ({ params, request, response, auth }) {
-
+    let data = request.all()
+    return await User.query().where('id', params.id).update(data)
 
 
   }
@@ -318,22 +320,21 @@ class UserController {
     const check = await User.query().where('email', email).getCount()
     // eslint-disable-next-line eqeqeq
     if (check == 0) {
-      return response.status(404).json({
-        'message': "404 Email doesn't exist!."
+      return response.status(422).json({
+        message: "404 Email doesn't exist!."
       })
     }
-    let token = suid(16)
+    let token = uniqid('token-')
     let data = {
       token: token
     }
-    console.log(data)
     // await Mail.send('emails.forgotpassword', data, (message) => {
     //   message
     //     .to(email)
     //     .from('Support@worldtradebuddy.com', 'Support @ WorldTradeBuddy')
     //     .subject('Reset Password')
     // })
-    await User.query().where('email', email).update({ 'passwordToken': token })
+    return await User.query().where('email', email).update({ 'passwordToken': token })
   }
   async initdata ({ request, response, auth }) {
     try {
@@ -383,21 +384,13 @@ class UserController {
       'redirect_uri' : 'http://localhost/contact/',
       'grant_type' : 'authorization_code'
     }
-    
-      const res = await axios({
-                    method: 'post',
-                    url: 'https://accounts.google.com/o/oauth2/token',
-                    data: dataObj,
-                    headers: { 'Content-Type': 'application/json' },
-                  })
-        
-
-        return res.data;
-      
-      
-      
-      
-
+    const res = await axios({
+                  method: 'post',
+                  url: 'https://accounts.google.com/o/oauth2/token',
+                  data: dataObj,
+                  headers: { 'Content-Type': 'application/json' },
+                })
+      return res.data;
   }
 }
 

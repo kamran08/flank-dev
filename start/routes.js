@@ -26,7 +26,7 @@ Route.post('/app/emailSubscription', 'HomeController.storeEmailSubscription')
 // Authentication route
 Route.post('/authentication/login', 'UserController.userLogin').middleware(['guest'])
 Route.get('/logout', 'UserController.logout')
-Route.get('/password/email', 'UserController.sendResetLinkEmail')
+Route.post('/password/email', 'UserController.sendResetLinkEmail')
 Route.post('/app/user/updateProfileImage', 'UserController.updateProfileImage')
 Route.get('/app/user/updateProductProfileImage/:id', 'ProductController.updateProductProfileImage')
 Route.put('/app/updateEmail', 'UserController.updateEmail')
@@ -107,7 +107,7 @@ Route.get('/app/getSchoolTopReviews/:id', 'SchoolController.getSchoolTopReviews'
 Route.get('/app/similar_coaches', 'CoachController.similar_coaches')
 Route.get('/app/recentCitys', 'CoachController.recentCitys')
 Route.get('/app/getSchoolcoaches', 'SchoolController.getSchoolcoaches')
-Route.get('/app/getSimilarCoach/:id', 'SchoolController.getSimilarCoach')
+Route.get('/app/getSimilarCoach/:id/:coach', 'SchoolController.getSimilarCoach')
 
 // products
 Route.get('/app/ProductReview/:id', 'ReviewController.ProductReview')

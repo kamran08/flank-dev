@@ -123,10 +123,8 @@
                                                 </span>               
                                             </p>
                                             <div class="group-item">
-
-                                                
-                                                     <div  >
-                                                        <Upload
+                                                <div>
+                                                    <Upload
                                                         ref="upload"
                                                         type="drag"
                                                         :show-upload-list="false"
@@ -139,8 +137,6 @@
                                                             <span class="upload-img">Upload Photo</span>
                                                         </div>
                                                     </Upload>
-                                                        
-                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -197,7 +193,7 @@ export default {
             if(res.status===200){
                
                 this.s('Profile have been upadated!')
-                this.$router.push(`/flanker/${this.authInfo.id}`)
+                this.$router.push(`/nlogin/step3`)
             }
             else if (res.status===401){
                 this.e(res.data.message)

@@ -564,7 +564,7 @@ class SchoolController {
   }
   async getSimilarCoach({ request, params }) {
 
-    return SchoolCoach.query().where('school_id', params.id).fetch()
+    return SchoolCoach.query().where('school_id', params.id).whereNot('id',params.coach).fetch()
   }
 
   /**

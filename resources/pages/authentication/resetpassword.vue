@@ -15,12 +15,17 @@
     <section class="second-section">
       <div class="container">
         <div class="section-content sign-up-content padd_tb40" >
+          
           <div class="row  flex-row" style="align-items: center;">
+            
             <div class="col-md-4 col-md-offset-2">
+              <div class="alert alert-success" role="alert" v-if="success_msg">
+                Reset password link has been sent to your email. Please check your email!
+              </div>
               <div class="signcont-left">
                 <h3 class="create-account">Forget Password</h3>
                 <p style="font-family: CeraPro;line-height: 17px;margin-bottom: 12px;">Please enter your email address and we will send you an email about how to reset your password.</p>
-                <form>
+                <form v-on:submit.prevent>
                   <div class="group-item">
                     <input
                       type="text"
@@ -32,7 +37,7 @@
                   </div>
                   <div class="group-item">
                     <div class="submit forget-submit">
-                      <button type="submit">Reset Password</button>
+                      <button type="submit" @click="onSubmit">Reset Password</button>
                       <span style="text-align: right;margin-top: 5px;font-family: CeraPro;">
                         <nuxt-link to="/login">Back to Login</nuxt-link>
                       </span>
@@ -94,17 +99,19 @@ export default {
     return {
       formData: {
         email: ""
-      }
+      },
+      success_msg:false,
     };
   },
   methods: {
     async onSubmit() {
       const res = await this.callApi("post", "/password/email", this.formData);
       if (res.status === 200) {
-        this.s(
-          "Reset password link has been sent to your email. Please check your email!"
-        );
-        this.$router.push("/login");
+        this.success_msg = true
+        this.formData.email = ''
+        //this.$router.push("/login");
+      } else if(res.status == 422){
+        this.i(res.status.message)
       } else {
         this.swr();
       }

@@ -3,7 +3,7 @@
 
      <div class="pt-120">
 
-        <div class="flank-page-header"> 
+        <div class="flank-page-header">  
             <div class="flank-page-top">
                 <div class="container">
                     <div class="flank-full">
@@ -149,23 +149,23 @@
                                         <h4 class="mb-6">Switch coach</h4>
                                     </div>
                                     <div class="switch-link-btn">
-                                        <ul>
-                                            <!-- <li><button>{{legendData.name}}</button></li> -->
-                                            <li><input type="text" placeholder="Search Coach"></li>
-                                            <li><button>Best rated coach</button></li>
-                                        </ul>
-                                    </div>
-                                    <div class="switch-coach-sec">
-                                        <div class="switch-coach active" v-for="(item,index) in similarCoaches" :key="index" v-if="item.id != legendData.id">
-                                            <figure :href="`/school_coach/${item.id}`" > 
-                                                <img src="/images/new-man.gif" alt="">
-                                            </figure>
-                                            <div class="switch-coach-caption" style="padding-top: 0;" >
-                                                <p><a :href="`/school_coach/${item.id}`"  style="padding-top: 0; color: #000 !important; font-weight: 600;">{{item.name}}</a></p>
-                                                
+                                            <ul>
+                                                <!-- <li><button>{{legendData.name}}</button></li> -->
+                                                <li><input type="text"  v-model="searchCoach" placeholder="Search Coach"></li>
+                                                <li @click="showBestRated = !showBestRated" ><button :class="showBestRated? 'best_rated_background': ''">Best rated coach</button></li>
+                                            </ul>
+                                        </div>
+                                        <div class="switch-coach-sec">
+                                            <div class="switch-coach active" v-for="(item,index) in searchedSimilarCoach" :key="index" >
+                                                <figure :href="`/school_coach/${item.id}`" > 
+                                                    <img src="/images/new-man.gif" alt="">
+                                                </figure>
+                                                <div class="switch-coach-caption" style="padding-top: 0;" >
+                                                    <p><a :href="`/school_coach/${item.id}`"  style="padding-top: 0; color: #000 !important; font-weight: 600;">{{item.name}}</a></p>
+                                                    
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
                                     <div class="switch-link-foot">
                                         <p><a href="#">Full staff</a></p>
                                     </div>
@@ -233,7 +233,7 @@
                                     </div>
                                 </div>
                                 <!-- new flank -->
-                                <div class="inner-item-review-sec">
+                                <div class="inner-item-review-sec" v-if="topReviews.length>0">
                                     <div class="left-linear-border">
 
                                     </div>
@@ -251,7 +251,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="inner-item-review-sec">
+                                <div class="inner-item-review-sec" v-if="legendData.topAtrribute.length">
                                     <div class="inner-item-known-title">
                                         <h4>Known For</h4>
                                     </div>
@@ -516,8 +516,11 @@
                                                         <!-- <p>{{item.created_at}}</p> -->
                                                         <p>07/24/2019</p>
                                                     </div>
-                                                    <div class="review-checkin">
-                                                        <p><span><i class="far fa-check-circle"></i></span> Verified</p>
+                                                    <div class="review-checkin" v-if="item.is_active">
+                                                        <Tooltip content="We're always working to improve the authenticity of the reviews posted on Flank. When you see 'Verified' it means we've confirmed a user via (.edu, .org or.gov) profiles or reviews submitted by 'Active Player' profiles.' - make sure it doesnt have quotations on this. ">
+                                                           <p><span><i class="far fa-check-circle"></i></span> Verified</p>
+                                                        </Tooltip>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="review-item-right-details">
@@ -583,12 +586,12 @@
                                         <div class="switch-link-btn">
                                             <ul>
                                                 <!-- <li><button>{{legendData.name}}</button></li> -->
-                                                <li><input type="text" placeholder="Search Coach"></li>
+                                                <li><input type="text" v-model="searchCoach" placeholder="Search Coach"></li>
                                                 <li><button>Best rated coach</button></li>
                                             </ul>
                                         </div>
                                         <div class="switch-coach-sec">
-                                            <div class="switch-coach active" v-for="(item,index) in similarCoaches" :key="index" v-if="item.id != legendData.id">
+                                            <div class="switch-coach active" v-for="(item,index) in searchedSimilarCoach" :key="index" >
                                                 <figure :href="`/school_coach/${item.id}`" > 
                                                     <img src="/images/new-man.gif" alt="">
                                                 </figure>
@@ -604,24 +607,41 @@
                                     </div>
                                 </div>
                                 <!-- Health Meter -->
-                                <div class="switch-link-content _1health">
+                                <div class="switch-link-content _1health" v-if="allTableData.metrice">
                                     <div class="_1health_title">
                                         <p class="_1health_title_text">Health Meter</p>
 
                                         <img class="_1health_img" src="/image/coach-review45.jpg" alt="" title="">
 
-                                        <p class="_1health_value">100%</p>
+                                        <p class="_1health_value">{{allTableData.healthSore.toFixed(2)}}%</p>
                                     </div>
 
                                     <p class="_1health_subtitle">HEALTHY</p>
+                                    <div class="_1health_numbers">
+                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
+                                            <span>100</span>
+                                        </div>
+                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
+                                            <!-- <span>80</span> -->
+                                        </div>
+                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
+                                            <span>50</span>
+                                        </div>
+                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
+                                            <!-- <span>40</span> -->
+                                        </div>
+                                        <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
+                                            <span>00</span>
+                                        </div>
+                                    </div>
 
-                                    <div class="_1health_numbers" v-if="allTableData.healthSore">
+                                    <!-- <div class="_1health_numbers" v-if="allTableData.healthSore">
                                         <p class="_1health_numbers_text"><span>100</span></p>
                                         <p class="_1health_numbers_text" v-bind:style="{ top: (100-allTableData.healthSore.toFixed(2)  )+'%'}"><span>{{ allTableData.healthSore.toFixed(1)}}</span></p>
                                         <p class="_1health_numbers_text"><span>00</span></p>
-                                    </div>
+                                    </div> -->
 
-                                    <p class="_1health_subtitle _1health_subtitle_border">Harmful</p>
+                                    <p class="_1health_subtitle _1health_subtitle_border" style="margin-top: 10px;">Harmful</p>
 
                                     <div class="_1healtfh_main">
                                         <p class="_1health_main_title">Flank News: We've enhanced our Health Meter</p>
@@ -634,7 +654,7 @@
                                     </div>
 
                                     <p class="_1health_more">
-                                        <a class="_1health_more_a" href="">LEARN MORE</a>
+                                        <!-- <a class="_1health_more_a" href="">LEARN MORE</a> -->
                                     </p>
                                 </div>
                                 <!-- Health Meter -->
@@ -1264,6 +1284,7 @@ export default {
     data(){
         return{
             isSmallScreen:false,
+            showBestRated:false,
              drating:{
                 class:'',
                 text:'Select your rating',
@@ -1395,14 +1416,51 @@ export default {
             },
             embeded_id:16,
             embededText:'',
+            searchCoach:'',
+            metaContent:'',
        
         }
     },
     head () {
-    return {
-      title: this.title,
-    }
-  },
+        return {
+        title: this.title,
+        meta: [
+                {
+                    charset: 'utf-8'
+                },
+                {
+                    name: 'viewport',
+                    content: 'width=device-width, initial-scale=1'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: this.metaContent
+                }
+            ],
+        }
+    },
+    computed:{
+        searchedSimilarCoach(){
+            if(!this.showBestRated){
+                return this.similarCoaches.filter((data)=>{                    
+                    return data.name.toUpperCase().match(this.searchCoach.toUpperCase()) && data.id != this.legendData.id ;}
+                );
+            }
+            else{
+                let best_rated = [];
+                if(this.similarCoaches.length>0){
+                    best_rated.push(this.similarCoaches[0]);
+                    for(let d of this.similarCoaches){
+                        if(d.avg_rating> best_rated[0].avg_rating) best_rated[0] = d
+                    }
+                }
+                
+                return best_rated;
+            }
+            
+        }
+    },
     methods:{
          copyToClipBoard(){
            this.$clipboard(this.embededText);
@@ -1827,7 +1885,8 @@ export default {
           
             return{
                 legendData : data.School,
-                title : data.School.name+' Coach',
+                title : 'Coach '+data.School.name,
+                metaContent: data.School.school.schoolName+' in '+data.School.school.city+' , '+data.School.school.state,
                 school_id : data.School.school_id,
                 totalReview : data.School.__meta__.allreview_count,
                 averageRating : (data.School.avgRating)? data.School.avgRating.averageRating : 0 , 
@@ -1847,7 +1906,7 @@ export default {
             this.callApi('get', `/app/getAdditionCoachInfo/${this.$route.params.id}`),  
             this.callApi('get', `/reviews/${this.$route.params.id}?type=school`),
             this.callApi('get', `/app/getCoachTopReviews/${this.$route.params.id}?type=school`),
-            this.callApi('get', `/app/getSimilarCoach/${this.school_id}`), 
+            this.callApi('get', `/app/getSimilarCoach/${this.school_id}/${this.$route.params.id}`), 
         ])
         if( res2.status===200 && res4.status === 200){
             
@@ -1881,7 +1940,9 @@ export default {
 .star_half_1{
     background: #c7b3b3 !important;
 }
-
+.best_rated_background{
+    background: #c7b3b3 !important;
+}
 
 </style>
 

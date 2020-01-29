@@ -3663,11 +3663,11 @@ ul {
   color: #fe0a00 !important;
 }
 ._1health_numbers_text span {
-  font-family: sans-serif;
+  font-family: CeraPro;
   font-weight: bold;
   width: 22px;
   background: #ffffff;
-  padding: 0 0 0 9px;
+  padding: 0 0 0 0;
   text-align: left;
   height: 20px;
   display: inline-block;
@@ -3677,6 +3677,7 @@ ul {
   text-align: right;
   height: 22px;
   z-index: 1;
+  margin-bottom: 5px;;
 }
 ._1health_numbers_text_o:before {
   border-bottom: 1px dotted #b5b0b0 !important;

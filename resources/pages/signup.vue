@@ -24,43 +24,46 @@
                             <form v-on:submit.prevent>
                                 <div class="new-group-form">
                                     <div class="new-group-item">
-                                        <input type="text" placeholder="First Name">
+                                        <input type="text" v-model="formData.firstName" placeholder="First Name">
                                     </div>
                                     <div class="new-group-item">
-                                        <input type="text" placeholder="Last Name">
-                                    </div>
-                                </div>
-                                <div class="new-group-form">
-                                    <div class="new-group-item">
-                                        <input type="text" placeholder="Email">
+                                        <input type="text" v-model="formData.lastName" placeholder="Last Name">
                                     </div>
                                 </div>
                                 <div class="new-group-form">
                                     <div class="new-group-item">
-                                        <input type="password" placeholder="Password">
+                                        <input type="text" v-model="formData.email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="new-group-form">
                                     <div class="new-group-item">
-                                        <input type="text" placeholder="Zip Code">
+                                        <input type="password" v-model="formData.password" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="new-group-form">
+                                    <div class="new-group-item">
+                                        <input type="text" v-model="formData.zip" placeholder="Zip Code">
                                     </div>
                                 </div>
                                 <div class="new-group-form-full">
                                     <label>Birthday <span>(Optional)</span></label>
                                     <div class="new-group-form">
                                         <div class="new-group-item">
-                                            <select name="" id="">
-                                                <option value="one">Month</option>
+                                            <select name="" id="" v-model="birthday.month">
+                                                <option value="" disabled selected>Month</option>
+                                                <option v-for="item in 12" :value="item" :key="item">{{item}}</option>
                                             </select>
                                         </div>
                                         <div class="new-group-item">
-                                            <select name="" id="">
-                                                <option value="one">Day</option>
+                                            <select name="" id="" v-model="birthday.day">
+                                                <option value="" disabled selected>Day</option>
+                                                <option v-for="item in 31" :value="item" :key="item">{{item}}</option>
                                             </select>
                                         </div>
                                         <div class="new-group-item">
-                                            <select name="" id="">
-                                                <option value="one">Year</option>
+                                            <select name="" id="" v-model="birthday.year">
+                                                <option value="" disabled selected>Year</option>
+                                                <option v-for="item in 120" :value="item" :key="item">{{item+1900}}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -105,6 +108,11 @@ export default {
                 birthday:'',
                 packType:''
             },
+            birthday:{
+                month:'',
+                day:'',
+                year:''
+            },
             bColor1:'#C7C8D6',
             bColor2:'rgb(191, 145, 151)',
             bColor3:'rgb(164, 208, 163)', 
@@ -124,15 +132,22 @@ export default {
             if(this.formData.lastName == '') return this.i("Last name is empty!")
             if(this.formData.email == '') return this.i("Email  is empty!")
             if(this.formData.password == '') return this.i("Password  is empty!")
-             if(this.formData.password_confirmation  !==  this.formData.password) return this.i("Password Doesn't match !")
-                
+            if(this.formData.zip == '') return this.i("Zip  is empty!")
+            if(this.formData.zip == '') return this.i("Zip  is empty!")
+            //  if(this.formData.password_confirmation  !==  this.formData.password) return this.i("Password Doesn't match !")
+            
+            if(this.birthday.month == '') return this.i("Month  is empty!")
+            if(this.birthday.day == '') return this.i("Day  is empty!")
+            if(this.birthday.year == '') return this.i("Year  is empty!")
+            this.formData.birthday= `${this.birthday.year}-${this.birthday.month}-${this.birthday.day}`
             this.formData.packType = 1
+            this.formData.password_confirmation = this.formData.password
             const res = await this.callApi('post','/users',this.formData)
             if(res.status==200){
                 this.s('Registration Completed !')
               
-                window.location= '/flanker/'+res.data.id
-                 this.$router.push('/login')
+                window.location= '/nlogin/step2'
+                 //this.$router.push('/login')
                  
             }
             else if(res.status === 400){
