@@ -1450,8 +1450,16 @@ export default {
                     content: '1024',
                 },
                 {
-                    property: 'og:image:height',
-                    content: '1024',
+                    name: 'twitter:title',
+                    content: this.title,
+                },
+                {
+                    name: 'twitter:url',
+                    content: '/images/flank-1.png',
+                },
+                {
+                    name: 'twitter:description',
+                    content: this.metaContent
                 },
             ],
         }
