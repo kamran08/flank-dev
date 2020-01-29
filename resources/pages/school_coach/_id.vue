@@ -1436,7 +1436,23 @@ export default {
                     hid: 'description',
                     name: 'description',
                     content: this.metaContent
-                }
+                },
+                {
+                    property: 'og:image',
+                    content: '/images/flank-1.png',
+                },
+                {
+                    property: 'og:image:type',
+                    content: 'image/png',
+                },
+                {
+                    property: 'og:image:width',
+                    content: '1024',
+                },
+                {
+                    property: 'og:image:height',
+                    content: '1024',
+                },
             ],
         }
     },
