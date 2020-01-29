@@ -1,10 +1,6 @@
 
 <template>
      <div class="pt-120">
-        <!-- ========== Topbar Start ============= -->
-
-        <!-- ========== Header End ============= -->
-
         <div class="sign-up-content padd_tb40">
             <div class="container">
                 <div class="row flex-row">
@@ -236,11 +232,11 @@ export default {
         }
     },
     created(){
-          if(this.isLoggedIn == true){
-                this.i('You Already Login!')
-                this.$router.push('/')
-                return
-            }
+        //   if(this.isLoggedIn == true){
+        //         this.i('You Already Login!')
+        //         this.$router.push('/')
+        //         return
+        //     }
         this.signInfo.bColor = this.bColor1;
     }
 }

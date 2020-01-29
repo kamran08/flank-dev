@@ -76,13 +76,20 @@ class UserController {
 
   async userLogin ({ request, response, auth, session }) {
     const data = request.all()
+    let user = await User.query().where('email', data.email).first()
+    user = JSON.parse(JSON.stringify(user))
+    if (user == null) {
+      return response.status(401).json({
+        'message': 'Invalid email! Please try again.'
+      })
+    }
 
     try {
       let user = await auth.query().attempt(data.email, data.password)
       return User.query().with('legend').where('id',user.id).first();
     } catch (e) {
       return response.status(401).json({
-        'message': 'Invalid email or password. Please try again.'
+        'message': "Password didn't match!!! Please try again."
       })
     }
   }

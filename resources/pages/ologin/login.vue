@@ -167,14 +167,9 @@ export default {
             
             const res = await this.callApi('post','authentication/login',this.formData) 
             if(res.status===200){
-                this.s("Login Successfully !")
+                this.s("Login Successfully On-Submit !")
                 this.$store.dispatch('setAuthInfo',res.data)
-                if(this.authInfo.packType==2){
-                     window.location ='/profile/'+this.authInfo.id
-                }
-                else{
-                     window.location= '/flanker/'+this.authInfo.id
-                }
+                window.location ='/nlogin/step2'
             }
             else if(res.status==401){
                 this.e(res.data.message)
