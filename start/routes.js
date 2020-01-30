@@ -121,7 +121,7 @@ Route.get('/pagenateData/:id', 'LegendController.paginatedata')
 
 // Social Login FaceBook
 Route.get('/login/facebook', 'SocialLoginController.redirect')
-Route.get('authenticated/facebook', 'SocialLoginController.callback')
+Route.get('/authenticated/facebook', 'SocialLoginController.callback')
 
 // Social Login FaceBook Get Image
 Route.get('/login/facebook/image', 'SocialLoginController.getFBImage')

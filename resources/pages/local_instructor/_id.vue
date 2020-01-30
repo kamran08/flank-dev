@@ -234,7 +234,7 @@
                                     </div>
                                 </div>
 
-                               <div class="inner-item-review-sec">
+                               <div class="inner-item-review-sec" v-if="topReviews.length>0">
                                     <div class="left-linear-border">
 
                                     </div>
@@ -266,11 +266,11 @@
                                 </div>
 
                                 <div class="new-divider"></div>
-                                   <div class="inner-item-review-sec">
+                                   <div class="inner-item-review-sec" v-if="legendData.topAtrribute">
                                     <div class="inner-item-known-title">
                                         <h4>Known For</h4>
                                     </div>
-                                    <div class="inner-item-known-details" v-if="legendData.topAtrribute" >
+                                    <div class="inner-item-known-details"  >
                                         <div class="inner-item-known-item" v-for="(item,index) in legendData.topAtrribute" :key="index" >
                                             <figure>
                                                 <img :src="item.info.image" alt="">

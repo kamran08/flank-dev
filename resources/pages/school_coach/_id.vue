@@ -3,180 +3,822 @@
 
      <div class="pt-120">
 
-        <div class="flank-page-header">  
-            <div class="flank-page-top">
-                <div class="container">
-                    <div class="flank-full">
-                        <div class="flank-item-1">
-                            <figure>
-                               
-                                <img src="/image/fl_lg.png" alt="">
-                            </figure>
-                            <div class="flank-header-cap">
-                                <h1>Coach <br><span>{{legendData.name}}</span></h1>
-                                <ul>
-                                    <li><img  :src="legendData.school.logo" alt="">{{legendData.school.schoolName}}</li>
-                                    <li>&bull;</li>
-                                    <li>{{legendData.school.sport}}</li>
-                                </ul>
-                                <div class="flank-head-btn"  @click="$router.push(`/scoach_review/${legendData.id}`)"> 
-                                    <button>Review</button>
-                                </div>
-                            </div>
-                            <div class="flank-item-left-list">
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td>Program type:</td>
-                                            <td>{{legendData.school.schoolName}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>City/state:</td>
-                                            <td>{{legendData.school.city}} {{legendData.school.state}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Profile views:</td>
-                                            <td>123 views</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Status:</td>
-                                            <td><span class="green"></span>Active</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Streak:</td>
-                                            <td>W5</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="flank-item-2">
-                            <div class="flank-item-2-inner">
+       <div v-if="!mobileScreen">
+            <div class="flank-page-header">  
+                <div class="flank-page-top">
+                    <div class="container">
+                        <div class="flank-full">
+                            <div class="flank-item-1">
+                                <figure>
                                 
-                                <div class="flank-item-right-list">
-                                    <div class="linear-border">
-                                        <p>2019-20 season stats</p>
+                                    <img src="/image/fl_lg.png" alt="">
+                                </figure>
+                                <div class="flank-header-cap">
+                                    <h1>Coach <br><span>{{legendData.name}}</span></h1>
+                                    <ul>
+                                        <li><img  :src="legendData.school.logo" alt="">{{legendData.school.schoolName}}</li>
+                                        <li>&bull;</li>
+                                        <li>{{legendData.school.sport}}</li>
+                                    </ul>
+                                    <div class="flank-head-btn"  @click="$router.push(`/scoach_review/${legendData.id}`)"> 
+                                        <button>Review</button>
                                     </div>
-                                    <div class="right-list-inner">
-                                        <div class="right-list-inner-item">
-                                            <h4>RTG</h4>
-                                            <div class="review-star">
-                                                <ul>
-                                                    <li  :class="(averageRating>0)? 'review-star-5' : 'star_half_1'"><span><i class="fas fa-star"></i></span></li>
-                                                    <li :class="(averageRating>1)? 'review-star-5' :  'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
-                                                    <li :class="(averageRating>2)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
-                                                    <li :class="(averageRating>3)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
-                                                    <li :class="(averageRating>4)? 'review-star-5' : 'star_half_1'"  ><span><i class="fas fa-star"></i></span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="right-list-inner-item" v-if="allTableData.metrice">
-                                            <h4>Hs</h4>
-                                            <div class="ti">
-                                                <p>{{ (allTableData.healthSore) ? allTableData.healthSore.toFixed(2) : 0}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="right-list-inner-item" v-if="allTableData.metrice">
-                                            <h4>Heali</h4>
-                                            <div class="ti">
-                                                <p>{{ (allTableData.healthSoreIndex.healthyIndex) ? allTableData.healthSoreIndex.healthyIndex.toFixed(2) : 0}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="right-list-inner-item" v-if="allTableData.metrice">
-                                            <h4>Harmi</h4>
-                                            <div class="ti">
-                                                <p>{{ (allTableData.healthSoreIndex.harmfulIndex) ? allTableData.healthSoreIndex.harmfulIndex.toFixed(2) : 0}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div class="flank-item-left-list">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>Program type:</td>
+                                                <td>{{legendData.school.schoolName}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>City/state:</td>
+                                                <td>{{legendData.school.city}} {{legendData.school.state}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Profile views:</td>
+                                                <td>123 views</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Status:</td>
+                                                <td><span class="green"></span>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Streak:</td>
+                                                <td>W5</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flank-page-bottom">
-                <div class="container">
-                    <div class="flank-page-bottom-nav">
-                        <ul>
-                            <li class="active"><a href="#">Overview</a></li>
-                            <!-- <li><a href="#">Bio</a></li> -->
-                        </ul>
-                        <!-- <div class="flank-page-bottom-btn">
-                            <button><img src="/images/fl-new-btn.gif" alt=""> Write a Review</button>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="new-banner-section new-banner-section-1">
-            <div class="container-fluid">
-                <div class="inner-banner inner-banner-2">
-                    <figure>
-                        <img src="/images/long-form-example.png" alt="">
-                    </figure>
-                </div>
-            </div>
-        </div>
-
-        <div class="new-section-content">
-            <div class="container">
-                <div class="new-content-inner">
-                    <div class="row flex-row">
-                        
-                        <div class="col-md-3 col-sm-3" v-if="!isSmallScreen">
-                            <div class="new-inner-item-1">
-                                <div class="switch-link-content">
-                                    <div class="switch-link-title">  
-                                          <h4 class="mb-6">Coach Selection</h4>
-                                    </div>
-                                    <div class="switch-new-coach">
-                                        <div class="switch-new-coach-item">
-                                            <figure>
-                                                <img src="/images/new-man.gif" alt="">
-                                            </figure>
-                                            <div class="new-coach-item-text">
-                                                <h3>Not here? Tell us what we're missing.</h3>
-                                                <p>If the coach you are looking for isn't here, add it.</p>
+                            <div class="flank-item-2">
+                                <div class="flank-item-2-inner">
+                                    
+                                    <div class="flank-item-right-list">
+                                        <div class="linear-border">
+                                            <p>2019-20 season stats</p>
+                                        </div>
+                                        <div class="right-list-inner">
+                                            <div class="right-list-inner-item">
+                                                <h4>RTG</h4>
+                                                <div class="review-star">
+                                                    <ul>
+                                                        <li  :class="(averageRating>0)? 'review-star-5' : 'star_half_1'"><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(averageRating>1)? 'review-star-5' :  'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(averageRating>2)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(averageRating>3)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(averageRating>4)? 'review-star-5' : 'star_half_1'"  ><span><i class="fas fa-star"></i></span></li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="coach-btn" @click="addNew.modal = true"><button>Add a Coach</button></div>
-                                    </div>
-                                </div>
-                                <div class="switch-link-content">
-                                    <div class="switch-link-title">  
-                                        <h4 class="mb-6">Switch coach</h4>
-                                    </div>
-                                    <div class="switch-link-btn">
-                                            <ul>
-                                                <!-- <li><button>{{legendData.name}}</button></li> -->
-                                                <li><input type="text"  v-model="searchCoach" placeholder="Search Coach"></li>
-                                                <li @click="showBestRated = !showBestRated" ><button :class="showBestRated? 'best_rated_background': ''">Best rated coach</button></li>
-                                            </ul>
-                                        </div>
-                                        <div class="switch-coach-sec">
-                                            <div class="switch-coach active" v-for="(item,index) in searchedSimilarCoach" :key="index" >
-                                                <figure :href="`/school_coach/${item.id}`" > 
-                                                    <img src="/images/new-man.gif" alt="">
-                                                </figure>
-                                                <div class="switch-coach-caption" style="padding-top: 0;" >
-                                                    <p><a :href="`/school_coach/${item.id}`"  style="padding-top: 0; color: #000 !important; font-weight: 600;">{{item.name}}</a></p>
-                                                    
+                                            <div class="right-list-inner-item" v-if="allTableData.metrice">
+                                                <h4>Hs</h4>
+                                                <div class="ti">
+                                                    <p>{{ (allTableData.healthSore) ? allTableData.healthSore.toFixed(2) : 0}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="right-list-inner-item" v-if="allTableData.metrice">
+                                                <h4>Heali</h4>
+                                                <div class="ti">
+                                                    <p>{{ (allTableData.healthSoreIndex.healthyIndex) ? allTableData.healthSoreIndex.healthyIndex.toFixed(2) : 0}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="right-list-inner-item" v-if="allTableData.metrice">
+                                                <h4>Harmi</h4>
+                                                <div class="ti">
+                                                    <p>{{ (allTableData.healthSoreIndex.harmfulIndex) ? allTableData.healthSoreIndex.harmfulIndex.toFixed(2) : 0}}</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    <div class="switch-link-foot">
-                                        <p><a href="#">Full staff</a></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div  :class="(!isSmallScreen)? 'col-md-6 col-sm-6 col-xs-12' : 'col-md-8 col-sm-8 col-xs-12'" >
-                            <div class="new-inner-item-2">
-                                <div class="inner-item-table-sec">
+                    </div>
+                </div>
+                <div class="flank-page-bottom">
+                    <div class="container">
+                        <div class="flank-page-bottom-nav">
+                            <ul>
+                                <li class="active"><a href="#">Overview</a></li>
+                                <!-- <li><a href="#">Bio</a></li> -->
+                            </ul>
+                            <!-- <div class="flank-page-bottom-btn">
+                                <button><img src="/images/fl-new-btn.gif" alt=""> Write a Review</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-banner-section new-banner-section-1">
+                <div class="container-fluid">
+                    <div class="inner-banner inner-banner-2">
+                        <figure>
+                            <img src="/images/long-form-example.png" alt="">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-section-content">
+                <div class="container">
+                    <div class="new-content-inner">
+                        <div class="row flex-row">
+                            
+                            <div class="col-md-3 col-sm-3" >
+                                <div class="new-inner-item-1">
+                                    <div class="switch-link-content">
+                                        <div class="switch-link-title">  
+                                            <h4 class="mb-6">Coach Selection</h4>
+                                        </div>
+                                        <div class="switch-new-coach">
+                                            <div class="switch-new-coach-item">
+                                                <figure>
+                                                    <img src="/images/new-man.gif" alt="">
+                                                </figure>
+                                                <div class="new-coach-item-text">
+                                                    <h3>Not here? Tell us what we're missing.</h3>
+                                                    <p>If the coach you are looking for isn't here, add it.</p>
+                                                </div>
+                                            </div>
+                                            <div class="coach-btn" @click="addNew.modal = true"><button>Add a Coach</button></div>
+                                        </div>
+                                    </div>
+                                    <div class="switch-link-content">
+                                        <div class="switch-link-title">  
+                                            <h4 class="mb-6">Switch coach</h4>
+                                        </div>
+                                        <div class="switch-link-btn">
+                                                <ul>
+                                                    <!-- <li><button>{{legendData.name}}</button></li> -->
+                                                    <li><input type="text"  v-model="searchCoach" placeholder="Search Coach"></li>
+                                                    <li @click="showBestRated = !showBestRated" ><button :class="showBestRated? 'best_rated_background': ''">Best rated coach</button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="switch-coach-sec">
+                                                <div class="switch-coach active" v-for="(item,index) in searchedSimilarCoach" :key="index" >
+                                                    <figure :href="`/school_coach/${item.id}`" > 
+                                                        <img src="/images/new-man.gif" alt="">
+                                                    </figure>
+                                                    <div class="switch-coach-caption" style="padding-top: 0;" >
+                                                        <p><a :href="`/school_coach/${item.id}`"  style="padding-top: 0; color: #000 !important; font-weight: 600;">{{item.name}}</a></p>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <div class="switch-link-foot">
+                                            <p><a href="#">Full staff</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div  class="col-md-6 col-sm-6 col-xs-12" >
+                                <div class="new-inner-item-2">
+                                    <div class="inner-item-table-sec">
+                                        <div class="inner-item-table-title">
+                                            <h4>Stats</h4>
+                                        </div>
+                                        <div class="inner-item-table">
+                                            <table> 
+                                                <thead>
+                                                    <tr>
+                                                        <th class="th-nor">Stats</th>
+                                                        <th>HS <p>Health Score</p></th>
+                                                        <th>PC <p>Program chemistry</p></th>
+                                                        <th>PR <p>Positive review</p></th>
+                                                        <th>NR <p>Negative review</p></th>
+                                                        <th>PCT <p>Winning percentage</p></th>
+                                                        <th>HEALI <p>Healthy index</p></th>
+                                                        <th>HARMI <p>Harmful index</p></th>
+                                                        <th>DIFF <p>Differential</p></th>
+                                                        <th>STRK <p>Streak</p></th>
+                                                        <th>L10 <p>Last 10</p></th>
+                                                        <th>PCI <p>Program Chemistry Index</p></th>
+                                                        <th>STI <p>Strength of Team Index</p></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-if="allTableData.metrice">
+                                                        <td class="th-nor" style="text-transform: capitalize;">Regular season</td>
+                                                        <td>{{ allTableData.healthSore.toFixed(2) }}</td>
+                                                        <td>{{ allTableData.ps }}</td>
+                                                        <td>{{ (allTableData.metrice.PositiveReview) ? allTableData.metrice.PositiveReview : 0 }}</td>
+                                                        <td>{{ (allTableData.metrice.NegativeReview) ? allTableData.metrice.NegativeReview : 0 }}</td>
+                                                        <td>{{ allTableData.PCT }}</td>
+                                                        <td>{{ (allTableData.healthSoreIndex.healthyIndex) ? allTableData.healthSoreIndex.healthyIndex.toFixed(2) : 0}}</td>
+                                                        <td>{{ (allTableData.healthSoreIndex.harmfulIndex) ? allTableData.healthSoreIndex.harmfulIndex.toFixed(2) : 0 }}</td>
+                                                        <td>{{ ( allTableData.metrice ) ? allTableData.metrice.PositiveReview - allTableData.metrice.NegativeReview : ''}}</td>
+                                                        <td>{{ allTableData.streak }}</td>
+                                                        <td>{{ allTableData.last10.PositiveReview + "-" + allTableData.last10.NegativeReview }}</td>
+                                                        <td>{{ allTableData.ps }}</td>
+                                                        <td>{{ allTableData.STI.toFixed(2) }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="th-nor" style="text-transform: capitalize;">Overall</td>
+                                                        <td>00</td>
+                                                        <td>00</td>
+                                                        <td>00</td>
+                                                        <td>00</td>
+                                                        <td>00</td>
+                                                        <td>00</td>
+                                                        <td>0.0</td>
+                                                        <td>+01</td>
+                                                        <td>00</td>
+                                                        <td>01</td>
+                                                        <td>01</td>
+                                                        <td>1.00</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- new flank -->
+                                    <div class="inner-item-review-sec" v-if="topReviews.length>0">
+                                        <div class="left-linear-border">
+
+                                        </div>
+                                        <div class="inner-item-review-title">
+                                            <h4>Review Highlights</h4>
+                                        </div>
+                                        <div class="inner-item-reco-details">
+                                            <div class="inner-item-rev-item" v-for="(item,index) in topReviews" :key="index" >
+                                                <figure>
+                                                    <img src="/images/act.png" alt="">
+                                                </figure>
+                                                <div class="rev-item-caption">
+                                                    <p class="readmore">"{{item.content}}"</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="inner-item-review-sec" v-if="legendData.topAtrribute.length">
+                                        <div class="inner-item-known-title">
+                                            <h4>Known For</h4>
+                                        </div>
+                                        <div class="inner-item-known-details" v-if="legendData.topAtrribute" >
+                                            <div class="inner-item-known-item" v-for="(item,index) in legendData.topAtrribute" :key="index" >
+                                                <figure>
+                                                    <img :src="item.info.image" alt="">
+                                                </figure>
+                                                <div class="known-item-caption">
+                                                    <p>{{item.info.content}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="more-att">
+                                            <!-- <p><a href="">26 More Attributes</a></p> -->
+                                        </div>
+                                    </div> 
+                                    <div class="inner-item-reco-sec inner-item-reco-sec-one">
+                                        <div class="inner-item-reco-title">
+                                            <h4>Ask The Community</h4>
+                                        </div>
+                                        <div class="inner-item-top-con inner-one-item-top-con">
+                                            <figure>
+                                                <img src="/images/sticker-3.png" alt="">
+                                            </figure>
+                                            <div class="top-con-cap one-top-cont-cap">
+                                                <p>Don't see your question? <span style="cursor:pointer;" @click="$router.push(`/coachquestionlist/${legendData.id}`)">Ask your verified audience! </span> </p>
+                                                <!-- <a >(Click Here)</a> -->
+                                            </div>
+                                        </div>
+                                        <div class="new-flank-form" v-if="legendData.question" >
+                                            <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;font-weight: 600;">Question:</p>
+                                            <div class="new-qu">
+                                                
+                                                <div class="new-qu-text">
+                                                    <p>Does this coach have college connections? If so, to what schools?</p>
+                                                </div>
+                                                <!-- <div class="new-qu-img">
+                                                    <img src="/images/nf.png" alt="">
+                                                </div> -->
+                                            </div>
+                                            <!-- <div class="inner-one-item-cont">
+                                                <div class="new-flank-search inner-item-one-cont-left">
+                                                    <h4>Question:</h4>
+                                                    <p style="font-size: 15px;font-family: CeraPro;">{{legendData.question.content}}</p>
+                                                </div>
+                                                
+                                            </div> -->
+                                            <div class="new-flank-coach-rev">
+                                                <div class="coach-rev-con">
+                                                    <figure>
+                                                        <img src="/images/ms.jpg" alt="">
+                                                    </figure>
+                                                    <div class="coach-rev-text-content">
+                                                        <h4>Nazmul Chowdhury</h4>
+                                                        <h5>Sylhet, Bangladesh</h5>
+                                                        <ul class="fixed-list">
+                                                            <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
+                                                            <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="inner-one-item-help-area2"  >
+                                                    <h6 class="help-ans"><span>1</span> answer</h6>
+                                                    <div v-if="legendData.question.answers">
+                                                        
+                                                        <p class="help-text">{{legendData.question.answers.content}}</p>
+                                                    </div>
+                                                
+                                                <div class="inner-one-item-help-btn">
+                                                    <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                    <div class="helpful-btn-full">
+                                                        <ul>
+                                                            <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
+                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="new-flank-form" v-if="legendData.question" >
+                                            <div class="new-qu">
+                                                <div class="new-qu-text">
+                                                    <p>Another question</p>
+                                                </div>
+                                                <div class="new-qu-img">
+                                                    <img src="/images/nf.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="inner-one-item-cont">
+                                                <div class="new-flank-search inner-item-one-cont-left">
+                                                    <h4>Question:</h4>
+                                                    <p style="font-size: 15px;font-family: CeraPro;">{{legendData.question.content}}</p>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="new-flank-coach-rev">
+                                                <div class="coach-rev-con">
+                                                    <figure>
+                                                        <img src="/images/ms.jpg" alt="">
+                                                    </figure>
+                                                    <div class="coach-rev-text-content">
+                                                        <h4>Nazmul Chowdhury</h4>
+                                                        <h5>Sylhet, Bangladesh</h5>
+                                                        <ul class="fixed-list">
+                                                            <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
+                                                            <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="inner-one-item-help-area2"  >
+                                                    <div v-if="legendData.question.answers">
+                                                        <h6 class="help-ans"><span>1</span> answer</h6>
+                                                        <p class="help-text">{{legendData.question.answers.content}}</p>
+                                                    </div>
+                                                
+                                                <div class="inner-one-item-help-btn">
+                                                    <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                    <div class="helpful-btn-full">
+                                                        <ul>
+                                                            <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
+                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        <div class="show-more-ac">
+                                            <p><a href=""><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
+                                        </div>
+                                    </div>
+                                    <!-- <GChart
+                                        type="LineChart"
+                                        :data="chartData"
+                                        :options="chartOptions"
+                                        class="full"
+                                        /> -->
+                                    <div class="inner-item-reco-sec">
+                                        <div class="inner-item-reco-title">
+                                            <h4>Recommended Reviews for<span> Coach {{legendData.name}}</span></h4>
+                                        </div>
+                                        <div class="inner-item-top-con">
+                                            <figure>
+                                                <img src="/images/sticker-3.png" alt="">
+                                            </figure>
+                                            <div class="top-con-cap">
+                                                <p><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="new-flank-form">
+                                            <div class="new-flank-sort-sec">
+                                                <div class="new-flank-search">
+                                                    <form v-on:submit.prevent>
+                                                        <div class="search-new-box">
+                                                            <input type="text" placeholder="Search within the reviews" v-model="reviewSearch" >
+                                                            <button type="submit"  @click="SearchReviewResult" ><span><i class="fas fa-search"></i></span></button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="new-flank-sort">
+                                                    <div class="new-flank-select">
+                                                        <h4>Sort by</h4>
+                                                        <select v-model="sort" @change="SearchReviewResult">
+                                                            <option value="" disabled selected>Flank Sort</option>
+                                                            <option value="desc">Top Rated</option>
+                                                            <option value="asc">Worst Rated</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="new-flank-img">
+                                                        <figure>
+                                                            <img src="/images/nf.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="new-flank-coach-rev">
+                                                <div class="coach-rev-fixed">
+                                                    <figure>
+                                                        <img src="/images/fixed-img.png" alt="">
+                                                    </figure>
+                                                    <div class="coach-rev-fixed-content">
+                                                        <h4></h4>
+                                                        <h5></h5>
+                                                        <ul class="fixed-list">
+                                                            <li><img src="/images/mw.png" alt=""><span></span></li>
+                                                            <li><img src="/images/mstar.png" alt=""><span></span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="coach-rev-push">
+                                                    <ul class="coa-rev">
+                                                    <li @mouseover="changeDataHover(1)"    @click="reviewPageWith(1)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 0)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                        <li  @mouseover="changeDataHover(2)"  @click="reviewPageWith(2)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 1)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                        <li  @mouseover="changeDataHover(3)"  @click="reviewPageWith(3)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 2)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                        <li @mouseover="changeDataHover(4)"   @click="reviewPageWith(4)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 3)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                        <li @mouseover="changeDataHover(5)"   @click="reviewPageWith(5)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 4)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                    </ul>
+                                                    <div class="start-link">
+                                                        <p>Start your review of <span>{{legendData.name}}</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="new-flank-given-review">
+                                        <div class="flank-given-review-item" v-for="(item,index) in reviews" :key="index" >
+                                            <div class="linear-border"></div>
+                                            <div class="review-item-inner">
+                                                <div class="review-item-left">
+                                                    <div class="review-item-left-fig">
+                                                        <figure>
+                                                            <img :src="item.reviwer.img" alt="">
+                                                        </figure>
+                                                        <div class="review-item-left-fig-c">
+                                                            <h4>{{item.reviwer.firstName}} {{item.reviwer.lastName}}</h4>
+                                                            <!-- <h5>{{item.reviwer.address}}</h5> -->
+                                                            <ul class="left-fig-link">
+                                                                <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
+                                                                <li><img src="/images/mstar.png" alt=""><span>{{item.reviwer.__meta__.totalreviewbyuser}} reviews</span></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-figure-exper">
+                                                        <ul>
+                                                            <li @click="isShareModalOn">
+                                                                <img src="/images/new-mstar.png" alt=""> 
+                                                                <p><a>Share review</a></p>
+                                                            </li>
+                                                            <li @click="embeddedModalOn(item)">
+                                                                <img src="/images/new-mstar1.png" alt="">
+                                                                <p><a>Embeded Review</a></p>
+                                                            </li>
+                                                            <li @click="messageModal = true"> 
+                                                                <img src="/images/new-mstar2.png" alt="">
+                                                                <p><a>Send message</a></p>
+                                                            </li>
+                                                            <li>
+                                                                <img src="/images/new-mstar3.png" alt="">
+                                                                <p><a>Follow valerie C.</a></p>
+                                                            </li>
+                                                        </ul>
+                                                    </div> 
+                                                </div>
+                                                <div class="review-item-right">
+                                                    <div class="review-item-right-rat">
+                                                        <ul>
+                                                            <li  :class="(item.rating>0)? 'review-star-5' : 'star_half_1'"><span><i class="fas fa-star"></i></span></li>
+                                                            <li :class="(item.rating>1)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                            <li :class="(item.rating>2)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                            <li :class="(item.rating>3)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                            <li :class="(item.rating>4)? 'review-star-5' : 'star_half_1'"  ><span><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <div class="review-date">
+                                                            <!-- <p>5/8/2019 <span>5:25:36</span></p> -->
+                                                            <!-- <p>{{item.created_at}}</p> -->
+                                                            <p>07/24/2019</p>
+                                                        </div>
+                                                        <div class="review-checkin" v-if="item.is_active">
+                                                            <Tooltip content="We're always working to improve the authenticity of the reviews posted on Flank. When you see 'Verified' it means we've confirmed a user via (.edu, .org or.gov) profiles or reviews submitted by 'Active Player' profiles.' - make sure it doesnt have quotations on this. ">
+                                                            <p><span><i class="far fa-check-circle"></i></span> Verified</p>
+                                                            </Tooltip>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="review-item-right-details">
+                                                        <p>{{item.content}}</p>
+                                                    </div>
+                                                    
+                                                    <!-- <div class="review-gallary">
+                                                        <figure>
+                                                            <img src="/images/1000s.jpg" alt="">
+                                                            <figcaption><p>Very simple menu</p></figcaption>
+                                                        </figure>
+                                                    </div> -->
+                                                    <div class="review-btn-sec">
+                                                        <p>Was this review ...?</p>
+                                                        <div class="review-btn">
+                                                            <ul>
+                                                                <li @click="reviewImo('cool',index,item)"  :class="(item.imosall.cool >= 1)? 'active_imo' : ''" ><img src="/images/ic1.png" alt=""><span>Official</span> &nbsp;&nbsp;{{item.official}}</li>
+                                                                <li  @click="reviewImo('funny',index,item)" :class="(item.imosall.funny >= 1)? 'active_imo' : ''" ><img src="/images/ic2.png" alt=""><span>Bravery Badge</span> &nbsp;&nbsp;{{item.bravery}}</li>
+                                                                <li @click="reviewImo('useful',index,item)" :class="(item.imosall.useful >= 1)? 'active_imo' : ''" ><img src="/images/ic3.png" alt=""><span>Distinguished</span> &nbsp;&nbsp;{{item.distinguished}}</li>
+                                                            </ul>
+                                                            <!-- <template v-if="item.imos" >
+                                                                        <li   :class="(item.imos.acool)? 'imo_back' : ''" ><i class="fas fa-grin-beam"></i>&nbsp;Cool&nbsp;&nbsp;{{item.imos.cool}}</li>
+                                                                        <li  :class="(item.imos.afunny)? 'imo_back' : ''" ><i class="fas fa-grin-beam"></i>&nbsp;Funny&nbsp;&nbsp;{{item.imos.funny}}</li>
+                                                                        <li   :class="(item.imos.auseful)? 'imo_back' : ''" ><i class="fas fa-grin-beam"></i>&nbsp;Useful&nbsp;&nbsp;{{item.imos.useful}}</li>
+                                                            </template> -->
+                                                            <div class="review-btn-img">
+                                                                <figure>
+                                                                    <img src="/images/nf.png" alt="">
+                                                                </figure>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div  class="col-md-3 col-sm-3">
+                                <div class="new-inner-item-1">
+                                    <!-- Health Meter -->
+                                    <div class="switch-link-content _1health" v-if="allTableData.metrice">
+                                        <div class="_1health_title">
+                                            <p class="_1health_title_text">Health Meter</p>
+
+                                            <img class="_1health_img" src="/image/coach-review45.jpg" alt="" title="">
+
+                                            <p class="_1health_value">{{allTableData.healthSore.toFixed(2)}}%</p>
+                                        </div>
+
+                                        <p class="_1health_subtitle">HEALTHY</p>
+                                        <div class="_1health_numbers">
+                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
+                                                <span>100</span>
+                                            </div>
+                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
+                                                <!-- <span>80</span> -->
+                                            </div>
+                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
+                                                <span>50</span>
+                                            </div>
+                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
+                                                <!-- <span>40</span> -->
+                                            </div>
+                                            <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
+                                                <span>00</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="_1health_numbers" v-if="allTableData.healthSore">
+                                            <p class="_1health_numbers_text"><span>100</span></p>
+                                            <p class="_1health_numbers_text" v-bind:style="{ top: (100-allTableData.healthSore.toFixed(2)  )+'%'}"><span>{{ allTableData.healthSore.toFixed(1)}}</span></p>
+                                            <p class="_1health_numbers_text"><span>00</span></p>
+                                        </div> -->
+
+                                        <p class="_1health_subtitle _1health_subtitle_border" style="margin-top: 10px;">Harmful</p>
+
+                                        <div class="_1healtfh_main">
+                                            <p class="_1health_main_title">Flank News: We've enhanced our Health Meter</p>
+
+                                            <ul class="_1health_main_list">
+                                                <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
+                                                <li>We now have Verified Ratings and Reviews to make our Health Score more useful</li>
+                                                <li>When you see “Verified” it means we’ve confirmed a user verified their identity </li>
+                                            </ul>
+                                        </div>
+
+                                        <p class="_1health_more">
+                                            <!-- <a class="_1health_more_a" href="">LEARN MORE</a> -->
+                                        </p>
+                                    </div>
+                                    <!-- Health Meter -->
+
+                                    <div class="switch-link-content"></div>
+
+                                    <div class="switch-link-content">
+                                        <div class="switch-link-title">
+                                            <h4 class="mb-6">Latest videos</h4>
+                                        </div>
+                                        <div class="flank-video">
+                                            <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                        </div>
+
+                                        <div class="playing-list">
+                                            <ul>
+                                                <li>
+                                                    <div class="playing-btn">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <div class="video-info" @click="openVideo(1)" style="cursor:pointer;">
+                                                        <p>Out of control coaches' Abusive Behavior Often Under Reported</p>
+                                                        <ul>
+                                                            <li>Now playing <span>•</span></li>
+                                                            <li><p>2:18</p></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="playing-btn">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <div class="video-info" @click="openVideo(2)" style="cursor:pointer;">
+                                                        <p>Players accuse GCU women's soccer coach of verbal, mental, physical abuse.</p>
+                                                        <ul>
+                                                            <li><p>4:27</p></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="playing-btn" >
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <div class="video-info" @click="openVideo(3)" style="cursor:pointer;">
+                                                        <p>Rutgers coach fired for abuse of players.</p>
+                                                        <ul>
+                                                            <li><p>1:38</p></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="playing-btn" >
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <div class="video-info" @click="openVideo(4)" style="cursor:pointer;">
+                                                        <p>The abuse of child athletes by their coaches.</p>
+                                                        <ul>
+                                                            <li><p>3:55</p></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="video-foot-img">
+                                            <figure>
+                                                <img src="/images/flank.png" alt="">
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="flank-banner-two">
+                                        <figure>
+                                            <img src="/images/worstbanner.png" alt=""> 
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+       <div else>
+            <div class="flank-page-header"> 
+                <div class="flank-page-top">
+                    <div class="container no-padding">
+                        <div class="flank-full">
+                            <div class="flank-item-1 mob-flank-item-1">
+                                <figure>
+                                
+                                    <img src="/image/fl_lg.png" alt="">
+                                </figure>
+                                <div class="flank-header-cap flank-header-cap-mob">
+                                    <h1>Coach <br><span>{{legendData.name}}</span></h1>
+                                    <ul>
+                                        <li><img  :src="legendData.school.logo" alt="">{{legendData.school.schoolName}}</li>
+                                        <li>&bull;</li>
+                                        <li>{{legendData.school.sport}}</li>
+                                    </ul>
+                                    <div class="flank-item-left-list flank-item-left-list-mob">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td><span>Program type:</span></td>
+                                                    <td>{{legendData.school.schoolName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>City/state:</span></td>
+                                                    <td>{{legendData.school.city}} {{legendData.school.state}}</td> 
+                                                </tr>
+                                                <tr>
+                                                    <td><span>Profile views:</span></td>
+                                                    <td>123 views</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>Status:</span></td>
+                                                    <td><span class="green"></span>Active</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><span>Streak:</span></td>
+                                                    <td>W5</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="flank-head-btn mt-10"  @click="$router.push(`/scoach_review/${legendData.id}`)"> 
+                                        <button>Review</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="flank-item-2">
+                                <div class="flank-item-2-inner">
+                                    
+                                    <div class="flank-item-right-list">
+                                        <div class="linear-border">
+                                            <p>2019-20 season stats</p>
+                                        </div>
+                                        <div class="right-list-inner">
+                                            <div class="right-list-inner-item">
+                                                <h4>RTG</h4>
+                                                <div class="review-star">
+                                                    <ul>
+                                                        <li  :class="(averageRating>0)? 'review-star-5' : 'star_half_1'"><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(averageRating>1)? 'review-star-5' :  'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(averageRating>2)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(averageRating>3)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
+                                                        <li :class="(averageRating>4)? 'review-star-5' : 'star_half_1'"  ><span><i class="fas fa-star"></i></span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="right-list-inner-item" v-if="allTableData.metrice">
+                                                <h4>Hs</h4>
+                                                <div class="ti">
+                                                    <p>{{ (allTableData.healthSore) ? allTableData.healthSore.toFixed(2) : 0}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="right-list-inner-item" v-if="allTableData.metrice">
+                                                <h4>Heali</h4>
+                                                <div class="ti">
+                                                    <p>{{ (allTableData.healthSoreIndex.healthyIndex) ? allTableData.healthSoreIndex.healthyIndex.toFixed(2) : 0}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="right-list-inner-item" v-if="allTableData.metrice">
+                                                <h4>Harmi</h4>
+                                                <div class="ti">
+                                                    <p>{{ (allTableData.healthSoreIndex.harmfulIndex) ? allTableData.healthSoreIndex.harmfulIndex.toFixed(2) : 0}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flank-page-bottom">
+                    <div class="container">
+                        <div class="flank-page-bottom-nav">
+                            <ul>
+                                <li class="active"><a href="#">Overview</a></li>
+                                <!-- <li><a href="#">Bio</a></li> -->
+                            </ul>
+                            <!-- <div class="flank-page-bottom-btn">
+                                <button><img src="/images/fl-new-btn.gif" alt=""> Write a Review</button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-banner-section new-banner-section-1" style="padding-top: 0;">
+                <div class="container-fluid no-padding">
+                    <div class="inner-banner inner-banner-2">
+                        <figure style="height: auto;">
+                            <img src="/images/long-form-example.png" alt="">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-section-content">
+                <div class="container no-padding">
+                    <div class="new-content-inner">
+                        <div class="row flex-row">
+                            <div class="new-inner-item-2 plr-10">
+                                <div class="inner-item-table-sec new-box-shadow new-mt-10">
                                     <div class="inner-item-table-title">
-                                        <h4>Stats</h4>
+                                        <h4 class="pad-border" style="padding-left: 0;">Stats</h4>
                                     </div>
                                     <div class="inner-item-table">
                                         <table> 
@@ -189,11 +831,11 @@
                                                     <th>NR <p>Negative review</p></th>
                                                     <th>PCT <p>Winning percentage</p></th>
                                                     <th>HEALI <p>Healthy index</p></th>
-                                                    <th>HARMI <p>Harmful index</p></th>
+                                                    <th>HARMI <p>Hermful index</p></th>
                                                     <th>DIFF <p>Differential</p></th>
                                                     <th>STRK <p>Streak</p></th>
                                                     <th>L10 <p>Last 10</p></th>
-                                                    <th>PCI <p>Program Chemistry Index</p></th>
+                                                    <th>PCI </th>
                                                     <th>STI <p>Strength of Team Index</p></th>
                                                 </tr>
                                             </thead>
@@ -232,30 +874,55 @@
                                         </table>
                                     </div>
                                 </div>
-                                <!-- new flank -->
-                                <div class="inner-item-review-sec" v-if="topReviews.length>0">
-                                    <div class="left-linear-border">
+                                <div class="switch-link-content _1health new-box-shadow new-mt-10">
+                                    <div class="_1health_title mb pad-border" style="padding-left: 0;">
+                                        <p class="_1health_title_text">Health Meter</p>
 
+                                        <img class="_1health_img" src="/image/coach-review45.jpg" alt="" title="">
+
+                                        <p class="_1health_value">100%</p>
                                     </div>
-                                    <div class="inner-item-review-title">
-                                        <h4>Review Highlights</h4>
-                                    </div>
-                                    <div class="inner-item-reco-details">
-                                        <div class="inner-item-rev-item" v-for="(item,index) in topReviews" :key="index" >
-                                            <figure>
-                                                <img src="/images/act.png" alt="">
-                                            </figure>
-                                            <div class="rev-item-caption">
-                                                <p class="readmore">"{{item.content}}"</p>
+
+                                    <p class="_1health_subtitle">HEALTHY</p>
+                                        <div class="_1health_numbers">
+                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
+                                                <span>100</span>
+                                            </div>
+                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
+                                                <!-- <span>80</span> -->
+                                            </div>
+                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
+                                                <span>50</span>
+                                            </div>
+                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
+                                                <!-- <span>40</span> -->
+                                            </div>
+                                            <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
+                                                <span>00</span>
                                             </div>
                                         </div>
+
+                                    <p class="_1health_subtitle _1health_subtitle_border">Harmful</p>
+
+                                    <div class="_1healtfh_main">
+                                        <p class="_1health_main_title">Flank News: We've enhanced our Health Meter</p>
+
+                                        <ul class="_1health_main_list">
+                                            <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
+                                            <li>We now have Verified Ratings and Reviews to make our Health Score more useful</li>
+                                            <li>When you see “Verified” it means we’ve confirmed a user verified their identity </li>
+                                        </ul>
                                     </div>
+
+                                    <p class="_1health_more">
+                                        <!-- <a class="_1health_more_a" href="">LEARN MORE</a> -->
+                                    </p>
                                 </div>
-                                <div class="inner-item-review-sec" v-if="legendData.topAtrribute.length">
-                                    <div class="inner-item-known-title">
+                                <div class="inner-item-review-sec new-box-shadow new-mt-10" v-if="legendData.topAtrribute">
+                                    <div class="inner-item-known-title pad-border" style="padding: 15px 0 10px;">
                                         <h4>Known For</h4>
                                     </div>
-                                    <div class="inner-item-known-details" v-if="legendData.topAtrribute" >
+                                    <div class="inner-item-known-details"  style="padding: 5px 0;" >
                                         <div class="inner-item-known-item" v-for="(item,index) in legendData.topAtrribute" :key="index" >
                                             <figure>
                                                 <img :src="item.info.image" alt="">
@@ -269,11 +936,161 @@
                                         <!-- <p><a href="">26 More Attributes</a></p> -->
                                     </div>
                                 </div> 
-                                <div class="inner-item-reco-sec inner-item-reco-sec-one">
-                                    <div class="inner-item-reco-title">
-                                        <h4>Ask The Community</h4>
+                                <div class="com new-box-shadow" style="padding-left: 0; padding-right: 0;">
+                                    <div class="switch-link-content no-margin no-shadow" style="border-radius: 0; padding-left: 20px; padding-right: 20px;">
+                                        <div class="switch-link-title" style="padding-left: 0;">  
+                                            <h4 class="pad-border" style="padding-left: 0;">Switch coach</h4>
+                                        </div>
+                                        <div class="plr-15">
+                                            <div class="switch-link-btn no-border switch-link-btn-mob mt-15">
+                                                <ul>
+                                                    <!-- <li><button>{{legendData.name}}</button></li> -->
+                                                    <li><input type="text" v-model="searchCoach" placeholder="Search Coach"></li>
+                                                    <li @click="showBestRated = !showBestRated"><button>Best rated coach</button></li>
+                                                </ul>
+                                            </div>
+                                            <div class="switch-coach-sec">
+                                                <div class="switch-coach active" v-for="(item,index) in searchedSimilarCoach" :key="index" >
+                                                    <figure :href="`/school_coach/${item.id}`" > 
+                                                        <img src="/images/new-man.gif" alt="">
+                                                    </figure>
+                                                    <div class="switch-coach-caption" style="padding-top: 0;" >
+                                                        <p><a :href="`/school_coach/${item.id}`"  style="padding-top: 0; color: rgb(214, 6, 6) !important; font-weight: 600;">{{item.name}}</a></p>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="switch-link-foot switch-link-foot-mb">
+                                                <p><a href="#"><span><i class="fas fa-chevron-down"></i></span> Full staff</a></p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="inner-item-top-con inner-one-item-top-con">
+                                    <div class="new-inner-item-1 mb-new-red-border " style="padding-left: 20px; padding-right: 20px; padding-top: 15px;">
+                                        <div class="switch-link-content no-margin no-shadow" style="border-radius: 0;">
+                                            <div class="switch-link-title" style="padding-left: 0;">  
+                                                <h4 class="pad-border" style="padding-left: 0;">Coach Selection</h4>
+                                            </div>
+                                            <div class="switch-new-coach mb-switch-new-coach no-border">
+                                                <div class="switch-new-coach-item">
+                                                    <figure>
+                                                        <img src="/images/new-man.gif" alt="">
+                                                    </figure>
+                                                    <div class="new-coach-item-text">
+                                                        <h3>Not here? <br> Tell us what we're missing.</h3>
+                                                        <p style="margin-top: 5px;">If the coach you are looking for isn't here, add it.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="coach-btn mb-btn no-border" style="padding-bottom: 0;" @click="addNew.modal = true"><button>Add a Coach</button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- new flank -->
+                                <div class="inner-item-review-sec new-box-shadow new-mt-10" style="padding: 0;">
+                                    <div class="inner-item-review-title" style="padding: 25px 20px 10px; background: transparent;">
+                                        <h4 class="pad-border" style="padding-left: 0;">Review Highlights</h4>
+                                    </div>
+                                    <div class="inner-item-reco-details" style="padding: 25px 0;">
+                                        <div class="inner-item-rev-item mob-inner-item-rev-item" v-for="(item,index) in topReviews" :key="index" >
+                                            <figure style="border: 1px solid #a60202; border-radius: 10px">
+                                                <img src="/images/act.png" alt="">
+                                            </figure>
+                                            <div class="rev-item-caption">
+                                                <p class="readmore">"{{item.content}}"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inner-scandal-video new-box-shadow" style="padding-bottom: 20px;">
+                                    <div class="inner-item-review-title" style="padding: 0; background: transparent; padding-top: 15px; ">
+                                        <h4 class="pad-border" style="padding-left: 0;">LATEST VIDEOS</h4>
+                                    </div>
+                                    <div class="row plus-row">
+                                        
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="inner-scandal-video-item" style="margin-top: 0;">
+                                                <figure @click="openVideo(1)">
+                                                    <img src="/newFile/1.png" alt="">
+                                                    <!-- <div class="play-caption">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <div class="video-duration">
+                                                        <p class="duration"><span>2:17</span></p>
+                                                    </div> -->
+                                                </figure>
+                                                <div class="scandal-video-caption">
+                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                </div>
+                                                <div class="video-logo">
+                                                    <img src="/image/flank.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="inner-scandal-video-item">
+                                                <!-- <div class="inner-video-iframe">
+                                                    <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    </div> -->
+                                                <figure @click="openVideo(2)">
+                                                    <img src="/newFile/2.png" alt="">
+                                                    <!-- <div class="play-caption">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <div class="video-duration">
+                                                        <p class="duration"><span>2:17</span></p>
+                                                    </div> -->
+                                                </figure>
+                                                <div class="scandal-video-caption">
+                                                    <p>Rutgers coach fired for abuse of players.</p>
+                                                </div>
+                                                <div class="video-logo">
+                                                    <img src="/images/flank.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="inner-scandal-video-item">
+                                                <!-- <div class="inner-video-iframe">
+                                                    <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    </div> -->
+                                                <figure @click="openVideo(4)">
+                                                    <img src="/newFile/4.png" alt="">
+                                                    <!-- <div class="play-caption">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <div class="video-duration">
+                                                        <p class="duration"><span>2:17</span></p>
+                                                    </div> -->
+                                                </figure>
+                                                <div class="scandal-video-caption">
+                                                    <p>The abuse of child atheletes by their coaches. </p>
+                                                </div>
+                                                <div class="video-logo">
+                                                    <img src="/images/flank.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-md-3 col-sm-6">
+                                            <div class="inner-scandal-video-item">
+                                                <figure @click="openVideo(3)">
+                                                    <img src="/newFile/3.png" alt="">
+                                                </figure>
+                                                <div class="scandal-video-caption">
+                                                    <p>Players accuse GCU women's soccer coach of verbal, mental, physical abuse.</p>
+                                                </div>
+                                                <div class="video-logo">
+                                                    <img src="/images/flank.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                        
+                                    </div>
+                                </div>
+                                <div class="inner-item-reco-sec inner-item-reco-sec-one new-box-shadow" style="padding: 0; padding-bottom: 10px;">
+                                    <div class="inner-item-reco-title" style="padding: 25px 20px 10px;">
+                                        <h4 class="pad-border">Ask The Community</h4>
+                                    </div>
+                                    <div class="inner-item-top-con inner-one-item-top-con" style="padding: 5px 20px; margin-top: 5px;">
                                         <figure>
                                             <img src="/images/sticker-3.png" alt="">
                                         </figure>
@@ -282,9 +1099,9 @@
                                             <!-- <a >(Click Here)</a> -->
                                         </div>
                                     </div>
-                                    <div class="new-flank-form" v-if="legendData.question" >
+                                    <div class="new-flank-form" v-if="legendData.question" style="padding: 0 20px;">
                                         <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;font-weight: 600;">Question:</p>
-                                        <div class="new-qu">
+                                        <div class="new-qu" style="padding-left: 0; border: 0; padding-bottom: 10px">
                                             
                                             <div class="new-qu-text">
                                                 <p>Does this coach have college connections? If so, to what schools?</p>
@@ -300,8 +1117,8 @@
                                             </div>
                                             
                                         </div> -->
-                                        <div class="new-flank-coach-rev">
-                                            <div class="coach-rev-con">
+                                        <div class="new-flank-coach-rev" style="padding-top: 0;">
+                                            <!-- <div class="coach-rev-con">
                                                 <figure>
                                                     <img src="/images/ms.jpg" alt="">
                                                 </figure>
@@ -313,25 +1130,25 @@
                                                         <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
                                                     </ul>
                                                 </div>
-                                            </div>
-                                         
+                                            </div> -->
+                                            
                                             <div class="inner-one-item-help-area2"  >
                                                 <h6 class="help-ans"><span>1</span> answer</h6>
                                                 <div v-if="legendData.question.answers">
-                                                     
+                                                        
                                                     <p class="help-text">{{legendData.question.answers.content}}</p>
                                                 </div>
-                                              
-                                               <div class="inner-one-item-help-btn">
-                                                   <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
-                                                   <div class="helpful-btn-full">
-                                                       <ul>
-                                                           <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                           <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
-                                                       </ul>
-                                                   </div>
-                                                   
-                                               </div>
+                                                
+                                                <div class="inner-one-item-help-btn" style="border-top: 0;">
+                                                    <p class="view-question-btn" style="text-align: left;"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                    <div class="helpful-btn-full">
+                                                        <ul>
+                                                            <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
+                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -365,23 +1182,23 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                         
+                                            
                                             <div class="inner-one-item-help-area2"  >
                                                 <div v-if="legendData.question.answers">
-                                                     <h6 class="help-ans"><span>1</span> answer</h6>
+                                                        <h6 class="help-ans"><span>1</span> answer</h6>
                                                     <p class="help-text">{{legendData.question.answers.content}}</p>
                                                 </div>
-                                              
-                                               <div class="inner-one-item-help-btn">
-                                                   <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
-                                                   <div class="helpful-btn-full">
-                                                       <ul>
-                                                           <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                           <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
-                                                       </ul>
-                                                   </div>
-                                                   
-                                               </div>
+                                                
+                                                <div class="inner-one-item-help-btn">
+                                                    <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                    <div class="helpful-btn-full">
+                                                        <ul>
+                                                            <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
+                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                     </div> -->
@@ -389,17 +1206,17 @@
                                         <p><a href=""><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
                                     </div>
                                 </div>
-                                 <!-- <GChart
+                                    <!-- <GChart
                                     type="LineChart"
                                     :data="chartData"
                                     :options="chartOptions"
                                     class="full"
                                     /> -->
-                                <div class="inner-item-reco-sec">
-                                    <div class="inner-item-reco-title">
-                                        <h4>Recommended Reviews for<span> Coach {{legendData.name}}</span></h4>
+                                <div class="inner-item-reco-sec new-box-shadow" style="padding: 0;">
+                                    <div class="inner-item-reco-title" style="padding: 15px 20px;">
+                                        <h4 class="pad-border" style="padding-left: 0;">Recommended Reviews <span style="font-size: 17px; text-transform: capitalize;">for Coach {{legendData.name}}</span></h4>
                                     </div>
-                                    <div class="inner-item-top-con">
+                                    <div class="inner-item-top-con" style="padding: 5px 20px;">
                                         <figure>
                                             <img src="/images/sticker-3.png" alt="">
                                         </figure>
@@ -407,9 +1224,9 @@
                                             <p><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
                                         </div>
                                     </div>
-                                    <div class="new-flank-form">
+                                    <div class="new-flank-form" style="padding: 0 20px;">
                                         <div class="new-flank-sort-sec">
-                                            <div class="new-flank-search">
+                                            <div class="new-flank-search mob-new-flank-search">
                                                 <form v-on:submit.prevent>
                                                     <div class="search-new-box">
                                                         <input type="text" placeholder="Search within the reviews" v-model="reviewSearch" >
@@ -417,7 +1234,7 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            <div class="new-flank-sort">
+                                            <div class="new-flank-sort mob-new-flank-sort">
                                                 <div class="new-flank-select">
                                                     <h4>Sort by</h4>
                                                     <select v-model="sort" @change="SearchReviewResult">
@@ -449,22 +1266,22 @@
                                             </div>
                                             <div class="coach-rev-push">
                                                 <ul class="coa-rev">
-                                                   <li @mouseover="changeDataHover(1)"    @click="reviewPageWith(1)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 0)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
+                                                    <li @mouseover="changeDataHover(1)"    @click="reviewPageWith(1)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 0)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
                                                     <li  @mouseover="changeDataHover(2)"  @click="reviewPageWith(2)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 1)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
                                                     <li  @mouseover="changeDataHover(3)"  @click="reviewPageWith(3)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 2)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
                                                     <li @mouseover="changeDataHover(4)"   @click="reviewPageWith(4)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 3)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
                                                     <li @mouseover="changeDataHover(5)"   @click="reviewPageWith(5)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 4)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
                                                 </ul>
                                                 <div class="start-link">
-                                                    <p>Start your review of <span>{{legendData.name}}</span></p>
+                                                    <p>Start your review of <span>Coach {{legendData.name}}</span></p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="new-flank-given-review">
-                                    <div class="flank-given-review-item" v-for="(item,index) in reviews" :key="index" >
+                                <div class="new-flank-given-review new-box-shadow" style="padding-left: 20px; padding-right: 20px;">
+                                    <div class="flank-given-review-item mob-flank-given-review-item" v-for="(item,index) in reviews" :key="index" >
                                         <div class="linear-border"></div>
                                         <div class="review-item-inner">
                                             <div class="review-item-left">
@@ -495,7 +1312,7 @@
                                                             <img src="/images/new-mstar2.png" alt="">
                                                             <p><a>Send message</a></p>
                                                         </li>
-                                                         <li>
+                                                            <li>
                                                             <img src="/images/new-mstar3.png" alt="">
                                                             <p><a>Follow valerie C.</a></p>
                                                         </li>
@@ -511,16 +1328,13 @@
                                                         <li :class="(item.rating>3)? 'review-star-5' : 'star_half_1'" ><span><i class="fas fa-star"></i></span></li>
                                                         <li :class="(item.rating>4)? 'review-star-5' : 'star_half_1'"  ><span><i class="fas fa-star"></i></span></li>
                                                     </ul>
-                                                    <div class="review-date">
+                                                    <div class="review-date mob-review-date">
                                                         <!-- <p>5/8/2019 <span>5:25:36</span></p> -->
                                                         <!-- <p>{{item.created_at}}</p> -->
                                                         <p>07/24/2019</p>
                                                     </div>
-                                                    <div class="review-checkin" v-if="item.is_active">
-                                                        <Tooltip content="We're always working to improve the authenticity of the reviews posted on Flank. When you see 'Verified' it means we've confirmed a user via (.edu, .org or.gov) profiles or reviews submitted by 'Active Player' profiles.' - make sure it doesnt have quotations on this. ">
-                                                           <p><span><i class="far fa-check-circle"></i></span> Verified</p>
-                                                        </Tooltip>
-                                                        
+                                                    <div class="review-checkin">
+                                                        <p><span><i class="far fa-check-circle"></i></span> Verified</p>
                                                     </div>
                                                 </div>
                                                 <div class="review-item-right-details">
@@ -541,7 +1355,7 @@
                                                             <li  @click="reviewImo('funny',index,item)" :class="(item.imosall.funny >= 1)? 'active_imo' : ''" ><img src="/images/ic2.png" alt=""><span>Bravery Badge</span> &nbsp;&nbsp;{{item.bravery}}</li>
                                                             <li @click="reviewImo('useful',index,item)" :class="(item.imosall.useful >= 1)? 'active_imo' : ''" ><img src="/images/ic3.png" alt=""><span>Distinguished</span> &nbsp;&nbsp;{{item.distinguished}}</li>
                                                         </ul>
-                                                         <!-- <template v-if="item.imos" >
+                                                            <!-- <template v-if="item.imos" >
                                                                     <li   :class="(item.imos.acool)? 'imo_back' : ''" ><i class="fas fa-grin-beam"></i>&nbsp;Cool&nbsp;&nbsp;{{item.imos.cool}}</li>
                                                                     <li  :class="(item.imos.afunny)? 'imo_back' : ''" ><i class="fas fa-grin-beam"></i>&nbsp;Funny&nbsp;&nbsp;{{item.imos.funny}}</li>
                                                                     <li   :class="(item.imos.auseful)? 'imo_back' : ''" ><i class="fas fa-grin-beam"></i>&nbsp;Useful&nbsp;&nbsp;{{item.imos.useful}}</li>
@@ -556,185 +1370,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div  :class="(!isSmallScreen)? 'col-md-3 col-sm-3' : 'col-md-4 col-sm-4'">
-                            <div class="new-inner-item-1">
-                                <div  v-if="isSmallScreen">
-                                    <div class="switch-link-content">
-                                        <div class="switch-link-title">  
-                                            <h4>Coach Selection</h4>
-                                        </div>
-                                        <div class="switch-new-coach">
-                                            <div class="switch-new-coach-item">
-                                                <figure>
-                                                    <img src="/images/new-man.gif" alt="">
-                                                </figure>
-                                                <div class="new-coach-item-text">
-                                                    <h3>Not here? Tell us what we're missing.</h3>
-                                                    <p>If the coach you are looking for isn't here, add it.</p>
-                                                </div>
-                                            </div>
-                                            <div class="coach-btn" @click="addNew.modal = true"><button>Add a Coach</button></div>
-                                        </div>
+                                    <div class="show-more-ac">
+                                        <p><a href=""><span><i class="fas fa-chevron-down"></i></span>Show More Review</a></p>
                                     </div>
-                                    <div class="switch-link-content">
-                                        <div class="switch-link-title">  
-                                            <h4>Switch coach</h4>
-                                        </div>
-                                        <div class="switch-link-btn">
-                                            <ul>
-                                                <!-- <li><button>{{legendData.name}}</button></li> -->
-                                                <li><input type="text" v-model="searchCoach" placeholder="Search Coach"></li>
-                                                <li><button>Best rated coach</button></li>
-                                            </ul>
-                                        </div>
-                                        <div class="switch-coach-sec">
-                                            <div class="switch-coach active" v-for="(item,index) in searchedSimilarCoach" :key="index" >
-                                                <figure :href="`/school_coach/${item.id}`" > 
-                                                    <img src="/images/new-man.gif" alt="">
-                                                </figure>
-                                                <div class="switch-coach-caption" style="padding-top: 0;" >
-                                                    <p><a :href="`/school_coach/${item.id}`"  style="padding-top: 0; color: #000 !important; font-weight: 600;">{{item.name}}</a></p>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="switch-link-foot">
-                                            <p><a href="#">Full staff</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Health Meter -->
-                                <div class="switch-link-content _1health" v-if="allTableData.metrice">
-                                    <div class="_1health_title">
-                                        <p class="_1health_title_text">Health Meter</p>
-
-                                        <img class="_1health_img" src="/image/coach-review45.jpg" alt="" title="">
-
-                                        <p class="_1health_value">{{allTableData.healthSore.toFixed(2)}}%</p>
-                                    </div>
-
-                                    <p class="_1health_subtitle">HEALTHY</p>
-                                    <div class="_1health_numbers">
-                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
-                                            <span>100</span>
-                                        </div>
-                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
-                                            <!-- <span>80</span> -->
-                                        </div>
-                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
-                                            <span>50</span>
-                                        </div>
-                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
-                                            <!-- <span>40</span> -->
-                                        </div>
-                                        <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
-                                            <span>00</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- <div class="_1health_numbers" v-if="allTableData.healthSore">
-                                        <p class="_1health_numbers_text"><span>100</span></p>
-                                        <p class="_1health_numbers_text" v-bind:style="{ top: (100-allTableData.healthSore.toFixed(2)  )+'%'}"><span>{{ allTableData.healthSore.toFixed(1)}}</span></p>
-                                        <p class="_1health_numbers_text"><span>00</span></p>
-                                    </div> -->
-
-                                    <p class="_1health_subtitle _1health_subtitle_border" style="margin-top: 10px;">Harmful</p>
-
-                                    <div class="_1healtfh_main">
-                                        <p class="_1health_main_title">Flank News: We've enhanced our Health Meter</p>
-
-                                        <ul class="_1health_main_list">
-                                            <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
-                                            <li>We now have Verified Ratings and Reviews to make our Health Score more useful</li>
-                                            <li>When you see “Verified” it means we’ve confirmed a user verified their identity </li>
-                                        </ul>
-                                    </div>
-
-                                    <p class="_1health_more">
-                                        <!-- <a class="_1health_more_a" href="">LEARN MORE</a> -->
-                                    </p>
-                                </div>
-                                <!-- Health Meter -->
-
-                                <div class="switch-link-content"></div>
-
-                                <div class="switch-link-content">
-                                    <div class="switch-link-title">
-                                        <h4 class="mb-6">Latest videos</h4>
-                                    </div>
-                                    <div class="flank-video">
-                                        <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                    </div>
-
-                                    <div class="playing-list">
-                                        <ul>
-                                            <li>
-                                                <div class="playing-btn">
-                                                    <span><i class="fas fa-play"></i></span>
-                                                </div>
-                                                <div class="video-info" @click="openVideo(1)" style="cursor:pointer;">
-                                                    <p>Out of control coaches' Abusive Behavior Often Under Reported</p>
-                                                    <ul>
-                                                        <li>Now playing <span>•</span></li>
-                                                        <li><p>2:18</p></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="playing-btn">
-                                                    <span><i class="fas fa-play"></i></span>
-                                                </div>
-                                                <div class="video-info" @click="openVideo(2)" style="cursor:pointer;">
-                                                    <p>Players accuse GCU women's soccer coach of verbal, mental, physical abuse.</p>
-                                                    <ul>
-                                                        <li><p>4:27</p></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="playing-btn" >
-                                                    <span><i class="fas fa-play"></i></span>
-                                                </div>
-                                                <div class="video-info" @click="openVideo(3)" style="cursor:pointer;">
-                                                    <p>Rutgers coach fired for abuse of players.</p>
-                                                    <ul>
-                                                        <li><p>1:38</p></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="playing-btn" >
-                                                    <span><i class="fas fa-play"></i></span>
-                                                </div>
-                                                <div class="video-info" @click="openVideo(4)" style="cursor:pointer;">
-                                                    <p>The abuse of child athletes by their coaches.</p>
-                                                    <ul>
-                                                        <li><p>3:55</p></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="video-foot-img">
-                                        <figure>
-                                            <img src="/images/flank.png" alt="">
-                                        </figure>
-                                    </div>
-                                </div>
-                                <div class="flank-banner-two">
-                                    <figure>
-                                        <img src="/images/worstbanner.png" alt=""> 
-                                    </figure>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+       </div>
 
          <Modal v-model="loginModal">
             <div class="">
@@ -921,11 +1566,7 @@
             </div>
             
         </Modal>
-
-        <!-- <footer class="new-footer">
-            <div class="new-footer-top"></div>
-        </footer> -->
-     <Modal width="850px" v-model="addNew.modal" :closable='false'>
+        <Modal width="850px" v-model="addNew.modal" :closable='false'>
             <div class="sss">
                 <div class="">
                     <div class="bulid-section build-section-1" v-if="addNew.step == 1">
@@ -986,7 +1627,7 @@
                                                 </div>
                                                 <div class="build-input">
                                                     <label for="">Division <span class="required">*</span></label>
-                                                     <input disabled type="text" v-model="step1Form.division">
+                                                        <input disabled type="text" v-model="step1Form.division">
                                                     
                                                 </div>
                                                 <div class="build-input">
@@ -994,13 +1635,13 @@
                                                     <input disabled type="text" v-model="step1Form.state">
                                                 </div>
                                                 <div class="build-input">
-                                                    <label for="">Sport </label>
+                                                    <label for="">Sport <span class="required">*</span></label>
                                                     <input disabled type="text" v-model="step1Form.sport">
                                                     
                                                 </div>
                                             </form>
                                             <div class="build-redirect">
-                                                <p>Information submitted on this site is subject to the <a href="#">Privacy Policy.</a></p>
+                                                <p>Information submitted on this site is subject to the <nuxt-link to="/policy">Privacy Policy.</nuxt-link></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1283,6 +1924,7 @@ export default {
    
     data(){
         return{
+            mobileScreen:false,
             isSmallScreen:false,
             showBestRated:false,
              drating:{
@@ -1898,8 +2540,8 @@ export default {
         this.step1Form.division = this.legendData.school.division
         this.step1Form.state = this.legendData.school.state
         this.step1Form.sport = this.legendData.school.sport
-        if(window.innerWidth < 1460){
-            this.isSmallScreen = true
+        if(window.innerWidth < 1050){
+            this.mobileScreen = true
         }
     },
     

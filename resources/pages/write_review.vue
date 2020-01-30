@@ -14,18 +14,18 @@
                                         <div class="review-form-item">
                                             <div class="review-form-item-inner">
                                                 <label for="">Find</label>
-                                                <input type="text" placeholder="Coach/School Name">
+                                                <input type="text" v-model="txt" placeholder="Coach/School Name">
                                             </div>
                                         </div>
                                         <div class="review-form-item">
                                             <div class="review-form-item-inner">
                                                 <label for="">Near</label>
-                                                <input type="text" placeholder="Los Angeles, CA">
+                                                <input type="text" v-model="placetxt" placeholder="Los Angeles, CA">
                                             </div>
                                         </div>
                                         <div class="review-form-item">
                                             <div class="review-form-item-inner review-form-item-inner-btn">
-                                                <button class="review-search-icon"> <span ><i class="fas fa-search"></i></span></button>
+                                                <button class="review-search-icon" @click="searchCoach"> <span ><i class="fas fa-search"></i></span></button>
                                             </div>
                                         </div>
                                     </div>
@@ -59,149 +59,24 @@
                         <h2 class="coaches-title">Have you ever played for those coaches?</h2>
                         <div class="row">
                             <!-- Item -->
-                            <div class="col-sm-6">
+                            <div class="col-sm-6" v-for="(item,index) in data.data" :key="index">
                                 <div class="single-coaches">
                                     <div class="row">
                                         <div class="col-sm-4 padding-right-0">
                                            <div class="single-coaches-left">
-                                               <h3 class="single-coaches-left-title">Team Logo Here</h3>
+                                               <h3 class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)">Team Logo Here</h3>
                                            </div> 
                                         </div>
                                         <div class="col-sm-8 padding-left-0">
                                             <div class="single-coaches-right">
-                                               <h4 class="single-coaches-right-title">Coach name - Baseball</h4>
-                                               <p class="single-coaches-right-sub">208 E 8th St</p>
+                                               <h4 class="single-coaches-right-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)">{{item.name}} - {{item.school.sport}}</h4>
+                                               <p class="single-coaches-right-sub">{{item.school.schoolName}}, {{item.school.city}}/{{item.school.state}}</p>
                                                <ul class="review-star-list">
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                               </ul>
-                                           </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Item -->
-                            <div class="col-md-6 col-sm-6">
-                                <div class="single-coaches">
-                                    <div class="row">
-                                        <div class="col-sm-4 padding-right-0">
-                                           <div class="single-coaches-left">
-                                               <h3 class="single-coaches-left-title">Team Logo Here</h3>
-                                           </div> 
-                                        </div>
-                                        <div class="col-sm-8 padding-left-0">
-                                            <div class="single-coaches-right">
-                                               <h4 class="single-coaches-right-title">Coach name</h4>
-                                               <p class="single-coaches-right-sub">208 E 8th St</p>
-                                               <ul class="review-star-list">
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                               </ul>
-                                           </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Item -->
-                            <div class="col-sm-6">
-                                <div class="single-coaches">
-                                    <div class="row">
-                                        <div class="col-sm-4 padding-right-0">
-                                           <div class="single-coaches-left">
-                                               <h3 class="single-coaches-left-title">Team Logo Here</h3>
-                                           </div> 
-                                        </div>
-                                        <div class="col-sm-8 padding-left-0">
-                                            <div class="single-coaches-right">
-                                               <h4 class="single-coaches-right-title">Coach name</h4>
-                                               <p class="single-coaches-right-sub">208 E 8th St</p>
-                                               <ul class="review-star-list">
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                               </ul>
-                                           </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Item -->
-                            <div class="col-sm-6">
-                                <div class="single-coaches">
-                                    <div class="row">
-                                        <div class="col-sm-4 padding-right-0">
-                                           <div class="single-coaches-left">
-                                               <h3 class="single-coaches-left-title">Team Logo Here</h3>
-                                           </div> 
-                                        </div>
-                                        <div class="col-sm-8 padding-left-0">
-                                            <div class="single-coaches-right">
-                                               <h4 class="single-coaches-right-title">Coach name</h4>
-                                               <p class="single-coaches-right-sub">208 E 8th St</p>
-                                               <ul class="review-star-list">
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                               </ul>
-                                           </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Item -->
-                            <div class="col-sm-6">
-                                <div class="single-coaches">
-                                    <div class="row">
-                                        <div class="col-sm-4 padding-right-0">
-                                           <div class="single-coaches-left">
-                                               <h3 class="single-coaches-left-title">Team Logo Here</h3>
-                                           </div> 
-                                        </div>
-                                        <div class="col-sm-8 padding-left-0">
-                                            <div class="single-coaches-right">
-                                               <h4 class="single-coaches-right-title">Coach name</h4>
-                                               <p class="single-coaches-right-sub">208 E 8th St</p>
-                                               <ul class="review-star-list">
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                               </ul>
-                                           </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Item -->
-                            <div class="col-sm-6">
-                                <div class="single-coaches">
-                                    <div class="row">
-                                        <div class="col-sm-4 padding-right-0">
-                                           <div class="single-coaches-left">
-                                               <h3 class="single-coaches-left-title">Team Logo Here</h3>
-                                           </div> 
-                                        </div>
-                                        <div class="col-sm-8 padding-left-0">
-                                            <div class="single-coaches-right">
-                                               <h4 class="single-coaches-right-title">Coach name</h4>
-                                               <p class="single-coaches-right-sub">208 E 8th St</p>
-                                               <ul class="review-star-list">
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
-                                                   <li><span><i class="fas fa-star"></i></span></li>
+                                                   <li :class="(item.avg_rating>0)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
+                                                   <li :class="(item.avg_rating>1)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
+                                                   <li :class="(item.avg_rating>2)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
+                                                   <li :class="(item.avg_rating>3)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
+                                                   <li :class="(item.avg_rating>4)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
                                                </ul>
                                            </div> 
                                         </div>

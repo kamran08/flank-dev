@@ -28,7 +28,7 @@
                                             </tr>
                                             <tr>
                                                 <td><span>City/state:</span></td>
-                                                <td>{{legendData.school.city}} {{legendData.school.state}}</td>
+                                                <td>{{legendData.school.city}} {{legendData.school.state}}</td> 
                                             </tr>
                                             <tr>
                                                 <td><span>Profile views:</span></td>
@@ -194,12 +194,23 @@
                                 </div>
 
                                 <p class="_1health_subtitle">HEALTHY</p>
-
-                                <div class="_1health_numbers" v-if="allTableData.healthSore">
-                                    <p class="_1health_numbers_text"><span>100</span></p>
-                                    <p class="_1health_numbers_text" v-bind:style="{ top: (100-allTableData.healthSore.toFixed(2)  )+'%'}"><span>{{ allTableData.healthSore.toFixed(1)}}</span></p>
-                                    <p class="_1health_numbers_text"><span>00</span></p>
-                                </div>
+                                    <div class="_1health_numbers">
+                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
+                                            <span>100</span>
+                                        </div>
+                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
+                                            <!-- <span>80</span> -->
+                                        </div>
+                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
+                                            <span>50</span>
+                                        </div>
+                                        <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
+                                            <!-- <span>40</span> -->
+                                        </div>
+                                        <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
+                                            <span>00</span>
+                                        </div>
+                                    </div>
 
                                 <p class="_1health_subtitle _1health_subtitle_border">Harmful</p>
 
@@ -214,14 +225,14 @@
                                 </div>
 
                                 <p class="_1health_more">
-                                    <a class="_1health_more_a" href="">LEARN MORE</a>
+                                    <!-- <a class="_1health_more_a" href="">LEARN MORE</a> -->
                                 </p>
                             </div>
-                            <div class="inner-item-review-sec new-box-shadow new-mt-10">
+                            <div class="inner-item-review-sec new-box-shadow new-mt-10" v-if="legendData.topAtrribute">
                                 <div class="inner-item-known-title pad-border" style="padding: 15px 0 10px;">
                                     <h4>Known For</h4>
                                 </div>
-                                <div class="inner-item-known-details" v-if="legendData.topAtrribute" style="padding: 5px 0;" >
+                                <div class="inner-item-known-details"  style="padding: 5px 0;" >
                                     <div class="inner-item-known-item" v-for="(item,index) in legendData.topAtrribute" :key="index" >
                                         <figure>
                                             <img :src="item.info.image" alt="">
@@ -244,12 +255,12 @@
                                         <div class="switch-link-btn no-border switch-link-btn-mob mt-15">
                                             <ul>
                                                 <!-- <li><button>{{legendData.name}}</button></li> -->
-                                                <li><input type="text" placeholder="Search Coach"></li>
-                                                <li><button>Best rated coach</button></li>
+                                                <li><input type="text" v-model="searchCoach" placeholder="Search Coach"></li>
+                                                <li @click="showBestRated = !showBestRated"><button>Best rated coach</button></li>
                                             </ul>
                                         </div>
                                         <div class="switch-coach-sec">
-                                            <div class="switch-coach active" v-for="(item,index) in similarCoaches" :key="index" v-if="item.id != legendData.id">
+                                            <div class="switch-coach active"v-for="(item,index) in searchedSimilarCoach" :key="index" >
                                                 <figure :href="`/school_coach/${item.id}`" > 
                                                     <img src="/images/new-man.gif" alt="">
                                                 </figure>
@@ -1227,6 +1238,7 @@ export default {
     data(){
         return{
             isSmallScreen:false,
+            showBestRated:false,
              drating:{
                 class:'',
                 text:'Select your rating',
@@ -1358,14 +1370,75 @@ export default {
             },
             embeded_id:16,
             embededText:'',
+            searchCoach:'',
+            metaContent:'',
        
         }
     },
     head () {
-    return {
-      title: this.title,
-    }
-  },
+        return {
+        title: this.title,
+        meta: [
+                {
+                    charset: 'utf-8'
+                },
+                {
+                    name: 'viewport',
+                    content: 'width=device-width, initial-scale=1'
+                },
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: this.metaContent
+                },
+                {
+                    property: 'og:image',
+                    content: '/images/flank-1.png',
+                },
+                {
+                    property: 'og:image:type',
+                    content: 'image/png',
+                },
+                {
+                    property: 'og:image:width',
+                    content: '1024',
+                },
+                {
+                    name: 'twitter:title',
+                    content: this.title,
+                },
+                {
+                    name: 'twitter:url',
+                    content: '/images/flank-1.png',
+                },
+                {
+                    name: 'twitter:description',
+                    content: this.metaContent
+                },
+            ],
+        }
+    },
+    computed:{
+        searchedSimilarCoach(){
+            if(!this.showBestRated){
+                return this.similarCoaches.filter((data)=>{                    
+                    return data.name.toUpperCase().match(this.searchCoach.toUpperCase()) && data.id != this.legendData.id ;}
+                );
+            }
+            else{
+                let best_rated = [];
+                if(this.similarCoaches.length>0){
+                    best_rated.push(this.similarCoaches[0]);
+                    for(let d of this.similarCoaches){
+                        if(d.avg_rating> best_rated[0].avg_rating) best_rated[0] = d
+                    }
+                }
+                
+                return best_rated;
+            }
+            
+        }
+    },
     methods:{
          copyToClipBoard(){
            this.$clipboard(this.embededText);
@@ -1790,7 +1863,8 @@ export default {
           
             return{
                 legendData : data.School,
-                title : data.School.name+' Coach',
+                title : 'Coach '+data.School.name,
+                metaContent: data.School.school.schoolName+' in '+data.School.school.city+' , '+data.School.school.state,
                 school_id : data.School.school_id,
                 totalReview : data.School.__meta__.allreview_count,
                 averageRating : (data.School.avgRating)? data.School.avgRating.averageRating : 0 , 
@@ -1810,7 +1884,7 @@ export default {
             this.callApi('get', `/app/getAdditionCoachInfo/${this.$route.params.id}`),  
             this.callApi('get', `/reviews/${this.$route.params.id}?type=school`),
             this.callApi('get', `/app/getCoachTopReviews/${this.$route.params.id}?type=school`),
-            this.callApi('get', `/app/getSimilarCoach/${this.school_id}`), 
+            this.callApi('get', `/app/getSimilarCoach/${this.school_id}/${this.$route.params.id}`), 
         ])
         if( res2.status===200 && res4.status === 200){
             

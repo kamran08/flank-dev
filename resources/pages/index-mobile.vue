@@ -154,10 +154,10 @@
                                     </div>
                                     <div class="new-auth-bx">
                                         <div class="new-auth-bx-in">
-                                            <a href="#">
+                                            <nuxt-link to="/login">
                                                 <button>Sign in</button>
-                                            </a>
-                                            <p><a href="">Create an Account</a></p>
+                                            </nuxt-link>
+                                            <p><nuxt-link to="/signup">Create an Account</nuxt-link></p>
                                         </div>
                                     </div>
                                 </div>
@@ -530,10 +530,10 @@
                                         <p style="font-size: 15px;">
                                             <!-- {{review_of_day.bestReview.content}} -->
                                             I was incredibly skeptical of Vespertine. And why wouldn't you be? Jordan Kahn is the
-Elon Musk of the fine dining world, and it's the equivalent of paying a lot of money
-for something that Musk thought up - it could very well be brilliant, because he's
-clearly off on his own planet with everything he's doing,or it could be a disaster and
-you wont know until you give it a go... <a href="#" style="color: #8AB4E6 !important;font-weight: 400;">Continue reading</a>
+                                            Elon Musk of the fine dining world, and it's the equivalent of paying a lot of money
+                                            for something that Musk thought up - it could very well be brilliant, because he's
+                                            clearly off on his own planet with everything he's doing,or it could be a disaster and
+                                            you wont know until you give it a go... <a href="#" style="color: #8AB4E6 !important;font-weight: 400;">Continue reading</a>
 
                                         </p>
                                     </div>
@@ -804,25 +804,7 @@ you wont know until you give it a go... <a href="#" style="color: #8AB4E6 !impor
                 </div>
             </div>
         </div>
-        <!-- <footer class="new-footer">
-            <div class="new-footer-top"></div>
-        </footer> -->
-        <Modal title="Details" v-model="toolTipModal" >
-            <div class="tooltip-box" >
-                <p v-html="toolTipText" ></p>
-            </div>
-        </Modal>
-        <Modal  v-model="isVideo.modal" :mask-closable='true'  :footer-hide='true' >
-            <div slot="header">
-                <h3 v-html="isVideo.header"></h3>
-            </div>
-            <div slot="close">
-                 <span style="font-size: 20px;color: #a8a8a8dd;" @click="closeVideo" ><i class="fas fa-times"></i></span>
-            </div>
-            <div  >
-                <p v-html="isVideo.link" ></p>
-            </div>
-        </Modal>
+
     </div>
 </template>
 <script>

@@ -8,6 +8,7 @@ const School = use('App/Models/School')
 const SchoolCoach = use('App/Models/SchoolCoach')
 const Product = use('App/Models/Product')
 const Place = use('App/Models/Place')
+const Sport = use('App/Models/Sport')
 const Database = use('Database')
 var _ = require('lodash')
 
@@ -308,9 +309,7 @@ class SearchController {
   }
   async getAllSports ({ request }) {
     const data = request.all()
-    return await School.query()
-      .select(Database.raw('DISTINCT  sport'))
-      .fetch()
+    return await Sport.all()
   }
 }
 

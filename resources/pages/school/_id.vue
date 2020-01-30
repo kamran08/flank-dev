@@ -152,7 +152,7 @@
                         <div class="new-inner-item-2">
                             <div :class="(!isSmallScreen)? 'col-md-6 col-sm-6' : 'col-md-8 col-sm-8'">
                                 <!-- new flank -->
-                                <div class="inner-item-review-sec mt-20">
+                                <div class="inner-item-review-sec mt-20" v-if="topReviews.length>0">
                                     <div class="left-linear-border">
 
                                     </div>
@@ -695,13 +695,13 @@
                                                     <input disabled type="text" v-model="step1Form.state">
                                                 </div>
                                                 <div class="build-input">
-                                                    <label for="">Sport </label>
+                                                    <label for="">Sport <span class="required">*</span> </label>
                                                     <input disabled type="text" v-model="step1Form.sport">
                                                     
                                                 </div>
                                             </form>
                                             <div class="build-redirect">
-                                                <p>Information submitted on this site is subject to the <a href="#">Privacy Policy.</a></p>
+                                                <p>Information submitted on this site is subject to the <nuxt-link to="/policy">Privacy Policy.</nuxt-link></p>
                                             </div>
                                         </div>
                                     </div>
