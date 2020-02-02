@@ -285,44 +285,37 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="inner-scandal-video">
+                                        <div class="inner-scandal-video" v-if="videos.length>0">
                                             <div class="logo-title">
                                                 <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                             </div>
                                             <div class="row plus-row">
-                                                
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="inner-scandal-video-item">
-                                                        <figure @click="openVideo(1)">
-                                                            <img src="/newFile/1.png" alt="">
-                                                            <!-- <div class="play-caption">
-                                                                <span><i class="fas fa-play"></i></span>
+                                                  <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                                    <slide v-for="(item,index) in videos" :key="index">
+                                                        <div class="col-md-3 col-sm-6"  >
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openDynamicVideo(item)">
+                                                                    <img :src="item.img" alt="">
+                                                            
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>{{item.title}}</p>
+                                                                </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
+                                                                </div>
                                                             </div>
-                                                            <div class="video-duration">
-                                                                <p class="duration"><span>2:17</span></p>
-                                                            </div> -->
-                                                        </figure>
-                                                        <div class="scandal-video-caption">
-                                                            <p>Out of control Coache's abusive behavior caught on tape.</p>
                                                         </div>
-                                                        <div class="video-logo">
-                                                            <img src="/image/flank.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-6">
+                                                    </slide>
+                                                    <hooper-navigation slot="hooper-addons"></hooper-navigation>
+                                                </hooper>
+                                                
+                                                <!-- <div class="col-md-3 col-sm-6">
                                                     <div class="inner-scandal-video-item">
-                                                        <!-- <div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> -->
+                                                     
                                                         <figure @click="openVideo(2)">
                                                             <img src="/newFile/2.png" alt="">
-                                                            <!-- <div class="play-caption">
-                                                                <span><i class="fas fa-play"></i></span>
-                                                            </div>
-                                                            <div class="video-duration">
-                                                                <p class="duration"><span>2:17</span></p>
-                                                            </div> -->
+                                                          
                                                         </figure>
                                                         <div class="scandal-video-caption">
                                                             <p>Rutgers coach fired for abuse of players.</p>
@@ -334,17 +327,10 @@
                                                 </div>
                                                 <div class="col-md-3 col-sm-6">
                                                     <div class="inner-scandal-video-item">
-                                                        <!-- <div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> -->
+                                                      
                                                         <figure @click="openVideo(4)">
                                                             <img src="/newFile/4.png" alt="">
-                                                            <!-- <div class="play-caption">
-                                                                <span><i class="fas fa-play"></i></span>
-                                                            </div>
-                                                            <div class="video-duration">
-                                                                <p class="duration"><span>2:17</span></p>
-                                                            </div> -->
+                                                       
                                                         </figure>
                                                         <div class="scandal-video-caption">
                                                             <p>The abuse of child atheletes by their coaches. </p>
@@ -353,7 +339,7 @@
                                                             <img src="/images/flank.png" alt="">
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <!-- <div class="col-md-3 col-sm-6">
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(3)">
@@ -377,17 +363,120 @@
                                                 <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                             </div>
                                             <div class="row plus-row">
-                                                
-                                                <div class="col-md-3 col-sm-6">
+                                                 <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                                    <slide>
+                                                        <div class="col-md-3 col-sm-3">
+                                                                <div class="inner-scandal-video-item">
+                                                                    <figure @click="openVideo(1)">
+                                                                        <img src="/newFile/1.png" alt="">
+                                                                        <!-- <div class="play-caption">
+                                                                            <span><i class="fas fa-play"></i></span>
+                                                                        </div>
+                                                                        <div class="video-duration">
+                                                                            <p class="duration"><span>2:17</span></p>
+                                                                        </div> -->
+                                                                    </figure>
+                                                                    <div class="scandal-video-caption">
+                                                                        <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                    </div>
+                                                                    <div class="video-logo">
+                                                                        <img src="/image/flank.png" alt="">
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </slide>
+                                                    <slide>
+                                                        <div class="col-md-3 col-sm-3">
+                                                                <div class="inner-scandal-video-item">
+                                                                    <figure @click="openVideo(1)">
+                                                                        <img src="/newFile/1.png" alt="">
+                                                                        <!-- <div class="play-caption">
+                                                                            <span><i class="fas fa-play"></i></span>
+                                                                        </div>
+                                                                        <div class="video-duration">
+                                                                            <p class="duration"><span>2:17</span></p>
+                                                                        </div> -->
+                                                                    </figure>
+                                                                    <div class="scandal-video-caption">
+                                                                        <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                    </div>
+                                                                    <div class="video-logo">
+                                                                        <img src="/image/flank.png" alt="">
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </slide>
+                                                    <slide>
+                                                        <div class="col-md-3 col-sm-3">
+                                                                <div class="inner-scandal-video-item">
+                                                                    <figure @click="openVideo(1)">
+                                                                        <img src="/newFile/1.png" alt="">
+                                                                        <!-- <div class="play-caption">
+                                                                            <span><i class="fas fa-play"></i></span>
+                                                                        </div>
+                                                                        <div class="video-duration">
+                                                                            <p class="duration"><span>2:17</span></p>
+                                                                        </div> -->
+                                                                    </figure>
+                                                                    <div class="scandal-video-caption">
+                                                                        <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                    </div>
+                                                                    <div class="video-logo">
+                                                                        <img src="/image/flank.png" alt="">
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </slide>
+                                                    <slide>
+                                                        <div class="col-md-3 col-sm-3">
+                                                                <div class="inner-scandal-video-item">
+                                                                    <figure @click="openVideo(1)">
+                                                                        <img src="/newFile/1.png" alt="">
+                                                                        <!-- <div class="play-caption">
+                                                                            <span><i class="fas fa-play"></i></span>
+                                                                        </div>
+                                                                        <div class="video-duration">
+                                                                            <p class="duration"><span>2:17</span></p>
+                                                                        </div> -->
+                                                                    </figure>
+                                                                    <div class="scandal-video-caption">
+                                                                        <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                    </div>
+                                                                    <div class="video-logo">
+                                                                        <img src="/image/flank.png" alt="">
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </slide>
+                                                    <slide>
+                                                        <div class="col-md-3 col-sm-3">
+                                                                <div class="inner-scandal-video-item">
+                                                                    <figure @click="openVideo(1)">
+                                                                        <img src="/newFile/1.png" alt="">
+                                                                        <!-- <div class="play-caption">
+                                                                            <span><i class="fas fa-play"></i></span>
+                                                                        </div>
+                                                                        <div class="video-duration">
+                                                                            <p class="duration"><span>2:17</span></p>
+                                                                        </div> -->
+                                                                    </figure>
+                                                                    <div class="scandal-video-caption">
+                                                                        <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                    </div>
+                                                                    <div class="video-logo">
+                                                                        <img src="/image/flank.png" alt="">
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                                                    </slide>
+                                                    <hooper-navigation slot="hooper-addons"></hooper-navigation>
+
+                                                </hooper>
+                                                <!-- <div class="col-md-3 col-sm-6">
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(1)">
                                                             <img src="/newFile/1.png" alt="">
-                                                            <!-- <div class="play-caption">
-                                                                <span><i class="fas fa-play"></i></span>
-                                                            </div>
-                                                            <div class="video-duration">
-                                                                <p class="duration"><span>2:17</span></p>
-                                                            </div> -->
+                                                          
                                                         </figure>
                                                         <div class="scandal-video-caption">
                                                             <div class="scandal-latest-coach">
@@ -407,17 +496,10 @@
                                                 </div>
                                                 <div class="col-md-3 col-sm-6">
                                                     <div class="inner-scandal-video-item">
-                                                        <!-- <div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> -->
+                                                      
                                                         <figure @click="openVideo(2)">
                                                             <img src="/newFile/2.png" alt="">
-                                                            <!-- <div class="play-caption">
-                                                                <span><i class="fas fa-play"></i></span>
-                                                            </div>
-                                                            <div class="video-duration">
-                                                                <p class="duration"><span>2:17</span></p>
-                                                            </div> -->
+                                                         
                                                         </figure>
                                                         <div class="scandal-video-caption">
                                                             <p>Rutgers coach fired for abuse of players.</p>
@@ -429,17 +511,10 @@
                                                 </div>
                                                 <div class="col-md-3 col-sm-6">
                                                     <div class="inner-scandal-video-item">
-                                                        <!-- <div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> -->
+                                                   
                                                         <figure @click="openVideo(4)">
                                                             <img src="/newFile/4.png" alt="">
-                                                            <!-- <div class="play-caption">
-                                                                <span><i class="fas fa-play"></i></span>
-                                                            </div>
-                                                            <div class="video-duration">
-                                                                <p class="duration"><span>2:17</span></p>
-                                                            </div> -->
+                                                         
                                                         </figure>
                                                         <div class="scandal-video-caption">
                                                             <p>The abuse of child atheletes by their coaches. </p>
@@ -448,7 +523,7 @@
                                                             <img src="/images/flank.png" alt="">
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <!-- <div class="col-md-3 col-sm-6">
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(3)">
@@ -565,54 +640,61 @@
                                             </div>
                                             <div class="drop-content mt-10">
                                                 <div class="row plus-row">
-                                                    <div class="drop-item"  v-for="(item,index) in recentReview " :key="index" v-if="index<showMoreActivity">
-                                                        <div class="drop-item-inner">
-                                                            <div class="linear-border"></div>
-                                                            <div class="drop-item-title">
-                                                                <figure>
-                                                                    <!-- <img :src="item.reviwer.img"  alt=""> -->
-                                                                    <img src="/images/ms.jpg" alt="">
-                                                                </figure>
-                                                                <div class="drop-title-caption">
-                                                                    <h3 style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"  >{{item.reviwer | trimSecondLater}}</h3>
-                                                                    <p>Wrote a Review</p>
+                                                     <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                                        <slide v-for="(item,index) in recentReview " :key="index" v-if="index<showMoreActivity">
+                                                            <div class="drop-item"  >
+                                                                <div class="drop-item-inner">
+                                                                    <div class="linear-border"></div>
+                                                                    <div class="drop-item-title">
+                                                                        <figure>
+                                                                            <!-- <img :src="item.reviwer.img"  alt=""> -->
+                                                                            <img src="/images/ms.jpg" alt="">
+                                                                        </figure>
+                                                                        <div class="drop-title-caption">
+                                                                            <h3 style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"  >{{item.reviwer | trimSecondLater}}</h3>
+                                                                            <p>Wrote a Review</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="drop-inner">
+                                                                        <div class="drop-inner-figure">
+                                                                            <figure>
+                                                                                <img src="/images/cmnt1.png" alt="">
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div class="drop-inner-cap">
+                                                                            <div class="drop-inner-coach">
+                                                                                <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'school' && item.coach" >Coach {{item.coach.name}}</h4>
+                                                                                <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'legend'">Coach {{item.legend.name}}</h4>
+                                                                            </div>
+                                                                            <div class="review-star small-review-star">
+                                                                                <ul>
+                                                                                    <li  :class="(item.rating>0)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
+                                                                                    <li :class="(item.rating>1)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
+                                                                                    <li :class="(item.rating>2)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
+                                                                                    <li :class="(item.rating>3)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
+                                                                                    <li :class="(item.rating>4)? '' : 'star-half'"  ><span><i class="fas fa-star"></i></span></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="drop-inner-coach-txt">
+                                                                                <p>{{item.content}}</p>
+                                                                                <a @click="directToCoachWall(item)" >Continue reading</a> 
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="drop-bottom-icon small-drop-bottom-icon">
+                                                                            <ul>
+                                                                                <li><img src="/images/ic1.png" alt=""><span>{{item.official}}</span></li>
+                                                                                <li><img src="/images/ic2.png" alt=""><span>{{item.bravery}}</span></li>
+                                                                                <li><img src="/images/ic3.png" alt=""><span>{{item.distinguished}}</span></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="drop-inner">
-                                                                <div class="drop-inner-figure">
-                                                                    <figure>
-                                                                        <img src="/images/cmnt1.png" alt="">
-                                                                    </figure>
-                                                                </div>
-                                                                <div class="drop-inner-cap">
-                                                                    <div class="drop-inner-coach">
-                                                                        <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'school' && item.coach" >Coach {{item.coach.name}}</h4>
-                                                                        <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'legend'">Coach {{item.legend.name}}</h4>
-                                                                    </div>
-                                                                    <div class="review-star small-review-star">
-                                                                        <ul>
-                                                                            <li  :class="(item.rating>0)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
-                                                                            <li :class="(item.rating>1)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
-                                                                            <li :class="(item.rating>2)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
-                                                                            <li :class="(item.rating>3)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
-                                                                            <li :class="(item.rating>4)? '' : 'star-half'"  ><span><i class="fas fa-star"></i></span></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div class="drop-inner-coach-txt">
-                                                                        <p>{{item.content}}</p>
-                                                                        <a @click="directToCoachWall(item)" >Continue reading</a> 
-                                                                    </div>
-                                                                </div>
-                                                                <div class="drop-bottom-icon small-drop-bottom-icon">
-                                                                    <ul>
-                                                                        <li><img src="/images/ic1.png" alt=""><span>{{item.official}}</span></li>
-                                                                        <li><img src="/images/ic2.png" alt=""><span>{{item.bravery}}</span></li>
-                                                                        <li><img src="/images/ic3.png" alt=""><span>{{item.distinguished}}</span></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        </slide>
+                                                        
+                                                        <hooper-navigation slot="hooper-addons"></hooper-navigation>
+
+                                                    </hooper>
                                                 </div>
                                                 <div class="row">
                                                     <div class="drop-item" style="margin-top: 10px">
@@ -796,17 +878,17 @@
                                         </div> -->
                                 </div>
                             </div>
-                            <div class="new-inner-item-1" >
-                                <div class="col-md-3 col-sm-3">
+                            <div class="new-inner-item-1"  >
+                                <div class="col-md-3 col-sm-3" v-if="topHeadlines.length>0">
                                     <div class="headline-link-content">
                                         <h4 class="pad-border">Top headlines</h4>
                                         <ul>
-                                            <li>
+                                            <li v-for="(item,index) in topHeadlines" :key="index">
                                                 <a href="#">
-                                                Example Test of Headline - Example 1
+                                                {{item.title}}
                                                 </a>
                                             </li>
-                                            <li>
+                                            <!--<li>
                                                 <a href="#">
                                                 Example Test of Headline - Example 1
                                                 </a>
@@ -836,7 +918,7 @@
                                                 <img src="/images/flan.png" alt="">
                                                 Example Test of Headline
                                                 </a>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                     </div>
                                     <div class="flank-banner ">
@@ -1065,9 +1147,24 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="mob-new-slider">
                                     <div class="mob-slider-box">
-                                        <figure>
-                                            <img src="/images/mob-header-slider.png" alt="">
-                                        </figure>
+                                        <hooper :settings="hooperSettings" >
+                                            <slide>
+                                                <figure>
+                                                    <img src="/images/mob-header-slider.png" alt="">
+                                                </figure>
+                                            </slide>
+                                            <slide>
+                                                <figure>
+                                                    <img src="/images/mob-header-slider.png" alt="">
+                                                </figure>
+                                            </slide>
+                                            <slide>
+                                                <figure>
+                                                    <img src="/images/mob-header-slider.png" alt="">
+                                                </figure>
+                                            </slide>
+                                            <hooper-pagination slot="hooper-addons"></hooper-pagination>
+                                        </hooper>
                                     </div>
                                 </div>
                                 <div class="vertising-opportunity-sec mobile-signup-sec new-box-shadow">
@@ -1155,36 +1252,12 @@
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                         </div>
                                         <div class="row plus-row">
-                                            <hooper>
+                                            <hooper :itemsToShow="3" :infiniteScroll="true" >
                                                 <slide>
-                                                    <div class="col-md-3 col-sm-6">
-                                                        <div class="inner-scandal-video-item">
-                                                            <figure @click="openVideo(1)">
-                                                                <img src="/newFile/1.png" alt="">
-                                                                <!-- <div class="play-caption">
-                                                                    <span><i class="fas fa-play"></i></span>
-                                                                </div>
-                                                                <div class="video-duration">
-                                                                    <p class="duration"><span>2:17</span></p>
-                                                                </div> -->
-                                                            </figure>
-                                                            <div class="scandal-video-caption">
-                                                                <p>Out of control Coache's abusive behavior caught on tape.</p>
-                                                            </div>
-                                                            <div class="video-logo">
-                                                                <img src="/image/flank.png" alt="">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </slide>
-                                                <slide>
-                                                        <div class="col-md-3 col-sm-6">
+                                                    <div class="col-md-3 col-sm-3">
                                                             <div class="inner-scandal-video-item">
-                                                                <!-- <div class="inner-video-iframe">
-                                                                    <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                                    </div> -->
-                                                                <figure @click="openVideo(2)">
-                                                                    <img src="/newFile/2.png" alt="">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
                                                                     <!-- <div class="play-caption">
                                                                         <span><i class="fas fa-play"></i></span>
                                                                     </div>
@@ -1193,39 +1266,102 @@
                                                                     </div> -->
                                                                 </figure>
                                                                 <div class="scandal-video-caption">
-                                                                    <p>Rutgers coach fired for abuse of players.</p>
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
                                                                 </div>
                                                                 <div class="video-logo">
-                                                                    <img src="/images/flank.png" alt="">
+                                                                    <img src="/image/flank.png" alt="">
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                </slide>
-                                                <slide>
-                                                    <div class="col-md-3 col-sm-6">
-                                                        <div class="inner-scandal-video-item">
-                                                            <!-- <div class="inner-video-iframe">
-                                                                <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                                </div> -->
-                                                            <figure @click="openVideo(4)">
-                                                                <img src="/newFile/4.png" alt="">
-                                                                <!-- <div class="play-caption">
-                                                                    <span><i class="fas fa-play"></i></span>
-                                                                </div>
-                                                                <div class="video-duration">
-                                                                    <p class="duration"><span>2:17</span></p>
-                                                                </div> -->
-                                                            </figure>
-                                                            <div class="scandal-video-caption">
-                                                                <p>The abuse of child atheletes by their coaches. </p>
-                                                            </div>
-                                                            <div class="video-logo">
-                                                                <img src="/images/flank.png" alt="">
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </slide>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-3">
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </slide>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-3">
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </slide>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-3">
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </slide>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-3">
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </slide>
+                                                <hooper-navigation slot="hooper-addons"></hooper-navigation>
+
                                             </hooper>
+                                            
                                            
                                             
                                             <!-- <div class="col-md-3 col-sm-6">
@@ -1327,94 +1463,114 @@
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                         </div>
                                         <div class="row plus-row">
-                                            <hooper>
+                                            <hooper :itemsToShow="3" :infiniteScroll="true" >
                                                 <slide>
-                                                    <div class="col-md-3 col-sm-6">
-                                                        <div class="inner-scandal-video-item">
-                                                            <figure @click="openVideo(1)">
-                                                                <img src="/newFile/1.png" alt="">
-                                                                <!-- <div class="play-caption">
-                                                                    <span><i class="fas fa-play"></i></span>
+                                                    <div class="col-md-3 col-sm-3">
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
                                                                 </div>
-                                                                <div class="video-duration">
-                                                                    <p class="duration"><span>2:17</span></p>
-                                                                </div> -->
-                                                            </figure>
-                                                            <div class="scandal-video-caption">
-                                                                <div class="scandal-latest-coach">
-                                                                    <div class="new-coach">
-                                                                        <h3 class="new-red">Coach Name</h3>
-                                                                        <p>School Name</p>
-                                                                    </div>
-                                                                    <div class="new-coach-des">
-                                                                        <p>Lorem ipsum dolor sit amet</p>
-                                                                    </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="video-logo">
-                                                                <img src="/image/flank.png" alt="">
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </slide>
                                                 <slide>
-                                                    <div class="col-md-3 col-sm-6">
-                                                        <div class="inner-scandal-video-item">
-                                                            <figure @click="openVideo(1)">
-                                                                <img src="/newFile/2.png" alt="">
-                                                                <!-- <div class="play-caption">
-                                                                    <span><i class="fas fa-play"></i></span>
+                                                    <div class="col-md-3 col-sm-3">
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
                                                                 </div>
-                                                                <div class="video-duration">
-                                                                    <p class="duration"><span>2:17</span></p>
-                                                                </div> -->
-                                                            </figure>
-                                                            <div class="scandal-video-caption">
-                                                                <div class="scandal-latest-coach">
-                                                                    <div class="new-coach">
-                                                                        <h3 class="new-red">Coach Name</h3>
-                                                                        <p>School Name</p>
-                                                                    </div>
-                                                                    <div class="new-coach-des">
-                                                                        <p>Lorem ipsum dolor sit amet</p>
-                                                                    </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="video-logo">
-                                                                <img src="/image/flank.png" alt="">
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </slide>
                                                 <slide>
-                                                    <div class="col-md-3 col-sm-6">
-                                                        <div class="inner-scandal-video-item">
-                                                            <figure @click="openVideo(1)">
-                                                                <img src="/newFile/3.png" alt="">
-                                                                <!-- <div class="play-caption">
-                                                                    <span><i class="fas fa-play"></i></span>
+                                                    <div class="col-md-3 col-sm-3">
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
                                                                 </div>
-                                                                <div class="video-duration">
-                                                                    <p class="duration"><span>2:17</span></p>
-                                                                </div> -->
-                                                            </figure>
-                                                            <div class="scandal-video-caption">
-                                                                <div class="scandal-latest-coach">
-                                                                    <div class="new-coach">
-                                                                        <h3 class="new-red">Coach Name</h3>
-                                                                        <p>School Name</p>
-                                                                    </div>
-                                                                    <div class="new-coach-des">
-                                                                        <p>Lorem ipsum dolor sit amet</p>
-                                                                    </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="video-logo">
-                                                                <img src="/image/flank.png" alt="">
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </slide>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-3">
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </slide>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-3">
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openVideo(1)">
+                                                                    <img src="/newFile/1.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                                </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                    </div>
+                                                </slide>
+                                                <hooper-navigation slot="hooper-addons"></hooper-navigation>
+
                                             </hooper>
                                             
                                             
@@ -1521,54 +1677,62 @@
                                         </div>
                                         <div class="drop-content mt-10">
                                             <div class="row plus-row">
-                                                <div class="drop-item"  v-for="(item,index) in recentReview " :key="index" v-if="index<showMoreActivity">
-                                                    <div class="drop-item-inner">
-                                                        <div class="linear-border"></div>
-                                                        <div class="drop-item-title">
-                                                            <figure>
-                                                                <!-- <img :src="item.reviwer.img"  alt=""> -->
-                                                                <img src="/images/ms.jpg" alt="">
-                                                            </figure>
-                                                            <div class="drop-title-caption">
-                                                                <h3 style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"  >{{item.reviwer | trimSecondLater}}</h3>
-                                                                <p>Wrote a Review</p>
+                                                 <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                                    <slide v-for="(item,index) in recentReview " :key="index" v-if="index<showMoreActivity">
+                                                        <div class="drop-item"  >
+                                                            <div class="drop-item-inner">
+                                                                <div class="linear-border"></div>
+                                                                <div class="drop-item-title">
+                                                                    <figure>
+                                                                        <!-- <img :src="item.reviwer.img"  alt=""> -->
+                                                                        <img src="/images/ms.jpg" alt="">
+                                                                    </figure>
+                                                                    <div class="drop-title-caption">
+                                                                        <h3 style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"  >{{item.reviwer | trimSecondLater}}</h3>
+                                                                        <p>Wrote a Review</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="drop-inner">
+                                                                    <div class="drop-inner-figure">
+                                                                        <figure>
+                                                                            <img src="/images/cmnt1.png" alt="">
+                                                                        </figure>
+                                                                    </div>
+                                                                    <div class="drop-inner-cap">
+                                                                        <div class="drop-inner-coach">
+                                                                            <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'school' && item.coach" >Coach {{item.coach.name}}</h4>
+                                                                            <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'legend'">Coach {{item.legend.name}}</h4>
+                                                                        </div>
+                                                                        <div class="review-star small-review-star">
+                                                                            <ul>
+                                                                                <li  :class="(item.rating>0)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
+                                                                                <li :class="(item.rating>1)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
+                                                                                <li :class="(item.rating>2)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
+                                                                                <li :class="(item.rating>3)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
+                                                                                <li :class="(item.rating>4)? '' : 'star-half'"  ><span><i class="fas fa-star"></i></span></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                        <div class="drop-inner-coach-txt">
+                                                                            <p>{{item.content}}</p>
+                                                                            <a @click="directToCoachWall(item)" >Continue reading</a> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="drop-bottom-icon small-drop-bottom-icon">
+                                                                        <ul>
+                                                                            <li><img src="/images/ic1.png" alt=""><span>{{item.official}}</span></li>
+                                                                            <li><img src="/images/ic2.png" alt=""><span>{{item.bravery}}</span></li>
+                                                                            <li><img src="/images/ic3.png" alt=""><span>{{item.distinguished}}</span></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="drop-inner">
-                                                            <div class="drop-inner-figure">
-                                                                <figure>
-                                                                    <img src="/images/cmnt1.png" alt="">
-                                                                </figure>
-                                                            </div>
-                                                            <div class="drop-inner-cap">
-                                                                <div class="drop-inner-coach">
-                                                                    <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'school' && item.coach" >Coach {{item.coach.name}}</h4>
-                                                                    <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'legend'">Coach {{item.legend.name}}</h4>
-                                                                </div>
-                                                                <div class="review-star small-review-star">
-                                                                    <ul>
-                                                                        <li  :class="(item.rating>0)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
-                                                                        <li :class="(item.rating>1)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
-                                                                        <li :class="(item.rating>2)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
-                                                                        <li :class="(item.rating>3)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
-                                                                        <li :class="(item.rating>4)? '' : 'star-half'"  ><span><i class="fas fa-star"></i></span></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="drop-inner-coach-txt">
-                                                                    <p>{{item.content}}</p>
-                                                                    <a @click="directToCoachWall(item)" >Continue reading</a> 
-                                                                </div>
-                                                            </div>
-                                                            <div class="drop-bottom-icon small-drop-bottom-icon">
-                                                                <ul>
-                                                                    <li><img src="/images/ic1.png" alt=""><span>{{item.official}}</span></li>
-                                                                    <li><img src="/images/ic2.png" alt=""><span>{{item.bravery}}</span></li>
-                                                                    <li><img src="/images/ic3.png" alt=""><span>{{item.distinguished}}</span></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    </slide>
+                                                    
+                                                    <hooper-navigation slot="hooper-addons"></hooper-navigation>
+
+                                                </hooper>
+                                               
                                             </div>
                                             <div class="row plus-row">
                                                 <div class="drop-item" style="margin-top: 15px">
@@ -1767,11 +1931,13 @@
     </div>
 </template>
 <script>
-import { Hooper, Slide } from 'hooper';
+import { Hooper, Slide ,Pagination as HooperPagination ,Navigation as HooperNavigation} from 'hooper';
 export default {
     components: {
       Hooper,
-      Slide
+      Slide,
+      HooperPagination,
+      HooperNavigation,
     },
   data() {
     return {
@@ -1796,6 +1962,8 @@ export default {
       },
      
       coachList: [],
+      topHeadlines: [],
+      videos: [],
       schoolList: [],
       schoolCoachList: [],
       productList: [],
@@ -1817,6 +1985,16 @@ export default {
         flankDaily:{
             email:''
         },
+        hooperSettings: {
+            // infiniteScroll: true,
+            // centerMode: true
+        },
+        latesthooperSettings: {
+            infiniteScroll: true,
+            // centerMode: true,
+            // itemsToShow:3,
+            
+        }
     };
   },
   
@@ -1876,6 +2054,10 @@ export default {
                                                         </div> `
             this.isVideo.header = `The abuse of child atheletes by their coaches.`
         }
+        this.isVideo.modal= true
+    },
+    openDynamicVideo(item){
+        this.isVideo.link = `<div class="inner-video-iframe">${item.body}</div> `
         this.isVideo.modal= true
     },
     closeVideo(){
@@ -2058,16 +2240,20 @@ export default {
   async created() {
 
     if(this.$route.query.login == 'success') this.i("Login Successful !")
-    const [ res2, res3] = await Promise.all([
+    const [ res2, res3,res4,res5] = await Promise.all([
     //  this.callApi("get", `/app/getSchoolcoaches`),
       this.callApi("get", `/app/reviewOfTheDay`),
      // this.callApi("get", `/app/recentCitys`),
-      this.callApi("get", `/app/getRecentReview`)
+      this.callApi("get", `/app/getRecentReview`),
+      this.callApi("get", `/app/topHeadline`),
+      this.callApi("get", `/app/videos`),
     ]);
-    if (res3.status === 200 && res2.status == 200) { 
+    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200) { 
     //  this.schoolCoaches = res1.data;
       this.review_of_day = res2.data;
       this.recentReview = res3.data;
+      this.topHeadlines = res4.data;
+      this.videos = res5.data;
      // this.allCity = res4.data;
       // this.review_of_day.bestReview = res2.data.bestReview
       this.loading = false;

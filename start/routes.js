@@ -137,8 +137,9 @@ Route.get('/authenticated/google', 'SocialLoginController.googleCallback')
 Route.post('/app/legendschedule','LegendController.storeLegendSchedule')
 Route.get('/app/legendbussinessinfo/:id','LegendController.showLegendBussniessInfo')
 
-
-
+// Top Headline
+Route.get('/app/topHeadline','HomeController.showTopHeadline')
+Route.get('/app/videos','HomeController.showVideos')
 
 
 

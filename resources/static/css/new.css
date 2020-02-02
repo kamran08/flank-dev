@@ -1709,7 +1709,7 @@ border: 1px solid #dc4f4f;
     }
 }
 
-.hooper {
+ .hooper {
     width: 100%;
 }
 
@@ -1720,7 +1720,123 @@ border: 1px solid #dc4f4f;
     transform: translate(0px, 0px);
 }
 
-li.hooper-slide {
+ li.hooper-slide {
     flex: 1;
     list-style: none;
+} 
+
+.new-hop li.hooper-slide {
+    flex: 0 0 33.33% !important;
+    width: 33.33%;
+}
+
+.mob-slider-box li.hooper-slide {
+    flex: 0 0 100%;
+    list-style: none;
+    width: 100% !important;
+}
+
+.mob-slider-box .hooper-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.mob-slider-box .hooper-indicators {
+    display: flex;
+    flex-flow: row;
+}
+
+.mob-slider-box .hooper-indicators li {
+    margin: 0 4px;
+}
+
+.mob-slider-box button.hooper-indicator {
+    width: 10px !important;
+    height: 10px;
+    border: 1px solid #000;
+    background: #61625f;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.mob-slider-box button.hooper-indicator.is-active {
+    border: 1px solid #fff;
+    background: #fff;
+}
+
+.mob-slider-box span.hooper-sr-only {
+    display: none;
+}
+
+.mob-slider-box .hooper-list {
+    position: relative;
+}
+
+.hooper-liveregion.hooper-sr-only {
+    display: none;
+}
+
+.inner-scandal-video .hooper-track {
+    
+}
+
+.inner-scandal-video .hooper-track .hooper-slide {
+    flex: 0 0 33.33%;
+    width: 33.33%;
+    padding: 0 5px;
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 450px) {
+    .inner-scandal-video .hooper-track .hooper-slide {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
+.hooper-list {
+    overflow-x: hidden;
+    position: relative;
+}
+
+.hooper-navigation button {
+    background-image: -moz-linear-gradient( 90deg, rgb(219,219,219) 0%, rgb(239,240,242) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(219,219,219) 0%, rgb(239,240,242) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(219,219,219) 0%, rgb(239,240,242) 100%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0;
+    position: absolute;
+    top: 50%;
+}
+
+.hooper-navigation button.hooper-prev {
+    left: 0;
+}
+
+.hooper-navigation button.hooper-next {
+    right: 0;
+}
+
+.drop-content .hooper-track .hooper-slide {
+    flex: 0 0 33.33%;
+    width: 33.33%;
+    padding: 0 5px;
+    margin-top: 15px;
+}
+
+@media only screen and (max-width: 450px) {
+    .drop-content .hooper-track .hooper-slide {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
+.drop-content .hooper-track .hooper-slide .drop-item {
+    flex: 0 0 100%;
+    width: 100%;
 }
