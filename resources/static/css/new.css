@@ -1738,7 +1738,7 @@ border: 1px solid #dc4f4f;
 
 .mob-slider-box .hooper-pagination {
     position: absolute;
-    bottom: 0;
+    bottom: 6px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -1750,6 +1750,7 @@ border: 1px solid #dc4f4f;
 
 .mob-slider-box .hooper-indicators li {
     margin: 0 4px;
+    list-style: none;
 }
 
 .mob-slider-box button.hooper-indicator {
