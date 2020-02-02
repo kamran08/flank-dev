@@ -6,7 +6,7 @@ import Vue from 'vue'
 import Clipboard from 'v-clipboard'
 Vue.use(Clipboard)
 import {mapGetters} from 'vuex'
-
+// import { Hooper, Slide } from 'hooper';
 Vue.mixin({
   methods: {
     async callApi (method, url, dataObj) {

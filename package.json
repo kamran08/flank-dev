@@ -37,6 +37,7 @@
     "cross-env": "^6.0.3",
     "google-contacts": "^0.1.5",
     "googleapis": "^46.0.0",
+    "hooper": "^0.3.4",
     "iview": "^3.5.4",
     "lodash": "^4.17.15",
     "mysql": "^2.17.1",

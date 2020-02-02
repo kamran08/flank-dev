@@ -64,7 +64,7 @@
                                     <div class="row">
                                         <div class="col-sm-4 padding-right-0">
                                            <div class="single-coaches-left">
-                                               <h3 class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)">Team Logo Here</h3>
+                                               <h3 class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img :src="item.school.logo" alt=""></h3>
                                            </div> 
                                         </div>
                                         <div class="col-sm-8 padding-left-0">

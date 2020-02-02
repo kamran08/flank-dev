@@ -77,6 +77,7 @@ class CoachController {
     .with('topAtrribute.info' )
     .with('school')
     .with('question.answers')
+    .with('question.user')
     .with('avgRating')
    // .with('totalRating')
     .first()

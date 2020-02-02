@@ -566,7 +566,7 @@ a.sign-social-facebook:focus{
     font-family: CeraPro;
 }
 .single-coaches-left {
-    background-color: #FF0000;
+    /* background-color: #FF0000; */
     padding: 10px;
     border-radius: 5px 0px 0px 5px;
     border: 1px solid #FF0000;
@@ -1707,4 +1707,20 @@ border: 1px solid #dc4f4f;
         width: 100%;
         padding: 20px 0px 30px 0px;
     }
+}
+
+.hooper {
+    width: 100%;
+}
+
+.hooper-track {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    transform: translate(0px, 0px);
+}
+
+li.hooper-slide {
+    flex: 1;
+    list-style: none;
 }

@@ -301,14 +301,14 @@
                                                 </div>
                                                 
                                             </div> -->
-                                            <div class="new-flank-coach-rev">
+                                            <div class="new-flank-coach-rev" v-if="legendData.question.user">
                                                 <div class="coach-rev-con">
                                                     <figure>
-                                                        <img src="/images/ms.jpg" alt="">
+                                                        <img :src="legendData.question.user.img" alt="">
                                                     </figure>
                                                     <div class="coach-rev-text-content">
-                                                        <h4>Nazmul Chowdhury</h4>
-                                                        <h5>Sylhet, Bangladesh</h5>
+                                                        <h4>{{legendData.question.user | trimSecondLater}}</h4>
+                                                        <h5>{{legendData.question.user.address}}</h5>
                                                         <ul class="fixed-list">
                                                             <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
                                                             <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>

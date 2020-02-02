@@ -1,7 +1,7 @@
 
 <template>
     <div class="pt-120">
-        <div  v-if="!mobileScreen">
+        <div  v-if="mobileScreen==false">
             <div class="new-banner-section" >
                 <div class="container">
                     <div class="inner-banner">
@@ -923,7 +923,7 @@
                 </div>
             </div>
         </div>
-        <div else>
+        <div v-else-if="mobileScreen==true">
             <div class="new-banner-section" >
                 <div class="container no-padding">
                     <div class="inner-banner">
@@ -1155,70 +1155,79 @@
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                         </div>
                                         <div class="row plus-row">
+                                            <hooper>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-6">
+                                                        <div class="inner-scandal-video-item">
+                                                            <figure @click="openVideo(1)">
+                                                                <img src="/newFile/1.png" alt="">
+                                                                <!-- <div class="play-caption">
+                                                                    <span><i class="fas fa-play"></i></span>
+                                                                </div>
+                                                                <div class="video-duration">
+                                                                    <p class="duration"><span>2:17</span></p>
+                                                                </div> -->
+                                                            </figure>
+                                                            <div class="scandal-video-caption">
+                                                                <p>Out of control Coache's abusive behavior caught on tape.</p>
+                                                            </div>
+                                                            <div class="video-logo">
+                                                                <img src="/image/flank.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </slide>
+                                                <slide>
+                                                        <div class="col-md-3 col-sm-6">
+                                                            <div class="inner-scandal-video-item">
+                                                                <!-- <div class="inner-video-iframe">
+                                                                    <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                    </div> -->
+                                                                <figure @click="openVideo(2)">
+                                                                    <img src="/newFile/2.png" alt="">
+                                                                    <!-- <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div> -->
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>Rutgers coach fired for abuse of players.</p>
+                                                                </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/images/flank.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </slide>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-6">
+                                                        <div class="inner-scandal-video-item">
+                                                            <!-- <div class="inner-video-iframe">
+                                                                <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                                </div> -->
+                                                            <figure @click="openVideo(4)">
+                                                                <img src="/newFile/4.png" alt="">
+                                                                <!-- <div class="play-caption">
+                                                                    <span><i class="fas fa-play"></i></span>
+                                                                </div>
+                                                                <div class="video-duration">
+                                                                    <p class="duration"><span>2:17</span></p>
+                                                                </div> -->
+                                                            </figure>
+                                                            <div class="scandal-video-caption">
+                                                                <p>The abuse of child atheletes by their coaches. </p>
+                                                            </div>
+                                                            <div class="video-logo">
+                                                                <img src="/images/flank.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </slide>
+                                            </hooper>
+                                           
                                             
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="inner-scandal-video-item">
-                                                    <figure @click="openVideo(1)">
-                                                        <img src="/newFile/1.png" alt="">
-                                                        <!-- <div class="play-caption">
-                                                            <span><i class="fas fa-play"></i></span>
-                                                        </div>
-                                                        <div class="video-duration">
-                                                            <p class="duration"><span>2:17</span></p>
-                                                        </div> -->
-                                                    </figure>
-                                                    <div class="scandal-video-caption">
-                                                        <p>Out of control Coache's abusive behavior caught on tape.</p>
-                                                    </div>
-                                                    <div class="video-logo">
-                                                        <img src="/image/flank.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="inner-scandal-video-item">
-                                                    <!-- <div class="inner-video-iframe">
-                                                        <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </div> -->
-                                                    <figure @click="openVideo(2)">
-                                                        <img src="/newFile/2.png" alt="">
-                                                        <!-- <div class="play-caption">
-                                                            <span><i class="fas fa-play"></i></span>
-                                                        </div>
-                                                        <div class="video-duration">
-                                                            <p class="duration"><span>2:17</span></p>
-                                                        </div> -->
-                                                    </figure>
-                                                    <div class="scandal-video-caption">
-                                                        <p>Rutgers coach fired for abuse of players.</p>
-                                                    </div>
-                                                    <div class="video-logo">
-                                                        <img src="/images/flank.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="inner-scandal-video-item">
-                                                    <!-- <div class="inner-video-iframe">
-                                                        <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </div> -->
-                                                    <figure @click="openVideo(4)">
-                                                        <img src="/newFile/4.png" alt="">
-                                                        <!-- <div class="play-caption">
-                                                            <span><i class="fas fa-play"></i></span>
-                                                        </div>
-                                                        <div class="video-duration">
-                                                            <p class="duration"><span>2:17</span></p>
-                                                        </div> -->
-                                                    </figure>
-                                                    <div class="scandal-video-caption">
-                                                        <p>The abuse of child atheletes by their coaches. </p>
-                                                    </div>
-                                                    <div class="video-logo">
-                                                        <img src="/images/flank.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <!-- <div class="col-md-3 col-sm-6">
                                                 <div class="inner-scandal-video-item">
                                                     <figure @click="openVideo(3)">
@@ -1318,88 +1327,99 @@
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                         </div>
                                         <div class="row plus-row">
+                                            <hooper>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-6">
+                                                        <div class="inner-scandal-video-item">
+                                                            <figure @click="openVideo(1)">
+                                                                <img src="/newFile/1.png" alt="">
+                                                                <!-- <div class="play-caption">
+                                                                    <span><i class="fas fa-play"></i></span>
+                                                                </div>
+                                                                <div class="video-duration">
+                                                                    <p class="duration"><span>2:17</span></p>
+                                                                </div> -->
+                                                            </figure>
+                                                            <div class="scandal-video-caption">
+                                                                <div class="scandal-latest-coach">
+                                                                    <div class="new-coach">
+                                                                        <h3 class="new-red">Coach Name</h3>
+                                                                        <p>School Name</p>
+                                                                    </div>
+                                                                    <div class="new-coach-des">
+                                                                        <p>Lorem ipsum dolor sit amet</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="video-logo">
+                                                                <img src="/image/flank.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </slide>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-6">
+                                                        <div class="inner-scandal-video-item">
+                                                            <figure @click="openVideo(1)">
+                                                                <img src="/newFile/2.png" alt="">
+                                                                <!-- <div class="play-caption">
+                                                                    <span><i class="fas fa-play"></i></span>
+                                                                </div>
+                                                                <div class="video-duration">
+                                                                    <p class="duration"><span>2:17</span></p>
+                                                                </div> -->
+                                                            </figure>
+                                                            <div class="scandal-video-caption">
+                                                                <div class="scandal-latest-coach">
+                                                                    <div class="new-coach">
+                                                                        <h3 class="new-red">Coach Name</h3>
+                                                                        <p>School Name</p>
+                                                                    </div>
+                                                                    <div class="new-coach-des">
+                                                                        <p>Lorem ipsum dolor sit amet</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="video-logo">
+                                                                <img src="/image/flank.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </slide>
+                                                <slide>
+                                                    <div class="col-md-3 col-sm-6">
+                                                        <div class="inner-scandal-video-item">
+                                                            <figure @click="openVideo(1)">
+                                                                <img src="/newFile/3.png" alt="">
+                                                                <!-- <div class="play-caption">
+                                                                    <span><i class="fas fa-play"></i></span>
+                                                                </div>
+                                                                <div class="video-duration">
+                                                                    <p class="duration"><span>2:17</span></p>
+                                                                </div> -->
+                                                            </figure>
+                                                            <div class="scandal-video-caption">
+                                                                <div class="scandal-latest-coach">
+                                                                    <div class="new-coach">
+                                                                        <h3 class="new-red">Coach Name</h3>
+                                                                        <p>School Name</p>
+                                                                    </div>
+                                                                    <div class="new-coach-des">
+                                                                        <p>Lorem ipsum dolor sit amet</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="video-logo">
+                                                                <img src="/image/flank.png" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </slide>
+                                            </hooper>
                                             
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="inner-scandal-video-item">
-                                                    <figure @click="openVideo(1)">
-                                                        <img src="/newFile/1.png" alt="">
-                                                        <!-- <div class="play-caption">
-                                                            <span><i class="fas fa-play"></i></span>
-                                                        </div>
-                                                        <div class="video-duration">
-                                                            <p class="duration"><span>2:17</span></p>
-                                                        </div> -->
-                                                    </figure>
-                                                    <div class="scandal-video-caption">
-                                                        <div class="scandal-latest-coach">
-                                                            <div class="new-coach">
-                                                                <h3 class="new-red">Coach Name</h3>
-                                                                <p>School Name</p>
-                                                            </div>
-                                                            <div class="new-coach-des">
-                                                                <p>Lorem ipsum dolor sit amet</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="video-logo">
-                                                        <img src="/image/flank.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="inner-scandal-video-item">
-                                                    <figure @click="openVideo(1)">
-                                                        <img src="/newFile/2.png" alt="">
-                                                        <!-- <div class="play-caption">
-                                                            <span><i class="fas fa-play"></i></span>
-                                                        </div>
-                                                        <div class="video-duration">
-                                                            <p class="duration"><span>2:17</span></p>
-                                                        </div> -->
-                                                    </figure>
-                                                    <div class="scandal-video-caption">
-                                                        <div class="scandal-latest-coach">
-                                                            <div class="new-coach">
-                                                                <h3 class="new-red">Coach Name</h3>
-                                                                <p>School Name</p>
-                                                            </div>
-                                                            <div class="new-coach-des">
-                                                                <p>Lorem ipsum dolor sit amet</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="video-logo">
-                                                        <img src="/image/flank.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6">
-                                                <div class="inner-scandal-video-item">
-                                                    <figure @click="openVideo(1)">
-                                                        <img src="/newFile/3.png" alt="">
-                                                        <!-- <div class="play-caption">
-                                                            <span><i class="fas fa-play"></i></span>
-                                                        </div>
-                                                        <div class="video-duration">
-                                                            <p class="duration"><span>2:17</span></p>
-                                                        </div> -->
-                                                    </figure>
-                                                    <div class="scandal-video-caption">
-                                                        <div class="scandal-latest-coach">
-                                                            <div class="new-coach">
-                                                                <h3 class="new-red">Coach Name</h3>
-                                                                <p>School Name</p>
-                                                            </div>
-                                                            <div class="new-coach-des">
-                                                                <p>Lorem ipsum dolor sit amet</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="video-logo">
-                                                        <img src="/image/flank.png" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            
+                                            
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1747,9 +1767,12 @@
     </div>
 </template>
 <script>
-
+import { Hooper, Slide } from 'hooper';
 export default {
-    
+    components: {
+      Hooper,
+      Slide
+    },
   data() {
     return {
         mobileScreen:false,
