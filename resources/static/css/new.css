@@ -1841,3 +1841,45 @@ border: 1px solid #dc4f4f;
     flex: 0 0 100%;
     width: 100%;
 }
+
+.new-flanker-top-choice .hooper-list {
+    padding: 10px 0;
+}
+
+.new-flanker-top-choice .hooper-track {
+    
+}
+
+.new-flanker-top-choice .hooper-track li.hooper-slide {
+    flex: 0 0 50%;
+    width: 50%;
+}
+
+@media only screen and (max-width: 499px) {
+    
+    .new-flanker-top-choice .hooper-track li.hooper-slide {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
+._2coach_main_hooper .hooper-list {
+    padding: 10px 0;
+}
+
+._2coach_main_hooper .hooper-track {
+    
+}
+
+._2coach_main_hooper .hooper-track li.hooper-slide {
+    flex: 0 0 33.33%;
+    width: 33.33% !important;
+}
+
+@media only screen and (max-width: 499px) {
+    
+    ._2coach_main_hooper .hooper-track li.hooper-slide {
+        flex: 1 !important;
+        width: 100% !important;
+    }
+}

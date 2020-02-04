@@ -98,6 +98,7 @@ Route.post('/app/storeSchoolCoachReview', 'SchoolController.storeSchoolCoachRevi
 Route.post('/app/storeSchoolCoache', 'SchoolController.storeSchoolCoache')
 Route.post('/stoteCoachReviewImo', 'ReviewController.stoteCoachReviewImo')
 Route.post('/storequestions', 'QuestionController.storequestions')
+Route.get('/app/schoolquestions/:id', 'QuestionController.schoolquestionshow')
 Route.post('/storeProductquestions', 'QuestionController.storeProductquestions')
 Route.get('/app/CoachShow/:id', 'QuestionController.CoachShow')
 Route.get('/app/productShow/:id', 'QuestionController.productShow')

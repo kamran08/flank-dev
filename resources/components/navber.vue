@@ -4,7 +4,7 @@
         <div class="new-flank-nav">
             <div class="container">
                 <div class="new-flank-nav-con">
-                    <div class="flank-coll-bar">
+                    <div class="flank-coll-bar" @click="isMobileSideBarEvent">
                         <img src="/images/three-bar.png" alt="">
                     </div>
                     <div class="flank-new-brand">
@@ -193,6 +193,10 @@
         methods:{
             menuChange(){
               
+            },
+            isMobileSideBarEvent(){
+                let data = (this.isMobileSideBar==true)? false : true
+                this.$store.commit('setIsMobileSideBar', data )
             },
             letChangePlace(item){
                 this.tPlace = item.name

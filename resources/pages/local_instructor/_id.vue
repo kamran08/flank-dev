@@ -346,7 +346,7 @@
                                                    <div class="helpful-btn-full">
                                                        <ul>
                                                            <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                           <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                           <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>not helpful</a></li>
                                                        </ul>
                                                    </div>
                                                    
@@ -358,15 +358,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
-
-
-
-
-                               
                                 <div class="inner-item-reco-sec">
                                     <div class="inner-item-reco-title">
                                         <h4>Recommended Reviews <span>for Coach {{legendData.name}}</span></h4>

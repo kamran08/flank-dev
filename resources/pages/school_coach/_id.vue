@@ -328,7 +328,7 @@
                                                     <div class="helpful-btn-full">
                                                         <ul>
                                                             <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     
@@ -1144,7 +1144,7 @@
                                                     <div class="helpful-btn-full">
                                                         <ul>
                                                             <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     

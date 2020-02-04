@@ -1716,7 +1716,7 @@ export default {
             email:''
         },
         hooperSettings: {
-            // infiniteScroll: true,
+             infiniteScroll: true,
             // centerMode: true
         },
         latesthooperSettings: {

@@ -9,6 +9,7 @@ export const state = () => ({
   div: '',
   str: '',
   place: '',
+  isMobileSideBar: false,
   
 })
 
@@ -18,6 +19,9 @@ export const getters = {
   },
   getAuthInfo (state) {
     return state.authInfo
+  },
+  getIsMobileSideBar (state) {
+    return state.isMobileSideBar
   },
   getShowNavber (state) {
     return state.showNavber
@@ -51,6 +55,9 @@ export const mutations = {
   },
   setShowNavber (state, data) {
     state.showNavber = data
+  },
+  setIsMobileSideBar (state, data) {
+    state.isMobileSideBar = data
   },
   setSearchData (state, data) {
     state.searchData = data

@@ -70,6 +70,17 @@ class QuestionController {
       .orderBy('id', 'desc')
       .paginate(page, 3)
   }
+  async schoolquestionshow ({ params, request, response, view }) {
+    let page = request.input('page') ? request.input('page') : 1
+    let type = request.input('type') ? request.input('type') : 'legend'
+    return await Question.query()
+      .where('school_id', params.id)
+      .where('type', type)
+      .with('user')
+      .withCount('answers')
+      .orderBy('id', 'desc')
+      .paginate(page, 3)
+  }
 
 
   async similar ({ params, request, response, view }) {

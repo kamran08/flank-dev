@@ -336,9 +336,7 @@ export default {
         ])
         if(res1.status===200){ 
                 this.legendData = res1.data.legend
-                this.userData = res1.data.user
                 this.averageRating = res1.data.averageRating
-                this.healthPulse = res1.data.healthPulse
         } else{
             this.swr()
         }

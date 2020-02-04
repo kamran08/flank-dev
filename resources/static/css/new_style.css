@@ -4895,7 +4895,13 @@ footer .foo-individual .foo-option ul li a:hover {
   top: 139px;
   height: 100%;
   overflow-y: scroll;
-  display: none;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in;
+}
+
+.new-sidebar.active {
+  transform: translateX(0);
+  transition: all 0.3s ease-in;
 }
 
 .new-sidebar-item {

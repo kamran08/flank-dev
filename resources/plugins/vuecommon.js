@@ -29,6 +29,7 @@ Vue.mixin({
       searchData: 'getSearchData',
       pagination: 'getPagination',
       pageOption: 'getPageOptino',
+      isMobileSideBar: 'getIsMobileSideBar',
       str: 'getStr',
       place: 'getPlace',
       div: 'getDiv',

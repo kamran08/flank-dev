@@ -1662,39 +1662,17 @@
                 </div> -->
             </div>
 
-            <div class="new-sidebar">
+            <div class="new-sidebar" :class="isMobileSideBar?'active' : ''" >
                 <div class="new-sidebar-item">
                     <div class="quick-link-content sidebar-con-list">
                         <h4>Department</h4>
                         <ul>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p class="capitalize">High school coaches</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p class="capitalize">College coaches</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p class="capitalize">Healthiest coaches</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p class="capitalize">Travel team coaches</p>
-                                    </div>
-                                </a>
-                            </li>
+                            
+                            <li @click="chnageType('coach', 'High School')"><a :class="(pageOption == 'coach' && div == 'High School')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">High school coaches</p></div></a></li>
+                            <li @click="chnageType('coach', 'Junior College')"><a :class="(pageOption == 'coach' && div == 'Junior College')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">College coaches</p></div></a></li>
+                            <li @click="chnageType('coach', '')"><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Healthiest coaches</p></div></a></li>
+                            <li @click="chnageType('coach', 'Club/Travel')"><a :class="(pageOption == 'coach' && div == 'Club/Travel')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Travel team coaches</p></div></a></li>
+                            <li @click="chnageType('school')"><a :class="(pageOption == 'school')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">All Schools</p></div></a></li>
                         </ul>
                     </div>
                 </div>
@@ -1728,14 +1706,14 @@
                             <li>
                                 <a href="">
                                     <div class="quick-link-caption">
-                                        <p class="capitalize">Healthy index</p>
+                                        <p class="capitalize"><input type="radio" name="gender"  v-model="attribute" id="che1" value="averageHealthy" v-on:change="SearchByKey" ><label for="che1">Healthy index</label></p>
                                     </div>
                                 </a>
                             </li>
                             <li>
                                 <a href="">
                                     <div class="quick-link-caption">
-                                        <p class="capitalize">Harmful index</p>
+                                        <p class="capitalize"> <input type="radio" name="gender"  v-model="attribute" id="che2" value="averageHarmful" v-on:change="SearchByKey"><label for="che2">Harmful index</label></p>
                                     </div>
                                 </a>
                             </li>
@@ -1745,15 +1723,18 @@
                 <div class="new-sidebar-item">
                     <div class="quick-link-content sidebar-con-list">
                         <h4>Sports type</h4>
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p class="capitalize">Men's baseball</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
+                        <CheckboxGroup v-model="sports" @on-change="SearchByKey">
+                            <ul v-if="allSports.length">
+                                <li v-for="(item,index) in allSports" :key="index" >
+                                    <a >
+                                        <div class="quick-link-caption">
+                                            <p class="capitalize"><Checkbox :label="item.value">{{item.name}}</Checkbox></p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </CheckboxGroup>
+                            <!-- <li>
                                 <a href="">
                                     <div class="quick-link-caption">
                                         <p class="capitalize">Men's basketball</p>
@@ -1829,8 +1810,8 @@
                                         <p class="capitalize">Women's Volleyball</p>
                                     </div>
                                 </a>
-                            </li>
-                        </ul>
+                            </li> -->
+                        <!-- </ul> -->
                     </div>
                 </div>
             </div>
@@ -1838,7 +1819,7 @@
             <div class="new-flank-container-fluid">
             
             
-                <div>
+                <div style="width: 100%;">
                     <div class=" col-md-10" v-if="str != '' && place != '' && searchData.length == 0  ">
                         <div>
                             <div class="new-find-section">
@@ -2026,7 +2007,7 @@
 
                                                         <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item | coachText}}</p>
+                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
 
                                                     <p>
                                                         <a href="" class="see_more">See more</a>
@@ -2177,7 +2158,7 @@
 
                                                         <p class="_2card_details_city">{{item.city}}/{{item.state}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item | schoolText}}</p>
+                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
                                                     <p>
                                                         <a href="" class="see_more">See more</a>
                                                     </p>
@@ -2238,7 +2219,7 @@
 
                                                         <p class="_2card_details_city">{{item.city}}/{{item.state}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item | coachText}}</p>
+                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
                                                     <p>
                                                         <a href="" class="see_more">See more</a>
                                                     </p>
@@ -2414,107 +2395,115 @@
                                     
                                     <!-- Card Items -->
                                 </div>
-                                <div class="row pl-20 mt-20">
+                                <div class="row pl-20 mt-20 new-flanker-top-choice">
+                                    <hooper :itemsToShow="3" :infiniteScroll="true" >
                                     <!-- Card Items -->
-                                    <div class="col-xs-4 col-md-3 col-lg-3 col-sm-4  pad-10-b">
-                                        <div class="_1card _1card-border">
-                                            <p class="_2title">Our Top Choice</p>
+                                        <slide >
+                                            <div class=" pad-10-b">
+                                                <div class="_1card _1card-border">
+                                                    <p class="_2title">Our Top Choice</p>
 
-                                            <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
+                                                    <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
 
-                                            <div class="_1card_pic">
-                                                <img class="_1card_img" src="/images/ps.png" alt="" title="">
-                                            </div>
+                                                    <div class="_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
 
-                                            <div class="_1card_details">
-                                                <p class="_3title">Coach Name - Sport Type</p>
-                                                <p class="_3title" style="margin-bottom: 10px;">City/State</p>
-                                                <div class="_1rating">
-                                                    <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
-                                                    </ul>
+                                                    <div class="_1card_details">
+                                                        <p class="_3title">Coach Name - Sport Type</p>
+                                                        <p class="_3title" style="margin-bottom: 10px;">City/State</p>
+                                                        <div class="_1rating">
+                                                            <ul class="_1rating_list">
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class=""><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
+                                                            </ul>
+                                                        </div>
+                                                        <p class="_1card_tag">67.0 Health Seore</p>
+                                                        <p class="_1text">
+                                                            When you're after a true empowering coach
+                                                            , coach Jhon Doe nails all the healthy coaching attributes.
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <p class="_1card_tag">67.0 Health Seore</p>
-                                                <p class="_1text">
-                                                    When you're after a true empowering coach
-                                                    , coach Jhon Doe nails all the healthy coaching attributes.
-                                                </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card Items -->
+                                        </slide>
+                                        <!-- Card Items -->
 
-                                    <!-- Card Items -->
-                                    <div class="col-xs-4 col-md-3 col-lg-3 col-sm-4  pad-10-b">
-                                        <div class="_1card _1card-border">
-                                            <p class="_2title">Our Top Choice</p>
+                                        <!-- Card Items -->
+                                        <slide >
+                                            <div class=" pad-10-b">
+                                                <div class="_1card _1card-border">
+                                                    <p class="_2title">Our Top Choice</p>
 
-                                            <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
+                                                    <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
 
-                                            <div class="_1card_pic">
-                                                <img class="_1card_img" src="/images/ps.png" alt="" title="">
-                                            </div>
+                                                    <div class="_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
 
-                                            <div class="_1card_details">
-                                                <p class="_3title">Coach Name - Sport Type</p>
-                                                <p class="_3title" style="margin-bottom: 10px;">City/State</p>
-                                                <div class="_1rating">
-                                                    <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
-                                                    </ul>
+                                                    <div class="_1card_details">
+                                                        <p class="_3title">Coach Name - Sport Type</p>
+                                                        <p class="_3title" style="margin-bottom: 10px;">City/State</p>
+                                                        <div class="_1rating">
+                                                            <ul class="_1rating_list">
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class=""><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
+                                                            </ul>
+                                                        </div>
+                                                        <p class="_1card_tag">67.0 Health Seore</p>
+                                                        <p class="_1text">
+                                                            When you're after a true empowering coach
+                                                            , coach Jhon Doe nails all the healthy coaching attributes.
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <p class="_1card_tag">67.0 Health Seore</p>
-                                                <p class="_1text">
-                                                    When you're after a true empowering coach
-                                                    , coach Jhon Doe nails all the healthy coaching attributes.
-                                                </p>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card Items -->
+                                        </slide>
+                                        <!-- Card Items -->
 
-                                    <!-- Card Items -->
-                                    <div class="col-xs-4 col-md-3 col-lg-3 col-sm-4  pad-10-b">
-                                        <div class="_1card _1card-border">
-                                            <p class="_2title">Our Top Choice</p>
+                                        <!-- Card Items -->
+                                        <slide >
+                                            <div class=" pad-10-b">
+                                                <div class="_1card _1card-border">
+                                                    <p class="_2title">Our Top Choice</p>
 
-                                            <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
+                                                    <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
 
-                                            <div class="_1card_pic">
-                                                <img class="_1card_img" src="/images/ps.png" alt="" title="">
-                                            </div>
+                                                    <div class="_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
 
-                                            <div class="_1card_details">
-                                                <p class="_3title">Coach Name - Sport Type</p>
-                                                <p class="_3title" style="margin-bottom: 10px;">City/State</p>
-                                                <div class="_1rating">
-                                                    <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
-                                                    </ul>
+                                                    <div class="_1card_details">
+                                                        <p class="_3title">Coach Name - Sport Type</p>
+                                                        <p class="_3title" style="margin-bottom: 10px;">City/State</p>
+                                                        <div class="_1rating">
+                                                            <ul class="_1rating_list">
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class=""><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
+                                                            </ul>
+                                                        </div>
+                                                        <p class="_1card_tag">67.0 Health Seore</p>
+                                                        <p class="_1text">
+                                                            When you're after a true empowering coach
+                                                            , coach Jhon Doe nails all the healthy coaching attributes.
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                                <p class="_1card_tag">67.0 Health Seore</p>
-                                                <p class="_1text">
-                                                    When you're after a true empowering coach
-                                                    , coach Jhon Doe nails all the healthy coaching attributes.
-                                                </p>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </slide>
+                                    </hooper>
                                 </div>
                             </div>
                         </div>
@@ -2928,116 +2917,113 @@
                                 </div>
                             </div>
 
-                            <div class="_2coach_main">
-                                <div class="row flex-row">
-                                    <!-- Card -->
-                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-3 flex-1">
-                                        <div class="_1card">
-                                            <p class="_1card_star">4 Stars & Up</p>
+                            <div class="_2coach_main _2coach_main_hooper">
+                                <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                        <slide >
+                                            <div class=" flex-1">
+                                                <div class="_1card">
+                                                    <p class="_1card_star">4 Stars & Up</p>
 
-                                            <div class="_1card_pic">
-                                                <img class="_1card_img" src="/images/ps.png" alt="" title="">
-                                            </div>
+                                                    <div class="_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
 
-                                            <div class="_1card_details _1card_details_mob">
-                                                <h3 class="_3title">Coach Name - <span>Football</span></h3>
-                                                <p class="_3title">School Name</p>
-                                                <div class="_1rating mt-10">
-                                                    <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
-                                                    </ul>
+                                                    <div class="_1card_details _1card_details_mob">
+                                                        <h3 class="_3title">Coach Name - <span>Football</span></h3>
+                                                        <p class="_3title">School Name</p>
+                                                        <div class="_1rating mt-10">
+                                                            <ul class="_1rating_list">
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class=""><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card -->
+                                        </slide>
+                                        <slide>
+                                            <div class=" flex-1">
+                                                <div class="_1card">
+                                                    <p class="_1card_star">3 Stars & Up</p>
 
-                                    <!-- Card -->
-                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-3 flex-1">
-                                        <div class="_1card">
-                                            <p class="_1card_star">3 Stars & Up</p>
+                                                    <div class="_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
 
-                                            <div class="_1card_pic">
-                                                <img class="_1card_img" src="/images/ps.png" alt="" title="">
-                                            </div>
-
-                                            <div class="_1card_details _1card_details_mob">
-                                                <h3 class="_3title">Coach Name - <span>Football</span></h3>
-                                                <p class="_3title">School Name</p>
-                                                <div class="_1rating mt-10">
-                                                    <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
-                                                    </ul>
+                                                    <div class="_1card_details _1card_details_mob">
+                                                        <h3 class="_3title">Coach Name - <span>Football</span></h3>
+                                                        <p class="_3title">School Name</p>
+                                                        <div class="_1rating mt-10">
+                                                            <ul class="_1rating_list">
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class=""><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card -->
+                                        </slide>
+                                        <slide>
+                                            <div class=" flex-1">
+                                                <div class="_1card">
+                                                    <p class="_1card_star">2 Stars & Up</p>
 
-                                    <!-- Card -->
-                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-3 flex-1">
-                                        <div class="_1card">
-                                            <p class="_1card_star">2 Stars & Up</p>
+                                                    <div class="_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
 
-                                            <div class="_1card_pic">
-                                                <img class="_1card_img" src="/images/ps.png" alt="" title="">
-                                            </div>
-
-                                            <div class="_1card_details _1card_details_mob">
-                                                <h3 class="_3title">Coach Name - <span>Football</span></h3>
-                                                <p class="_3title">School Name</p>
-                                                <div class="_1rating mt-10">
-                                                    <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
-                                                    </ul>
+                                                    <div class="_1card_details _1card_details_mob">
+                                                        <h3 class="_3title">Coach Name - <span>Football</span></h3>
+                                                        <p class="_3title">School Name</p>
+                                                        <div class="_1rating mt-10">
+                                                            <ul class="_1rating_list">
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class=""><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card -->
+                                        </slide>
+                                        <slide>
+                                            <div class=" flex-1">
+                                                <div class="_1card">
+                                                    <p class="_1card_star">1 Stars & Up</p>
 
-                                    <!-- Card -->
-                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-3 flex-1">
-                                        <div class="_1card">
-                                            <p class="_1card_star">1 Stars & Up</p>
+                                                    <div class="_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
 
-                                            <div class="_1card_pic">
-                                                <img class="_1card_img" src="/images/ps.png" alt="" title="">
-                                            </div>
-
-                                            <div class="_1card_details _1card_details_mob">
-                                                <h3 class="_3title">Coach Name - <span>Football</span></h3>
-                                                <p class="_3title">School Name</p>
-                                                <div class="_1rating mt-10">
-                                                    <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
-                                                    </ul>
+                                                    <div class="_1card_details _1card_details_mob">
+                                                        <h3 class="_3title">Coach Name - <span>Football</span></h3>
+                                                        <p class="_3title">School Name</p>
+                                                        <div class="_1rating mt-10">
+                                                            <ul class="_1rating_list">
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class=""><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <!-- Card -->
-                                </div>
+                                        </slide>
+                                    </hooper>
                             </div>
                         </div>
 
@@ -3844,7 +3830,15 @@
 
 <script>
 import {mapGetters} from 'vuex' 
+
+import { Hooper, Slide ,Pagination as HooperPagination ,Navigation as HooperNavigation} from 'hooper';
 export default {
+    components: {
+      Hooper,
+      Slide,
+      HooperPagination,
+      HooperNavigation,
+    },
     data(){
         return{
             mobileScreen:false,

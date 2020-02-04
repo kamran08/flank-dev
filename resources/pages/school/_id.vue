@@ -180,7 +180,9 @@
                                             <img src="/images/sticker-3.png" alt="">
                                         </figure>
                                         <div class="top-con-cap one-top-cont-cap">
-                                            <p>Don't see your question? <span style="cursor:pointer;" @click="$router.push(`/coachquestionlist/${legendData.id}`)">Ask your verified audience! </span> </p>
+                                            <p>Don't see your question? 
+                                                <nuxt-link :to="`/schoolquestionlist/${legendData.id}`">Ask your verified audience!</nuxt-link>
+                                            </p>
                                             <!-- <a >(Click Here)</a> -->
                                         </div>
                                     </div>
