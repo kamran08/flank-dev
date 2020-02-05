@@ -1701,39 +1701,33 @@
                 </div>
                 <div class="new-sidebar-item">
                     <div class="quick-link-content sidebar-con-list">
-                        <h4>Attributes</h4>
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p class="capitalize"><input type="radio" name="gender"  v-model="attribute" id="che1" value="averageHealthy" v-on:change="SearchByKey" ><label for="che1">Healthy index</label></p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p class="capitalize"> <input type="radio" name="gender"  v-model="attribute" id="che2" value="averageHarmful" v-on:change="SearchByKey"><label for="che2">Harmful index</label></p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="new-flank-sidebar-list"  v-if="pageOption != 'product'">
+                            <h3>Attributes</h3>
+                            <ul>
+                                <li>
+                                    <input type="radio" name="gender"  v-model="attribute" id="che1" value="averageHealthy" v-on:change="SearchByKey" ><label for="che1">Healthy index</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="gender"  v-model="attribute" id="che2" value="averageHarmful" v-on:change="SearchByKey"><label for="che2">Harmful index</label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="new-sidebar-item">
                     <div class="quick-link-content sidebar-con-list">
-                        <h4>Sports type</h4>
-                        <CheckboxGroup v-model="sports" @on-change="SearchByKey">
+                        <div class="new-flank-sidebar-list"  v-if="pageOption != 'product' ">
+                            <h3>Sport type</h3>
+                            <CheckboxGroup v-model="sports" @on-change="SearchByKey">
                             <ul v-if="allSports.length">
                                 <li v-for="(item,index) in allSports" :key="index" >
-                                    <a >
-                                        <div class="quick-link-caption">
-                                            <p class="capitalize"><Checkbox :label="item.value">{{item.name}}</Checkbox></p>
-                                        </div>
-                                    </a>
+                                    <Checkbox :label="item.value">{{item.name}}</Checkbox>
+                                    <!-- <input type="checkbox" id="che3"><label for="che3">Baseball</label> -->
                                 </li>
+                            
                             </ul>
-                        </CheckboxGroup>
+                            </CheckboxGroup>
+                        </div>
                             <!-- <li>
                                 <a href="">
                                     <div class="quick-link-caption">
@@ -1872,7 +1866,7 @@
                     </div>
                     <div class="new-flank-content no-margin" v-else  >
                         <div v-if="pageOption == 'coach'">
-                            <div class="new-flank-content-rev new-box-shadow" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null "  >
+                            <div class="new-flank-content-rev new-box-shadow" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null "  style="padding-bottom: 20px;">
                                 <div class="new-content-rev-title">
                                     <!-- <Button @click="isMobileMenu = !isMobileMenu" > Click</Button>
                                     <transition name="slide-fade">
@@ -1913,7 +1907,7 @@
                                                 <a href="">read more</a>
                                             </p>
                                         </div>
-                                        <div class="new-comment-btn">
+                                        <div class="new-comment-btn mob-new-comment-btn">
                                             <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
                                         </div>
                                     </div>

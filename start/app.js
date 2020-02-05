@@ -22,6 +22,7 @@ const providers = [
   '@adonisjs/validator/providers/ValidatorProvider',
   '@adonisjs/ally/providers/AllyProvider',
   'adonis-lucid-polymorphic/providers/PolymorphicProvider',
+  '@adonisjs/mail/providers/MailProvider',
 ]
 
 /*

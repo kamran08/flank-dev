@@ -1485,7 +1485,7 @@ a.sign-social-facebook:focus {
 @media only screen and (max-width: 499px) {
 
   .new-content-rev-details {
-    flex-flow: column;
+    /* flex-flow: column; */
   }
 
   .new-content-rev-left figure {
@@ -1493,7 +1493,7 @@ a.sign-social-facebook:focus {
   }
 
   .new-content-rev-right {
-    text-align: center;
+    /* text-align: center; */
   }
 
   .new-content-rev-right .city-s {
@@ -1501,8 +1501,14 @@ a.sign-social-facebook:focus {
   }
 
   .new-content-star {
-    justify-content: center;
+    /* justify-content: center; */
   }
+  .new-content-rev-right {
+    padding-left: 10px;
+}
+.mob-new-comment-btn {
+  margin-right: 10px;
+}
 }
 
 .new-content-rev-left {
@@ -2046,7 +2052,7 @@ a.sign-social-facebook:focus {
 @media only screen and (max-width: 499px) {
   ._2card {
     display: flex;
-    flex-flow: column;
+    /* flex-flow: column; */
   }
 
   ._2card_pic {
@@ -2054,26 +2060,127 @@ a.sign-social-facebook:focus {
   }
 
   ._2card_pic  img{
-    margin: auto;
+    /* margin: auto; */
     right: auto;
     left: auto;
     transform: translate(0);
+    width: 119px;
+    flex: 0 0 119px;
   }
 
   ._2card_details_top {
   
     display: flex;
       flex-flow: column;
-      align-items: center;
+      align-items: left;
   }
 
   ._2card_details {
-    text-align: center;
+    text-align: left;
   }
 
   ._2title {
     margin-top: 10px;
   }
+  ._1rating_list {
+      justify-content: left;
+  }
+  ._2card_details_city {
+    font-size: 12px;
+    opacity: 1;
+    margin-left: 0;
+    color: #000;
+}
+}
+
+
+@media only screen and (max-width: 767px) {
+  ._2card {
+    display: flex;
+    /* flex-flow: column; */
+  }
+
+  ._2card_pic {
+    flex:  auto !important;
+  }
+
+  ._2card_pic  img{
+    /* margin: auto; */
+    right: auto;
+    left: auto;
+    transform: translate(0);
+    width: 119px;
+    flex: 0 0 119px;
+  }
+
+  ._2card_details_top {
+  
+    display: flex;
+      flex-flow: column;
+      align-items: left;
+  }
+
+  ._2card_details {
+    text-align: left;
+  }
+
+  ._2title {
+    margin-top: 10px;
+  }
+  ._1rating_list {
+      justify-content: left;
+  }
+  ._2card_details_city {
+    font-size: 12px;
+    opacity: 1;
+    margin-left: 0;
+    color: #000;
+}
+}
+
+
+@media only screen and (max-width: 450px) {
+  ._2card {
+    display: flex;
+    /* flex-flow: column; */
+  }
+
+  ._2card_pic {
+    flex:  auto !important;
+  }
+
+  ._2card_pic  img{
+    /* margin: auto; */
+    right: auto;
+    left: auto;
+    transform: translate(0);
+    width: 80px;
+    flex: 0 0 80px;
+  }
+
+  ._2card_details_top {
+  
+    display: flex;
+      flex-flow: column;
+      align-items: left;
+  }
+
+  ._2card_details {
+    text-align: left;
+  }
+
+  ._2title {
+    margin-top: 10px;
+  }
+  ._1rating_list {
+      justify-content: left;
+  }
+  ._2card_details_city {
+    font-size: 12px;
+    opacity: 1;
+    margin-left: 0;
+    color: #000;
+}
 }
 
 
@@ -3153,6 +3260,28 @@ html.modal-open {
 
   .new-content-rev-left figure {
     /* margin-top: 15px; */
+    flex: 0 0 179px;
+    width: 179px;
+  }
+
+  .new-comment-btn {
+    text-align: right;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .col-md-4.new-col-md-4 {
+    width: auto;
+    margin: 0;
+  }
+
+  .new-content-rev-details {
+    align-items: flex-start;
+  }
+
+  .new-content-rev-left figure {
+    /* margin-top: 15px; */
+    flex: 0 0 119px;
+    width: 119px;
   }
 
   .new-comment-btn {
@@ -3235,7 +3364,7 @@ html.modal-open {
 @media only screen and (max-width: 499px) {
 
   .new-comment-btn {
-    text-align: center;
+    /* text-align: center; */
   }
   /* .new-flank-fr {
     display: none;
@@ -3458,4 +3587,61 @@ body {
   font-family: CeraPro;
   font-size: 18px;
   margin-bottom: 5px;
+}
+
+/* .new-sidebar-item ul li input[type="radio"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  background: #fff;
+  border: 1px solid #000;
+  top: 2px;
+  left: 0;
+} */
+
+.new-sidebar-item ul li label {
+  font-family: CeraPro;
+  font-weight: 400;
+    color: #505050;
+    font-size: 14px;
+}
+
+.new-sidebar-item .new-flank-sidebar-list ul li input[type="radio"]:not(:checked) + label:before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  background: #fff;
+  border: 1px solid #000;
+  top: 4px;
+  left: 0;
+}
+
+.new-sidebar-item .new-flank-sidebar-list ul li input[type="radio"]:checked + label:before {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #E51837;
+  border-radius: 2px;
+  background: #E51837;
+  color: #fff;
+  font-weight: 900;
+  font-size: 9px;
+  padding-left: 2px;
+  padding-top: 0;
+}
+
+.new-flank-sidebar-list .ivu-checkbox-inner {
+  width: 15px;
+  height: 15px;
+  border-color: #000;
+  border-radius: 2px;
+  margin-right: 2px;
 }

@@ -4938,6 +4938,8 @@ footer .foo-individual .foo-option ul li a:hover {
 
 .quick-link-content.sidebar-con-list ul {
   padding-left: 15px;
+  display: flex;
+  flex-flow: column;
 }
 
 .uppercase {
