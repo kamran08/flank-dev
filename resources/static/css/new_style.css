@@ -3739,9 +3739,15 @@ ul {
   color: #ff0000;
   font-size: 16px;
   text-transform: capitalize;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 10px;
   font-family: CeraPro;
+}
+
+.help-ans span {
+  font-family: Arial;
+  font-weight: 600;
+  font-size: 15px;
 }
 
 .inner-one-item-help-area2 {

@@ -15,6 +15,7 @@ const Database = use('Database')
 const Hash = use('Hash')
 const uniqid = require('uniqid');
 const axios = require('axios')
+const Mail = use('Mail')
 /**
  * Resourceful controller for interacting with users
  */
@@ -325,25 +326,65 @@ class UserController {
 
   async sendResetLinkEmail ({ request, response }) {
     let email = request.all().email
-    const check = await User.query().where('email', email).getCount()
+    let user = await User.query().where('email', email).first()
     // eslint-disable-next-line eqeqeq
-    if (check == 0) {
+    if (user == null) {
       return response.status(422).json({
         message: "404 Email doesn't exist!."
       })
     }
     let token = uniqid('token-')
-    let data = {
-      token: token
+    await User.query().where('email', email).update({ 'passwordToken': token })
+    user.passwordToken = token
+    let  data = {
+      firstName:user.firstName,
+      lastName:user.lastName,
+      passwordToken:token
     }
-    // await Mail.send('emails.forgotpassword', data, (message) => {
-    //   message
-    //     .to(email)
-    //     .from('Support@worldtradebuddy.com', 'Support @ WorldTradeBuddy')
-    //     .subject('Reset Password')
-    // })
-    return await User.query().where('email', email).update({ 'passwordToken': token })
+    console.log(data)
+    await Mail.send('emails.passwordreset', data, (message) => {
+      message
+        .to(email)
+        .from('Support@goflank.com', 'Support @ goflank')
+        .subject('Reset Password')
+    })
+    return  response.status(200).json({
+        'message': 'Password reset link sent to your email!'
+    })
   }
+
+  async matchPasswordLink ({ request, response }) {
+    let passwordToken = request.all().passwordToken
+    let isTokenFound = await User.query().where('passwordToken',passwordToken).first()
+    if(!isTokenFound){
+        return  response.status(401).json({
+          message: "token expired!"
+        })
+    }
+    return  response.status(200).json({
+      data: isTokenFound
+    })
+  }
+  async resetPassword({ request, response }) {
+    let data = request.all();
+    data.password = await Hash.make(data.password)
+    let flag = await User.query().where("id",data.id).update({
+      password:data.password,
+      passwordToken:'',
+    });
+
+    if(!flag){
+       
+        return  response.status(401).json({
+          message: "Something went wrong!"
+        })
+    }
+
+    return  response.status(200).json({
+      message: "Password change successfully!!"
+    })
+
+}
   async initdata ({ request, response, auth }) {
     try {
       const user = await auth.getUser()

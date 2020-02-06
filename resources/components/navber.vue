@@ -70,8 +70,8 @@
                 </div>
                 <div class="new-navbar-link">
                     <ul>
-                        <li><a href="">HS Coaches</a></li>
-                        <li><a href="">CC Coaches</a></li>
+                        <li><a @click="SearchByKeyV2('coach','High School')">HS Coaches</a></li>
+                        <li><a @click="SearchByKeyV2('coach','Junior College')">CC Coaches</a></li>
                         <li><a href=""><img src="/images/hos.png" alt=""> Coaches</a></li>
                     </ul>
                 </div>

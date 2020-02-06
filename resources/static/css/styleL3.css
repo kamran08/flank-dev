@@ -2056,7 +2056,7 @@ a.sign-social-facebook:focus {
   }
 
   ._2card_pic {
-    flex:  auto !important;
+    /* flex:  auto !important; */
   }
 
   ._2card_pic  img{
@@ -2101,7 +2101,7 @@ a.sign-social-facebook:focus {
   }
 
   ._2card_pic {
-    flex:  auto !important;
+    /* flex:  auto !important; */
   }
 
   ._2card_pic  img{
@@ -2142,11 +2142,15 @@ a.sign-social-facebook:focus {
 @media only screen and (max-width: 450px) {
   ._2card {
     display: flex;
-    /* flex-flow: column; */
+    flex-flow: column;
+  }
+
+  ._2card_new {
+    flex-flow: row !important;
   }
 
   ._2card_pic {
-    flex:  auto !important;
+    /* flex:  auto !important; */
   }
 
   ._2card_pic  img{
@@ -3265,7 +3269,7 @@ html.modal-open {
   }
 
   .new-comment-btn {
-    text-align: right;
+    text-align: left;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -3285,7 +3289,7 @@ html.modal-open {
   }
 
   .new-comment-btn {
-    text-align: right;
+    text-align: left;
   }
 }
 
@@ -3644,4 +3648,22 @@ body {
   border-color: #000;
   border-radius: 2px;
   margin-right: 2px;
+}
+
+.new-row {
+  margin: 0 -5px;
+  display: flex;
+  flex-flow: row;
+  overflow-x: scroll;
+}
+
+.new-row ._2coach_main_left {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+._2coach_main_right_new {
+  margin-top: 10px !important;
+  flex: 0 0 100%;
+  width: 100%;
 }

@@ -335,11 +335,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -540,11 +540,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -852,11 +852,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -1000,11 +1000,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -1359,11 +1359,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -1506,11 +1506,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -1974,10 +1974,10 @@
                                 
 
                                 <div class="_2coach_main">
-                                    <div class="row">
+                                    <div class="row new-row">
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_left">
-                                            <div class="_2card">
+                                            <div class="_2card _2card_new">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
@@ -2016,7 +2016,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right _2coach_main_right_new">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -2063,11 +2063,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -2272,11 +2272,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -2513,10 +2513,10 @@
                                 </div>
 
                                 <div class="_2coach_main">
-                                    <div class="row">
+                                    <div class="row new-row">
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_left">
-                                            <div class="_2card">
+                                            <div class="_2card _2card_new">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
@@ -2552,7 +2552,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right _2coach_main_right_new">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -2599,11 +2599,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
-                                                        <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
+                                                        <!--<li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -2663,10 +2663,10 @@
                                 </div>
 
                                 <div class="_2coach_main">
-                                    <div class="row">
+                                    <div class="row new-row">
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_left">
-                                            <div class="_2card">
+                                            <div class="_2card _2card_new">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
@@ -2702,7 +2702,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right _2coach_main_right_new">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -2749,11 +2749,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -3032,10 +3032,10 @@
                                 </div>
 
                                 <div class="_2coach_main">
-                                    <div class="row">
+                                    <div class="row new-row">
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_left">
-                                            <div class="_2card">
+                                            <div class="_2card _2card_new">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
@@ -3071,7 +3071,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right _2coach_main_right_new">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -3118,11 +3118,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
@@ -3267,11 +3267,11 @@
                                                         <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
                                                         <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
                                                         <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
-                                                        <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
                                                         <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
                                                         <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
                                                         <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
-                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
 
