@@ -325,6 +325,7 @@ class UserController {
   }
 
   async sendResetLinkEmail ({ request, response }) {
+    console.log("ami asi re")
     let email = request.all().email
     let user = await User.query().where('email', email).first()
     // eslint-disable-next-line eqeqeq

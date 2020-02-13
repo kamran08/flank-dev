@@ -1,57 +1,77 @@
 @font-face {
-    font-family: cera-pro-normal-black-italic, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Black\ Italic.woff);
-    src: url(../fonts/Cera\ Pro\ Black\ Italic.otf); }
-  @font-face {
-    font-family: cera-pro-normal-black, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Black.otf);
-    src: url(../fonts/Cera\ Pro\ Black.woff); }
-  @font-face {
-    font-family: cera-pro-normal-bold-italic, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Bold\ Italic.otf);
-    src: url(../fonts/Cera\ Pro\ Bold\ Italic.woff); }
-  @font-face {
-    font-family: ceraPro;
-    src: url(../fonts/Cera\ Pro\ Bold.otf);
-    src: url(../fonts/Cera\ Pro\ Bold.woff); }
-  @font-face {
-    font-family: cera-pro-normal-italic, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Italic.otf); }
-  @font-face {
-    font-family: cera-pro-normal-light-italic, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Light\ Italic.otf);
-    src: url(../fonts/Cera\ Pro\ Light\ Italic.woff); }
-  @font-face {
-    font-family: cera-pro-normal-light, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Light.otf);
-    src: url(../fonts/Cera\ Pro\ Light.woff); }
-  @font-face {
-    font-family: cera-pro-normal-medium-italic, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Medium\ Italic.otf);
-    src: url(../fonts/Cera\ Pro\ Medium\ Italic.woff); }
-  @font-face {
-    font-family: cera-pro-normal-medium, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Medium.otf);
-    src: url(../fonts/Cera\ Pro\ Medium.woff); }
-  @font-face {
-    font-family: cera-pro-normal-regular-italic, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Regular\ Italic.woff); }
-  @font-face {
-    font-family: cera-pro-normal-thin-italic, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Thin\ Italic.otf);
-    src: url(../fonts/Cera\ Pro\ Thin\ Italic.woff); }
-  @font-face {
-    font-family: cera-pro-normal-thin, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Thin.otf);
-    src: url(../fonts/Cera\ Pro\ Thin.woff); }
-  @font-face {
-    font-family: cera-pro-normal-thin, Mates, sans;
-    src: url(../fonts/Cera\ Pro\ Thin.otf);
-    src: url(../fonts/Cera\ Pro\ Thin.woff); }
-  @font-face {
-    font-family: cera-pro-normal, Mates, sans;
-    src: url(../fonts/Cera\ Pro.otf);
-    src: url(../fonts/Cera\ Pro.woff); }
+  font-family: ceraProBlackitalic;
+  src: url(../fonts/Cera_Pro_Black_Italic.otf);
+  src: url(../fonts/Cera_Pro_Black_Italic.woff);
+}
+
+@font-face {
+  font-family: ceraProBlack;
+  src: url(../fonts/Cera_Pro_Black.otf);
+  src: url(../fonts/Cera_Pro_Black.woff);
+}
+
+@font-face {
+  font-family: ceraProBoldItalic;
+  src: url(../fonts/Cera_Pro_Bold_Italic.otf);
+  src: url(../fonts/Cera_Pro_Bold_Italic.woff);
+}
+
+@font-face {
+  font-family: ceraPro;
+  src: url(../fonts/Cera_Pro_Bold.otf);
+  src: url(../fonts/Cera_Pro_Bold.woff);
+}
+
+@font-face {
+  font-family: ceraProItalic;
+  src: url(../fonts/Cera_Pro_Italic.otf);
+}
+
+@font-face {
+  font-family: ceraProLightItalic;
+  src: url(../fonts/Cera_Pro_Light_Italic.otf);
+  src: url(../fonts/Cera_Pro_Light_Italic.woff);
+}
+
+@font-face {
+  font-family: ceraProLight;
+  src: url(../fonts/Cera_Pro_Light.otf);
+  src: url(../fonts/Cera_Pro_Light.woff);
+}
+
+@font-face {
+  font-family: ceraProMediumItalic;
+  src: url(../fonts/Cera_Pro_Medium_Italic.otf);
+  src: url(../fonts/Cera_Pro_Medium_Italic.woff);
+}
+
+@font-face {
+  font-family: ceraProMedium;
+  src: url(../fonts/Cera_Pro_Medium.otf);
+  src: url(../fonts/Cera_Pro_Medium.woff);
+}
+
+@font-face {
+  font-family: ceraProRegularItalic;
+  src: url(../fonts/Cera_Pro_Regular_Italic.woff);
+}
+
+@font-face {
+  font-family: ceraProRegular;
+  src: url(../fonts/Cera_Pro_Regular.otf);
+}
+
+@font-face {
+  font-family: ceraProThinItalic;
+  src: url(../fonts/Cera_Pro_Thin_Italic.otf);
+  src: url(../fonts/Cera_Pro_Thin_Italic.woff);
+}
+
+@font-face {
+  font-family: ceraProThin;
+  src: url(../fonts/Cera_Pro_Thin.otf);
+  src: url(../fonts/Cera_Pro_Thin.woff);
+}
   a {
     text-decoration: none;
     color: #7A7B7D; }
@@ -62,7 +82,7 @@
   }
   
   body {
-    /* font-family: Cerapro; */
+    /* font-family: ceraPro; */
     /* background: #f5f5f5 !important; */
   }
   
@@ -1294,14 +1314,14 @@ body{
 .vertising-section  {
   padding: 50px 0;
   /* background: #4ecdc5; */
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .vertising-header h2 {
   color: #000;
   font-weight: 900;
   margin-bottom: 20px !important;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-size: 35px;
 }
 
@@ -1309,7 +1329,7 @@ body{
   color: #000;
   font-weight: 400;
   font-size: 16px;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .vertising-content {
@@ -1792,7 +1812,7 @@ body{
 .inner-item-review-tit h3 {
   font-weight: 600;
   font-size: 15px;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
   color: #000;
 }
 
@@ -1911,7 +1931,7 @@ body{
   color: #000;
   font-size: 14px;
   font-weight: 600;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .link-table-day {
@@ -2056,8 +2076,8 @@ body{
   border: 1px solid #cbccce;
   padding: 6px 6px;
   border-radius: 3px;
-  font-family: CeraPro;
-  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 .new-group-item select {
@@ -2066,12 +2086,12 @@ body{
   border: 1px solid #cbccce;
   padding: 6px 6px;
   border-radius: 3px;
-  font-family: CeraPro;
-  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 .new-group-form-full label {
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-size: 15px;
   font-weight: 600;
   color: #000;
@@ -2080,7 +2100,7 @@ body{
 }
 
 .new-group-form-full label span {
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-size: 14px;
   font-weight: 400;
   color: #000;

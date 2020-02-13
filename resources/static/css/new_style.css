@@ -24,72 +24,78 @@
   src: url(../fonts/Brandon_reg_it.otf);
 }
 @font-face {
-  font-family: cera-pro-normal-black-italic, Mates, sans; 
-  src: url(../fonts/Cera\ Pro\ Black\ Italic.woff);
-  src: url(../fonts/Cera\ Pro\ Black\ Italic.otf);
+  font-family: ceraProBlackitalic;
+  src: url(../fonts/Cera_Pro_Black_Italic.otf);
+  src: url(../fonts/Cera_Pro_Black_Italic.woff);
 }
+
 @font-face {
-  font-family: cera-pro-normal-black, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Black.otf);
-  src: url(../fonts/Cera\ Pro\ Black.woff);
+  font-family: ceraProBlack;
+  src: url(../fonts/Cera_Pro_Black.otf);
+  src: url(../fonts/Cera_Pro_Black.woff);
 }
+
 @font-face {
-  font-family: cera-pro-normal-bold-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Bold\ Italic.otf);
-  src: url(../fonts/Cera\ Pro\ Bold\ Italic.woff);
+  font-family: ceraProBoldItalic;
+  src: url(../fonts/Cera_Pro_Bold_Italic.otf);
+  src: url(../fonts/Cera_Pro_Bold_Italic.woff);
 }
+
 @font-face {
   font-family: ceraPro;
-  src: url(../fonts/Cera\ Pro\ Bold.otf);
-  src: url(../fonts/Cera\ Pro\ Bold.woff);
+  src: url(../fonts/Cera_Pro_Bold.otf);
+  src: url(../fonts/Cera_Pro_Bold.woff);
 }
+
 @font-face {
-  font-family: cera-pro-normal-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Italic.otf);
+  font-family: ceraProItalic;
+  src: url(../fonts/Cera_Pro_Italic.otf);
 }
+
 @font-face {
-  font-family: cera-pro-normal-light-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Light\ Italic.otf);
-  src: url(../fonts/Cera\ Pro\ Light\ Italic.woff);
+  font-family: ceraProLightItalic;
+  src: url(../fonts/Cera_Pro_Light_Italic.otf);
+  src: url(../fonts/Cera_Pro_Light_Italic.woff);
 }
+
 @font-face {
-  font-family: cera-pro-normal-light, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Light.otf);
-  src: url(../fonts/Cera\ Pro\ Light.woff);
+  font-family: ceraProLight;
+  src: url(../fonts/Cera_Pro_Light.otf);
+  src: url(../fonts/Cera_Pro_Light.woff);
 }
+
 @font-face {
-  font-family: cera-pro-normal-medium-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Medium\ Italic.otf);
-  src: url(../fonts/Cera\ Pro\ Medium\ Italic.woff);
+  font-family: ceraProMediumItalic;
+  src: url(../fonts/Cera_Pro_Medium_Italic.otf);
+  src: url(../fonts/Cera_Pro_Medium_Italic.woff);
 }
+
 @font-face {
-  font-family: cera-pro-normal-medium, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Medium.otf);
-  src: url(../fonts/Cera\ Pro\ Medium.woff);
+  font-family: ceraProMedium;
+  src: url(../fonts/Cera_Pro_Medium.otf);
+  src: url(../fonts/Cera_Pro_Medium.woff);
 }
+
 @font-face {
-  font-family: cera-pro-normal-regular-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Regular\ Italic.woff);
+  font-family: ceraProRegularItalic;
+  src: url(../fonts/Cera_Pro_Regular_Italic.woff);
 }
+
 @font-face {
-  font-family: cera-pro-normal-thin-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Thin\ Italic.otf);
-  src: url(../fonts/Cera\ Pro\ Thin\ Italic.woff);
+  font-family: ceraProRegular;
+  src: url(../fonts/Cera_Pro_Regular.otf);
 }
+
 @font-face {
-  font-family: cera-pro-normal-thin, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Thin.otf);
-  src: url(../fonts/Cera\ Pro\ Thin.woff);
+  font-family: ceraProThinItalic;
+  src: url(../fonts/Cera_Pro_Thin_Italic.otf);
+  src: url(../fonts/Cera_Pro_Thin_Italic.woff);
 }
+
 @font-face {
-  font-family: cera-pro-normal-thin, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Thin.otf);
-  src: url(../fonts/Cera\ Pro\ Thin.woff);
-}
-@font-face {
-  font-family: cera-pro-normal, Mates, sans;
-  src: url(../fonts/Cera\ Pro.otf);
-  src: url(../fonts/Cera\ Pro.woff);
+  font-family: ceraProThin;
+  src: url(../fonts/Cera_Pro_Thin.otf);
+  src: url(../fonts/Cera_Pro_Thin.woff);
 }
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
@@ -434,6 +440,10 @@ ul {
   width: 100%;
   height: 100px;
 }
+.new-fl-inner-banner.inner-banner figure {
+  width: auto;
+  height: auto;
+}
 .inner-banner-2 figure {
   display: flex;
   justify-content: center;
@@ -443,8 +453,8 @@ ul {
 .inner-banner figure img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
-  object-position: 10%;
+  object-fit: contain;
+  /* object-position: 10%; */
 }
 
 .new-section-content {
@@ -508,11 +518,11 @@ ul {
 
 .quick-link-caption p {
   color: #141414;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 400;
+  font-size: 16px;
   text-transform: uppercase;
   margin: 0;
-  font-family: CeraPro;
+  font-family: ceraProMedium;
 }
 
 .review-content {
@@ -531,13 +541,13 @@ ul {
 
 }
 .review-content h4 {
-  font-size: 14px;
-  text-transform: uppercase;
+  font-size: 18px;
+  text-transform: capitalize;
   color: #000;
-  font-weight: 900;
-  letter-spacing: 1px;
+  /* font-weight: 900; */
+  letter-spacing: 2px;
   padding-bottom: 5px;
-  font-family: 'Brandon Grotesque Black';
+  font-family: ceraPro;
 }
 .review-content ul {
   padding-top: 10px;
@@ -561,7 +571,7 @@ ul {
   text-transform: capitalize;
   font-size: 16px;
   transition: all linear 0.3s;
-  font-family: CeraPro;
+  font-family: ceraProRegular;
   letter-spacing: 1px;
   font-weight: 400;
 }
@@ -570,6 +580,10 @@ ul {
   background-image: -moz-linear-gradient( 90deg, rgb(147,0,0) 0%, rgb(218,7,7) 100%);
   background-image: -webkit-linear-gradient( 90deg, rgb(147,0,0) 0%, rgb(218,7,7) 100%);
   background-image: -ms-linear-gradient( 90deg, rgb(147,0,0) 0%, rgb(218,7,7) 100%);
+
+  /* background-image: -moz-linear-gradient( 90deg, rgb(147,0,0) 0%, rgb(218,7,7) 100%);
+  background-image: -webkit-linear-gradient( 90deg, rgb(147,0,0) 0%, rgb(218,7,7) 100%);
+  background-image: -ms-linear-gradient( 90deg, rgb(147,0,0) 0%, rgb(218,7,7) 100%); */
 }
 .review-content ul li:first-child button:hover {
   /* background: #fff;
@@ -587,6 +601,8 @@ ul {
 }
 .inner-item-blg figure {
   width: 100%;
+  overflow: hidden;
+  border-radius: 6px 6px 0 0;
 }
 .inner-item-blg figure img {
   width: 100%;
@@ -625,7 +641,7 @@ ul {
   align-items: center;
   /* border: 2px solid #364c6d; */
   border-radius: 18px;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 42px;
   background: #fff;
   position: relative;
@@ -641,7 +657,7 @@ ul {
   border-right: 1px solid #dedede;
   padding: 0 7px 0 10px;
   background: #eaeaea;
-  /* border-radius: 6px 0 0 6px; */
+  border-radius: 18px 0 0 18px;
   flex: 0 0 15%;
   width: 100%;
   outline: 0;
@@ -655,7 +671,7 @@ ul {
   font-weight: 400;
   text-transform: capitalize;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 .form-inner input {
   outline: 0;
@@ -671,7 +687,7 @@ ul {
   color: #B2B2B2;
   font-weight: 400;
   font-size: 16px;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
   letter-spacing: 1px;
   line-height: 1;
 }
@@ -682,7 +698,7 @@ ul {
   /* position: absolute;
   right: 0; */
   height: 100%;
-  /* border-radius: 0 6px 6px 0; */
+  border-radius: 0 18px 18px 0;
   border: 1px solid #da0707;
   background: #da0707;
 }
@@ -731,9 +747,9 @@ ul {
 }
 .inner-item-blog-sect {
   border-radius: 10px 10px 0 0;
-  background: #fff;
+  /* background: #fff; */
   box-shadow: 0px 0px 22px -8px rgba(2, 21, 42, 0.54);
-  overflow: hidden;
+  /* overflow: hidden; */
   margin-top: 20px;
 }
 .inner-rated-iconic {
@@ -820,9 +836,11 @@ ul {
 .headline-link-content h4 {
   line-height: 1.2;
   color: #000;
-  font-size: 14px;
-  text-transform: uppercase;
-  font-family: 'Brandon Grotesque Black';
+  font-size: 18px;
+  text-transform: capitalize;
+  /* font-family: 'Brandon Grotesque Black'; */
+  font-family: ceraPro;
+  font-weight: 400;
 }
 .headline-link-content ul {
   /* border-top: 3px solid #000; */
@@ -833,6 +851,7 @@ ul {
   width: 100%;
   display: block;
   word-break: break-all;
+  padding-left: 15px;
 }
 .headline-link-content ul li:before {
   position: absolute;
@@ -841,7 +860,7 @@ ul {
   left: 0;
   width: 4px;
   height: 4px;
-  top: 13px;
+  top: 14px;
   transform: translateY(-50%);
   background-size: contain;
   margin-top: 7px;
@@ -849,11 +868,11 @@ ul {
 .headline-link-content ul li a {
   border: 0;
   font-size: 14px;
-  margin-left: 15px;
+  /* margin-left: 15px; */
   color: #000 !important;
   padding: 10px 0;
   font-weight: 400;
-  font-family: CeraPro;
+  font-family: ceraProRegular;
 }
 .headline-link-content ul li a:hover {
   color: #2d8cf0;
@@ -964,9 +983,9 @@ ul {
   margin: 0;
   color: #000;
   /* color: rgb(153, 0, 0); */
-  font-family: CeraPro;
+  font-family: ceraProBlack;
   letter-spacing: 1px;
-  font-weight: 600;
+  font-weight: 900;
   font-size: 16px;
   /* font-style: italic; */
 }
@@ -982,12 +1001,13 @@ ul {
 .scandal-analytics h4 {
   line-height: 1.2;
   color: #000;
-  font-size: 13px;
-  font-weight: 900;
+  font-size: 18px;
+  font-weight: 400;
   margin-top: 0;
-  font-family: 'Brandon Grotesque Black';
+  /* font-family: 'Brandon Grotesque Black'; */
+  font-family: ceraPro;
   letter-spacing: 1px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .scandal-ana-banner {
@@ -1017,13 +1037,13 @@ ul {
 }
 .scandal-list ul li a {
   border-bottom: 1px solid #EDEEF0;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 400;
   color: #000 !important;
   padding: 12px 0;
   text-decoration: none;
   display: block;
-  font-family: CeraPro;
+  font-family: ceraProMedium;
   letter-spacing: 1px;
 }
 .scandal-list ul li a img {
@@ -1041,10 +1061,10 @@ ul {
   text-decoration: underline;
   font-weight: 400;
   color: #000 !important;
-  font-size: 14px;
-  font-family: CeraPro;
+  font-size: 16px;
+  font-family: ceraProMedium;
   display: block;
-  padding: 2px 0;
+  padding: 4px 0;
 }
 
 .scandal-box-in .row {
@@ -1119,13 +1139,13 @@ ul {
 }
 
 .logo-title {
-  
+  margin-bottom: 20px;
 }
 
 .logo-title-heading {
   font-size: 14px;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
   display: flex;
   align-items: center;
 }
@@ -1136,7 +1156,8 @@ ul {
 }
 
 .logo-title  span{
-  
+  font-family: ceraProMedium;
+  font-size: 14px;
 }
 
 .inner-scandal-video-item {
@@ -1181,11 +1202,11 @@ ul {
   margin-bottom: 40px;
 }
 .scandal-video-caption p {
-  font-weight: 600;
-  font-size: 14px;
-  /* font-family: CeraPro; */
+  font-weight: 400;
+  font-size: 16px;
+  font-family: ceraProMedium;
   color: #000;
-  line-height: 18px;
+  line-height: 20px;
   /* letter-spacing: 1px; */
   /* word-break: break-all; */
 }
@@ -1193,7 +1214,7 @@ ul {
 .video-logo {
   position: absolute;
   bottom: 10px;
-  width: 40px;
+  width: 60px;
   right: 10px;
 }
 
@@ -1225,7 +1246,8 @@ ul {
   padding: 0 5px;
   flex: 0 0 33.33%;
   width: 100%;
-  margin-top: 15px;
+  height: 100%;
+  /* margin-top: 15px; */
 }
 
 @media only screen and (max-width: 991px) {
@@ -1319,7 +1341,7 @@ ul {
   margin: 0;
   margin-bottom: 5px;
   text-transform: capitalize;
-  font-family: CeraPro;
+  font-family: ceraPro;
   letter-spacing: 2px;
   word-break: break-all;
 }
@@ -1330,11 +1352,11 @@ ul {
   font-size: 12px;
   margin: 0;
   margin-bottom: 5px;
-  font-family: CeraPro;
+  font-family: ceraPro;
   letter-spacing: 1px;
   text-transform: capitalize;
   /* word-break: break-all; */
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .activ-det  p {
@@ -1346,7 +1368,7 @@ ul {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-weight: 400;
   line-height: 18px;
   word-break: break-all;
@@ -1374,7 +1396,7 @@ ul {
   font-weight: 900;
   /* text-transform: uppercase; */
   font-size: 14px;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
   color: #000;
 }
 .recent-title .drop-bottom-icon {
@@ -1425,7 +1447,7 @@ ul {
   font-size: 16px;
   margin: 0;
   margin-bottom: 5px;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
   letter-spacing: 3px;
 }
 .review-header-title ul {
@@ -1439,10 +1461,10 @@ ul {
 .review-header-title h4 {
   color: #000;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
   margin-bottom: 5px;
-  /* font-family: CeraPro; */
+  font-family: ceraProRegular;
   letter-spacing: 1px;
 }
 .review-header-title h4 span {
@@ -1451,6 +1473,8 @@ ul {
   font-weight: 400;
   font-size: 18px;
   padding-left: 5px;
+  font-family: ceraProMedium;
+  cursor: pointer;
 }
 
 .review-header-title {
@@ -1479,7 +1503,7 @@ ul {
   font-size: 16px;
   font-weight: 900;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .rev-ti-ic {
@@ -1565,7 +1589,7 @@ ul {
 
 .review-time p {
   margin: 0;
-  font-family: CeraPro;
+  font-family: ceraPro;
   color: #2b2c2d;
   font-weight: 400;
   font-size: 16px;
@@ -1586,7 +1610,7 @@ ul {
 .revt-details p {
   margin-bottom: 0;
   line-height: 22px;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
   font-weight: 400;
   /* letter-spacing: 1px; */
   color: #48494a;
@@ -1596,14 +1620,14 @@ ul {
   color: #000;
   font-weight: 600;
   text-decoration: none;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
 }
 
 .revt-details p a:hover {
   color: #2d8cf0;
   font-weight: 600;
   text-decoration: none;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
 }
 
 .flank-daily-sec {
@@ -1645,30 +1669,30 @@ ul {
 .flank-daily-content h2 {
   margin: 0;
   margin-bottom: 15px !important;
-  font-size: 25px;
+  font-size: 24.07px;
   font-weight: 400;
-  font-family: CeraPro;
+  font-family: ceraPro;
   /* letter-spacing: 1px; */
   color: #000;
   line-height: 1.2;
 }
 .flank-daily-content p {
   margin-bottom: 20px;
-    color: #000;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-left: -5px;
-    margin-right: -5px;
-    line-height: 18px;
-    font-family: CeraPro;
-    font-weight: 400;
+  color: #000;
+  font-size: 10.32px;
+  letter-spacing: 1px;
+  margin-left: -5px;
+  margin-right: -5px;
+  line-height: 18px;
+  font-family: ceraProRegular;
+  font-weight: 400;
 }
 .fla-form-full {
   margin-bottom: 10px;
 }
 .fla-form-full input {
   width: 100%;
-  padding: 8px 10px;
+  padding: 5px 10px;
   border: 1px solid #000;
   color: #000;
   font-size: 15px;
@@ -1676,11 +1700,23 @@ ul {
   outline: 0;
   border-radius: 6px;
 }
-.fla-form-full input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+.fla-form-full input::-webkit-input-placeholder {
+  color: #000;
   font-weight: 400;
-  font-size: 15px;
-  font-family: CeraPro;
+  font-size: 12px;
+  font-family: ceraProThin;
+}
+.fla-form-full input::-ms-input-placeholder {
+  color: #000;
+  font-weight: 400;
+  font-size: 12px;
+  font-family: ceraProThin;
+}
+.fla-form-full input::placeholder {
+  color: #000;
+  font-weight: 400;
+  font-size: 12px;
+  font-family: ceraProThin;
 }
 
 .fla-form-button button {
@@ -1688,13 +1724,13 @@ ul {
   background: #006dd3;
   outline: 0;
   border: 2px solid #006dd3;
-  font-size: 18px;
+  font-size: 12px;
   color: #fff;
-  border-radius: 18px;
+  border-radius: 20px;
   font-weight: 400;
-  font-family: sans-serif;
-  padding: 8px 0;
-  font-family: CeraPro;
+  padding: 5px 0;
+  font-family: ceraProRegular;
+  letter-spacing: 1px;
 }
 
 .priv {
@@ -1704,11 +1740,12 @@ ul {
   margin-bottom: 0;
 }
 .priv p a {
-  font-size: 12px;
+  font-size: 10.4px;
   color: #5296df  !important;
   text-decoration: none;
   text-transform: capitalize;
   letter-spacing: 0;
+  font-family: ceraProRegular;
 }
 
 .new-drop-section {
@@ -1786,18 +1823,18 @@ ul {
 .drop-item-title .drop-title-caption h3 {
   margin: 0;
   margin-bottom: 2px;
-  font-weight: 900;
+  font-weight: 400;
   color: #da0707;
-  font-size: 18px;
+  font-size: 16px;
   text-transform: capitalize;
-  font-family: CeraPro
+  font-family: ceraProMedium;
 }
 .drop-item-title .drop-title-caption p {
-  color: #000;
+  color: #2b2c2d;
   font-weight: 400;
   margin-bottom: 0;
-  font-size: 15px;
-  font-family: CeraPro;
+  font-size: 14px;
+  font-family: ceraProLight;
 }
 
 .drop-more {
@@ -1806,10 +1843,10 @@ ul {
 }
 
 .drop-more p a {
-  color: #8AB4E6 !important;
+  color: #5196df !important;
   text-decoration: none;
-  font-size: 15px;
-  font-family: CeraPro;
+  font-size: 14px;
+  font-family: ceraProRegular;
   font-weight: 400 !important;
   text-transform: capitalize;
 }
@@ -1845,12 +1882,12 @@ ul {
   overflow: hidden;
 }
 .drop-inner-coach h4 {
-  color: #497db1;
+  color: #006dd3;
   font-weight: 400;
   margin: 0;
   text-transform: capitalize;
-  font-family: CeraPro;
-  font-size: 16px;
+  font-family: ceraProMedium;
+  font-size: 14px;
   width: 13em;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1870,16 +1907,16 @@ ul {
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: 0;
-    font-family: CeraPro;
-    font-size: 14px;
+    font-family: ceraProRegular;
+    font-size: 12px;
     /* height: 78px; */
     line-height: 19px;
 }
 .drop-inner-coach-txt a {
   text-decoration: none;
-  color: #8AB4E6 !important;
-  font-size: 14px;
-  font-family: CeraPro;
+  color: #018ee7 !important;
+  font-size: 12px;
+  font-family: ceraProRegular;
   font-weight: 400;
 }
 .drop-inner-coach-txt a:hover {
@@ -1904,7 +1941,7 @@ ul {
   margin-right: 30px;
   display: flex;
   align-items: center;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 .drop-bottom-icon ul li span{
   padding: 0px 0px 0px 7px;
@@ -1960,10 +1997,10 @@ ul {
   text-align: left;
 }
 .spotlight-content p a {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
-  color: #8AB4E6 !important;
-  font-family: CeraPro;
+  color: #0b6df1 !important;
+  font-family: ceraProRegular;
 }
 
 .spotlight-content p a:hover {
@@ -2023,16 +2060,16 @@ ul {
 
 @media only screen and (max-width: 1199px) {
   .activity-item {
-    flex: 0 0 33.33%;
-    max-width: 33.33%;
+    /* flex: 0 0 33.33%;
+    max-width: 33.33%; */
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .activity-item {
+  /* .activity-item {
     flex: 0 0 50%;
     max-width: 50%;
-  }
+  } */
 }
 .activity-item .activity-inner {
   border-radius: 10px;
@@ -2057,7 +2094,25 @@ ul {
 @media only screen and (max-width: 992px) {
 
   .activity-inner-fig figure {
-    height: 170px;
+    height: 120px;
+  }
+}
+@media only screen and (max-width: 767px) {
+
+  .activity-inner-fig figure {
+    height: 90px;
+  }
+}
+@media only screen and (max-width: 599px) {
+
+  .activity-inner-fig figure {
+    height: 65px;
+  }
+}
+@media only screen and (max-width: 399px) {
+
+  .activity-inner-fig figure {
+    height: 48px;
   }
 }
 .activity-inner-fig figure img {
@@ -2149,7 +2204,7 @@ ul {
   font-size: 23px;
   text-transform: uppercase;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
   color: rgb(151, 151, 151);
 }
 .flank-header-cap h1 span {
@@ -2165,7 +2220,7 @@ ul {
   list-style: none;
   margin-right: 10px;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 .flank-header-cap ul li img {
   width: 20px;
@@ -2189,7 +2244,7 @@ ul {
   transition: all linear 0.3s;
   letter-spacing: 1px;
   font-weight: 600;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .flank-item-left-list {
@@ -2203,7 +2258,7 @@ ul {
   text-transform: uppercase;
   font-weight: 400;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-size: 14px;
   letter-spacing: 1px;
 }
@@ -2252,7 +2307,7 @@ ul {
   font-weight: 600;
   font-size: 18px;
   margin-bottom: 10px;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 .right-list-inner .right-list-inner-item .review-star ul {
   margin: 0;
@@ -2410,7 +2465,7 @@ ul {
   font-weight: 600;
   text-transform: capitalize;
   text-decoration: none;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
   font-size: 14px;
 }
 .flank-page-bottom {
@@ -2460,7 +2515,7 @@ ul {
   text-transform: capitalize;
   font-size: 17px;
   transition: all linear 0.3s;
-  font-family: CeraPro;
+  font-family: ceraPro;
   letter-spacing: 1px;
 }
 
@@ -2497,7 +2552,7 @@ ul {
   text-transform: capitalize;
   font-size: 17px;
   transition: all linear 0.3s;
-  font-family: CeraPro;
+  font-family: ceraPro;
   letter-spacing: 1px;
   text-align: left;
 }
@@ -2551,7 +2606,7 @@ ul {
   font-size: 16px;
   text-transform: capitalize;
   margin: 0;
-  font-family: CeraPro;
+  font-family: ceraPro;
   letter-spacing: 1px;
 }
 
@@ -2579,7 +2634,7 @@ ul {
   font-weight: 900;
   text-transform: uppercase;
   font-size: 15px;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .inner-item-table-sec {
@@ -2617,7 +2672,7 @@ ul {
   padding: 5px 0.7rem;
   text-transform: uppercase;
   border-bottom: 1px solid #e7e7e7;
-  font-family: CeraPro;
+  font-family: ceraPro;
   color: #000;
 }
 .inner-item-table table .th-nor {
@@ -2626,13 +2681,13 @@ ul {
   letter-spacing: 1px;
   color: #000;
   font-size: 13px;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 .inner-item-table table tbody tr td {
   border-bottom: 1px solid #e7e7e7;
     padding: 2px 0.7rem;
     font-weight: 400;
-    /* font-family: CeraPro; */
+    /* font-family: ceraPro; */
     color: #000;
     font-size: 13px;
 }
@@ -2717,8 +2772,9 @@ ul {
 
 .known-item-caption p {
   color: #000;
-  font-weight: 900;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: ceraPro;
 }
 
 .more-att {
@@ -2765,7 +2821,7 @@ ul {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-family: CeraPro
+  font-family: ceraPro
 }
 
 .inner-item-rev-item:last-child {
@@ -2824,7 +2880,7 @@ ul {
 .inner-item-top-con .top-con-cap p {
   font-weight: 400;
   font-size: 14px;
-  font-family: CeraPro;
+  font-family: ceraPro;
   color: #000;
 }
 .inner-item-top-con .top-con-cap p span {
@@ -2850,8 +2906,10 @@ ul {
   padding: 10px 0;
 }
 
+
+
 .new-flank-search {
-  flex: 0 0 75%;
+  flex: 0 0 48%;
   width: 100%;
   /* margin-right: 10px; */
 }
@@ -2874,31 +2932,31 @@ ul {
   border-radius: 5px 0 0 5px;
   font-size: 14px;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .new-flank-search .search-new-box input::-webkit-input-placeholder {
   font-size: 14px;
   color: #8e9087;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .new-flank-search .search-new-box input:-moz-placeholder {
   font-size: 14px;
   color: #8e9087;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .new-flank-search .search-new-box input:-ms-input-placeholder {
   font-size: 14px;
   color: #8e9087;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .new-flank-search .search-new-box input::placeholder {
   font-size: 14px;
   color: #8e9087;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 .new-flank-search .search-new-box button {
   outline: 0;
@@ -2912,13 +2970,16 @@ ul {
 }
 
 .new-flank-sort {
-  flex: 0 0 25%;
+  flex: 0 0 52%;
   width: 100%;
   display: flex;
   flex-flow: row;
   align-items: center;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+  padding-left: 45px;
 }
+
+
 
 .mob-new-flank-sort {
   flex: 0 0 55%;
@@ -2945,6 +3006,23 @@ ul {
   }
 }
 
+@media only screen and (max-width: 1115px) {
+  .new-flank-search {
+    flex: 0 0 100%;
+    width: 100%;
+    /* margin-right: 10px; */
+  }
+  .new-flank-sort {
+    flex: 0 0 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin-top: 10px;
+    padding-left: 0;
+  }
+}
+
 .new-flank-sort .new-flank-select {
   display: flex;
   flex-flow: row;
@@ -2957,14 +3035,14 @@ ul {
   margin: 0;
   font-size: 14px;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraProRegular;
 }
 .new-flank-sort .new-flank-select select {
   font-weight: 600;
   color: #000;
   border: 0;
   outline: 0;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-size: 14px;
 }
 
@@ -3104,11 +3182,12 @@ ul {
   font-size: 15px;
   color: #FE0101;
   margin-bottom: 0;
-  font-family: CeraPro;
+  font-family: ceraProMedium;
 }
 .start-link p span {
   font-weight: 600;
   text-transform: capitalize;
+  font-family: ceraPro;
 }
 
 .flank-given-review-item {
@@ -3165,7 +3244,7 @@ ul {
   margin: 0;
   margin-bottom: 5px;
   padding-top: 2px;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 .review-item-left-fig-c h5 {
   font-size: 15px;
@@ -3174,7 +3253,7 @@ ul {
   text-transform: capitalize;
   margin: 0;
   margin-bottom: 5px;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 .review-item-left-fig-c .left-fig-link {
   width: 100%;
@@ -3196,7 +3275,7 @@ ul {
 .review-item-left-fig-c .left-fig-link li span {
   color: #000;
   font-weight: 400;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .review-figure-exper {
@@ -3221,12 +3300,12 @@ ul {
   width: 100%;
   padding: 4px 0;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .review-figure-exper ul li p a {
   color: #000 !important;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .review-figure-exper ul li p a:hover {
@@ -3307,7 +3386,7 @@ ul {
   margin-bottom: 10px;
   font-size: 15px;
   font-weight: 400;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .review-btn {
@@ -3342,7 +3421,7 @@ ul {
   font-size: 10px;
   color: #686667;
   font-weight: 400;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .review-btn-img {
@@ -3365,7 +3444,7 @@ ul {
     font-size: 15px;
     font-weight: 600;
     margin-bottom: 10px;
-    font-family: CeraPro;
+    font-family: ceraPro;
 }
 
 .review-gallary {
@@ -3461,7 +3540,7 @@ ul {
   margin: 0;
   font-weight: 600;
   font-size: 15px;
-  font-family: CeraPro;
+  font-family: ceraPro;
   letter-spacing: 1px;
 }
 .playing-list ul li .video-info ul {
@@ -3478,7 +3557,7 @@ ul {
   width: auto;
   margin-right: 10px;
   padding: 0;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
 }
 .playing-list ul li .video-info ul li span {
   margin-left: 3px;
@@ -3563,17 +3642,18 @@ ul {
   display: block;
 }
 .form-main-dropdown ul li a {
-  font-weight: 800;
+  font-weight: 600;
   width: 100%;
-  color: black;
+  color: #000 !important;
   display: block;
   padding: 5px 10px;
   transition: all 0.3s linear;
   font-size: 14px;
+  font-family: ceraProRegular;
 }
 .form-main-dropdown ul li a:hover {
-  background: #E51937;
-  color: #fff;
+  background: #da0707;
+  color: #fff !important;
 }
 
 /*# sourceMappingURL=style.css.map */
@@ -3594,15 +3674,19 @@ ul {
   align-items: center;
   border-bottom: 2px solid #f1f1f1;
   padding: 0 0 10px;
-  /* font-family: CeraPro; */
+  /* font-family: ceraPro; */
   margin-bottom: 6px;
 }
 ._1health_title_text {
-  font-size: 14px;
-  font-weight: 900;
-  color: #080808;
+  /* font-size: 14px; */
+  font-size: 24px;
+  /* font-weight: 900; */
+  font-weight: 400;
+  /* color: #080808; */
+  color: #000;
   flex: 1 1;
-  font-family: 'Brandon Grotesque Black';
+  /* font-family: 'Brandon Grotesque Black'; */
+  font-family: ceraPro;
   text-transform: uppercase;
 }
 ._1health_img {
@@ -3614,26 +3698,30 @@ ul {
   font-size: 20px;
   color: black;
   font-family: 'Brandon Grotesque Black';
+  font-size: 28px;
+  font-family: ceraPro;
+  letter-spacing: 1px;
+  font-weight: 400;
 }
 ._1health_subtitle{
   font-size: 15px;
     font-weight: bold;
     color: #000;
-    font-family: CeraPro;
+    font-family: ceraPro;
     text-transform: uppercase;
 }
 ._1health_numbers{}
 ._1health_main_title {
   font-weight: 600;
   font-size: 14px;
-  font-family: CeraPro;;
+  font-family: ceraPro;;
 }
 ._1health_main_list{}
 ._1health_main_list li:before {
   position: absolute;
   content: '';
-  height: 2px;
-  width: 2px;
+  height: 5px;
+  width: 5px;
   background: #bbbbbb;
   left: 5px;
   top: 8px;
@@ -3646,7 +3734,17 @@ ul {
   padding-left: 15px;
   margin: 0 0 7px;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
+}
+._new_1health_main_list._1health_main_list li {
+  position: relative;
+  display: block !important;
+  font-size: 14px;
+  padding-left: 20px;
+  margin: 0 0 7px;
+  color: #000;
+  font-family: ceraProRegular;
+  font-weight: 400;
 }
 ._1health_more {
   text-align: right;
@@ -3656,28 +3754,48 @@ ul {
   color: #fe0a00 !important;
   transition: .3s all ease;
   font-size: 14px;
-  font-family: CeraPro;
+  font-family: ceraProRegular;
 
 }
 ._1health_more_a:hover{
   color: #fe0a00 !important;
 }
 ._1health_numbers_text span {
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-weight: bold;
   width: 22px;
-  background: #ffffff;
-  padding: 0 0 0 0;
+  background: #f9f9f9;
+  padding: 0 0 0 20px;
   text-align: left;
   height: 20px;
   display: inline-block;
+}
+._pc_1health_numbers ._1health_numbers_text span {
+  font-family: ceraPro;
+  font-weight: bold;
+  width: 22px;
+  background: #fff;
+  padding: 0 0 0 20px;
+  text-align: left;
+  height: 20px;
+  display: inline-block;
+}
+.new-meter-font {
+  font-family: ceraProMedium !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+}
+.new-health-meter-box {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px 25px;
 }
 ._1health_numbers_text {
   position: relative;
   text-align: right;
   height: 22px;
   z-index: 1;
-  margin-bottom: 5px;;
+  margin-bottom: 15px;;
 }
 ._1health_numbers_text_o:before {
   border-bottom: 1px dotted #b5b0b0 !important;
@@ -3686,9 +3804,9 @@ ul {
   position: absolute;
   content: '';
   border-bottom: 1px dotted #e8e5e5;
-  width: 100%;
+  width: 95%;
   left: 0;
-  top: 8px;
+  top: 11px;
   z-index: -1;
 }
 ._1health_subtitle_border{
@@ -3728,7 +3846,7 @@ ul {
   font-size: 18px;
   color: #000;
   margin-bottom: 10px;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .inner-item-one-cont-left p span {
@@ -3741,7 +3859,7 @@ ul {
   text-transform: capitalize;
   font-weight: 400;
   margin-bottom: 10px;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .help-ans span {
@@ -3762,7 +3880,7 @@ ul {
 
 .help-text {
   line-height: 19px;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-size: 15px;
   font-weight: 400;
 }
@@ -3808,7 +3926,7 @@ ul {
 .view-question-btn a {
   color: #ff0000 !important;
     font-size: 13px;
-    font-family: CeraPro;
+    font-family: ceraPro;
     text-transform: capitalize;
 }
 
@@ -3820,7 +3938,7 @@ ul {
   padding: 10px 15px;
   display: block;
   color: #fff !important;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-size: 11px
 }
 
@@ -4203,17 +4321,18 @@ flex: 0 0 100%;
 } */
 
 .new-font h3 {
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-weight: 600;
   text-transform: capitalize;
 }
 
 .new-font p {
-  font-family: CeraPro;
+  font-family: ceraProRegular;
   color: #2b2c2d;
   line-height: 26px;
   letter-spacing: 1px;
   font-weight: 400;
+  font-size: 16px;
 }
 
 footer {
@@ -4237,7 +4356,7 @@ footer {
 }
 
 .new-qu-text p {
-  font-family: CeraPro;
+  font-family: ceraPro;
   color: #000;
   font-size: 16px;
   font-weight: 400;
@@ -4293,7 +4412,7 @@ footer {
     margin: 0;
     margin-bottom: 5px;
     padding-top: 0;
-    font-family: CeraPro;
+    font-family: ceraPro;
 }
 
 .coach-rev-text-content h5 {
@@ -4303,7 +4422,7 @@ footer {
     text-transform: capitalize;
     margin: 0;
     margin-bottom: 5px;
-    font-family: CeraPro;
+    font-family: ceraPro;
 }
 
 .coach-rev-text-content ul {
@@ -4328,7 +4447,7 @@ footer {
 .coach-rev-text-content ul li span {
   color: #000;
   font-weight: 400;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .inner-one-item-help-btn a.helpful i {
@@ -4340,7 +4459,7 @@ footer {
   color: #0036b1;
   font-size: 13px;
   text-align: center;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .show-more-ac p span {
@@ -4353,7 +4472,7 @@ footer {
 }
 
 .review-checkin p {
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-size: 12px;
 }
 
@@ -4386,9 +4505,13 @@ footer {
 }
 
 .itl {
-  color: rgba(123, 123, 123, 0.7) !important;
-  font-style: italic;
+  color: rgb(43, 44, 45) !important;
   font-weight: 400;
+  font-size: 14px !important;
+}
+
+.itl span {
+  text-transform: lowercase !important;
 }
 
 .pad-border {
@@ -4489,7 +4612,7 @@ footer .foo-individual .foo-option ul li {
 
 footer .foo-individual .foo-option ul li a {
   color: #fff !important;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 footer .foo-individual .foo-option ul li a:hover {
@@ -4548,7 +4671,8 @@ footer .foo-individual .foo-option ul li a:hover {
   text-align: center;
   border-right: 1px solid #dedede !important;
   position: relative;
-  font-family: CeraPro;
+  font-family: ceraProRegular;
+  font-weight: 400;
 }
 
 .flank-coll-bar {
@@ -4632,7 +4756,7 @@ footer .foo-individual .foo-option ul li a:hover {
   text-align: center;
   font-size: 20px;
   list-style: none;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-weight: 400;
 }
 
@@ -4647,7 +4771,7 @@ footer .foo-individual .foo-option ul li a:hover {
 
 .new-coach h3 {
   font-size: 14px;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-weight: 600;
   margin-bottom: 5px;
   letter-spacing: 1px;
@@ -4656,7 +4780,7 @@ footer .foo-individual .foo-option ul li a:hover {
 .new-coach p {
   font-size: 14px;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-weight: 400;
 }
 
@@ -4669,7 +4793,7 @@ footer .foo-individual .foo-option ul li a:hover {
 .new-coach-des p {
   color: #000;
   font-weight: 400;
-  font-family: CeraPro;
+  font-family: ceraPro;
   font-size: 14px;
 }
 
@@ -4699,18 +4823,18 @@ footer .foo-individual .foo-option ul li a:hover {
 }
 
 .vertising-title h3 {
-  font-size: 18px;
+  font-size: 22px;
   color: #000;
-  font-weight: 600;
-  font-family: CeraPro;
-  line-height: 21px;
+  font-weight: 400;
+  font-family: ceraPro;
+  line-height: 26px;
   letter-spacing: 1px;
 }
 
 .vertising-title p {
   font-size: 12px;
   color: #000;
-  font-family: CeraPro;
+  font-family: ceraPro;
   margin-top: 7px;
   line-height: 15px;
 }
@@ -4729,7 +4853,7 @@ footer .foo-individual .foo-option ul li a:hover {
   padding: 5px 10px;
   border-radius: 3px;
   text-transform: capitalize;
-  font-family: CeraPro;
+  font-family: ceraPro;
 }
 
 .vertising-image  {
@@ -4749,8 +4873,8 @@ footer .foo-individual .foo-option ul li a:hover {
 .vertising-text p {
   text-transform: uppercase;
   color: #000;
-  font-family: CeraPro;
-  font-size: 15px;
+  font-family: ceraProRegular;
+  font-size: 14px;
   letter-spacing: 1px;
 }
 
@@ -4779,12 +4903,12 @@ footer .foo-individual .foo-option ul li a:hover {
   width: 100%;
   color: #fff;
   padding: 9px;
-  font-size: 20px;
-  font-family: CeraPro;
+  font-size: 24px;
+  font-family: ceraProRegular;
   font-weight: 400;
   border: 0;
   outline: 0;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
   text-transform: capitalize;
 }
 
@@ -4792,19 +4916,21 @@ footer .foo-individual .foo-option ul li a:hover {
   display: block;
   width: 100%;
   font-size: 17px;
-  font-family: "CeraPro";
-  color: #8AB4E6 !important;
+  font-family: ceraProRegular;
+  color: #018ee7 !important;
   line-height: 1.2;
   margin-top: 10px;
+  letter-spacing: 1px;
+  font-weight: 400;
 }
 
 .vertising-opportunity-sec .drop-title h2 {
-  font-size: 20px;
-  font-weight: 900;
+  font-size: 24px;
+  font-weight: 400;
   color: #000;
   margin: 0 !important;
   text-transform: none;
-  font-family: CeraPro;
+  font-family: ceraPro;
   letter-spacing: 1px;
 }
 
@@ -4881,11 +5007,11 @@ footer .foo-individual .foo-option ul li a:hover {
 }
 
 @media only screen and (max-width: 399px) {
-
+/* 
   .activity-item {
     flex: 0 0 100%;
     max-width: 100%;
-}
+} */
 
   .activity-item .activity-inner {
     /* width: 70%; */
@@ -4895,10 +5021,10 @@ footer .foo-individual .foo-option ul li a:hover {
 
 .new-sidebar {
   position: absolute;
-  z-index: 100;
+  z-index: 10000;
   background: #fff;
   width: 100%;
-  top: 139px;
+  top: 50px;
   height: 100%;
   overflow-y: scroll;
   transform: translateX(-100%);
@@ -4925,7 +5051,7 @@ footer .foo-individual .foo-option ul li a:hover {
 .quick-link-content.sidebar-con-list h4 {
   text-transform: capitalize;
   font-size: 18px;
-  font-family: CeraPro;
+  font-family: ceraPro;
   color: #4a4a4a;
 }
 
@@ -5105,4 +5231,36 @@ footer {
 html {
   min-height: 100%;
   position: relative;
+}
+
+.new-min-height {
+  min-height: 240px;
+  height: auto !important;
+}
+
+.new-min-height .inner-scandal-video-item {
+  height: 100% !important;
+}
+
+.review-checkin .ivu-tooltip-popper {
+  display: block !important;
+  right: 0;
+  white-space: normal !important;
+  left: auto !important;
+}
+
+.review-checkin .ivu-tooltip-inner {
+  white-space: normal !important;
+}
+
+.review-checkin .ivu-tooltip-popper[x-placement=bottom] .ivu-tooltip-arrow {
+  left: auto !important;
+  margin-left: -5px;
+  right: 30px !important;
+}
+
+._1healtfh_main._new_1healtfh_main {
+  border-top: 1px solid #000;
+  margin-top: 10px;
+  padding: 10px 20px 0 20px;
 }

@@ -7,7 +7,7 @@
                     <div class="col-md-6 col-sm-7 col-md-offset-2 col-sm-offset-1">
                         <div class="review-search_left">
                             <h2 class="first-review-title">Submit Your First Review</h2>
-                            <p class="first-review-sub">Review good or bad coaches and share your experiences with our community. Strengthen healthy coaches, and isolate - and weaken - those who don't.</p>
+                            <p class="first-review-sub">At Flank, we believe that all coaches – strong and weak alike – must adhere to standards that govern bad coaching. The standards displayed by great coaches strengthens those who do, and isolates – and weakens – those who don’t. </p>
                             <div class="review-search">
                                 <form v-on:submit.prevent>
                                     <div class="review-form-box">
@@ -149,7 +149,7 @@ export default {
         }
     },
     created(){
-
+        this.searchCoach()
     }
 }
 </script>

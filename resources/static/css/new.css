@@ -1788,7 +1788,8 @@ border: 1px solid #dc4f4f;
     flex: 0 0 33.33%;
     width: 33.33%;
     padding: 0 5px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
+    min-height: 273px;
 }
 
 @media only screen and (max-width: 450px) {
@@ -1803,6 +1804,10 @@ border: 1px solid #dc4f4f;
     position: relative;
 }
 
+.inner-scandal-video .hooper-list {
+    padding-bottom: 10px;
+}
+
 .hooper-navigation button {
     background-image: -moz-linear-gradient( 90deg, rgb(219,219,219) 0%, rgb(239,240,242) 100%);
     background-image: -webkit-linear-gradient( 90deg, rgb(219,219,219) 0%, rgb(239,240,242) 100%);
@@ -1813,6 +1818,8 @@ border: 1px solid #dc4f4f;
     border: 0;
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
+    line-height: 1px;
 }
 
 .hooper-navigation button.hooper-prev {
@@ -1827,7 +1834,7 @@ border: 1px solid #dc4f4f;
     flex: 0 0 33.33%;
     width: 33.33%;
     padding: 0 5px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 
 @media only screen and (max-width: 450px) {

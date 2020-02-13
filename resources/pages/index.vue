@@ -3,8 +3,8 @@
     <div class="pt-120">
         <div  v-if="mobileScreen==false">
             <div class="new-banner-section" >
-                <div class="container">
-                    <div class="inner-banner">
+                <div class="container" style="">
+                    <div class="inner-banner new-fl-inner-banner">
                         <figure>
                             <img src="/images/new-top.png" alt=""> 
                         </figure>
@@ -19,7 +19,7 @@
                             <div class="new-inner-item-1"  >
                                 <div class="col-md-3 col-sm-3">
                                     <div class="quick-link-content">
-                                        <h4 class="pad-border">QUICK LINKS</h4>
+                                        <h4 class="pad-border cera-bold font-18 weight-400">QUICK LINKS</h4>
                                         <ul>
                                             <li>
                                                 <a @click="$router.push(`/coach_search?pageOption=coach&div=High School`)">
@@ -99,7 +99,7 @@
                                     <div class="recent-activity-part">
                                         <!-- <div class="linear-border"></div> -->
                                         <div class="drop-title no-border">
-                                            <h2 class="pad-border">Recent activity</h2>
+                                            <h2 class="pad-border cera-bold font-24 weight-400">Recent activity</h2>
                                         </div>
                                         <ul class="activity-list">
                                             <li class="activity-list-inner" v-for="(item,index) in recentReview " :key="index" v-if="index<3" >
@@ -113,7 +113,7 @@
                                                     </div>
                                                     <div class="activ-det">
                                                         <div v-if="item.review_type == 'school'" @click="directToCoachWall(item)" style="cursor: pointer;" >
-                                                            <h3 v-if="item.coach">{{item.coach.name}}</h3>
+                                                            <h3 v-if="item.coach" class="cera-bold font-18 weight-400" style="margin-bottom: 10px;">{{item.coach.name}}</h3>
                                                             <!-- <h4>{{item.school.city}}</h4> -->
                                                         </div>
                                                         <!-- <div v-if="item.review_type == 'product'" @click="directToCoachWall(item)" style="cursor: pointer;" >
@@ -124,8 +124,8 @@
                                                             <h3>{{item.legend.name}}</h3>
                                                             <h4>{{item.legend.address}}</h4>
                                                         </div> -->
-                                                        <p>{{item.content}}</p>
-                                                        <h5 class="itl receiver-na" style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"><img src="/images/title-logo.png" alt=""> by {{item.reviwer.firstName}} {{item.reviwer.lastName}}</h5>
+                                                        <p class="cera-medium font-18">{{item.content}}</p>
+                                                        <h5 class="itl receiver-na cera-light-italic" style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"><img src="/images/title-logo.png" alt=""> <span>by</span> {{item.reviwer.firstName}} {{item.reviwer.lastName}}</h5>
                                                     </div>
                                                 </div>
                                             </li>
@@ -174,7 +174,7 @@
                                     </div>
                                     <div class="spotlight-content ">
                                         <div class="spotlight-content-title">
-                                            <h4>The Deals Keep going</h4>
+                                            <h4 class="cera-bold font-18 weight-400">The Deals Keep going</h4>
                                         </div>
                                         <div class="spotlight-img">
                                             <figure>
@@ -212,8 +212,8 @@
                                                         <button @click="goToCoachSearch"><img src="/images/form-search.png" alt=""></button>
                                                         <div class="form-main-dropdown" v-if="isDropOption" >
                                                             <ul>
-                                                                <li><a @click="pageOptionDropChange('school')">School Name</a></li>
                                                                 <li><a @click="pageOptionDropChange('coach')">Coach Name</a></li>
+                                                                <li><a @click="pageOptionDropChange('school')">School Name</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -263,12 +263,12 @@
                                     </div> -->
                                     <div class="coach-scandal-sec">
                                         <div class="coach-scandal">
-                                            <div class="coach-scandal-title">
+                                            <div class="coach-scandal-title" style="border-width: 2px;">
                                                 <figure>
                                                     <img src="/images/st.png" alt="">
                                                 </figure>
                                                 <div class="scandal-head">
-                                                    <h2>Coach scandal</h2>
+                                                    <h2 class="cera-medium font-24 weight-400" >Coach scandal</h2>
                                                 </div>
                                             </div>
                                             <div class="inner-scandal">
@@ -280,16 +280,16 @@
                                                         <img src="/images/round.png" alt="">
                                                     </figure> -->
                                                     <div class="blg-inner-cap">
-                                                        <p>Come for the tour. But leave your review behind</p>
+                                                        <p class="cera-regular weight-400">Come for the tour. But leave your review behind</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="inner-scandal-video" v-if="videos.length>0">
-                                            <div class="logo-title">
+                                        <div class="inner-scandal-video no-border" v-if="videos.length>0" style="padding-top: 0;">
+                                            <!-- <div class="logo-title">
                                                 <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
-                                            </div>
-                                            <div class="row plus-row">
+                                            </div> -->
+                                            <div class="row ">
                                                 <hooper :itemsToShow="3" :infiniteScroll="true" >
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >
@@ -357,7 +357,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="new-latest-flank" v-if="videos.length>0">
+                                    <!-- <div class="new-latest-flank" v-if="videos.length>0">
                                         <div class="inner-scandal-video">
                                             <div class="logo-title">
                                                 <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
@@ -382,80 +382,15 @@
                                                     </slide>
                                                     <hooper-navigation slot="hooper-addons"></hooper-navigation>
                                                 </hooper>
-                                                <!-- <div class="col-md-3 col-sm-6">
-                                                    <div class="inner-scandal-video-item">
-                                                        <figure @click="openVideo(1)">
-                                                            <img src="/newFile/1.png" alt="">
-                                                          
-                                                        </figure>
-                                                        <div class="scandal-video-caption">
-                                                            <div class="scandal-latest-coach">
-                                                                <div class="new-coach">
-                                                                    <h3 class="new-red">Coach Name</h3>
-                                                                    <p>School Name</p>
-                                                                </div>
-                                                                <div class="new-coach-des">
-                                                                    <p>Lorem ipsum dolor sit amet</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="video-logo">
-                                                            <img src="/image/flank.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="inner-scandal-video-item">
-                                                      
-                                                        <figure @click="openVideo(2)">
-                                                            <img src="/newFile/2.png" alt="">
-                                                         
-                                                        </figure>
-                                                        <div class="scandal-video-caption">
-                                                            <p>Rutgers coach fired for abuse of players.</p>
-                                                        </div>
-                                                        <div class="video-logo">
-                                                            <img src="/images/flank.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="inner-scandal-video-item">
-                                                   
-                                                        <figure @click="openVideo(4)">
-                                                            <img src="/newFile/4.png" alt="">
-                                                         
-                                                        </figure>
-                                                        <div class="scandal-video-caption">
-                                                            <p>The abuse of child atheletes by their coaches. </p>
-                                                        </div>
-                                                        <div class="video-logo">
-                                                            <img src="/images/flank.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="col-md-3 col-sm-6">
-                                                    <div class="inner-scandal-video-item">
-                                                        <figure @click="openVideo(3)">
-                                                            <img src="/newFile/3.png" alt="">
-                                                        </figure>
-                                                        <div class="scandal-video-caption">
-                                                            <p>Players accuse GCU women's soccer coach of verbal, mental, physical abuse.</p>
-                                                        </div>
-                                                        <div class="video-logo">
-                                                            <img src="/images/flank.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div> -->
                                                 
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="review-sect-part" v-if="review_of_day.bestReview && loading == false">
                                         <div class="review-sect">
                                             <div class="linear-border"></div>
                                             <div class="drop-title new-font">
-                                                <h2 class=" pad-border">Review of the Day</h2>
+                                                <h2 class=" pad-border cera-medium weight-400 font-24" style="border-width: 2px !important;">Review of the Day</h2>
                                             </div>
                                             <div class="review-sect-header">
                                                 <figure style="cursor:pointer;" @click="$router.push(`/flanker/${review_of_day.bestReview.reviwer.id}`)">
@@ -464,12 +399,12 @@
                                                 </figure>
                                                 <div class="review-header-title new-font">
                                                     <div class="review-title-left">
-                                                        <h3 style="cursor:pointer; font-size: 20px;" @click="$router.push(`/flanker/${review_of_day.bestReview.reviwer.id}`)">{{review_of_day.bestReview.reviwer.firstName}} {{review_of_day.bestReview.reviwer.lastName}}</h3>
+                                                        <h3 style="cursor:pointer; font-size: 20px;" class="cera-medium weight-400 font-24" @click="$router.push(`/flanker/${review_of_day.bestReview.reviwer.id}`)">{{review_of_day.bestReview.reviwer.firstName}} {{review_of_day.bestReview.reviwer.lastName}}</h3>
                                                         <ul>
                                                             <li><span class="rev-ti-im"><img src="/images/mgroup.png" alt=""></span><span class="rev-ti-p">{{review_of_day.bestReview.reviwer.__meta__.totalreviewbyuser}}</span></li>
                                                             <li><span class="rev-ti-im"><img src="/images/mgroup1.png" alt=""></span><span class="rev-ti-p">{{review_of_day.bestReview.reviwer.__meta__.totalreviewbyuser}}</span></li>
                                                         </ul>
-                                                        <h4 class="wr-re" style="cursor:pointer; font-family: CeraPro; font-size: 16px;" v-if="review_of_day.bestReview.review_type == 'school' ">Review For:  <span @click="directToCoachWall(review_of_day.bestReview)" v-if="review_of_day.bestReview.coach" style="font-size: 20px;">Coach {{review_of_day.bestReview.coach.name}}</span></h4>
+                                                        <h4 class="wr-re" style="" v-if="review_of_day.bestReview.review_type == 'school' ">Review For:  <span @click="directToCoachWall(review_of_day.bestReview)" v-if="review_of_day.bestReview.coach" style="font-size: 20px;">Coach {{review_of_day.bestReview.coach.name}}</span></h4>
                                                         <h4 class="wr-re" style="cursor:pointer;" v-if="review_of_day.bestReview.review_type == 'legend' ">Wrote a review for: Coach <span @click="directToCoachWall(review_of_day.bestReview)">{{review_of_day.bestReview.legend.name}}</span></h4>
                                                     </div>
                                                     <div class="review-champ">
@@ -505,7 +440,7 @@
                                                     Elon Musk of the fine dining world, and it's the equivalent of paying a lot of money
                                                     for something that Musk thought up - it could very well be brilliant, because he's
                                                     clearly off on his own planet with everything he's doing,or it could be a disaster and
-                                                    you wont know until you give it a go... <a href="#" style="color: #8AB4E6  !important;font-weight: 400;">Continue reading</a>
+                                                    you wont know until you give it a go... <a href="#" style="color: #018ee7  !important;font-weight: 400;">Continue reading</a>
     
                                                 </p>
                                             </div>
@@ -546,7 +481,7 @@
                                     <div class="review-sect-part">
                                         <div class="review-sect">
                                             <div class="drop-title no-border">
-                                                <h2 class="pad-border">Recent drops</h2>
+                                                <h2 class="pad-border cera-medium weight-400 font-24" style="border-width: 2px !important;">Recent drops</h2>
                                             </div>
                                             <div class="drop-content mt-10">
                                                 <div class="row plus-row">
@@ -660,7 +595,7 @@
                                     <div class="review-sect-part">
                                         <div class="review-sect">
                                             <div class="drop-title tup no-border">
-                                                <h2 class="pad-border">Browse coaches by category</h2>
+                                                <h2 class="pad-border cera-medium weight-400 font-24" style="border-width: 2px !important;">Browse coaches by category</h2>
                                             </div>
                                             <div class="activity-sec mt-10">
                                                 <div class="row plus-row no-margin">
@@ -829,6 +764,12 @@
                                                 Example Test of Headline
                                                 </a>
                                             </li> -->
+                                            <li>
+                                                <a href="#">
+                                                <img src="/images/flan.png" alt="">
+                                                Example Text of Headline
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="flank-banner ">
@@ -892,8 +833,10 @@
                                             </figure>
                                         </div>
                                         <div class="flank-daily-content">
-                                            <h2>Get the best of FLANK sent to your inbox</h2>
-                                            <p>The FLANK Daily delivers the most important team predictions for your team.</p>
+                                            <div style="padding: 0 30px;">
+                                                <h2>Get the best of FLANK sent to your inbox</h2>
+                                                <p>The FLANK Daily delivers the most important team predictions for your team.</p>
+                                            </div>
                                             <form v-on:submit.prevent>
                                                 <div class="fla-form-full">
                                                     <input type="text" placeholder="Email Address" v-model="flankDaily.email" >
@@ -918,14 +861,14 @@
         <div v-else-if="mobileScreen==true">
             <div class="new-banner-section" >
                 <div class="container no-padding">
-                    <div class="inner-banner">
+                    <div class="inner-banner new-fl-inner-banner">
                         <figure>
                             <img src="/images/new-top.png" alt=""> 
                         </figure>
                     </div>
                 </div>
             </div>
-            <div class="new-sidebar">
+            <div :class="(this.isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action">
                 <div class="new-sidebar-item">
                     <div class="quick-link-content sidebar-con-list">
                         <h4>Account</h4>
@@ -1093,7 +1036,7 @@
                                     </div>
                                 </div>
                                 <div class="headline-link-content new-box-shadow new-mt-10">
-                                    <h4 class="pad-border">Top headlines</h4>
+                                    <h4 class="pad-border" style="text-transform: uppercase;">Top headlines</h4>
                                     <ul>
                                         <li>
                                             <a href="#">
@@ -1135,12 +1078,12 @@
                                 </div>
                                 <div class="coach-scandal-sec new-box-shadow new-mt-10">
                                     <div class="coach-scandal">
-                                        <div class="coach-scandal-title">
+                                        <div class="coach-scandal-title" style="border-width: 2px;">
                                             <figure>
                                                 <img src="/images/st.png" alt="">
                                             </figure>
                                             <div class="scandal-head">
-                                                <h2>Coach scandal</h2>
+                                                <h2 class="cera-medium font-24 weight-400" >Coach scandal</h2>
                                             </div>
                                         </div>
                                         <div class="inner-scandal">
@@ -1152,7 +1095,7 @@
                                                     <img src="/images/round.png" alt="">
                                                 </figure> -->
                                                 <div class="blg-inner-cap">
-                                                    <p>Come for the tour. But leave your review behind</p>
+                                                    <p class="cera-regular weight-400">Come for the tour. But leave your review behind</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1204,7 +1147,7 @@
                                 <div class="recent-activity-part  new-box-shadow new-mt-10">
                                     <!-- <div class="linear-border"></div> -->
                                     <div class="drop-title no-border">
-                                        <h2 class="pad-border">Recent activity</h2>
+                                        <h2 class="pad-border cera-bold font-24 weight-400" style="border-width: 2px !important;">Recent activity</h2>
                                     </div>
                                     <ul class="activity-list">
                                         <li class="activity-list-inner" v-for="(item,index) in recentReview " :key="index" v-if="index<3" >
@@ -1218,7 +1161,7 @@
                                                 </div>
                                                 <div class="activ-det">
                                                     <div v-if="item.review_type == 'school'" @click="directToCoachWall(item)" style="cursor: pointer;" >
-                                                        <h3 v-if="item.coach">{{item.coach.name}}</h3>
+                                                        <h3 v-if="item.coach" class="cera-bold font-18 weight-400" style="margin-bottom: 10px;">{{item.coach.name}}</h3>
                                                         <!-- <h4>{{item.school.city}}</h4> -->
                                                     </div>
                                                     <!-- <div v-if="item.review_type == 'product'" @click="directToCoachWall(item)" style="cursor: pointer;" >
@@ -1229,8 +1172,8 @@
                                                         <h3>{{item.legend.name}}</h3>
                                                         <h4>{{item.legend.address}}</h4>
                                                     </div> -->
-                                                    <p>{{item.content}}</p>
-                                                    <h5 class="itl receiver-na" style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"><img src="/images/title-logo.png" alt=""> by {{item.reviwer.firstName}} {{item.reviwer.lastName}}</h5>
+                                                    <p class="cera-medium font-18">{{item.content}}</p>
+                                                    <h5 class="itl receiver-na cera-light-italic" style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"><img src="/images/title-logo.png" alt=""> <span>by</span> {{item.reviwer.firstName}} {{item.reviwer.lastName}}</h5>
                                                 </div>
                                             </div>
                                         </li>
@@ -1277,10 +1220,11 @@
                                         <h2>Recent Activity</h2>
                                     </div> -->
                                 </div>
+                                
                                 <div class="new-latest-flank  new-box-shadow new-mt-10" v-if="videos.length>0">
                                     <div class="inner-scandal-video no-border">
                                         <div class="logo-title">
-                                            <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
+                                            <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span class="cera-black">LATEST ON FLANK</span></h2>
                                         </div>
                                         <div class="row plus-row">
                                             <hooper :itemsToShow="3" :infiniteScroll="true" >
@@ -1309,10 +1253,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="review-sect-part new-box-shadow new-mt-10" v-if="review_of_day.bestReview && loading == false">
-                                    <div class="review-sect no-box-shadow">
+                                <div class="review-sect-part" v-if="review_of_day.bestReview && loading == false">
+                                    <div class="review-sect">
+                                        <div class="linear-border"></div>
                                         <div class="drop-title new-font">
-                                            <h2 class=" pad-border">Review of the Day</h2>
+                                            <h2 class=" pad-border cera-medium weight-400 font-24" style="border-width: 2px !important;">Review of the Day</h2>
                                         </div>
                                         <div class="review-sect-header">
                                             <figure style="cursor:pointer;" @click="$router.push(`/flanker/${review_of_day.bestReview.reviwer.id}`)">
@@ -1321,12 +1266,12 @@
                                             </figure>
                                             <div class="review-header-title new-font">
                                                 <div class="review-title-left">
-                                                    <h3 style="cursor:pointer; font-size: 20px;" @click="$router.push(`/flanker/${review_of_day.bestReview.reviwer.id}`)">{{review_of_day.bestReview.reviwer.firstName}} {{review_of_day.bestReview.reviwer.lastName}}</h3>
+                                                    <h3 style="cursor:pointer; font-size: 20px;" class="cera-medium weight-400 font-24" @click="$router.push(`/flanker/${review_of_day.bestReview.reviwer.id}`)">{{review_of_day.bestReview.reviwer.firstName}} {{review_of_day.bestReview.reviwer.lastName}}</h3>
                                                     <ul>
                                                         <li><span class="rev-ti-im"><img src="/images/mgroup.png" alt=""></span><span class="rev-ti-p">{{review_of_day.bestReview.reviwer.__meta__.totalreviewbyuser}}</span></li>
                                                         <li><span class="rev-ti-im"><img src="/images/mgroup1.png" alt=""></span><span class="rev-ti-p">{{review_of_day.bestReview.reviwer.__meta__.totalreviewbyuser}}</span></li>
                                                     </ul>
-                                                    <h4 class="wr-re" style="cursor:pointer; font-family: CeraPro; font-size: 16px;" v-if="review_of_day.bestReview.review_type == 'school' ">Review For:  <span @click="directToCoachWall(review_of_day.bestReview)" v-if="review_of_day.bestReview.coach" style="font-size: 20px;">Coach {{review_of_day.bestReview.coach.name}}</span></h4>
+                                                    <h4 class="wr-re" style="" v-if="review_of_day.bestReview.review_type == 'school' ">Review For:  <span @click="directToCoachWall(review_of_day.bestReview)" v-if="review_of_day.bestReview.coach" style="font-size: 20px;">Coach {{review_of_day.bestReview.coach.name}}</span></h4>
                                                     <h4 class="wr-re" style="cursor:pointer;" v-if="review_of_day.bestReview.review_type == 'legend' ">Wrote a review for: Coach <span @click="directToCoachWall(review_of_day.bestReview)">{{review_of_day.bestReview.legend.name}}</span></h4>
                                                 </div>
                                                 <div class="review-champ">
@@ -1362,7 +1307,7 @@
                                                 Elon Musk of the fine dining world, and it's the equivalent of paying a lot of money
                                                 for something that Musk thought up - it could very well be brilliant, because he's
                                                 clearly off on his own planet with everything he's doing,or it could be a disaster and
-                                                you wont know until you give it a go... <a href="#" style="color: #8AB4E6 !important;font-weight: 400;">Continue reading</a>
+                                                you wont know until you give it a go... <a href="#" style="color: #018ee7  !important;font-weight: 400;">Continue reading</a>
 
                                             </p>
                                         </div>
@@ -1403,7 +1348,7 @@
                                 <div class="review-sect-part new-box-shadow new-mt-10">
                                     <div class="review-sect no-box-shadow">
                                         <div class="drop-title no-border">
-                                            <h2 class="pad-border">Recent drops</h2>
+                                            <h2 class="pad-border cera-medium weight-400 font-24" style="border-width: 2px !important;">Recent drops</h2>
                                         </div>
                                         <div class="drop-content mt-10">
                                             <div class="row plus-row">
@@ -1962,7 +1907,7 @@ export default {
     },
   },
   mounted(){
-      if(window.innerWidth < 1050){
+      if(window.innerWidth < 1199){
             this.mobileScreen = true
         }
   },

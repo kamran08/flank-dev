@@ -1,84 +1,77 @@
-/* @font-face {
-  font-family: cera-pro-normal-black-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Black\ Italic.woff);
-  src: url(../fonts/Cera\ Pro\ Black\ Italic.otf);
+@font-face {
+  font-family: ceraProBlackitalic;
+  src: url(../fonts/Cera_Pro_Black_Italic.otf);
+  src: url(../fonts/Cera_Pro_Black_Italic.woff);
 }
 
 @font-face {
-  font-family: cera-pro-normal-black, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Black.otf);
-  src: url(../fonts/Cera\ Pro\ Black.woff);
+  font-family: ceraProBlack;
+  src: url(../fonts/Cera_Pro_Black.otf);
+  src: url(../fonts/Cera_Pro_Black.woff);
 }
 
 @font-face {
-  font-family: cera-pro-normal-bold-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Bold\ Italic.otf);
-  src: url(../fonts/Cera\ Pro\ Bold\ Italic.woff);
+  font-family: ceraProBoldItalic;
+  src: url(../fonts/Cera_Pro_Bold_Italic.otf);
+  src: url(../fonts/Cera_Pro_Bold_Italic.woff);
 }
 
 @font-face {
   font-family: ceraPro;
-  src: url(../fonts/Cera\ Pro\ Bold.otf);
-  src: url(../fonts/Cera\ Pro\ Bold.woff);
+  src: url(../fonts/Cera_Pro_Bold.otf);
+  src: url(../fonts/Cera_Pro_Bold.woff);
 }
 
 @font-face {
-  font-family: cera-pro-normal-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Italic.otf);
+  font-family: ceraProItalic;
+  src: url(../fonts/Cera_Pro_Italic.otf);
 }
 
 @font-face {
-  font-family: cera-pro-normal-light-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Light\ Italic.otf);
-  src: url(../fonts/Cera\ Pro\ Light\ Italic.woff);
+  font-family: ceraProLightItalic;
+  src: url(../fonts/Cera_Pro_Light_Italic.otf);
+  src: url(../fonts/Cera_Pro_Light_Italic.woff);
 }
 
 @font-face {
-  font-family: cera-pro-normal-light, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Light.otf);
-  src: url(../fonts/Cera\ Pro\ Light.woff);
+  font-family: ceraProLight;
+  src: url(../fonts/Cera_Pro_Light.otf);
+  src: url(../fonts/Cera_Pro_Light.woff);
 }
 
 @font-face {
-  font-family: cera-pro-normal-medium-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Medium\ Italic.otf);
-  src: url(../fonts/Cera\ Pro\ Medium\ Italic.woff);
+  font-family: ceraProMediumItalic;
+  src: url(../fonts/Cera_Pro_Medium_Italic.otf);
+  src: url(../fonts/Cera_Pro_Medium_Italic.woff);
 }
 
 @font-face {
-  font-family: cera-pro-normal-medium, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Medium.otf);
-  src: url(../fonts/Cera\ Pro\ Medium.woff);
+  font-family: ceraProMedium;
+  src: url(../fonts/Cera_Pro_Medium.otf);
+  src: url(../fonts/Cera_Pro_Medium.woff);
 }
 
 @font-face {
-  font-family: cera-pro-normal-regular-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Regular\ Italic.woff);
+  font-family: ceraProRegularItalic;
+  src: url(../fonts/Cera_Pro_Regular_Italic.woff);
 }
 
 @font-face {
-  font-family: cera-pro-normal-thin-italic, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Thin\ Italic.otf);
-  src: url(../fonts/Cera\ Pro\ Thin\ Italic.woff);
+  font-family: ceraProRegular;
+  src: url(../fonts/Cera_Pro_Regular.otf);
 }
 
 @font-face {
-  font-family: cera-pro-normal-thin, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Thin.otf);
-  src: url(../fonts/Cera\ Pro\ Thin.woff);
+  font-family: ceraProThinItalic;
+  src: url(../fonts/Cera_Pro_Thin_Italic.otf);
+  src: url(../fonts/Cera_Pro_Thin_Italic.woff);
 }
 
 @font-face {
-  font-family: cera-pro-normal-thin, Mates, sans;
-  src: url(../fonts/Cera\ Pro\ Thin.otf);
-  src: url(../fonts/Cera\ Pro\ Thin.woff);
+  font-family: ceraProThin;
+  src: url(../fonts/Cera_Pro_Thin.otf);
+  src: url(../fonts/Cera_Pro_Thin.woff);
 }
-
-@font-face {
-  font-family: cera-pro-normal, Mates, sans;
-  src: url(../fonts/Cera\ Pro.otf);
-  src: url(../fonts/Cera\ Pro.woff);
-} */
 
 body {
   /* font-family: CeraPro !important; */
@@ -1079,13 +1072,17 @@ a.sign-social-facebook:focus {
 .header-nav-indi {
   display: flex;
   flex-flow: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   height: 100%;
 }
 
 .header-nav-indi ul {
   display: flex;
-  font-family: CeraPro;
+  font-family: ceraProRegular;
+}
+
+.header-nav-indi-left {
+  margin-left: 150px;
 }
 
 .header-nav-indi ul li {
@@ -1095,24 +1092,24 @@ a.sign-social-facebook:focus {
 .header-nav-indi ul li a {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 30px;
   color: #000 !important;
   border-right: 1px solid #000;
   height: 100%;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 18px;
 }
 
 .header-nav-indi ul li a img {
-  margin-right: 6px;
+  margin-right: 10px;
   width: 20px;
   /* height: 23px; */
 }
 
 .header-nav-indi ul li a span {
-  margin-left: 6px;
+  margin-left: 10px;
 }
 
 .header-nav-indi ul li.active a {
@@ -2512,13 +2509,13 @@ a.sign-social-facebook:focus {
   font-weight: 900;
   color: #000;
   line-height: 21px;
-  font-family: CeraPro;
+  font-family: ceraProMedium;
 }
 
 .new-coach-item-text p {
   font-size: 14px;
   margin-top: 3px;
-  font-family: CeraPro;
+  font-family: ceraProRegular;
 }
 
 @media only screen and (max-width: 499px) {
@@ -2548,12 +2545,14 @@ a.sign-social-facebook:focus {
 
 .coach-btn button {
   background: #ff0000;
-    color: #fff;
-    border: 1px solid #ff0000;
-    padding: 10px 20px;
-    font-size: 15px;
-    border-radius: 25px;
-    font-weight: 600;
+  color: #fff;
+  border: 1px solid #ff0000;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-family: ceraProRegular;
+  letter-spacing: 1px;
 }
 
 
@@ -3666,4 +3665,48 @@ body {
   margin-top: 10px !important;
   flex: 0 0 100%;
   width: 100%;
+}
+
+.cera-bold {
+  font-family: ceraPro !important;
+}
+
+.cera-black {
+  font-family: ceraProBlack !important;
+}
+
+.cera-light {
+  font-family: ceraProLight !important;
+}
+
+.cera-medium {
+  font-family: ceraProMedium !important;
+}
+
+.cera-light-italic {
+  font-family: ceraProLightItalic !important;
+}
+
+.font-24 {
+  font-size: 24px !important;
+}
+
+.font-18 {
+  font-size: 18px !important;
+}
+
+.font-16 {
+  font-size: 16px !important;
+}
+
+.font-14 {
+  font-size: 14px !important;
+}
+
+.weight-400 {
+  font-weight: 400 !important;
+}
+
+.weight-600 {
+  font-weight: 600 !important;
 }

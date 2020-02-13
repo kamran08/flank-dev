@@ -4,8 +4,11 @@
         <div class="new-flank-nav">
             <div class="container">
                 <div class="new-flank-nav-con">
-                    <div class="flank-coll-bar" @click="isMobileSideBarEvent">
+                    <div v-if="isMobileSideBar==false" class="flank-coll-bar" @click="isMobileSideBarEvent">
                         <img src="/images/three-bar.png" alt="">
+                    </div>
+                    <div v-else class="flank-coll-bar" @click="isMobileSideBarEvent">
+                        <img src="/images/new-cross.png" alt="">
                     </div>
                     <div class="flank-new-brand">
                         <a @click="$router.push('/')"><img src="/images/new-l.png" alt=""></a>

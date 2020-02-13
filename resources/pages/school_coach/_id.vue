@@ -138,8 +138,8 @@
                                                     <img src="/images/new-man.gif" alt="">
                                                 </figure>
                                                 <div class="new-coach-item-text">
-                                                    <h3>Not here? Tell us what we're missing.</h3>
-                                                    <p>If the coach you are looking for isn't here, add it.</p>
+                                                    <h3>Not here? Tell us what <br>we're missing.</h3>
+                                                    <p>If the coach you are <br>looking for isn't here, add it.</p>
                                                 </div>
                                             </div>
                                             <div class="coach-btn" @click="addNew.modal = true"><button>Add a Coach</button></div>
@@ -327,8 +327,8 @@
                                                     <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
                                                     <div class="helpful-btn-full">
                                                         <ul>
-                                                            <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>Not helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(legendData.question.answers,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(legendData.question.answers,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     
@@ -518,7 +518,7 @@
                                                             <p>07/24/2019</p>
                                                         </div>
                                                         <div class="review-checkin" v-if="item.is_active">
-                                                            <Tooltip content="We're always working to improve the authenticity of the reviews posted on Flank. When you see 'Verified' it means we've confirmed a user via (.edu, .org or.gov) profiles or reviews submitted by 'Active Player' profiles.' - make sure it doesnt have quotations on this. ">
+                                                            <Tooltip content="We're always working to improve the authenticity of the reviews posted on Flank. When you see 'Verified' it means we've confirmed a user via (.edu, .org or.gov) profiles or reviews submitted by 'Active Player' profiles.">
                                                             <p><span><i class="far fa-check-circle"></i></span> Verified</p>
                                                             </Tooltip>
                                                             
@@ -573,18 +573,18 @@
                                         </div>
 
                                         <p class="_1health_subtitle">HEALTHY</p>
-                                        <div class="_1health_numbers">
+                                        <div class="_1health_numbers _pc_1health_numbers">
                                             <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
                                                 <span>100</span>
                                             </div>
                                             <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
-                                                <!-- <span>80</span> -->
+                                                <span></span>
                                             </div>
                                             <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
                                                 <span>50</span>
                                             </div>
                                             <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
-                                                <!-- <span>40</span> -->
+                                                <span></span>
                                             </div>
                                             <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
                                                 <span>00</span>
@@ -597,7 +597,7 @@
                                             <p class="_1health_numbers_text"><span>00</span></p>
                                         </div> -->
 
-                                        <p class="_1health_subtitle _1health_subtitle_border" style="margin-top: 10px;">Harmful</p>
+                                        <p class="_1health_subtitle _1health_subtitle_border" style="margin-top: 10px;">HARMFUL</p>
 
                                         <div class="_1healtfh_main">
                                             <p class="_1health_main_title">Flank News: We've enhanced our Health Meter</p>
@@ -609,8 +609,8 @@
                                             </ul>
                                         </div>
 
-                                        <p class="_1health_more">
-                                            <!-- <a class="_1health_more_a" href="">LEARN MORE</a> -->
+                                        <p class="_1health_more" >
+                                            <a class="_1health_more_a" href="">LEARN MORE</a>
                                         </p>
                                     </div>
                                     <!-- Health Meter -->
@@ -874,48 +874,52 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="switch-link-content _1health new-box-shadow new-mt-10">
-                                    <div class="_1health_title mb pad-border" style="padding-left: 0;">
-                                        <p class="_1health_title_text">Health Meter</p>
+                                <div class="switch-link-content _1health new-box-shadow new-mt-10" style="padding: 0;">
+                                    <div style="padding: 10px 20px;"> 
+                                        <div class="_1health_title mb pad-border" style="padding-left: 0;">
+                                            <p class="_1health_title_text">Health Meter</p>
 
-                                        <img class="_1health_img" src="/image/coach-review45.jpg" alt="" title="">
+                                            <img class="_1health_img" src="/image/coach-review45.jpg" alt="" title="">
 
-                                        <p class="_1health_value">100%</p>
-                                    </div>
-
-                                    <p class="_1health_subtitle">HEALTHY</p>
-                                        <div class="_1health_numbers">
-                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
-                                                <span>100</span>
-                                            </div>
-                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
-                                                <!-- <span>80</span> -->
-                                            </div>
-                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
-                                                <span>50</span>
-                                            </div>
-                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
-                                                <!-- <span>40</span> -->
-                                            </div>
-                                            <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
-                                                <span>00</span>
-                                            </div>
+                                            <p class="_1health_value">100%</p>
                                         </div>
 
-                                    <p class="_1health_subtitle _1health_subtitle_border">Harmful</p>
+                                        <div class="new-health-meter-box">
+                                            <p class="_1health_subtitle cera-medium font-16 weight-400" style="text-transform: capitalize;">Healthy</p>
+                                            <div class="_1health_numbers">
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
+                                                    <span class="new-meter-font">100</span>
+                                                </div>
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
+                                                    <span></span>
+                                                </div>
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
+                                                    <span class="new-meter-font">50</span>
+                                                </div>
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
+                                                    <span></span>
+                                                </div>
+                                                <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
+                                                    <span class="new-meter-font">00</span>
+                                                </div>
+                                            </div>
 
-                                    <div class="_1healtfh_main">
-                                        <p class="_1health_main_title">Flank News: We've enhanced our Health Meter</p>
+                                        <p class="_1health_subtitle _1health_subtitle_border cera-medium font-16 weight-400" style="text-transform: capitalize;">Harmful</p>
+                                        </div>
+                                    </div>
 
-                                        <ul class="_1health_main_list">
+                                    <div class="_1healtfh_main _new_1healtfh_main">
+                                        <p class="_1health_main_title cera-medium weight-400 font-18">Flank News: We've enhanced our Health Meter</p>
+
+                                        <ul class="_1health_main_list _new_1health_main_list">
                                             <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
                                             <li>We now have Verified Ratings and Reviews to make our Health Score more useful</li>
                                             <li>When you see “Verified” it means we’ve confirmed a user verified their identity </li>
                                         </ul>
                                     </div>
 
-                                    <p class="_1health_more">
-                                        <!-- <a class="_1health_more_a" href="">LEARN MORE</a> -->
+                                    <p class="_1health_more" style="text-align: center;">
+                                        <a class="_1health_more_a" href="">LEARN MORE</a>
                                     </p>
                                 </div>
                                 <div class="inner-item-review-sec new-box-shadow new-mt-10" v-if="legendData.topAtrribute">
@@ -1005,9 +1009,9 @@
                                     <div class="inner-item-review-title" style="padding: 0; background: transparent; padding-top: 15px; ">
                                         <h4 class="pad-border" style="padding-left: 0;">LATEST VIDEOS</h4>
                                     </div>
-                                    <div class="row plus-row">
+                                    <div class="row plus-row" style="margin-top: 20px">
                                         
-                                        <div class="col-md-3 col-sm-6">
+                                        <div class="col-md-3 col-sm-6 new-min-height">
                                             <div class="inner-scandal-video-item" style="margin-top: 0;">
                                                 <figure @click="openVideo(1)">
                                                     <img src="/newFile/1.png" alt="">
@@ -1026,7 +1030,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
+                                        <div class="col-md-3 col-sm-6 new-min-height">
                                             <div class="inner-scandal-video-item">
                                                 <!-- <div class="inner-video-iframe">
                                                     <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -1048,7 +1052,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-3 col-sm-6">
+                                        <div class="col-md-3 col-sm-6 new-min-height">
                                             <div class="inner-scandal-video-item">
                                                 <!-- <div class="inner-video-iframe">
                                                     <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -1461,8 +1465,8 @@
                     <div class="modal-details-top">
                         <div class="modal-details-social">
                             <ul>
-                                <li><button class="fb-btn"  :data-href="location" ><span><i class="fab fa-facebook-square"></i></span> <a style="color:#ffff;"  :href="'https://www.facebook.com/sharer/sharer.php?u='+location" target="_blank" >Share on facebook</a> </button></li>
-                                <li><button class="tw-btn"><span><i class="fab fa-twitter-square"></i></span><a  style="color:#ffff;" :href="`https://twitter.com/share?ref_src=${location}`" target="_blank" rel="noopener noreferrer">Share on twitter</a></button></li>
+                                <li><button class="fb-btn"  :data-href="location" ><span><i class="fab fa-facebook-square"></i></span> <a style="color:#ffff !important;"  :href="'https://www.facebook.com/sharer/sharer.php?u='+location" target="_blank" >Share on facebook</a> </button></li>
+                                <li><button class="tw-btn"><span><i class="fab fa-twitter-square"></i></span><a  style="color:#ffff !important;" :href="`https://twitter.com/share?ref_src=${location}`" target="_blank" rel="noopener noreferrer">Share on twitter</a></button></li>
                             </ul>
                         </div>
                         <div class="modal-input-value">
@@ -2516,6 +2520,19 @@ export default {
             this.onHover = false
             
         },
+
+        async storeAnswerLike(item,helpful,not_helpful){
+            let ob = {
+                answer_id:item.id,
+                helpful:helpful,
+                not_helpful:not_helpful
+            }
+            const res = await this.callApi("post","/app/storeAnswerLike",ob)
+            if(res.status == 200){
+                this.s()
+            }
+            else this.swr()
+        }
          
     },
     filters:{

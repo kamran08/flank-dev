@@ -68,7 +68,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <p class="by">You also understand that Flank may send marketing emails about Flank products services. You can unsubscribe at any time.</p>
+                                <p class="by">You also understand that Flank may send marketing emails about Flank products and services. You can unsubscribe at any time.</p>
                                 <div class="group-item" style="margin-top: 20px;">
                                     <input type="submit"  @click="onSubmit"   value="Sign Up">
                                 </div>

@@ -7,6 +7,8 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 const Answer = use('App/Models/Answer')
 const Question = use('App/Models/Question')
+const AnswerLike = use('App/Models/AnswerLike')
+const Database = use('Database')
 /**
  * Resourceful controller for interacting with answers
  */
@@ -103,6 +105,26 @@ class AnswerController {
    * @param {Response} ctx.response
    */
   async destroy ({ params, request, response }) {
+  }
+
+  async storeAnswerLike({ params, request, response ,auth}) {
+    let data = request.all()
+    console.log("yes yes ")
+    
+
+
+
+    data.user_id = await auth.user.id
+
+   let alike =  await AnswerLike.findOrCreate(
+      { answer_id: data.answer_id, user_id: data.user_id }
+
+    )
+
+    await AnswerLike.query().where('id', alike.id).update({ helpful: data.helpful, not_helpful: data.not_helpful})
+    const total = await Database.raw('SELECT SUM(helpful) as totoal_helpful , SUM(not_helpful) as total_not_helpful FROM `answer_likes` WHERE answer_id = ?', [data.answer_id])
+    return  await Answer.query().where('id', data.answer_id).update({ helpful: total[0][0].totoal_helpful , not_helpful: total[0][0].total_not_helpful  })
+
   }
 }
 
