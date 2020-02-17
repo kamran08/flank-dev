@@ -1794,8 +1794,23 @@ border: 1px solid #dc4f4f;
 
 @media only screen and (max-width: 450px) {
     .inner-scandal-video .hooper-track .hooper-slide {
+        flex: 0 0 33.33%;
+        width: 33.33%;
+        padding: 0 5px;
+        /* margin-top: 15px; */
+        min-height: 262px;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .inner-scandal-video .hooper-track .hooper-slide {
         flex: 0 0 100%;
         width: 100%;
+    }
+
+    .scandal-video-caption {
+        padding: 12px;
+        margin-bottom: 20px;
     }
 }
 

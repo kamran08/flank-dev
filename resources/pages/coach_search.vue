@@ -1,7 +1,7 @@
 <template>
     <div class="pt-120">
 
-        <div class="flank-container " v-if="!mobileScreen">
+        <div class="flank-container " v-if="!mobileScreen">  
             
 
             <div class="new-search-flank" id="topId">
@@ -149,7 +149,7 @@
                                     </transition> -->
                                     <h2 class="pad-border uppercase" >Your past reviews</h2>
                                 
-                                    <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)">See all past reviews</a></p>
+                                    <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p>
                                 </div>
                                 <div class="new-best-rated rated-red mt-15">
                                     <p>{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -1866,7 +1866,7 @@
                     </div>
                     <div class="new-flank-content no-margin" v-else  >
                         <div v-if="pageOption == 'coach'">
-                            <div class="new-flank-content-rev new-box-shadow" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null "  style="padding-bottom: 20px;">
+                            <div class="new-flank-content-rev new-box-shadow new-pad-lr" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null "  style="padding-bottom: 20px;">
                                 <div class="new-content-rev-title">
                                     <!-- <Button @click="isMobileMenu = !isMobileMenu" > Click</Button>
                                     <transition name="slide-fade">
@@ -1875,7 +1875,7 @@
                                     </transition> -->
                                     <h2 class="pad-border uppercase" >Your past reviews</h2>
                                 
-                                    <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)">See all past reviews</a></p>
+                                    <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p>
                                 </div>
                                 <div class="new-best-rated rated-red mt-15">
                                     <p>{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -1888,10 +1888,10 @@
                                         </figure>
                                     </div>
                                     <div class="new-content-rev-right" v-if="searchData[0].school">
-                                        <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" >{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                        <p>{{ searchData[0].school.schoolName}}</p>
+                                        <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                        <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
                                         <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
-                                        <div class="new-content-star">
+                                        <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                             <ul>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -1901,10 +1901,10 @@
                                             </ul>
                                             <!-- <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p> -->
                                         </div>
-                                        <div class="new-comment-para">
-                                            <p>
+                                        <div class="new-comment-para" style="margin-top: 25px;">
+                                            <p class="font-24 weight-400">
                                                 "{{searchData[0].allreviewLimit.content}}"
-                                                <a href="">read more</a>
+                                                <a href="" class="new-text-blue">read more</a>
                                             </p>
                                         </div>
                                         <div class="new-comment-btn mob-new-comment-btn">
@@ -1916,10 +1916,10 @@
                         
                         </div>
                         <div v-if="pageOption == 'legend'">
-                            <div class="new-flank-content-rev new-box-shadow" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null "  >
+                            <div class="new-flank-content-rev new-box-shadow new-pad-lr" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null "  style="padding-bottom: 20px;">
                                 <div class="new-content-rev-title">
-                                    <h2>Your past reviews</h2>
-                                    <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)">See all past reviews</a></p>
+                                    <h2 class="pad-border uppercase" >Your past reviews</h2>
+                                    <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p>
                                 </div>
                                 <div class="new-best-rated rated-red mt-15">
                                     <p>{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -1932,10 +1932,10 @@
                                         </figure>
                                     </div>
                                     <div class="new-content-rev-right">
-                                        <h2 style="cursor:pointer;"  @click="$router.push(`/local_instructor/${searchData[0].id}`)" >{{ searchData[0].name}} -  {{ searchData[0].sport}}  </h2>
-                                        
+                                        <h2 style="cursor:pointer;"  @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ searchData[0].sport}}  </h2>
+                                        <!-- <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p> -->
                                         <span class="city-s">{{searchData[0].city}}/{{searchData[0].state}}</span>
-                                        <div class="new-content-star">
+                                        <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                             <ul>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -1945,10 +1945,10 @@
                                             </ul>
                                             <!-- <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p> -->
                                         </div>
-                                        <div class="new-comment-para">
-                                            <p>
+                                        <div class="new-comment-para" style="margin-top: 25px;">
+                                            <p class="font-24 weight-400">
                                                 "{{searchData[0].allreviewLimit.content}}"
-                                                <a href="">read more</a>
+                                                <a href="" class="new-text-blue">read more</a>
                                             </p>
                                         </div>
                                         <div class="new-comment-btn">
@@ -1981,13 +1981,38 @@
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                    </div>
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
+                                                </div>
 
-                                                <div class="_2card_details" v-if="item.school">
+                                                <!-- <div class="_2card_details new-content-rev-right" v-if="item.school">
                                                     <div class="_2card_details_top">
                                                         <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school_coach/${item.id}`)" >{{item.name}} -  {{(item.school)? item.school.sport: ''}}  </p>
-                                                            <p style="color: #000;">{{ item.school.schoolName}}</p>
-                                                            <div class="_1rating">
+                                                            <p class="_2title font-24 weight-400" style=" cursor: pointer; margin-bottom: 5px;"  @click="$router.push(`/school_coach/${item.id}`)"  >{{item.name}} -  {{(item.school)? item.school.sport: ''}} </p>
+                                                            <p style="color: #000;" class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                            <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                            <div class="_1rating lg-content-star" style="margin-top: 20px;">
                                                                 <ul class="_1rating_list">
                                                                     <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
                                                                     <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
@@ -2001,6 +2026,12 @@
 
                                                         <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
                                                     </div>
+                                                    <div class="new-comment-para" style="margin-top: 10px;">
+                                                        <p class="font-24 weight-400">
+                                                            {{item.ratingText}}
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
                                                     <p class="_2card_status _2taxt">{{item.ratingText}}</p>
 
                                                     <p>
@@ -2010,7 +2041,7 @@
                                                         <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
                                                     </div>
                                                     
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                         <!-- Left -->
@@ -2134,30 +2165,29 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="_2card_details">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school/${item.id}`)" >{{item.schoolName}} {{item.sport}} </p>
-                                                            <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avgRating.averageRating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.city}}/{{item.state}}</p>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                    <!-- <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button> -->
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2195,30 +2225,29 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="_2card_details">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/local_instructor/${item.id}`)" >{{item.name}} - {{item.sport}} </p>
-                                                            <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.city}}/{{item.state}}</p>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                    <button @click="$router.push(`/addreview/${item.id}`)" class="_1btn">Write a Review</button>
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2303,34 +2332,29 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="_2card_details">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/product/${item.id}`)" >{{item.name}} </p>
-                                                            <!-- <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avgRating.averageRating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div> -->
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.address}}</p>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">
-                                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u"
-                                                    </p>
-
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                    <!-- <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button> -->
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2361,9 +2385,9 @@
                                 </div>
 
                                 <div class="_1coach_top_right">
-                                    <p class="_1title">Editorial recommendations</p>
+                                    <p class="_1title font-24 weight-400 vs-text-size" style="text-transform: uppercase;">Editorial recommendations</p>
 
-                                    <p class="_1coach_top_by">By <a href="">Flank</a> | </p>
+                                    <p class="_1coach_top_by font-18">By <a href="">Flank</a> | </p>
                                 </div>
                             </div>
 
@@ -2397,7 +2421,43 @@
                                                 <div class="_1card _1card-border">
                                                     <p class="_2title">Our Top Choice</p>
 
-                                                    <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
+                                                    <p class="_1card_subtitle">Coach Name - Sport Type <br> City/State</p>
+
+                                                    <div class="_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
+
+                                                    <div class="_1card_details">
+                                                        <p class="_3title">Coach Name - Sport Type</p>
+                                                        <p class="_3title" style="margin-bottom: 10px;">City/State</p>
+                                                        <div class="_1rating">
+                                                            <ul class="_1rating_list">
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class=""><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
+                                                            </ul>
+                                                        </div>
+                                                        <p class="_1card_tag">67.0 Health Score</p>
+                                                        <p class="_1text">
+                                                            When you're after a true empowering coach
+                                                            , coach Jhon Doe nails all the healthy coaching attributes.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </slide>
+                                        <!-- Card Items -->
+
+                                        <!-- Card Items -->
+                                        <slide >
+                                            <div class=" pad-10-b">
+                                                <div class="_1card _1card-border">
+                                                    <p class="_2title">Our Top Choice</p>
+
+                                                    <p class="_1card_subtitle">Coach Name - Sport Type <br> City/State</p>
 
                                                     <div class="_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -2433,7 +2493,7 @@
                                                 <div class="_1card _1card-border">
                                                     <p class="_2title">Our Top Choice</p>
 
-                                                    <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
+                                                    <p class="_1card_subtitle">Coach Name - Sport Type <br> City/State</p>
 
                                                     <div class="_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -2461,42 +2521,7 @@
                                                 </div>
                                             </div>
                                         </slide>
-                                        <!-- Card Items -->
-
-                                        <!-- Card Items -->
-                                        <slide >
-                                            <div class=" pad-10-b">
-                                                <div class="_1card _1card-border">
-                                                    <p class="_2title">Our Top Choice</p>
-
-                                                    <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
-
-                                                    <div class="_1card_pic">
-                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
-                                                    </div>
-
-                                                    <div class="_1card_details">
-                                                        <p class="_3title">Coach Name - Sport Type</p>
-                                                        <p class="_3title" style="margin-bottom: 10px;">City/State</p>
-                                                        <div class="_1rating">
-                                                            <ul class="_1rating_list">
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class=""><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
-                                                            </ul>
-                                                        </div>
-                                                        <p class="_1card_tag">67.0 Health Seore</p>
-                                                        <p class="_1text">
-                                                            When you're after a true empowering coach
-                                                            , coach Jhon Doe nails all the healthy coaching attributes.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </slide>
+                                        <hooper-navigation slot="hooper-addons"></hooper-navigation>
                                     </hooper>
                                 </div>
                             </div>
@@ -2521,31 +2546,29 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="_2card_details" v-if="item.school">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school_coach/${item.id}`)" >{{item.name}} -  {{(item.school)? item.school.sport: ''}}  </p>
-                                                            <p style="color: #000;">{{ item.school.schoolName}}</p>
-                                                            <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
-                                                    </div>          
-                                                    <p class="_2card_status _2taxt">{{item | coachText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                    <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                    </div>
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2671,31 +2694,29 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="_2card_details" v-if="item.school">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school_coach/${item.id}`)" >{{item.name}} -  {{(item.school)? item.school.sport: ''}}  </p>
-                                                            <p>{{ item.school.schoolName}}</p>
-                                                            <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item | schoolText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                    <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2821,30 +2842,29 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="_2card_details">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/local_instructor/${item.id}`)" >{{item.name}} - {{item.sport}} </p>
-                                                            <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avgRating.averageRating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.address}}</p>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item | coachText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                    <button @click="$router.push(`/addreview/${item.id}`)" class="_1btn">Write a Review</button>
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2918,7 +2938,7 @@
                                                 <div class="_1card">
                                                     <p class="_1card_star">4 Stars & Up</p>
 
-                                                    <div class="_1card_pic">
+                                                    <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                                     </div>
 
@@ -2944,7 +2964,7 @@
                                                 <div class="_1card">
                                                     <p class="_1card_star">3 Stars & Up</p>
 
-                                                    <div class="_1card_pic">
+                                                    <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                                     </div>
 
@@ -2970,7 +2990,7 @@
                                                 <div class="_1card">
                                                     <p class="_1card_star">2 Stars & Up</p>
 
-                                                    <div class="_1card_pic">
+                                                    <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                                     </div>
 
@@ -2996,7 +3016,7 @@
                                                 <div class="_1card">
                                                     <p class="_1card_star">1 Stars & Up</p>
 
-                                                    <div class="_1card_pic">
+                                                    <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                                     </div>
 
@@ -3017,6 +3037,7 @@
                                                 </div>
                                             </div>
                                         </slide>
+                                        <hooper-navigation slot="hooper-addons"></hooper-navigation>
                                     </hooper>
                             </div>
                         </div>
@@ -3040,31 +3061,29 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="_2card_details" v-if="item.school">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school_coach/${item.id}`)" >{{item.name}} -  {{(item.school)? item.school.sport: ''}}  </p>
-                                                            <p>{{ item.school.schoolName}}</p>
-                                                            <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item | coachText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                    <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3189,31 +3208,29 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="_2card_details" v-if="item.school">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school_coach/${item.id}`)" >{{item.name}} -  {{(item.school)? item.school.sport: ''}}  </p>
-                                                            <p>{{ item.school.schoolName}}</p>
-                                                            <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item | schoolText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                    <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -3339,30 +3356,29 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="_2card_details">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/local_instructor/${item.id}`)" >{{item.name}} - {{item.sport}}  </p>
-                                                            <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avgRating.averageRating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.address}}</p>
+                                                <div class="new-content-rev-right" v-if="searchData[0].school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
+                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item | coachText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                <button @click="$router.push(`/addreview/${item.id}`)" class="_1btn">Write a Review</button>
+                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <a href="" class="new-text-blue">read more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

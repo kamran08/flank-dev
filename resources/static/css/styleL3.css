@@ -1405,7 +1405,7 @@ a.sign-social-facebook:focus {
   ._1card {
     display: flex;
     flex-flow: column;
-    align-items: center;
+    /* align-items: center; */
   }
 
   ._1rating_list {
@@ -1445,7 +1445,7 @@ a.sign-social-facebook:focus {
   }
 
   ._1card {
-    text-align: center;
+    /* text-align: center; */
   }
 
   ._1card_pic {
@@ -1506,6 +1506,13 @@ a.sign-social-facebook:focus {
 .mob-new-comment-btn {
   margin-right: 10px;
 }
+}
+
+@media only screen and (max-width: 599px) {
+
+  .new-content-rev-right .city-s {
+    position: unset !important;
+  }
 }
 
 .new-content-rev-left {
@@ -1589,7 +1596,7 @@ a.sign-social-facebook:focus {
 }
 
 .new-content-rev-right p {
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   font-size: 14px;
 }
 
@@ -1631,8 +1638,17 @@ a.sign-social-facebook:focus {
   background: #ff0000;
 }
 
+.new-content-star p {
+  font-size: 24px;
+  color: #2b84e2;
+  margin-left: 10px;
+  display: flex;
+  flex-flow: row;
+}
+
 .new-content-star p span {
   font-size: 11px;
+  margin-right: 5px;
 }
 
 .new-content-star p span i {
@@ -1640,8 +1656,8 @@ a.sign-social-facebook:focus {
 }
 
 .new-content-star p a {
-  font-size: 20px;
-  color: #2E82CE;
+  font-size: 24px;
+  color: #2b84e2 !important;
 }
 
 .new-comment-para {
@@ -1649,7 +1665,7 @@ a.sign-social-facebook:focus {
 }
 
 .new-comment-para p {
-  line-height: 18px;
+  line-height: 26px;
   font-weight: 600;
   font-size: 13px;
   display: -webkit-box;
@@ -1701,6 +1717,12 @@ a.sign-social-facebook:focus {
   position: relative;
 }
 
+@media only screen and (max-width: 499px) {
+  ._1coach_items {
+    padding-bottom: 20px !important;
+  }
+}
+
 ._1coach_top {
   display: flex;
   align-items: center;
@@ -1714,8 +1736,10 @@ a.sign-social-facebook:focus {
 }
 
 ._1coach_top_pic {
-  flex: 0 0 50px;
+  flex: 0 0 60px;
   width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 ._1coach_top_pic img {
@@ -1756,12 +1780,30 @@ a.sign-social-facebook:focus {
 
 ._1coach_top_by {
   font-size: 14px;
-  margin-top: 2px;
+  margin-top: 5px;
 }
 
 ._1coach_main_one {
   margin-bottom: 15px;
   padding-right: 15px;
+}
+
+._1coach_main_one ._1title {
+  font-size: 24px;
+  line-height: 26px;
+  /* font-weight: ; */
+}
+
+._1coach_main_one ._1coach_time {
+  font-size: 16px;
+  margin: 10px 0;
+  /* font-weight: ; */
+}
+
+._1coach_main_one ._1coach_status {
+  font-size: 16px;
+  line-height: 23px;
+  /* font-weight: ; */
 }
 
 ._3title {
@@ -1770,11 +1812,11 @@ a.sign-social-facebook:focus {
 }
 
 ._1text {
-  font-size: 13px;
+  font-size: 12px;
   color: #000;
   padding-right: 15px;
   line-height: 19px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 
@@ -1800,11 +1842,17 @@ a.sign-social-facebook:focus {
   font-weight: 600;
 }
 
+._1card ._2title {
+  font-size: 16px;
+  color: #000;
+  /* font-weight: 400; */
+}
+
 ._1card_subtitle {
   font-size: 12px;
   width: 90%;
   margin: 3px 0 0;
-  line-height: 13px;
+  line-height: 17px;
   color: #000;
 }
 
@@ -1820,6 +1868,93 @@ a.sign-social-facebook:focus {
   align-items: flex-end;
 }
 
+/* maybe need to change */
+
+@media only screen and (max-width: 1199px) {
+
+  ._1card ._1card_pic {
+    overflow: hidden;
+    position: relative;
+    height: 209px;
+    margin-bottom: 15px;
+    width: 200px;
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+
+  ._1card ._1card_pic {
+    overflow: hidden;
+    position: relative;
+    height: 209px;
+    margin-bottom: 15px;
+    width: 160px;
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 499px) {
+
+  ._1card ._new_1card_pic {
+    overflow: hidden;
+    position: relative;
+    height: 209px;
+    margin-bottom: 15px;
+    width: 140px !important;
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  ._1card ._new_1card_pic {
+    overflow: hidden;
+    position: relative;
+    height: 209px;
+    margin-bottom: 15px;
+    width: 175px;
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+
+  ._1card ._new_1card_pic {
+    overflow: hidden;
+    position: relative;
+    height: 209px;
+    margin-bottom: 15px;
+    width: 200px;
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row;
+    align-items: flex-end;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 ._1card_img {
   width: 100%;
   max-height: 100%;
@@ -1832,7 +1967,7 @@ a.sign-social-facebook:focus {
   background: #01262e;
   display: inline-block;
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
   padding: 3px 7px 4px;
   margin: 14px 0 2px;
 }
@@ -1852,7 +1987,7 @@ a.sign-social-facebook:focus {
 ._1rating_list li {
   display: flex;
   background: #ccc;
-  margin-right: 2px;
+  margin-right: 5px;
   color: #fff;
   font-size: 10px;
   border-radius: 2px;
@@ -1914,7 +2049,7 @@ a.sign-social-facebook:focus {
 .worst {
   display: inline-block;
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   padding: 7px 0px 8px 10px;
   z-index: 1;
   position: relative;
@@ -1927,7 +2062,7 @@ a.sign-social-facebook:focus {
 }
 
 .yellow {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
 }
@@ -2000,7 +2135,7 @@ a.sign-social-facebook:focus {
 
 @media only screen and (max-width: 767px) {
   ._2card_pic {
-    flex: 0 0 35%;
+    flex: 0 0 30%;
   }
 
   ._2card_details {
@@ -2122,7 +2257,7 @@ a.sign-social-facebook:focus {
   }
 
   ._2title {
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
   ._1rating_list {
       justify-content: left;
@@ -2222,7 +2357,7 @@ a.sign-social-facebook:focus {
   color: #222;
   font-size: 11px;
   position: absolute;
-  top: -8px;
+  top: -5px;
   left: 100%;
 }
 
@@ -2267,7 +2402,7 @@ a.sign-social-facebook:focus {
 }
 
 ._1card_star {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: bold;
   color: #000;
 }
@@ -3662,7 +3797,7 @@ body {
 }
 
 ._2coach_main_right_new {
-  margin-top: 10px !important;
+  margin-top: 0 !important;
   flex: 0 0 100%;
   width: 100%;
 }
@@ -3703,10 +3838,94 @@ body {
   font-size: 14px !important;
 }
 
+.font-12 {
+  font-size: 12px !important;
+}
+
 .weight-400 {
   font-weight: 400 !important;
 }
 
 .weight-600 {
   font-weight: 600 !important;
+}
+
+.mob-new-activity-list {
+  padding: 10px 55px;
+}
+
+.activ-thumb.new-activ-thumb {
+  flex: 0 0 120px;
+  width: 120px;
+}
+
+.activ-det.new-activ-det {
+  padding-left: 30px;
+}
+
+.activ-det.new-activ-det .receiver-na {
+  position: unset;
+}
+
+.mob-new-activity-list .activity-list-inner {
+  margin-bottom: 20px;
+}
+
+.new-mob-latest-details {
+  padding: 12px;
+}
+
+.new-mob-latest-details h3 {
+  color: #da0707;
+  font-family: ceraPro;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  line-height: 20px;
+}
+
+.new-mob-latest-details h4 {
+  color: #000000;
+  font-family: ceraProRegular;
+  font-size: 14px;
+  text-transform: capitalize;
+  line-height: 20px;
+  margin-top: 3px;
+}
+
+.new-mob-latest-details-inner {
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 15px;
+}
+
+.drop-item-title.new-drop-item-title {
+  padding: 15px;
+}
+
+.new-mob-drop-item {
+  min-height: 430px;
+}
+
+.new-mob-drop-item .drop-item {
+  height: 100%;
+}
+
+@media only screen and (max-width: 1199px) {
+  footer .foo-individual .foo-option ul li {
+      list-style: none;
+      line-height: 25px;
+      font-size: 12px;
+      font-weight: 400;
+  }
+
+  footer .foo-individual .foo-option ul li a {
+      font-family: ceraProRegular;
+  }
+}
+
+@media only screen and (max-width: 499px) {
+
+  .vs-text-size {
+    font-size: 20px !important;
+  }
 }
