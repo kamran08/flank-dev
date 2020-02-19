@@ -1944,8 +1944,13 @@ body{
   width: 100%;
 }
 
+.link-table-hour p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .link-table-cl p {
   font-weight: 400;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 

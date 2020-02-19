@@ -363,7 +363,7 @@ a.sign-social-facebook:focus {
   border: 1px solid #cbccce;
   padding: 6px 6px;
   border-radius: 3px;
-  font-family: CeraPro;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
 }
 
@@ -744,7 +744,7 @@ a.sign-social-facebook:focus {
   margin-top: 15px;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1199px) {
 
   /* .pt-120{
     padding-top: 157px;
@@ -1100,6 +1100,7 @@ a.sign-social-facebook:focus {
   border-bottom: 1px solid transparent;
   font-weight: 400;
   font-size: 18px;
+  font-family: ceraProRegular;
 }
 
 .header-nav-indi ul li a img {
@@ -1866,6 +1867,7 @@ a.sign-social-facebook:focus {
   display: flex;
   flex-flow: row;
   align-items: flex-end;
+  margin-left: 30px;
 }
 
 /* maybe need to change */
@@ -1892,7 +1894,7 @@ a.sign-social-facebook:focus {
   ._1card ._1card_pic {
     overflow: hidden;
     position: relative;
-    height: 209px;
+    height: auto;
     margin-bottom: 15px;
     width: 160px;
     margin-top: 20px;
@@ -1943,9 +1945,9 @@ a.sign-social-facebook:focus {
   ._1card ._new_1card_pic {
     overflow: hidden;
     position: relative;
-    height: 209px;
+    height: auto;
     margin-bottom: 15px;
-    width: 200px;
+    width: 150px;
     margin-top: 20px;
     display: flex;
     flex-flow: row;
@@ -3634,7 +3636,7 @@ body {
 
 @media only screen and (max-width: 499px) {
   .new-fl-btn {
-    text-align: center;
+    /* text-align: center; */
   }
 }
 
@@ -3818,6 +3820,10 @@ body {
   font-family: ceraProMedium !important;
 }
 
+.cera-regular {
+  font-family: ceraProRegular !important;
+}
+
 .cera-light-italic {
   font-family: ceraProLightItalic !important;
 }
@@ -3850,9 +3856,14 @@ body {
   font-weight: 600 !important;
 }
 
+.weight-900 {
+  font-weight: 900 !important;
+}
+
 .mob-new-activity-list {
   padding: 10px 55px;
 }
+
 
 .activ-thumb.new-activ-thumb {
   flex: 0 0 120px;
@@ -3896,6 +3907,36 @@ body {
 .new-mob-latest-details-inner {
   border-bottom: 1px solid #f2f2f2;
   padding-bottom: 15px;
+}
+
+@media only screen and (max-width: 599px) {
+  /* .mob-new-activity-list {
+    padding: 10px 15px;
+  }
+
+  .activ-thumb.new-activ-thumb {
+      flex: 0 0 105px;
+      width: 106px;
+  }
+
+  .activ-det.new-activ-det {
+      padding-left: 15px;
+  }
+} */
+
+@media only screen and (max-width: 499px) {
+  .mob-new-activity-list {
+    padding: 10px 15px;
+  }
+
+  .activ-thumb.new-activ-thumb {
+      flex: 0 0 105px;
+      width: 106px;
+  }
+
+  .activ-det.new-activ-det {
+      padding-left: 15px;
+  }
 }
 
 .drop-item-title.new-drop-item-title {

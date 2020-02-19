@@ -2397,7 +2397,7 @@
                                         <div class="_1coach_main_one">
                                             <p class="_1title">Best Coach Reviews: The Ultimate List</p>
 
-                                            <p class="_1coach_time">Sept,11,2019</p>
+                                            <p class="_1coach_time" style="font-style: italic;">Sept,11,2019</p>
 
                                             <p class="_1coach_status">
                                             There's a human context around this, it's just not the statistics that drive people to see how change 
@@ -2927,7 +2927,7 @@
 
                                 <div class="_1coach_barch">
                                     <p class="worst worst-col">Flank's <span class="red-col">Choice</span></p>
-                                    <p class="_1title">Higly rated, sustainable instructors that benefit the players communities where they coach</p>
+                                    <p class="_1title weight-400">Higly rated, sustainable instructors that benefit the players communities where they coach</p>
                                 </div>
                             </div>
 
@@ -3408,9 +3408,9 @@
                 </div>
             </div>
             <div class="_1reiew_box new-padding no-border _1reiew_box_new">
-                <p class="_1reiew_box_title">Tell us how can improve</p>
+                <p class="_1reiew_box_title font-24">Tell us how can improve</p>
 
-                <p class="_1reiew_con">If you need help, Please <a href="">visit the help section</a> or contact us below</p>
+                <p class="_1reiew_con font-16">If you need help, Please <a href="">visit the help section</a> or contact us below</p>
 
                 <textarea class="_1reiew_taxtarea new-mob-textarea" rows="5" v-model="support.text" placeholder="Your voice is important. Help us make it easier to find the coach you want"></textarea>
                 <div class="new-fl-btn">

@@ -957,6 +957,13 @@
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="">
+                                    <div class="quick-link-caption">
+                                        <p>Sign in</p>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1103,7 +1110,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="inner-scandal-video" v-if="videos.length>0">
+                                    <div class="inner-scandal-video" v-if="videos.length>0" style="padding: 15px 10px;">
                                         <div class="logo-title">
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                         </div>
@@ -1339,10 +1346,10 @@
                                         </div>
                                         <div class="vertising-bg">
                                             <div class="vertising-title">
-                                                <h3>Advertising Opportunities for Any Local Instructor</h3>
-                                                <p>Flank is a website that connects people with great local instructors and sports related products.</p>
+                                                <h3 class="cera-medium font-18 weight-900">Advertising Opportunities for Local Instructor</h3>
+                                                <p class="cera-regular weight-400">Flank is a website that connects people with great local instructors and sports related products.</p>
                                                 <a href="" class="">
-                                                    <button> Coming soon </button>
+                                                    <button class="cera-regular"> Coming soon </button>
                                                 </a>
                                             </div>
                                             <div class="vertising-image">

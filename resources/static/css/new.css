@@ -1804,14 +1804,26 @@ border: 1px solid #dc4f4f;
 
 @media only screen and (max-width: 1199px) {
     .inner-scandal-video .hooper-track .hooper-slide {
-        flex: 0 0 100%;
-        width: 100%;
+        flex: 0 0 50%;
+        width: 50% !important;
     }
 
     .scandal-video-caption {
         padding: 12px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
+}
+
+@media only screen and (max-width: 450px) {
+    .inner-scandal-video .hooper-track .hooper-slide {
+        flex: 0 0 73%;
+        width: 73% !important;
+    }
+
+    /* .scandal-video-caption {
+        padding: 12px;
+        margin-bottom: 20px;
+    } */
 }
 
 .hooper-list {
@@ -1845,10 +1857,19 @@ border: 1px solid #dc4f4f;
     right: 0;
 }
 
+.drop-content .hooper-list {
+    overflow-x: hidden;
+    position: relative;
+    height: 100%;
+    overflow-y: hidden;
+    padding-bottom: 5px;
+}
+
 .drop-content .hooper-track .hooper-slide {
     flex: 0 0 33.33%;
     width: 33.33%;
     padding: 0 5px;
+    min-height: 400px;
     /* margin-top: 15px; */
 }
 
@@ -1862,6 +1883,7 @@ border: 1px solid #dc4f4f;
 .drop-content .hooper-track .hooper-slide .drop-item {
     flex: 0 0 100%;
     width: 100%;
+    height: 100%;
 }
 
 .new-flanker-top-choice .hooper-list {

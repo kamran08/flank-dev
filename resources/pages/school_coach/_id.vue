@@ -183,7 +183,7 @@
                                             <table> 
                                                 <thead>
                                                     <tr>
-                                                        <th class="th-nor">Stats</th>
+                                                        <th class="th-nor cera-bold weight-600" >Stats</th>
                                                         <th>HS <p>Health Score</p></th>
                                                         <th>PC <p>Program chemistry</p></th>
                                                         <th>PR <p>Positive review</p></th>
@@ -398,7 +398,7 @@
                                         /> -->
                                     <div class="inner-item-reco-sec">
                                         <div class="inner-item-reco-title">
-                                            <h4>Recommended Reviews for<span> Coach {{legendData.name}}</span></h4>
+                                            <h4 class="cera-bold" style="text-transform: none;">Recommended Reviews <span class="cera-regular weight-400">for Coach {{legendData.name}}</span></h4>
                                         </div>
                                         <div class="inner-item-top-con">
                                             <figure>
@@ -824,7 +824,7 @@
                                         <table> 
                                             <thead>
                                                 <tr>
-                                                    <th class="th-nor">Stats</th>
+                                                    <th class="th-nor cera-bold weight-600">Stats</th>
                                                     <th>HS <p>Health Score</p></th>
                                                     <th>PC <p>Program chemistry</p></th>
                                                     <th>PR <p>Positive review</p></th>
@@ -932,7 +932,7 @@
                                                 <img :src="item.info.image" alt="">
                                             </figure>
                                             <div class="known-item-caption">
-                                                <p>{{item.info.content}}</p>
+                                                <p class="weight-400">{{item.info.content}}</p>
                                             </div>
                                         </div>
                                     </div>

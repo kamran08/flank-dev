@@ -19,7 +19,7 @@
                                     <button>Review</button>
                                 </div>
                             </div>
-                            <div class="flank-item-left-list">
+                            <div class="flank-item-left-list up-flank-item-left-list">
                                 <table>
                                     <tbody>
                                         <tr>
@@ -52,11 +52,11 @@
                             </div>
                         </div>
                         <div class="flank-item-2">
-                            <div class="flank-item-2-inner">
+                            <div class="flank-item-2-inner new-s-flank-item-2-inner">
                                 
-                                <div class="flank-item-right-list"> 
+                                <div class="flank-item-right-list" style="flex: 0 0 90%; width: 90%;"> 
                                     <div class="linear-border">
-                                        <p>2018-19 season stats</p>
+                                        <p>2019-20 season stats</p>
                                     </div>
                                     <div class="right-list-inner">
                                         <div class="right-list-inner-item">

@@ -895,11 +895,22 @@ ul {
   font-weight: 400;
   font-family: ceraProRegular;
 }
+@media only screen and (max-width: 1199px) {
+  .headline-link-content.new-headline-link-content ul li a {
+    border: 0;
+    font-size: 18px;
+    /* margin-left: 15px; */
+    color: #000 !important;
+    padding: 10px 0;
+    font-weight: 400;
+    font-family: ceraProMedium;
+  }
+}
 .headline-link-content ul li a:hover {
   color: #2d8cf0;
 }
 .headline-link-content ul li a img {
-  width: 20px;
+  width: 30px;
   margin-right: 10px;
 }
 .headline-link-content.new-headline-link-content ul li a img {
@@ -935,6 +946,11 @@ ul {
 
 .coach-scandal {
   padding: 15px 20px;
+}
+@media only screen and (max-width: 1199px) {
+  .coach-scandal {
+    padding: 15px 10px;
+  }
 }
 .coach-scandal .inner-item-blg {
   margin: 20px 10px 20px;
@@ -1086,7 +1102,7 @@ ul {
   text-decoration: none;
   display: block;
   font-family: ceraProMedium;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
 }
 .scandal-list ul li a img {
   width: 20px;
@@ -1263,8 +1279,8 @@ ul {
 
 @media only screen and (max-width: 767px) {
   .video-logo {
-    right: auto;
-    left: 132px;
+    /* right: auto;
+    left: 132px; */
   }
 }
 .video-logo img {
@@ -1418,7 +1434,7 @@ ul {
   text-transform: capitalize;
   font-family: ceraPro;
   letter-spacing: 2px;
-  word-break: break-all;
+  /* word-break: break-all; */
 }
 
 .activ-det h4, .activ-det  h5 {
@@ -1446,7 +1462,7 @@ ul {
   font-family: ceraPro;
   font-weight: 400;
   line-height: 18px;
-  word-break: break-all;
+  /* word-break: break-all; */
   margin-bottom: 30px;
 }
 
@@ -1725,7 +1741,7 @@ ul {
   margin-top: 20px;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1199px) {
 
   .flank-daily-sec {
       padding: 20px 35px;
@@ -1856,7 +1872,14 @@ ul {
   /* border-bottom: 2px solid #EDEEF0; */
   padding: 10px 20px;
 }
-
+@media only screen and (max-width: 1199px) {
+  .drop-title {
+    /* margin-bottom: 30px; */
+    /* text-align: center; */
+    /* border-bottom: 2px solid #EDEEF0; */
+    padding: 10px 10px;
+  }
+}
 .drop-title.no-border {
   border: 0;
 }
@@ -2436,6 +2459,15 @@ ul {
   /* border-left: 2px solid #d6d6d6; */
 }
 
+.flank-item-2-inner.new-s-flank-item-2-inner {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  /* border-left: 2px solid #d6d6d6; */
+}
+
 @media only screen and (max-width: 767px) {
   .flank-item-2-inner {
     flex-flow: column;
@@ -2756,12 +2788,26 @@ ul {
   width: 100%;
 }
 .inner-item-table table thead tr th {
-  font-size: 14px;
+  font-size: 12px;
   padding: 5px 0.7rem;
   text-transform: uppercase;
   border-bottom: 1px solid #e7e7e7;
   font-family: ceraPro;
   color: #000;
+  display: table-cell;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 1199px) {
+  .inner-item-table table thead tr th {
+    font-size: 12px;
+    padding: 5px 1.7rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #e7e7e7;
+    font-family: ceraPro;
+    color: #000;
+    display: table-cell;
+    white-space: nowrap;
+  }
 }
 .inner-item-table table .th-nor {
   font-weight: 400;
@@ -2769,15 +2815,30 @@ ul {
   letter-spacing: 1px;
   color: #000;
   font-size: 13px;
-  font-family: ceraPro;
+  font-family: ceraProRegular;
+  padding: 8px 2rem;
 }
 .inner-item-table table tbody tr td {
   border-bottom: 1px solid #e7e7e7;
-    padding: 2px 0.7rem;
+    padding: 8px 0.7rem;
     font-weight: 400;
     /* font-family: ceraPro; */
     color: #000;
     font-size: 13px;
+    display: table-cell;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 1199px) {
+  .inner-item-table table tbody tr td {
+    border-bottom: 1px solid #e7e7e7;
+      padding: 8px 1.7rem;
+      font-weight: 400;
+      /* font-family: ceraPro; */
+      color: #000;
+      font-size: 13px;
+      display: table-cell;
+    white-space: nowrap;
+  }
 }
 .inner-item-table table tbody tr:last-child td {
   background: #fafafa;
@@ -2822,12 +2883,12 @@ ul {
 }
 
 .inner-item-known-title h4 {
-  font-weight: 900;
-  font-size: 20px;
-  font-family: 'Brandon Grotesque Black';
+  font-weight: 400;
+  font-size: 24px;
+  font-family: ceraPro;
   color: #000;
   margin: 0;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .inner-item-known-details {
@@ -2860,9 +2921,9 @@ ul {
 
 .known-item-caption p {
   color: #000;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
-  font-family: ceraPro;
+  font-family: ceraProMedium;
 }
 
 .more-att {
@@ -2973,7 +3034,7 @@ ul {
 }
 .inner-item-top-con .top-con-cap p span {
   font-weight: 400;
-  color: rgb(35, 128, 187);
+  /* color: rgb(35, 128, 187); */
 }
 .inner-item-top-con .top-con-cap p a {
   color: #ff0000 !important;
@@ -4110,6 +4171,7 @@ flex: 0 0 100%;
   visibility: hidden;
   pointer-events: none;
   transition: all 0.3s linear;
+  font-family: ceraProRegular;
 }
 
 .inner-item-table table thead th:hover p {
@@ -4782,7 +4844,7 @@ footer .foo-individual .foo-option ul li a:hover {
   margin-left: auto;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1199px) {
   
   .new-flank-nav {
     background: #2b2c2d;
@@ -4844,7 +4906,7 @@ footer .foo-individual .foo-option ul li a:hover {
   text-align: center;
   font-size: 20px;
   list-style: none;
-  font-family: ceraPro;
+  font-family: ceraProRegular;
   font-weight: 400;
 }
 
@@ -5030,7 +5092,7 @@ footer .foo-individual .foo-option ul li a:hover {
   display: none;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1199px) {
   
   .mobile-signup-sec {
     display: block;
@@ -5066,7 +5128,7 @@ footer .foo-individual .foo-option ul li a:hover {
 
 @media only screen and (max-width: 499px) {
   .new-navbar-link ul li {
-      font-size: 12px;
+      font-size: 15px;
   }
 
   .new-auth-bx {
@@ -5146,6 +5208,7 @@ footer .foo-individual .foo-option ul li a:hover {
 
 .quick-link-content.sidebar-con-list ul li a {
   border: 0;
+  padding: 10px 0 !important;
 }
 
 .quick-link-content.sidebar-con-list ul li a p {
