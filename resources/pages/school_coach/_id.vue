@@ -563,56 +563,54 @@
                             <div  class="col-md-3 col-sm-3">
                                 <div class="new-inner-item-1">
                                     <!-- Health Meter -->
-                                    <div class="switch-link-content _1health" v-if="allTableData.metrice">
-                                        <div class="_1health_title">
+                                    <div class="switch-link-content _1health  " style="padding: 0;">
+                                    <div style="padding: 10px 20px;"> 
+                                        <div class="_1health_title mb pad-border" style="padding-left: 0;">
                                             <p class="_1health_title_text">Health Meter</p>
 
                                             <img class="_1health_img" src="/image/coach-review45.jpg" alt="" title="">
 
-                                            <p class="_1health_value">{{allTableData.healthSore.toFixed(2)}}%</p>
+                                            <p class="_1health_value">100%</p>
                                         </div>
 
-                                        <p class="_1health_subtitle">HEALTHY</p>
-                                        <div class="_1health_numbers _pc_1health_numbers">
-                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
-                                                <span>100</span>
+                                        <div class="new-health-meter-box">
+                                            <p class="_1health_subtitle cera-medium font-16 weight-400" style="text-transform: capitalize;">Healthy</p>
+                                            <div class="_1health_numbers">
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 76 && allTableData.healthSore <=100 )? '_1health_numbers_text_active' : ''">
+                                                    <span class="new-meter-font">100</span>
+                                                </div>
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
+                                                    <span></span>
+                                                </div>
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
+                                                    <span class="new-meter-font">50</span>
+                                                </div>
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
+                                                    <span></span>
+                                                </div>
+                                                <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
+                                                    <span class="new-meter-font">00</span>
+                                                </div>
                                             </div>
-                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 51 && allTableData.healthSore <=75 )? '_1health_numbers_text_active' : ''">
-                                                <span></span>
-                                            </div>
-                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
-                                                <span>50</span>
-                                            </div>
-                                            <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
-                                                <span></span>
-                                            </div>
-                                            <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
-                                                <span>00</span>
-                                            </div>
+
+                                        <p class="_1health_subtitle _1health_subtitle_border cera-medium font-16 weight-400" style="text-transform: capitalize;">Harmful</p>
                                         </div>
-
-                                        <!-- <div class="_1health_numbers" v-if="allTableData.healthSore">
-                                            <p class="_1health_numbers_text"><span>100</span></p>
-                                            <p class="_1health_numbers_text" v-bind:style="{ top: (100-allTableData.healthSore.toFixed(2)  )+'%'}"><span>{{ allTableData.healthSore.toFixed(1)}}</span></p>
-                                            <p class="_1health_numbers_text"><span>00</span></p>
-                                        </div> -->
-
-                                        <p class="_1health_subtitle _1health_subtitle_border" style="margin-top: 10px;">HARMFUL</p>
-
-                                        <div class="_1healtfh_main">
-                                            <p class="_1health_main_title">Flank News: We've enhanced our Health Meter</p>
-
-                                            <ul class="_1health_main_list">
-                                                <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
-                                                <li>We now have Verified Ratings and Reviews to make our Health Score more useful</li>
-                                                <li>When you see “Verified” it means we’ve confirmed a user verified their identity </li>
-                                            </ul>
-                                        </div>
-
-                                        <p class="_1health_more" >
-                                            <a class="_1health_more_a" href="">LEARN MORE</a>
-                                        </p>
                                     </div>
+
+                                    <div class="_1healtfh_main _new_1healtfh_main">
+                                        <p class="_1health_main_title cera-bold weight-400 font-18">Flank News: We've enhanced our Health Meter</p>
+
+                                        <ul class="_1health_main_list _new_1health_main_list">
+                                            <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
+                                            <li>We now have Verified Ratings and Reviews to make our Health Score more useful</li>
+                                            <li>When you see “Verified” it means we’ve confirmed a user verified their identity </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- <p class="_1health_more" style="text-align: center;">
+                                        <a class="_1health_more_a" href="">LEARN MORE</a>
+                                    </p> -->
+                                </div>
                                     <!-- Health Meter -->
 
                                     <div class="switch-link-content"></div>
@@ -909,7 +907,7 @@
                                     </div>
 
                                     <div class="_1healtfh_main _new_1healtfh_main">
-                                        <p class="_1health_main_title cera-medium weight-400 font-18">Flank News: We've enhanced our Health Meter</p>
+                                        <p class="_1health_main_title cera-bold weight-400 font-18">Flank News: We've enhanced our Health Meter</p>
 
                                         <ul class="_1health_main_list _new_1health_main_list">
                                             <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
@@ -918,9 +916,9 @@
                                         </ul>
                                     </div>
 
-                                    <p class="_1health_more" style="text-align: center;">
+                                    <!-- <p class="_1health_more" style="text-align: center;">
                                         <a class="_1health_more_a" href="">LEARN MORE</a>
-                                    </p>
+                                    </p> -->
                                 </div>
                                 <div class="inner-item-review-sec new-box-shadow new-mt-10" v-if="legendData.topAtrribute">
                                     <div class="inner-item-known-title pad-border" style="padding: 15px 0 10px;">

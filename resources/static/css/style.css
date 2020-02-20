@@ -5915,6 +5915,7 @@ ul.pull-right.navbar-nav.nav li {
   content: '';
   border-bottom: 1px dashed rgba(156, 156, 156, 0.34) !important;
   width: 95% !important;
+  height: 4px;
   left: 0;
   top: 8px;
   z-index: -1;

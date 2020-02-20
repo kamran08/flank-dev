@@ -2558,7 +2558,7 @@ ul {
   display: flex;
   flex-flow: row;
   padding: 12px 25px;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 @media only screen and (max-width: 767px) {
@@ -2921,7 +2921,7 @@ ul {
 
 .known-item-caption p {
   color: #000;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 16px;
   font-family: ceraProMedium;
 }
@@ -3910,7 +3910,7 @@ ul {
   color: #fe0a00 !important;
 }
 ._1health_numbers_text span {
-  font-family: ceraPro;
+  font-family: 'Brandon Grotesque Bold';
   font-weight: bold;
   width: 22px;
   background: #f9f9f9;
@@ -3930,7 +3930,7 @@ ul {
   display: inline-block;
 }
 .new-meter-font {
-  font-family: ceraProMedium !important;
+  /* font-family: ceraProMedium !important; */
   font-weight: 400 !important;
   font-size: 16px !important;
 }
@@ -3942,7 +3942,7 @@ ul {
 ._1health_numbers_text {
   position: relative;
   text-align: right;
-  height: 22px;
+  /* height: 22px; */
   z-index: 1;
   margin-bottom: 15px;;
 }
@@ -3955,11 +3955,11 @@ ul {
   border-bottom: 1px dotted #e8e5e5;
   width: 95%;
   left: 0;
-  top: 11px;
+  top: 8px;
   z-index: -1;
 }
 ._1health_subtitle_border{
-  border-bottom: 1px solid #f1f1f1;
+  /* border-bottom: 1px solid #f1f1f1; */
   margin: 0 0 10px;
   padding: 0 0 6px;
 }
@@ -4163,8 +4163,9 @@ flex: 0 0 100%;
   padding: 5px 7px;
   line-height: 15px;
   text-transform: capitalize;
-  width: 10em;
+  /* width: 10em; */
   text-align: center;
+  left: auto;
   right: 0;
   border-radius: 3px;
   opacity: 0;
@@ -4182,12 +4183,12 @@ flex: 0 0 100%;
 
 .inner-item-table table thead th p:before {
   content: "";
-    position: absolute;
-    border-style: solid;
-    border-width: 7px;
-    border-color: transparent transparent #333 transparent;
-    top: -14px;
-    right: 0.99em;
+  position: absolute;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent transparent #333 transparent;
+  top: -19px;
+  right: 1em;
 
 }
 
@@ -5415,7 +5416,7 @@ html {
 ._1healtfh_main._new_1healtfh_main {
   border-top: 1px solid #000;
   margin-top: 10px;
-  padding: 10px 20px 0 20px;
+  padding: 10px 20px 15px 20px;
 }
 
 /* new scrollbar design */
@@ -5469,4 +5470,29 @@ html {
 
 .lg-content-star li span {
   padding: 5px !important;
+}
+
+._1health ._1health_title_text {
+  font-size: 18px;
+}
+
+._1health ._1health_value {
+  font-size: 20px;
+}
+
+._1health_subtitle {
+  font-family: ceraProMedium;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 1199px) {
+  
+  ._1health ._1health_title_text {
+    font-size: 24px;
+  }
+
+  ._1health ._1health_value {
+    font-size: 28px;
+  }
 }
