@@ -168,7 +168,7 @@ export default {
         },
         async goToGoogle(){
            // href="/login/facebook"
-           window.location = '/authenticated/google'
+           window.location = '/login/google'
         //   let ob = {
               
         //   }
