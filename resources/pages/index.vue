@@ -489,7 +489,64 @@
                                             <div class="drop-content mt-10">
                                                 <div class="row plus-row">
                                                      <hooper :itemsToShow="3" :infiniteScroll="true" >
-                                                        <slide v-for="(item,index) in recentReview " :key="index" v-if="index<showMoreActivity">
+                                                        <slide v-for="(item,index) in recentReview " :key="index" v-if="index<5">
+                                                            <div class="drop-item"  >
+                                                                <div class="drop-item-inner">
+                                                                    <div class="linear-border"></div>
+                                                                    <div class="drop-item-title">
+                                                                        <figure>
+                                                                            <!-- <img :src="item.reviwer.img"  alt=""> -->
+                                                                            <img src="/images/ms.jpg" alt="">
+                                                                        </figure>
+                                                                        <div class="drop-title-caption">
+                                                                            <h3 style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"  >{{item.reviwer | trimSecondLater}}</h3>
+                                                                            <p>Wrote a Review</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="drop-inner">
+                                                                        <div class="drop-inner-figure">
+                                                                            <figure>
+                                                                                <img src="/images/cmnt1.png" alt="">
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div class="drop-inner-cap">
+                                                                            <div class="drop-inner-coach">
+                                                                                <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'school' && item.coach" >Coach {{item.coach.name}}</h4>
+                                                                                <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'legend'">Coach {{item.legend.name}}</h4>
+                                                                            </div>
+                                                                            <div class="review-star small-review-star">
+                                                                                <ul>
+                                                                                    <li  :class="(item.rating>0)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
+                                                                                    <li :class="(item.rating>1)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
+                                                                                    <li :class="(item.rating>2)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
+                                                                                    <li :class="(item.rating>3)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
+                                                                                    <li :class="(item.rating>4)? '' : 'star-half'"  ><span><i class="fas fa-star"></i></span></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="drop-inner-coach-txt">
+                                                                                <p>{{item.content}}</p>
+                                                                                <a @click="directToCoachWall(item)" >Continue reading</a> 
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="drop-bottom-icon small-drop-bottom-icon">
+                                                                            <ul>
+                                                                                <li><img src="/images/ic1.png" alt=""><span>{{item.official}}</span></li>
+                                                                                <li><img src="/images/ic2.png" alt=""><span>{{item.bravery}}</span></li>
+                                                                                <li><img src="/images/ic3.png" alt=""><span>{{item.distinguished}}</span></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </slide>
+                                                        
+                                                        <hooper-navigation slot="hooper-addons"></hooper-navigation>
+
+                                                    </hooper>
+                                                </div>
+                                                <div class="row plus-row" v-if="showMoreActivity>5">
+                                                     <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                                        <slide v-for="(item,index) in recentReview " :key="index" v-if="index>5">
                                                             <div class="drop-item"  >
                                                                 <div class="drop-item-inner">
                                                                     <div class="linear-border"></div>
@@ -587,11 +644,11 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="drop-more" v-if="showMoreActivity == 3">
+                                            <div class="drop-more" v-if="showMoreActivity == 5">
                                                 <p><a @click="showMoreActivity = 10" ><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
                                             </div>
                                             <div class="drop-more" v-else>
-                                                <p><a @click="showMoreActivity = 3" ><span><i class="fas fa-chevron-up"></i></span>Show less activity </a></p>
+                                                <p><a @click="showMoreActivity = 5" ><span><i class="fas fa-chevron-up"></i></span>Show less activity </a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -1364,7 +1421,7 @@
                                 <div class="review-sect-part new-box-shadow new-mt-10">
                                     <div class="review-sect no-box-shadow">
                                         <div class="drop-title no-border">
-                                            <h2 class="pad-border cera-bold weight-400 font-24" style="border-width: 2px !important;">Recent drops</h2>
+                                            <h2 class="pad-border cera-bold weight-400 font-24" style="border-width: 2px !important;">Recent drops New</h2>
                                         </div>
                                         <div class="drop-content mt-10">
                                             <div class="row plus-row">
@@ -1425,6 +1482,7 @@
                                                 </hooper>
                                                
                                             </div>
+                                            
                                             <div class="row plus-row">
                                                 <div class="drop-item" style="margin-top: 15px">
                                                     <div class="drop-item-inner">
@@ -1468,7 +1526,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="drop-more" v-if="showMoreActivity == 3">
+                                        <div class="drop-more" v-if="showMoreActivity == 5">
                                             <p><a @click="showMoreActivity = 10" class="font-18"><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
                                         </div>
                                         <div class="drop-more" v-else>

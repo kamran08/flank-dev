@@ -135,6 +135,7 @@ Route.get('/login/google', 'SocialLoginController.googleRedirect')
 Route.get('/login/FoulMethods', 'UserController.FoulMethods')
 Route.get('/social/test', 'SchoolController.test')
 Route.get('/social/test2', 'SocialLoginController.test2')
+Route.get('/social/loginTest', 'SocialLoginController.loginTest')
 Route.get('/authenticated/google', 'SocialLoginController.googleCallback')
 
 // Legend Contact Schedeule

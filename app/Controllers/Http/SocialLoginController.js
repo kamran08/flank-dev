@@ -60,7 +60,7 @@ class SocialLoginController {
            
             const googleUser = await ally.driver('google').getUser();
 
-            return googleUser;
+            
             
            
 
@@ -84,9 +84,17 @@ class SocialLoginController {
     
           const user = await User.findOrCreate(whereClause, userDetails);
           await auth.login(user);
-    
+          let u = await auth.user
+          return u
           response.redirect('/?login=success')
         
+      }
+      async loginTest({response,auth}){
+        const user = await User.find(1)
+        await auth.login(user)
+
+        
+        return await auth.user
       }
       async test({response}){
         const oauth2Client  = new google.auth.OAuth2(

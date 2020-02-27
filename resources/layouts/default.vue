@@ -26,7 +26,6 @@ export default {
   },
   watch: { 
       '$route.name': function(newVal, oldVal) { // watch it
-        console.log('Prop changed: ', newVal, ' | was: ', oldVal)
         this.$store.commit('setIsMobileSideBar', false )
         if(newVal == 'scoach_review-id' || newVal == "addreview-id"){
           this.header = 2
@@ -38,8 +37,6 @@ export default {
       }
     },
   created(){
-    console.log('this.$route.name') 
-    console.log(this.$route.name)
     if(this.$route.name == 'scoach_review-id' || this.$route.name == "addreview-id"){
           this.header = 2
         }
