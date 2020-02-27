@@ -111,7 +111,7 @@ export default {
         this.formData.email = ''
         //this.$router.push("/login");
       } else if(res.status == 422){
-        this.i(res.status.message)
+        this.i(res.data.message)
       } else {
         this.swr();
       }
