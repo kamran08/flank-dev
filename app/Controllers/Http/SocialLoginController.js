@@ -24,80 +24,60 @@ class SocialLoginController {
         await ally.driver('google').redirect()
     }
       async callback ({ ally, auth , response }) {
-
-         
-           
-            const fbUser = await ally.driver('facebook').getUser();
-           
-
-         
+        const fbUser = await ally.driver('facebook').getUser();
+        // user details to be saved
+        const userDetails = {
+          firstName: fbUser.getName(),
+          img: fbUser.getAvatar(),
+          email: fbUser.getEmail(),
+          packType: 1,
+          token: fbUser.getAccessToken(),
+          login_source: 'facebook'
+        };
     
-          // user details to be saved
-          const userDetails = {
-            firstName: fbUser.getName(),
-            img: fbUser.getAvatar(),
-            email: fbUser.getEmail(),
-            packType: 1,
-            token: fbUser.getAccessToken(),
-            login_source: 'facebook'
-          };
-    
-          // search for existing user
-          const whereClause = {
-            email: fbUser.getEmail(),
-            
-          };
-    
-          const user = await User.findOrCreate(whereClause, userDetails);
-          console.log('fb-user')
-          console.log(user)
-          await auth.login(user);
-          let u = await auth.user
-          console.log('login-user')
-          console.log(u)
-          response.redirect('/?login=success')
+        // search for existing user
+        const whereClause = {
+          email: fbUser.getEmail(),
+          
+        };
+        const user = await User.findOrCreate(whereClause, userDetails);
+        console.log('fb-user')
+        console.log(user)
+        await auth.login(user);
+        let u = await auth.user
+        console.log('login-user')
+        console.log(u)
+        return u
+        response.redirect('/?login=success')
         
       }
       async googleCallback ({ ally, auth , response }) {
-
-         
-           
-            const googleUser = await ally.driver('google').getUser();
-
-            
-            
-           
-
-         
+        const googleUser = await ally.driver('google').getUser();
+        // user details to be saved
+        const userDetails = {
+          firstName: googleUser.getName(),
+          img: googleUser.getAvatar(),
+          email: googleUser.getEmail(),
+          packType: 1,
+          token: googleUser.getAccessToken(),
+          login_source: 'Google'
+        };
     
-          // user details to be saved
-          const userDetails = {
-            firstName: googleUser.getName(),
-            img: googleUser.getAvatar(),
-            email: googleUser.getEmail(),
-            packType: 1,
-            token: googleUser.getAccessToken(),
-            login_source: 'Google'
-          };
-    
-          // search for existing user
-          const whereClause = {
-            email: googleUser.getEmail(),
-            
-          };
-    
-          const user = await User.findOrCreate(whereClause, userDetails);
-          await auth.login(user);
-          
-          response.redirect('/?login=success')
+        // search for existing user
+        const whereClause = {
+          email: googleUser.getEmail(),
+        };
+        const user = await User.findOrCreate(whereClause, userDetails);
+        await auth.login(user);
+        response.redirect('/?login=success')
         
       }
       async loginTest({response,auth}){
         const user = await User.find(1)
         await auth.login(user)
 
-        
-        return await auth.user
+        return response.route('home')
+         
       }
       async test({response}){
         const oauth2Client  = new google.auth.OAuth2(
