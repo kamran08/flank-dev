@@ -47,8 +47,7 @@ class SocialLoginController {
         let u = await auth.user
         console.log('login-user')
         console.log(u)
-        return u
-        response.redirect('/?login=success')
+        return response.route('home')
         
       }
       async googleCallback ({ ally, auth , response }) {
@@ -69,7 +68,7 @@ class SocialLoginController {
         };
         const user = await User.findOrCreate(whereClause, userDetails);
         await auth.login(user);
-        response.redirect('/?login=success')
+        return response.route('home')
         
       }
       async loginTest({response,auth}){
