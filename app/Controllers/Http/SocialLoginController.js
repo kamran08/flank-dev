@@ -49,8 +49,12 @@ class SocialLoginController {
           };
     
           const user = await User.findOrCreate(whereClause, userDetails);
+          console.log('fb-user')
+          console.log(user)
           await auth.login(user);
-    
+          let u = await auth.user
+          console.log('login-user')
+          console.log(u)
           response.redirect('/?login=success')
         
       }
@@ -84,8 +88,7 @@ class SocialLoginController {
     
           const user = await User.findOrCreate(whereClause, userDetails);
           await auth.login(user);
-          let u = await auth.user
-          return u
+          
           response.redirect('/?login=success')
         
       }
