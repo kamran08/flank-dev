@@ -101,7 +101,9 @@ export default {
             this.formData.img = res.file 
         },
         async fbImage () {
-           if(this.authInfo.token == null) return this.i("Your facebook profile not connected")
+           if(this.authInfo.token == null){ 
+               window.location = '/login/facebook'
+           } 
            else this.formData.img = this.link+this.authInfo.token
         //    const res = await this.callApi('get','/login/facebook/image')
         //    if(res.status == 200){

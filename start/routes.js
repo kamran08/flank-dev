@@ -157,5 +157,6 @@ Route.get('/app/getStreak/:id', 'SchoolController.getStreak')
 
 Route.get('app/initdata', 'UserController.initdata')
 Route.any('/', 'NuxtController.render').as('home')
+Route.any('/nlogin/step2', 'NuxtController.render').as('step2')
 Route.any('*', 'NuxtController.render')
 

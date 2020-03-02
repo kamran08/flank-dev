@@ -5,6 +5,14 @@ const {google} = require("googleapis");
 const Env = use('Env')
 const axios = require('axios')
 class SocialLoginController {
+  async authCheck({auth,response}){
+    try {
+       await auth.getUser()
+       return true;
+    } catch (error) {
+      return false;
+    }
+  }
     async redirect ({ ally }) {
        
         await ally.driver('facebook').redirect()
@@ -14,10 +22,7 @@ class SocialLoginController {
      // const facebook = await ally.driver('facebook');
 
       //const allyUser = await facebook.getUserByToken(socialToken)
-      return await ally.driver('facebook').getUserByToken(user.token);
-     return await ally.getUserByToken(user.token)
-        
-      
+       await ally.driver('facebook').scope(['email', 'birthday']).getUserByToken(user.token);
       }
     async googleRedirect ({ ally }) {
        
@@ -26,6 +31,16 @@ class SocialLoginController {
       async callback ({ ally, auth , response }) {
         const fbUser = await ally.driver('facebook').getUser();
         // user details to be saved
+        if(this.authCheck){
+          let img = fbUser.getAvatar()
+          let token = fbUser.getAccessToken()
+          const user = await auth.user;
+          await  User.query().where('id',user.id).update({
+            img:img,
+            token:token,
+          });
+          return response.route('step2')
+        }
         const userDetails = {
           firstName: fbUser.getName(),
           img: fbUser.getAvatar(),
@@ -47,7 +62,7 @@ class SocialLoginController {
         let u = await auth.user
         console.log('login-user')
         console.log(u)
-        return response.route('home')
+        return response.route('step2')
         
       }
       async googleCallback ({ ally, auth , response }) {
