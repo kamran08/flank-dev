@@ -10,6 +10,8 @@ class SocialLoginController {
        await auth.getUser()
        return true;
     } catch (error) {
+      console.log('error')
+      console.log(error)
       return false;
     }
   }
@@ -31,7 +33,7 @@ class SocialLoginController {
       async callback ({ ally, auth , response }) {
         const fbUser = await ally.driver('facebook').getUser();
         // user details to be saved
-        if(this.authCheck){
+        if(this.authCheck==true){
           let img = fbUser.getAvatar()
           let token = fbUser.getAccessToken()
           const user_id = await auth.user.id
