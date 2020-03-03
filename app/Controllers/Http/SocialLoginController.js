@@ -43,28 +43,26 @@ class SocialLoginController {
           });
           return response.route('step2')
         }
-        const userDetails = {
-          firstName: fbUser.getName(),
-          img: fbUser.getAvatar(),
-          email: fbUser.getEmail(),
-          packType: 1,
-          token: fbUser.getAccessToken(),
-          login_source: 'facebook'
-        };
-    
-        // search for existing user
-        const whereClause = {
-          email: fbUser.getEmail(),
-          
-        };
-        const user = await User.findOrCreate(whereClause, userDetails);
-        console.log('fb-user')
-        console.log(user)
-        await auth.login(user);
-        let u = await auth.user
-        console.log('login-user')
-        console.log(u)
-        return response.route('step2')
+        else{
+
+          const userDetails = {
+            firstName: fbUser.getName(),
+            img: fbUser.getAvatar(),
+            email: fbUser.getEmail(),
+            packType: 1,
+            token: fbUser.getAccessToken(),
+            login_source: 'facebook'
+          };
+      
+          // search for existing user
+          const whereClause = {
+            email: fbUser.getEmail(),
+            
+          };
+          const user = await User.findOrCreate(whereClause, userDetails);
+          await auth.login(user);
+          return response.route('step2')
+        }
         
       }
       async googleCallback ({ ally, auth , response }) {
