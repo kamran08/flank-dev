@@ -34,8 +34,8 @@ class SocialLoginController {
         if(this.authCheck){
           let img = fbUser.getAvatar()
           let token = fbUser.getAccessToken()
-          const user = await auth.user;
-          await  User.query().where('id',user.id).update({
+          const user_id = await auth.user.id
+          await  User.query().where('id',user_id).update({
             img:img,
             token:token,
           });
