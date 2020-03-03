@@ -86,13 +86,9 @@ export const actions = {
   async nuxtServerInit ({ commit }, { $axios }) {
     try {
       // get the initial 
-       console.log('nuxtServerInit')
       let { data } = await $axios.get('app/initdata')
       // update the state of the aiuth
-      console.log('data-nuxtServerInit')
-      //console.log(data)
       commit('setAuthInfo', data.user)
-      // console.log(data)
     } catch (e) {
       console.log(e.response)
     }

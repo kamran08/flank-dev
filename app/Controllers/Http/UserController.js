@@ -389,14 +389,13 @@ class UserController {
   async initdata ({ request, response, auth }) {
     try {
       const user = await auth.getUser()
-      console.log(user)
+      
       const legend = await User.query().with('legend').where('id',user.id).first();
       return {
         user: legend
       }
     } catch (error) {
-      console.log(error.message)
-      return false
+        return false
     }
   }
   async updateProfileImage ({ request, response, auth }) {

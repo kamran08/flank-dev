@@ -8,6 +8,7 @@ class SocialLoginController {
   async authCheck({auth,response}){
     try {
        await auth.getUser()
+       console.log('no Error')
        return true;
     } catch (error) {
       console.log('error')
@@ -34,6 +35,7 @@ class SocialLoginController {
         const fbUser = await ally.driver('facebook').getUser();
         // user details to be saved
         if(this.authCheck==true){
+          console.log("auth check true")
           let img = fbUser.getAvatar()
           let token = fbUser.getAccessToken()
           const user_id = await auth.user.id
@@ -44,7 +46,7 @@ class SocialLoginController {
           return response.route('step2')
         }
         else{
-
+          console.log("auth check false")
           const userDetails = {
             firstName: fbUser.getName(),
             img: fbUser.getAvatar(),
