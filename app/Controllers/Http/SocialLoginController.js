@@ -6,6 +6,7 @@ const Env = use('Env')
 const axios = require('axios')
 class SocialLoginController {
   async authCheck({auth,response}){
+    console.log("i am authCheck")
     try {
        await auth.getUser()
        console.log('no Error')
@@ -34,7 +35,16 @@ class SocialLoginController {
       async callback ({ ally, auth , response }) {
         const fbUser = await ally.driver('facebook').getUser();
         // user details to be saved
-        if(this.authCheck==true){
+        let f = false;
+        try {
+          await auth.getUser()
+          f = true;
+        } catch (error) {
+          
+          console.log("auth false")
+          console.log(error)
+        }
+        if(this.f){
           console.log("auth check true")
           let img = fbUser.getAvatar()
           let token = fbUser.getAccessToken()
@@ -90,7 +100,23 @@ class SocialLoginController {
       }
       async loginTest({response,auth}){
         const user = await User.find(1)
-        await auth.login(user)
+
+        let f = false;
+        try {
+          await auth.getUser()
+          f = true;
+        } catch (error) {
+          
+          console.log("auth false")
+          console.log(error)
+        }
+
+        if(!f){
+          await auth.login(user)
+          console.log("I am in if")
+
+        }
+        else console.log("I am out  if")
 
         return response.route('home')
          
