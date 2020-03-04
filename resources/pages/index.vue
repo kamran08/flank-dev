@@ -293,7 +293,7 @@
                                                 <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                             </div> -->
                                             <div class="row ">
-                                                <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                                <hooper :itemsToShow="3" >
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >
                                                             <div class="inner-scandal-video-item">
@@ -1143,8 +1143,8 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="coach-scandal-sec new-box-shadow new-mt-10">
-                                    <div class="coach-scandal">
+                                <div class="coach-scandal-sec new-box-shadow new-mt-10" style="padding: 0;">
+                                    <div class="coach-scandal" style="padding: 25px 30px;">
                                         <div class="coach-scandal-title" style="border-width: 2px;">
                                             <figure>
                                                 <img src="/images/st.png" alt="">
@@ -1167,11 +1167,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="inner-scandal-video" v-if="videos.length>0" style="padding: 15px 10px;">
-                                        <div class="logo-title">
+                                    <div class="inner-scandal-video" v-if="videos.length>0" style="padding: 0;">
+                                        <div class="logo-title" style="padding: 15px 30px; margin-bottom: 5px;">
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                         </div>
-                                        <div class="row plus-row">
+                                        <div class="row plus-row" style="padding-bottom: 15px;">
                                             <hooper :itemsToShow="3" :infiniteScroll="true" >
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >

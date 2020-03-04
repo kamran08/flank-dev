@@ -1793,6 +1793,9 @@ border: 1px solid #dc4f4f;
 }
 
 @media only screen and (max-width: 450px) {
+    .inner-scandal-video .hooper-track {
+        margin: 0 90px;
+    }
     .inner-scandal-video .hooper-track .hooper-slide {
         flex: 0 0 33.33%;
         width: 33.33%;
@@ -1803,9 +1806,12 @@ border: 1px solid #dc4f4f;
 }
 
 @media only screen and (max-width: 1199px) {
+    .inner-scandal-video .hooper-track {
+        /* margin: 0 140px; */
+    }
     .inner-scandal-video .hooper-track .hooper-slide {
-        flex: 0 0 50%;
-        width: 50% !important;
+        flex: 0 0 33.33%;
+        width: 33.33% !important;
     }
 
     .scandal-video-caption {
@@ -1814,10 +1820,28 @@ border: 1px solid #dc4f4f;
     }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 599px) {
+    .inner-scandal-video .hooper-track {
+        margin: 0 33%;
+    }
     .inner-scandal-video .hooper-track .hooper-slide {
-        flex: 0 0 73%;
-        width: 73% !important;
+        flex: 0 0 50%;
+        width: 50% !important;
+    }
+
+    /* .scandal-video-caption {
+        padding: 12px;
+        margin-bottom: 20px;
+    } */
+}
+
+@media only screen and (max-width: 399px) {
+    .inner-scandal-video .hooper-track {
+        margin: 0 57%;
+    }
+    .inner-scandal-video .hooper-track .hooper-slide {
+        flex: 0 0 75%;
+        width: 75% !important;
     }
 
     /* .scandal-video-caption {
