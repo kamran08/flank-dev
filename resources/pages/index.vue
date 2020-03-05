@@ -293,7 +293,7 @@
                                                 <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                             </div> -->
                                             <div class="row ">
-                                                <hooper :itemsToShow="3" >
+                                                <hooper :itemsToShow="3" :infiniteScroll="true">
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >
                                                             <div class="inner-scandal-video-item">
@@ -1288,12 +1288,12 @@
                                     </div> -->
                                 </div>
                                 
-                                <div class="new-latest-flank  new-box-shadow new-mt-10" v-if="videos.length>0">
-                                    <div class="inner-scandal-video no-border">
-                                        <div class="logo-title">
+                                <div class="new-latest-flank  new-box-shadow new-mt-10" style="padding: 0;" v-if="videos.length>0">
+                                    <div class="inner-scandal-video no-border" style="padding: 0;">
+                                        <div class="logo-title" style="padding: 15px 30px; margin-bottom: 5px;">
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span class="cera-black">LATEST ON FLANK</span></h2>
                                         </div>
-                                        <div class="row plus-row">
+                                        <div class="row plus-row" style="padding-bottom: 15px;">
                                             <hooper :itemsToShow="3" :infiniteScroll="true" >
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >

@@ -5397,7 +5397,7 @@ html {
 }
 
 .review-checkin .ivu-tooltip-popper {
-  display: block !important;
+  /* display: block !important; */
   right: 0;
   white-space: normal !important;
   left: auto !important;
