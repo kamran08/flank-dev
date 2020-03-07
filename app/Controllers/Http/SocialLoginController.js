@@ -44,7 +44,7 @@ class SocialLoginController {
           console.log("auth false")
           console.log(error)
         }
-        if(this.f){
+        if(f==true){
           console.log("auth check true")
           let img = fbUser.getAvatar()
           let token = fbUser.getAccessToken()
