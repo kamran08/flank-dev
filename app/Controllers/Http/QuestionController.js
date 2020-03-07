@@ -66,6 +66,7 @@ class QuestionController {
       .where('legend_id', params.id)
       .where('type', type)
       .with('user')
+      .with('answers')
       .withCount('answers')
       .orderBy('id', 'desc')
       .paginate(page, 3)

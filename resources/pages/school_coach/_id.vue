@@ -272,7 +272,7 @@
                                     </div> 
                                     <div class="inner-item-reco-sec inner-item-reco-sec-one">
                                         <div class="inner-item-reco-title">
-                                            <h4>Ask The Community</h4>
+                                            <h4>Ask The Communitys</h4>
                                         </div>
                                         <div class="inner-item-top-con inner-one-item-top-con">
                                             <figure>
@@ -283,12 +283,12 @@
                                                 <!-- <a >(Click Here)</a> -->
                                             </div>
                                         </div>
-                                        <div class="new-flank-form" v-if="legendData.question" >
+                                        <div class="new-flank-form" v-if="legendData.question && !isMoreQuestion"  >
                                             <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;font-weight: 600;">Question:</p>
                                             <div class="new-qu">
                                                 
                                                 <div class="new-qu-text">
-                                                    <p>Does this coach have college connections? If so, to what schools?</p>
+                                                    <p>{{legendData.question.content}}</p>
                                                 </div>
                                                 <!-- <div class="new-qu-img">
                                                     <img src="/images/nf.png" alt="">
@@ -297,7 +297,7 @@
                                             <!-- <div class="inner-one-item-cont">
                                                 <div class="new-flank-search inner-item-one-cont-left">
                                                     <h4>Question:</h4>
-                                                    <p style="font-size: 15px;font-family: CeraPro;">{{legendData.question.content}}</p>
+                                                    <p style="font-size: 15px;font-family: CeraPro;"></p>
                                                 </div>
                                                 
                                             </div> -->
@@ -336,30 +336,22 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div class="new-flank-form" v-if="legendData.question" >
+                                        <div class="new-flank-form" v-else-if="questionList.length>0 && isMoreQuestion" v-for="(item,index) in questionList " :key="index">
+                                            <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;font-weight: 600;">Question:</p>
                                             <div class="new-qu">
-                                                <div class="new-qu-text">
-                                                    <p>Another question</p>
-                                                </div>
-                                                <div class="new-qu-img">
-                                                    <img src="/images/nf.png" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="inner-one-item-cont">
-                                                <div class="new-flank-search inner-item-one-cont-left">
-                                                    <h4>Question:</h4>
-                                                    <p style="font-size: 15px;font-family: CeraPro;">{{legendData.question.content}}</p>
-                                                </div>
                                                 
+                                                <div class="new-qu-text">
+                                                    <p>{{item.content}}</p>
+                                                </div>
                                             </div>
-                                            <div class="new-flank-coach-rev">
+                                            <div class="new-flank-coach-rev" v-if="item.user">
                                                 <div class="coach-rev-con">
                                                     <figure>
-                                                        <img src="/images/ms.jpg" alt="">
+                                                        <img :src="item.user.img" alt="">
                                                     </figure>
                                                     <div class="coach-rev-text-content">
-                                                        <h4>Nazmul Chowdhury</h4>
-                                                        <h5>Sylhet, Bangladesh</h5>
+                                                        <h4>{{item.user | trimSecondLater}}</h4>
+                                                        <h5>{{item.user.address}}</h5>
                                                         <ul class="fixed-list">
                                                             <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
                                                             <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
@@ -368,26 +360,28 @@
                                                 </div>
                                             
                                                 <div class="inner-one-item-help-area2"  >
-                                                    <div v-if="legendData.question.answers">
-                                                        <h6 class="help-ans"><span>1</span> answer</h6>
-                                                        <p class="help-text">{{legendData.question.answers.content}}</p>
+                                                    <h6 class="help-ans" v-if="item.__meta__.answers_count>0">{{item.__meta__.answers_count}} {{(item.__meta__.answers_count>1)? 'Answers' : 'Answer' }}</h6>
+                                                    <h6 class="help-ans" else>No Answer</h6>
+                                                    <div v-if="item.answers">
+                                                        
+                                                        <p class="help-text">{{item.answers.content}}</p>
                                                     </div>
                                                 
                                                 <div class="inner-one-item-help-btn">
-                                                    <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                    <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:item.id } }" >View questions details</nuxt-link></p>
                                                     <div class="helpful-btn-full">
                                                         <ul>
-                                                            <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(item.answers,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(item.answers,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     
                                                 </div>
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
                                         <div class="show-more-ac">
-                                            <p><a href=""><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
+                                            <p><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
                                         </div>
                                     </div>
                                     <!-- <GChart
@@ -1939,6 +1933,8 @@ export default {
                 text:'',
                 index:0,
             },
+            questionList:[],
+            isMoreQuestion:false,
             step1Form:{
                 schoolName:'',
                 city:'',
@@ -2583,11 +2579,12 @@ export default {
    async created(){
        this.location = window.location.href
       
-        const [ res2, res4,res5,res6] = await Promise.all([
+        const [ res2, res4,res5,res6,res7] = await Promise.all([
             this.callApi('get', `/app/getAdditionCoachInfo/${this.$route.params.id}`),  
             this.callApi('get', `/reviews/${this.$route.params.id}?type=school`),
             this.callApi('get', `/app/getCoachTopReviews/${this.$route.params.id}?type=school`),
             this.callApi('get', `/app/getSimilarCoach/${this.school_id}/${this.$route.params.id}`), 
+            this.callApi('get', `/questions/${this.$route.params.id}?type=school&limit=3`), 
         ])
         if( res2.status===200 && res4.status === 200){
             
@@ -2597,7 +2594,7 @@ export default {
             this.topReviews = res5.data
             delete this.rpagination.data
             this.healthSore = res2.data.healthSore
-            
+            this. questionList = res7.data.data,
             this.isLoading = false
 
             this.allTableData = res2.data
