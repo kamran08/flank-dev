@@ -44,18 +44,8 @@ class SocialLoginController {
           console.log("auth false")
           console.log(error)
         }
-        if(f==true){
-          console.log("auth check true")
-          let img = fbUser.getAvatar()
-          let token = fbUser.getAccessToken()
-          const user_id = await auth.user.id
-          await  User.query().where('id',user_id).update({
-            img:img,
-            token:token,
-          });
-          return response.route('step2')
-        }
-        else{
+
+        if(!f){
           console.log("auth check false")
           const userDetails = {
             firstName: fbUser.getName(),
@@ -74,7 +64,23 @@ class SocialLoginController {
           const user = await User.findOrCreate(whereClause, userDetails);
           await auth.login(user);
           return response.route('step2')
+
         }
+        else {
+
+          console.log("auth check true")
+          let img = fbUser.getAvatar()
+          let token = fbUser.getAccessToken()
+          const user_id = await auth.user.id
+          await  User.query().where('id',user_id).update({
+            img:img,
+            token:token,
+          });
+          return response.route('step2')
+        }
+
+       
+       
         
       }
       async googleCallback ({ ally, auth , response }) {
