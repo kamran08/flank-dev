@@ -1537,7 +1537,7 @@
                         <div class="modal-details-social">
                             <ul>
                                 <li><button class="fb-btn"  :data-href="location" ><span><i class="fab fa-facebook-square"></i></span> <a style="color:#ffff !important;"  :href="'https://www.facebook.com/sharer/sharer.php?u='+location" target="_blank" >Share on facebook</a> </button></li>
-                                <li><button class="tw-btn"><span><i class="fab fa-twitter-square"></i></span><a  style="color:#ffff !important;" :href="`https://twitter.com/share?ref_src=${location}`" target="_blank" rel="noopener noreferrer">Share on twitter</a></button></li>
+                                <li><button class="tw-btn"><span><i class="fab fa-twitter-square"></i></span><a  style="color:#ffff !important;" :href="`https://twitter.com/share?ref_src=${location}&text=${this.twitter_text}`" target="_blank" rel="noopener noreferrer">Share on twitter</a></button></li>
                             </ul>
                         </div>
                         <div class="modal-input-value">
@@ -2007,6 +2007,7 @@ export default {
     data(){
         return{
             mobileScreen:false,
+            twitter_text:"hello , I am Rasel Vai!",
             isSmallScreen:false,
             showBestRated:false,
              drating:{
@@ -2189,7 +2190,7 @@ export default {
                 },
                 {
                     name: 'twitter:image',
-                    content: 'https://goflank.com/images/act.png',
+                    content: 'https://goflank.com/images/flank-1.png',
                 },
                 {
                     name: 'twitter:description',
