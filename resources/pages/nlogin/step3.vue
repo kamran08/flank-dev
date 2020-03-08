@@ -121,6 +121,13 @@ export default {
             const res = await this.callApi('post','/app/sendInvitation',this.sendMail)
             if(res.status == 200){
                 this.s("Invitation send successfully")
+                let sendMail={
+                    mail:'',
+                    mail2:'',
+                    mail3:'',
+                    mail4:'',
+                }
+                this.sendMail = sendMail
             }
             else this.swr();
         }
