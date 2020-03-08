@@ -2176,16 +2176,24 @@ export default {
                     content: '1024',
                 },
                 {
-                    name: 'twitter:title',
-                    content: this.title,
+                    name: 'twitter:card',
+                    content="summary_large_image"
                 },
                 {
-                    name: 'twitter:url',
-                    content: '/images/flank-1.png',
+                    name: 'twitter:site',
+                    content="@yelp",
+                },
+                {
+                    name: 'twitter:title',
+                    content: 'Check out Kanwarinder'
+                },
+                {
+                    name: 'twitter:image',
+                    content: '/images/flank-daily.png',
                 },
                 {
                     name: 'twitter:description',
-                    content: this.metaContent
+                    content: 'Experienced Digital Marketing Specialist with a demonstrated history of working in the computer software industry. Skilled in Search Engine Optimization (SEO).'
                 },
             ],
         }
