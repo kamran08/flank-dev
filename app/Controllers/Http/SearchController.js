@@ -61,24 +61,28 @@ class SearchController {
       }
       
     }    else if (pageOption == 'school') {
-      data =  School.query()
-        .with('avgRating')
+      return await School.query()
+         .with('avgRating').paginate(page, 10)
         .withCount('allreview as allreview ')
 
       if (str) {
-        data.where('schoolName', 'LIKE', '%' + str + '%')
+        data.where('schoolName', 'LIKE', '%' + str + '%');
       }
-      if (rate > 0) {
-        data.where('avgRating.averageRating', '<=', rate)
+      if (rate > 0) { 
+        rate = parseFloat(rate)
+        let brate = rate - 0.99
+        data.whereHas('avgRating', (builder) => {
+          builder.whereBetween ('averageRating', [brate,rate]);
+        });
       }
       if (place) {
-        data.where('city', 'LIKE', '%' + place + '%')
-        data.orWhere('state', 'LIKE', '%' + place + '%')
-        data.orWhere('division', 'LIKE', '%' + place + '%')
+        data.where('city', 'LIKE', '%' + place + '%');
+        data.orWhere('state', 'LIKE', '%' + place + '%');
+        data.orWhere('division', 'LIKE', '%' + place + '%');
       }
       if (sports) {
         var array = sports.split(",");
-          data.whereIn('sport', array)
+          data.whereIn('sport', array);
       }
     } else if (pageOption == 'coach') {
       data =   SchoolCoach.query()

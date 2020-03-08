@@ -1007,20 +1007,9 @@
                     <div class="quick-link-content sidebar-con-list">
                         <h4>Help & settings</h4>
                         <ul>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p>Your account</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p>Sign in</p>
-                                    </div>
-                                </a>
-                            </li>
+                            <li v-if="isLoggedIn"><nuxt-link :to="`flanker/${authInfo.id}`"><div class="quick-link-caption"><p>Your account</p></div></nuxt-link></li>
+                            <li else><nuxt-link to="/login?message=true"><div class="quick-link-caption"><p>Your account</p></div></nuxt-link></li>
+                            <li else><nuxt-link to="/login?message=true"><div class="quick-link-caption"><p>Sign in</p></div></nuxt-link></li>
                         </ul>
                     </div>
                 </div>
@@ -1028,34 +1017,10 @@
                     <div class="quick-link-content sidebar-con-list">
                         <h4>About</h4>
                         <ul>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p>About flank</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p>Content Guidelines</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p>Terms of service</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <div class="quick-link-caption">
-                                        <p>Privacy policy</p>
-                                    </div>
-                                </a>
-                            </li>
+                            <li><nuxt-link to="/about"><div class="quick-link-caption"><p>About flank</p></div></nuxt-link></li>
+                            <li><nuxt-link to="/guidlines"><div class="quick-link-caption"><p>Content Guidelines</p></div></nuxt-link></li>
+                            <li><nuxt-link to="/tos"><div class="quick-link-caption"><p>Tearms of service</p></div></nuxt-link></li>
+                            <li><nuxt-link to="/policy"><div class="quick-link-caption"><p>Privacy policy</p></div></nuxt-link></li>
                         </ul>
                     </div>
                 </div>
@@ -1174,7 +1139,7 @@
                                     </div>
                                     <div class="inner-scandal-video" v-if="videos.length>0" style="padding: 0;">
                                         <div class="logo-title" style="padding: 15px 30px; margin-bottom: 5px;">
-                                            <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
+                                            <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANKs</span></h2>
                                         </div>
                                         <div class="row plus-row" style="padding-bottom: 15px;">
                                             <hooper :itemsToShow="3" :infiniteScroll="false">

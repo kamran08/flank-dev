@@ -4,7 +4,7 @@
 const Model = use('Model')
 const Database = use('Database') 
 
-class School extends Model {
+class School extends Model { 
   coaches () {
     return this.hasMany('App/Models/SchoolCoach', 'id', 'school_id')
   }

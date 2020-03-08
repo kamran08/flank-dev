@@ -65,10 +65,10 @@
                             <h3>Attributes</h3>
                             <ul>
                                 <li>
-                                    <input type="radio" name="gender"  v-model="attribute" id="che1" value="averageHealthy" v-on:change="SearchByKey" ><label for="che1">Healthy index</label>
+                                    <input type="radio" name="gender"  v-model="attribute" id="che1" :value="'averageHealthy'" v-on:change="SearchByKey" ><label for="che1">Healthy index</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="gender"  v-model="attribute" id="che2" value="averageHarmful" v-on:change="SearchByKey"><label for="che2">Harmful index</label>
+                                    <input type="radio" name="gender"  v-model="attribute" id="che2" :value="'averageHarmful'" v-on:change="SearchByKey"><label for="che2">Harmful index</label>
                                 </li>
                             </ul>
                         </div>
@@ -151,8 +151,8 @@
                                 
                                     <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p>
                                 </div>
-                                <div class="new-best-rated rated-red mt-15">
-                                    <p>{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="searchData[0].avg_rating !=0" class="new-best-rated rated-red mt-15">
+                                    <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
                                 <div class="new-content-rev-details">
                                     <div class="new-content-rev-left">
@@ -173,7 +173,7 @@
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                             </ul>
-                                            <!-- <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p> -->
+                                            <!-- <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p> -->
                                         </div>
                                         <div class="new-comment-para">
                                             <p>
@@ -195,8 +195,8 @@
                                     <h2>Your past reviews</h2>
                                     <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)">See all past reviews</a></p>
                                 </div>
-                                <div class="new-best-rated rated-red mt-15">
-                                    <p>{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
+                                    <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
                                 <div class="new-content-rev-details">
                                     <div class="new-content-rev-left">
@@ -217,7 +217,7 @@
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                             </ul>
-                                            <!-- <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p> -->
+                                            <!-- <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p> -->
                                         </div>
                                         <div class="new-comment-para">
                                             <p>
@@ -241,8 +241,8 @@
                             <div class="_1coach_items" v-if="pageOption == 'coach'"  v-for="(item,index) in searchData" :key="index"  >
                                 <div class="desk-fl-top">
 
-                                    <div class="new-best-rated rated-yellow">
-                                        <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                        <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                     </div>
                                 </div>
                                 
@@ -393,7 +393,7 @@
                                 </div>
                             </div>
                             <div class="_1coach_items" v-if="pageOption == 'school'"  v-for="(item,index) in searchData" :key="index"  >
-                                <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <p v-if="item.avgRating.averageRating !=0" class="worst yellow">{{ (item.avgRating.averageRating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -452,7 +452,7 @@
                                 </div>
                             </div>
                             <div class="_1coach_items" v-if="pageOption == 'legend'"  v-for="(item,index) in searchData" :key="index"  >
-                                <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <p v-if="item.avg_rating !=0" class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -551,69 +551,6 @@
                                                 
                                             </div>
                                         </div>
-                                        <!-- Right -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="_1coach_items" v-if="pageOption == 'product'"  v-for="(item,index) in searchData" :key="index"  >
-                                <p class="worst yellow">Product & Service</p>
-
-                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
-
-                                <div class="_2coach_main">
-                                    <div class="row">
-                                        <!-- Left -->
-                                        <div class="col-xl-12 col-md-12 col-lg-7 _2coach_main_left">
-                                            <div class="_2card">
-                                                <div class="_2card_pic">
-                                                    <img class="_2card_img" src="/images/ps.png" alt="" title="">
-                                                </div>
-
-                                                <div class="_2card_details">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/product/${item.id}`)" >{{item.name}} </p>
-                                                            <!-- <div class="_1rating">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avgRating.averageRating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avgRating.averageRating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div> -->
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.address}}</p>
-                                                    </div>
-                                                    <p class="_2card_status _2taxt">
-                                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u"
-                                                    </p>
-
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-
-                                                    <!-- <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Left -->
-
-                                        <!-- Right -->
-                                        <!-- <div class="col-xl-12 col-md-12 col-lg-5 _2coach_main_right"> 
-                                            <div class="_2coach_title">
-                                                <p class="_2coach_title_one">Health Score:</p>
-
-                                                <p class="_2coach_title_two _2coach_title_two_red"> 10.00
-                                                    
-                                                    
-                                                
-                                                </p>
-                                            </div>
-                                        </div> -->
                                         <!-- Right -->
                                     </div>
                                 </div>
@@ -760,8 +697,7 @@
                         <div v-if="searchData.length>0" >
 
                             <div class="_1coach_items"   v-for="(item,index) in similar" :key="index" v-if="pageOption == 'coach' && ((index%2) == 0)"  >
-                                <div class="desk-fl-top">
-
+                                <div v-if="item.avg_rating !=0" class="desk-fl-top">
                                     <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
 
@@ -911,7 +847,10 @@
                             </div>
 
                             <div class="_1coach_items"   v-for="(item,index) in similar" :key="index" v-if="pageOption == 'school' && ((index%2) == 0)"  >
-                                <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
+                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
+                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                </div>
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -1059,7 +998,10 @@
                             </div>
                             
                             <div class="_1coach_items" v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) == 0)   "  >
-                                <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
+                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
+                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                </div>
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -1270,7 +1212,10 @@
 
                             <div class="_1coach_items"  v-for="(item,index) in similar" :key="index" v-if="(pageOption == 'coach') && ((index%2) != 0)"   >
                                 <div class="desk-fl-top"></div>
-                                <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
+                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
+                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                </div>
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -1417,7 +1362,10 @@
                                 </div>
                             </div>
                             <div class="_1coach_items"  v-for="(item,index) in similar" :key="index" v-if="(pageOption == 'school') && ((index%2) != 0)"   >
-                                <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
+                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
+                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                </div>
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -1565,7 +1513,10 @@
                             </div>
                             
                             <div class="_1coach_items"  v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) != 0)" >
-                                <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
+                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
+                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                </div>
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -1639,7 +1590,7 @@
                 <p><a href="#topId" style="color:#fff !important;">Back to top</a></p>
             </div>
         </div>
-        <div else class="flank-container flank-container-mobile ">
+        <div v-else-if="mobileScreen" class="flank-container flank-container-mobile ">
         
 
             <div class="new-search-flank new-box-shadow" id="topId">
@@ -1670,7 +1621,7 @@
                             
                             <li @click="chnageType('coach', 'High School')"><a :class="(pageOption == 'coach' && div == 'High School')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">High school coaches</p></div></a></li>
                             <li @click="chnageType('coach', 'Junior College')"><a :class="(pageOption == 'coach' && div == 'Junior College')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">College coaches</p></div></a></li>
-                            <li @click="chnageType('coach', '')"><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Healthiest coaches</p></div></a></li>
+                            <li @click="Healthiestcoaches('coach', '','averageHealthy')"><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Healthiest coaches</p></div></a></li>
                             <li @click="chnageType('coach', 'Club/Travel')"><a :class="(pageOption == 'coach' && div == 'Club/Travel')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Travel team coaches</p></div></a></li>
                             <li @click="chnageType('school')"><a :class="(pageOption == 'school')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">All Schools</p></div></a></li>
                         </ul>
@@ -1868,17 +1819,13 @@
                         <div v-if="pageOption == 'coach'">
                             <div class="new-flank-content-rev new-box-shadow new-pad-lr" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null "  style="padding-bottom: 20px;">
                                 <div class="new-content-rev-title">
-                                    <!-- <Button @click="isMobileMenu = !isMobileMenu" > Click</Button>
-                                    <transition name="slide-fade">
-                                    
-                                        <h2 v-if="isMobileMenu" >Your past reviews</h2>
-                                    </transition> -->
+                                  
                                     <h2 class="pad-border uppercase" >Your past reviews</h2>
                                 
                                     <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p>
                                 </div>
-                                <div class="new-best-rated rated-red mt-15">
-                                    <p>{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
+                                    <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
                                 <div class="_2card _2card_new new-content-rev-details">
                                     <div class="_2card_pic"><img src="/images/ps.png" alt="" title="" class="_2card_img"></div>
@@ -1894,7 +1841,6 @@
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                             </ul>
-                                            <!-- <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p> -->
                                         </div>
                                         <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                             <p class="font-24 weight-400">
@@ -1916,8 +1862,8 @@
                                     <h2 class="pad-border uppercase" >Your past reviews</h2>
                                     <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p>
                                 </div>
-                                <div class="new-best-rated rated-red mt-15">
-                                    <p>{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
+                                    <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
                                 <div class="new-content-rev-details">
                                     <div class="new-content-rev-left">
@@ -1928,7 +1874,6 @@
                                     </div>
                                     <div class="new-content-rev-right">
                                         <h2 style="cursor:pointer;"  @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ searchData[0].sport}}  </h2>
-                                        <!-- <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p> -->
                                         <span class="city-s">{{searchData[0].city}}/{{searchData[0].state}}</span>
                                         <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                             <ul>
@@ -1938,7 +1883,6 @@
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                             </ul>
-                                            <!-- <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p> -->
                                         </div>
                                         <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                             <p class="font-24 weight-400">
@@ -1962,8 +1906,8 @@
                             <div class="_1coach_items new-box-shadow" v-if="pageOption == 'coach'"  v-for="(item,index) in searchData" :key="index">
                                 <div class="new-fl-top">
 
-                                    <div class="new-best-rated rated-yellow">
-                                        <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                        <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                     </div>
                                 </div>
                                 
@@ -1976,67 +1920,30 @@
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                <div class="new-content-rev-right" v-if="item.school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                                            "{{item.ratingText}}"
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
                                                     </div>
                                                 </div>
-
-                                                <!-- <div class="_2card_details new-content-rev-right" v-if="item.school">
-                                                    <div class="_2card_details_top">
-                                                        <div class="_2card_details_left">
-                                                            <p class="_2title font-24 weight-400" style=" cursor: pointer; margin-bottom: 5px;"  @click="$router.push(`/school_coach/${item.id}`)"  >{{item.name}} -  {{(item.school)? item.school.sport: ''}} </p>
-                                                            <p style="color: #000;" class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                            <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
-                                                            <div class="_1rating lg-content-star" style="margin-top: 20px;">
-                                                                <ul class="_1rating_list">
-                                                                    <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
-                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
-                                                    </div>
-                                                    <div class="new-comment-para" style="margin-top: 10px;">
-                                                        <p class="font-24 weight-400">
-                                                            {{item.ratingText}}
-                                                            <a href="" class="new-text-blue">read more</a>
-                                                        </p>
-                                                    </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
-                                                    <div class="new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
-                                                    </div>
-                                                    
-                                                </div> -->
                                             </div>
                                         </div>
                                         <!-- Left -->
@@ -2055,33 +1962,7 @@
 
                                             <div class="_2coach_main_right_main"  @click="$router.push(`/school_coach/${item.id}`)" >
                                                 <p class="_2coach_main_right_title">Known for:</p>
-                                                    <!-- 
-                                                <ul class="coach-main-known-list"  >
-                                                    <li  v-for="(item,index) in item.topAtrribute" :key="index">
-                                                        <figure>
-                                                            <img :src="item.info.image" alt="">
-                                                        </figure>
-                                                        <p>{{item.info.content}}</p>
-                                                    </li>
-                                                    <li>
-                                                        <figure>
-                                                            <img src="/images/plus.gif" alt="">
-                                                        </figure>
-                                                        <p>Health Score<span>55 out of 100</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <figure>
-                                                            <img src="/images/veh.gif" alt="">
-                                                        </figure>
-                                                        <p>Delivery<span>No</span></p>
-                                                    </li>
-                                                    <li>
-                                                        <figure>
-                                                            <img src="/images/veh.gif" alt="">
-                                                        </figure>
-                                                        <p>Delivery<span>No</span></p>
-                                                    </li>
-                                                </ul> -->
+                                                  
                                                 <div class="known-for-list">
                                                     <ul>
                                                         <li><img src="/attribute/1.png" alt=""><span>Health Score</span></li>
@@ -2096,50 +1977,6 @@
                                                         <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
                                                     </ul>
                                                 </div>
-
-                                                <!-- <ul class="_2coach_main_right_list">
-                                                    <li>
-                                                        <i class="fab fa-algolia"></i>
-                                                        Health Score 55 out of 100
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="fab fa-algolia"></i>
-                                                        Delivery No
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="fab fa-algolia"></i>
-                                                    Accepts Credit Cards Yes
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="fab fa-algolia"></i>
-                                                        Paking Private Lot
-                                                    </li>
-                                                </ul>
-
-                                                <ul class="_2coach_main_right_list">
-                                                    <li>
-                                                        <i class="fab fa-algolia"></i>
-                                                        Health Score 55 out of 100
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="fab fa-algolia"></i>
-                                                        Delivery No
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="fab fa-algolia"></i>
-                                                        Accepts Credit Cards Yes
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="fab fa-algolia"></i>
-                                                        Paking Private Lot
-                                                    </li>
-                                                </ul> -->
                                             </div>
                                         </div>
                                         <!-- Right -->
@@ -2147,8 +1984,8 @@
                                 </div>
                             </div>
                             <div class="_1coach_items" v-if="pageOption == 'school'"  v-for="(item,index) in searchData" :key="index"  >
-                                <div class="new-best-rated rated-yellow">
-                                    <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                    <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
 
                                 <div class="_2coach_main">
@@ -2160,28 +1997,28 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                <div class="new-content-rev-right" v-if="item.school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                                            "{{item.ratingText}}"
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2207,8 +2044,8 @@
                                 </div>
                             </div>
                             <div class="_1coach_items" v-if="pageOption == 'legend'"  v-for="(item,index) in searchData" :key="index"  >
-                                <div class="new-best-rated rated-yellow">
-                                    <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                    <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
 
                                 <div class="_2coach_main">
@@ -2220,28 +2057,28 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                <div class="new-content-rev-right" v-if="item.school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                                            "{{item.ratingText}}"
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2307,66 +2144,6 @@
                                                 
                                             </div>
                                         </div>
-                                        <!-- Right -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="_1coach_items" v-if="pageOption == 'product'"  v-for="(item,index) in searchData" :key="index"  >
-                                <div class="new-best-rated rated-yellow">
-                                    <p class="worst yellow">Product & Service</p>
-                                </div>
-
-                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
-
-                                <div class="_2coach_main">
-                                    <div class="row">
-                                        <!-- Left -->
-                                        <div class="col-xl-12 col-md-12 col-lg-7 _2coach_main_left">
-                                            <div class="_2card">
-                                                <div class="_2card_pic">
-                                                    <img class="_2card_img" src="/images/ps.png" alt="" title="">
-                                                </div>
-
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
-                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
-                                                        <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                        </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
-                                                    </div>
-                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
-                                                        <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Left -->
-
-                                        <!-- Right -->
-                                        <!-- <div class="col-xl-12 col-md-12 col-lg-5 _2coach_main_right"> 
-                                            <div class="_2coach_title">
-                                                <p class="_2coach_title_one">Health Score:</p>
-
-                                                <p class="_2coach_title_two _2coach_title_two_red"> 10.00
-                                                    
-                                                    
-                                                
-                                                </p>
-                                            </div>
-                                        </div> -->
                                         <!-- Right -->
                                     </div>
                                 </div>
@@ -2527,8 +2304,8 @@
                             <div class="_1coach_items new-box-shadow"   v-for="(item,index) in similar" :key="index" v-if="pageOption == 'coach' && ((index%2) == 0)"  >
                                 <div class="new-fl-top">
 
-                                    <div class="new-best-rated rated-yellow">
-                                        <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                        <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                     </div>
                                 </div>
 
@@ -2541,28 +2318,28 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                <div class="new-content-rev-right" v-if="item.school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                                            "{{item.ratingText}}"
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2676,8 +2453,8 @@
                             </div>
 
                             <div class="_1coach_items"   v-for="(item,index) in similar" :key="index" v-if="pageOption == 'school' && ((index%2) == 0)"  >
-                                <div class="new-best-rated rated-yellow">
-                                    <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                    <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
 
                                 <div class="_2coach_main">
@@ -2689,28 +2466,28 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                <div class="new-content-rev-right" v-if="item.school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                                            "{{item.ratingText}}"
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2824,8 +2601,8 @@
                             </div>
                             
                             <div class="_1coach_items" v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) == 0)   "  >
-                                <div class="new-best-rated rated-yellow">
-                                    <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                    <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
 
                                 <div class="_2coach_main">
@@ -2837,28 +2614,28 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                <div class="new-content-rev-right" v-if="item.school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                                            "{{item.ratingText}}"
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3042,8 +2819,8 @@
                             <div class="_1coach_items new-box-shadow"  v-for="(item,index) in similar" :key="index" v-if="(pageOption == 'coach') && ((index%2) != 0)"   >
                                 <div class="new-fl-top">
 
-                                    <div class="new-best-rated rated-yellow">
-                                        <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                        <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                     </div>
                                 </div>
 
@@ -3056,28 +2833,28 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                <div class="new-content-rev-right" v-if="item.school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                                            "{{item.ratingText}}"
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3190,8 +2967,8 @@
                                 </div>
                             </div>
                             <div class="_1coach_items"  v-for="(item,index) in similar" :key="index" v-if="(pageOption == 'school') && ((index%2) != 0)"   >
-                                <div class="new-best-rated rated-yellow">
-                                    <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                    <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
 
                                 <div class="_2coach_main">
@@ -3203,28 +2980,28 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                <div class="new-content-rev-right" v-if="item.school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                                            "{{item.ratingText}}"
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3338,8 +3115,8 @@
                             </div>
                             
                             <div class="_1coach_items"  v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) != 0)" >
-                                <div class="new-best-rated rated-yellow">
-                                    <p class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                    <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
 
                                 <div class="_2coach_main">
@@ -3351,28 +3128,28 @@
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="new-content-rev-right" v-if="searchData[0].school">
-                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                                    <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                                <div class="new-content-rev-right" v-if="item.school">
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
-                                                            <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
-                                                        <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                                            "{{item.ratingText}}"
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
-                                                        <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3401,6 +3178,9 @@
                         
                     </div>
                 </div>
+            </div>
+            <div style="text-align: center;padding: 20px 0px;" v-if="searchData.length>0">
+                <Page :current="parseInt(pagination.page)" :total="pagination.total" @on-change="SearchByKey" :page-size="parseInt(pagination.perPage)" />
             </div>
             <div class="_1reiew_box new-padding no-border _1reiew_box_new">
                 <p class="_1reiew_box_title font-24">Tell us how can improve</p>
@@ -3855,7 +3635,7 @@ export default {
             page:1,
             flag:1,
             price:'',
-            attribute:'',
+            attribute:'averageHealthy',
             sstr:1,
             splace:1,
             sports:[],
@@ -4165,6 +3945,12 @@ export default {
             else if(item == 'Worst')
                 this.dropName = 'Worst Rated'
         },
+        async Healthiestcoaches(item , division='',att){
+            this.$store.commit('setPageOption', item )
+            this.$store.commit('setDiv', division )
+            this.attribute = att
+            this.SearchByKey()
+        },
         async SearchByKey(){
 
             // if(this.pageOption != 'product'){
@@ -4190,6 +3976,7 @@ export default {
                 this.splace = this.place
                 this.onTest = true
                 this.showCurrentPage = (Math.ceil((this.pagination.total)/(this.pagination.perPage)))
+                this.$store.commit('setIsMobileSideBar', false )
             }
             else{
                 this.swr();
@@ -4367,6 +4154,7 @@ export default {
     async  created(){
        
         let tempPlace = (this.$route.query.place)? this.$route.query.place : ''
+        this.attribute = (this.$route.query.attribute)? this.$route.query.attribute : ''
         this.$store.commit('setPlace', tempPlace )
         let tempStr = (this.$route.query.str)? this.$route.query.str :''
         this.$store.commit('setStr', tempStr )

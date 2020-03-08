@@ -78,6 +78,7 @@ class CoachController {
     .with('school')
     .with('question.answers')
     .with('question.user')
+    .with('question.user', (builder) => builder.withCount('reviews as totalreviewbyuser'))
     .with('avgRating')
    // .with('totalRating')
     .first()

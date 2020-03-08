@@ -73,9 +73,9 @@
                 </div>
                 <div class="new-navbar-link">
                     <ul>
-                        <li><a @click="SearchByKeyV2('coach','High School')">HS Coaches</a></li>
+                        <li><a @click="SearchByKeyV2('coach','High School')">HS Coaches</a></li> 
                         <li><a @click="SearchByKeyV2('coach','Junior College')">CC Coaches</a></li>
-                        <li><a @click="SearchByKeyV2('coach','')"><img src="/images/hos.png" alt="">Coaches</a></li>
+                        <li><a @click="SearchByKeyV2('coach','','averageHealthy')"><img src="/images/hos.png" alt="">Coaches</a></li>
                     </ul>
                 </div>
             </div>
@@ -145,7 +145,7 @@
     export default { 
         data(){
             return{
-                isStringMenu:false,
+                isStringMenu:true,
                 isMobileMenu:false,
                 tStr:'',
                 tPlace:'',
@@ -247,10 +247,10 @@
                    
                 }
             }, 
-            async SearchByKeyV2(page = 'coach',div = ''){
+            async SearchByKeyV2(page = 'coach',div = '',attribute=''){
                
                 
-                const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.tStr}&pageOption=${page}&div=${div}`)
+                const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.tStr}&pageOption=${page}&div=${div}&attribute=${attribute}`)
                 if(res.status === 200){
                     
                     this.$store.commit('setSearchData', res.data.mainData.data)
@@ -262,7 +262,7 @@
                     this.$store.commit('setPagination', res.data.mainData )
                     this.$store.commit('setSimilar', res.data.similarData )
                     this.$store.commit('setStr', this.tStr )
-                    this.$router.push(`/coach_search?place=${this.place}&str=${this.tStr}&pageOption=${page}&div=${div}`)
+                    this.$router.push(`/coach_search?place=${this.place}&str=${this.tStr}&pageOption=${page}&div=${div}&attribute=${attribute}`)
                     
                 }
                 else{
