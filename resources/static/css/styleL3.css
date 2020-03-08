@@ -2208,6 +2208,10 @@ a.sign-social-facebook:focus {
   font-size: 12px;
     color: #000;
 }
+._2card_status.open {
+  display: block;
+}
+
 
 .see_more {
   font-size: 12px;
