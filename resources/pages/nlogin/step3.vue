@@ -74,21 +74,24 @@
                         <div class="flanker-find-det-item" v-if="tab==3">
                             <h2>Send Flank Invites To These Email Addresses: </h2>
                             <div class="flanker-new-form">
-                                <form action="">
+                                <form v-on:submit.prevent>
                                     <div class="flanker-new-form-item">
                                         <label for="">Email Address</label>
-                                        <input type="text" placeholder="e.g. tom@email.com">
+                                        <input type="text" v-model="sendMail.mail" placeholder="e.g. tom@email.com">
                                     </div>
                                     <div class="flanker-new-form-item">
-                                        <input type="text">
+                                        <input v-model="sendMail.mail2" type="text">
                                     </div>
                                     <div class="flanker-new-form-item">
-                                        <input type="text">
+                                        <input v-model="sendMail.mail2" type="text">
                                     </div>
-                                    <div class="add-email">
-                                        <p><a href="#">Add another email address</a></p>
+                                    <div class="flanker-new-form-item" v-if="addAnother">
+                                        <input v-model="sendMail.mail4" type="text">
                                     </div>
-                                    <div class="send-btn"><button>Send email invites</button></div>
+                                    <div class="add-email" v-if="!addAnother">
+                                        <p><a @click="addAnother=true" >Add another email address</a></p>
+                                    </div>
+                                    <div class="send-btn" @click="mailSend"><button>Send email invites</button></div>
                                 </form>
                             </div>
                         </div>
@@ -102,11 +105,25 @@
 export default {
     data(){
         return{
-            tab:1
+            tab:1,
+            addAnother:false,
+            sendMail:{
+                mail:'',
+                mail2:'',
+                mail3:'',
+                mail4:'',
+            }
         }
     },
     methods:{
-
+        async mailSend(){
+            if(this.sendMail.mail == '') return this.i("Please type atleast 1 email");
+            const res = await this.callApi('post','/app/sendInvitation',this.sendMail)
+            if(res.status == 200){
+                this.s("Invitation send successfully")
+            }
+            else this.swr();
+        }
     },
     created(){
 

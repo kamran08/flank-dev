@@ -4078,3 +4078,16 @@ body {
   
   }
 }
+
+.new-business-inner {
+  padding: 50px 0 100px;
+}
+
+.new-business-inner figure {
+  text-align: center;
+}
+
+.new-business-inner img {
+  width: 70%;
+  margin: auto;
+}

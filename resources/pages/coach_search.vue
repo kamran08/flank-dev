@@ -30,13 +30,13 @@
                         <div class="new-flank-sidebar-list">
                             <h3>Department</h3>
                             <ul class="pad-list">
-                                <li @click="chnageType('school')" ><a :class="(pageOption == 'school')? 'active_coach': ''">All Schools</a></li>
-                                <li @click="chnageType('coach', '')" ><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''">All Coaches</a></li>
+                                <!-- <li @click="chnageType('school')" ><a :class="(pageOption == 'school')? 'active_coach': ''">All Schools</a></li>
+                                <li @click="chnageType('coach', '')" ><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''">All Coaches</a></li> -->
                                 <li @click="chnageType('coach', 'High School')" ><a :class="(pageOption == 'coach' && div == 'High School')? 'active_coach': ''">High school coaches</a></li>
                                 <li @click="chnageType('coach', 'Junior College')" ><a :class="(pageOption == 'coach' && div == 'Junior College')? 'active_coach': ''">College coaches</a></li>
-                                <li @click="chnageType('coach', 'all')" ><a :class="(pageOption == 'coach' && div == 'all')? 'active_coach': ''">Coming Soon</a></li>
+                                <!-- <li @click="chnageType('coach', 'all')" ><a :class="(pageOption == 'coach' && div == 'all')? 'active_coach': ''">Coming Soon</a></li> -->
                                 <li @click="chnageType('coach', 'Club/Travel')" ><a :class="(pageOption == 'coach' && div == 'Club/Travel')? 'active_coach': ''">Travel team coaches</a></li>
-                                <li @click="chnageType('legend')" ><a :class="(pageOption == 'legend' )? 'active_coach': ''">Local instructors</a></li>
+                                <li @click="$router.push('/local_business')" ><a >Local instructors</a></li>
                                 <!-- <li @click="chnageType('product')" ><a :class="(pageOption == 'product' )? 'active_coach': ''">Products & services</a></li> -->
                             </ul>
                         </div>
@@ -1615,7 +1615,7 @@
                             <li @click="chnageType('coach', 'Junior College')"><a :class="(pageOption == 'coach' && div == 'Junior College')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">College coaches</p></div></a></li>
                             <li @click="Healthiestcoaches('coach', '','averageHealthy')"><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Healthiest coaches</p></div></a></li>
                             <li @click="chnageType('coach', 'Club/Travel')"><a :class="(pageOption == 'coach' && div == 'Club/Travel')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Travel team coaches</p></div></a></li>
-                            <li @click="chnageType('school')"><a :class="(pageOption == 'school')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">All Schools</p></div></a></li>
+                            <!-- <li @click="chnageType('school')"><a :class="(pageOption == 'school')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">All Schools</p></div></a></li> -->
                         </ul>
                     </div>
                 </div>

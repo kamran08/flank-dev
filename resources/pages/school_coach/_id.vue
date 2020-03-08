@@ -272,24 +272,28 @@
                                     </div> 
                                     <div class="inner-item-reco-sec inner-item-reco-sec-one">
                                         <div class="inner-item-reco-title">
-                                            <h4>Ask The Communitys</h4>
+                                            <h4 style="text-transform: none;">Ask the Community</h4>
                                         </div>
-                                        <div class="inner-item-top-con inner-one-item-top-con">
+                                        
+                                        <div class="inner-item-top-con inner-one-item-top-con" style="padding: 5px 20px; margin-top: 5px;">
                                             <figure>
                                                 <img src="/images/sticker-3.png" alt="">
                                             </figure>
                                             <div class="top-con-cap one-top-cont-cap">
-                                                <p>Don't see your question? <span style="cursor:pointer;" @click="$router.push(`/coachquestionlist/${legendData.id}`)">Ask your verified audience! </span> </p>
+                                                <p>Don't see your question? <span style="cursor:pointer; color: #2380bb; font-family: ceraProMedium;padding-left: 20px;" @click="$router.push(`/coachquestionlist/${legendData.id}`)">Ask your verified audience! (Click here) </span> </p>
                                                 <!-- <a >(Click Here)</a> -->
                                             </div>
                                         </div>
                                         <div class="new-flank-form" v-if="legendData.question && !isMoreQuestion"  >
                                             <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;font-weight: 600;">Question:</p>
-                                            <div class="new-qu">
+                                            <div class="new-qu" style="padding-left: 0; border: 0; padding-bottom: 10px">
                                                 
                                                 <div class="new-qu-text">
                                                     <p>{{legendData.question.content}}</p>
                                                 </div>
+                                                <!-- <div class="new-qu-img">
+                                                    <img src="/images/nf.png" alt="">
+                                                </div> -->
                                             </div>
                                             <div class="new-flank-coach-rev" v-if="legendData.question.user">
                                                 <div class="coach-rev-con">
@@ -373,7 +377,7 @@
                                         </div>
                                         <div class="show-more-ac">
                                             <p v-if="!isMoreQuestion"><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
-                                            <p  v-else-if="isMoreQuestion"><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-down"></i></span>Show less activity</a></p>
+                                            <p  v-else-if="isMoreQuestion"><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-up"></i></span>Show less activity</a></p>
                                         </div>
                                     </div>
                                     <!-- <GChart
@@ -384,21 +388,21 @@
                                         /> -->
                                     <div class="inner-item-reco-sec">
                                         <div class="inner-item-reco-title">
-                                            <h4 class="cera-bold" style="text-transform: none;">Recommended Reviews <span class="cera-regular weight-400">for Coach {{legendData.name}}</span></h4>
+                                            <h4 class="cera-bold" style="text-transform: none;">Recommended Reviews <span class="cera-regular weight-400" style="padding-left: 3px;">for Coach {{legendData.name}}</span></h4>
                                         </div>
-                                        <div class="inner-item-top-con">
+                                        <div class="inner-item-top-con" style="padding: 5px 20px;">
                                             <figure>
                                                 <img src="/images/sticker-3.png" alt="">
                                             </figure>
                                             <div class="top-con-cap">
-                                                <p><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
+                                                <p style="font-family: ceraProRegular;"><span style="font-family: ceraPro;font-weight: 600;">Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
                                             </div>
                                         </div>
                                         <div class="new-flank-form">
                                             <div class="new-flank-sort-sec">
                                                 <div class="new-flank-search">
                                                     <form v-on:submit.prevent>
-                                                        <div class="search-new-box">
+                                                        <div class="search-new-box new-fl-search-new-box">
                                                             <input type="text" placeholder="Search within the reviews" v-model="reviewSearch" >
                                                             <button type="submit"  @click="SearchReviewResult" ><span><i class="fas fa-search"></i></span></button>
                                                         </div>
@@ -1169,44 +1173,20 @@
                                         <figure>
                                             <img src="/images/sticker-3.png" alt="">
                                         </figure>
-                                        <div class="top-con-cap one-top-cont-cap">
-                                            <p>Don't see your question? <span style="cursor:pointer;" @click="$router.push(`/coachquestionlist/${legendData.id}`)">Ask your verified audience! </span> </p>
+                                       <div class="top-con-cap one-top-cont-cap">
+                                            <p>Don't see your question? <span style="cursor:pointer; color: #2380bb; font-family: ceraProMedium;padding-left: 20px;" @click="$router.push(`/coachquestionlist/${legendData.id}`)">Ask your verified audience! (Click here) </span> </p>
                                             <!-- <a >(Click Here)</a> -->
                                         </div>
                                     </div>
-                                    <div class="new-flank-form" v-if="legendData.question" style="padding: 0 20px;">
+                                    <div class="new-flank-form"  v-if="legendData.question && !isMoreQuestion" style="padding: 0 20px;">
                                         <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;font-weight: 600;">Question:</p>
                                         <div class="new-qu" style="padding-left: 0; border: 0; padding-bottom: 10px">
                                             
                                             <div class="new-qu-text">
-                                                <p>Does this coach have college connections? If so, to what schools?</p>
+                                                <p>{{legendData.question.content}}</p>
                                             </div>
-                                            <!-- <div class="new-qu-img">
-                                                <img src="/images/nf.png" alt="">
-                                            </div> -->
                                         </div>
-                                        <!-- <div class="inner-one-item-cont">
-                                            <div class="new-flank-search inner-item-one-cont-left">
-                                                <h4>Question:</h4>
-                                                <p style="font-size: 15px;font-family: CeraPro;">{{legendData.question.content}}</p>
-                                            </div>
-                                            
-                                        </div> -->
                                         <div class="new-flank-coach-rev" style="padding-top: 0;">
-                                            <!-- <div class="coach-rev-con">
-                                                <figure>
-                                                    <img src="/images/ms.jpg" alt="">
-                                                </figure>
-                                                <div class="coach-rev-text-content">
-                                                    <h4>Nazmul Chowdhury</h4>
-                                                    <h5>Sylhet, Bangladesh</h5>
-                                                    <ul class="fixed-list">
-                                                        <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
-                                                        <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div> -->
-                                            
                                             <div class="inner-one-item-help-area2"  >
                                                 <h6 class="help-ans"><span>1</span> answer</h6>
                                                 <div v-if="legendData.question.answers">
@@ -1214,12 +1194,12 @@
                                                     <p class="help-text">{{legendData.question.answers.content}}</p>
                                                 </div>
                                                 
-                                                <div class="inner-one-item-help-btn" style="border-top: 0;">
+                                                <div class="inner-one-item-help-btn">
                                                     <p class="view-question-btn" style="text-align: left;"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
                                                     <div class="helpful-btn-full">
                                                         <ul>
-                                                            <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>Not helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(legendData.question,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i><span>{{legendData.question.answers ? legendData.question.answers.helpful : ''}}</span> helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(legendData.question,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i><span>{{legendData.question.answers ? legendData.question.answers.not_helpful : ''}}</span> Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     
@@ -1227,58 +1207,38 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="new-flank-form" v-if="legendData.question" >
-                                        <div class="new-qu">
+                                    <div class="new-flank-form" v-else-if="questionList.length>0 && isMoreQuestion" v-for="(item,index) in questionList " :key="index" style="padding: 0 20px;">
+                                        <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;font-weight: 600;">Question:</p>
+                                        <div class="new-qu" style="padding-left: 0; border: 0; padding-bottom: 10px">
+                                            
                                             <div class="new-qu-text">
-                                                <p>Another question</p>
-                                            </div>
-                                            <div class="new-qu-img">
-                                                <img src="/images/nf.png" alt="">
+                                                <p>{{item.content}}</p>
                                             </div>
                                         </div>
-                                        <div class="inner-one-item-cont">
-                                            <div class="new-flank-search inner-item-one-cont-left">
-                                                <h4>Question:</h4>
-                                                <p style="font-size: 15px;font-family: CeraPro;">{{legendData.question.content}}</p>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="new-flank-coach-rev">
-                                            <div class="coach-rev-con">
-                                                <figure>
-                                                    <img src="/images/ms.jpg" alt="">
-                                                </figure>
-                                                <div class="coach-rev-text-content">
-                                                    <h4>Nazmul Chowdhury</h4>
-                                                    <h5>Sylhet, Bangladesh</h5>
-                                                    <ul class="fixed-list">
-                                                        <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
-                                                        <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            
+                                        <div class="new-flank-coach-rev" style="padding-top: 0;">
                                             <div class="inner-one-item-help-area2"  >
-                                                <div v-if="legendData.question.answers">
-                                                        <h6 class="help-ans"><span>1</span> answer</h6>
-                                                    <p class="help-text">{{legendData.question.answers.content}}</p>
+                                                <h6 class="help-ans" v-if="item.__meta__.answers_count>0">{{item.__meta__.answers_count}} {{(item.__meta__.answers_count>1)? 'Answers' : 'Answer' }}</h6>
+                                                <h6 class="help-ans" v-else-if="item.__meta__.answers_count==0">No Answer</h6>
+                                                <div v-if="item.answers">
+                                                    <p class="help-text">{{item.answers.content}}</p>
                                                 </div>
                                                 
                                                 <div class="inner-one-item-help-btn">
-                                                    <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                    <p class="view-question-btn" style="text-align: left;"><nuxt-link :to="{name: 'question_details-id', params: {  id:item.id } }" >View questions details</nuxt-link></p>
                                                     <div class="helpful-btn-full">
                                                         <ul>
-                                                            <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                            <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>most helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(item,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i> <span>{{item.answers ? item.answers.helpful : ''}}</span> helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(item,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i> <span>{{item.answers ? item.answers.not_helpful :''}}</span>Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> -->
-                                    <div class="show-more-ac">
-                                        <p><a href=""><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
+                                    </div>
+                                     <div class="show-more-ac">
+                                        <p v-if="!isMoreQuestion"><a @click="isMoreQuestion= true"><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
+                                        <p  v-else-if="isMoreQuestion"><a @click="isMoreQuestion= false"><span><i class="fas fa-chevron-up"></i></span>Show less activity</a></p>
                                     </div>
                                 </div>
                                     <!-- <GChart
@@ -1289,14 +1249,14 @@
                                     /> -->
                                 <div class="inner-item-reco-sec new-box-shadow" style="padding: 0;">
                                     <div class="inner-item-reco-title" style="padding: 15px 20px;">
-                                        <h4 class="pad-border" style="padding-left: 0;">Recommended Reviews <span style="font-size: 17px; text-transform: capitalize;">for Coach {{legendData.name}}</span></h4>
+                                        <h4 class="pad-border" style="padding-left: 0;">Recommended Reviews <span style="font-size: 18px; text-transform: none;">for Coach {{legendData.name}}</span></h4>
                                     </div>
                                     <div class="inner-item-top-con" style="padding: 5px 20px;">
                                         <figure>
                                             <img src="/images/sticker-3.png" alt="">
                                         </figure>
                                         <div class="top-con-cap">
-                                            <p><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
+                                            <p style="font-family: ceraProRegular;"><span style="font-family: ceraPro;font-weight: 600;">Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
                                         </div>
                                     </div>
                                     <div class="new-flank-form" style="padding: 0 20px;">
@@ -1340,7 +1300,7 @@
                                                 </div>
                                             </div>
                                             <div class="coach-rev-push">
-                                                <ul class="coa-rev">
+                                                <ul class="coa-rev new-coa-rev">
                                                     <li @mouseover="changeDataHover(1)"    @click="reviewPageWith(1)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 0)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
                                                     <li  @mouseover="changeDataHover(2)"  @click="reviewPageWith(2)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 1)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
                                                     <li  @mouseover="changeDataHover(3)"  @click="reviewPageWith(3)"  @mouseleave="changeDataHoverLeave"   :class="(drating.index > 2)? drating.class: ''"  ><span><i class="fas fa-star"></i></span></li>
@@ -2167,7 +2127,7 @@ export default {
                 },
                 {
                     property: 'og:image',
-                    content: '/images/flank-daily.png',
+                    content: 'https://goflank.com/images/flank-1.png',
                 },
                 {
                     property: 'og:image:type',
@@ -2191,7 +2151,7 @@ export default {
                 },
                 {
                     name: 'twitter:site',
-                    content:"@yelp",
+                    content:"@Flank",
                 },
                 {
                     name: 'twitter:title',
