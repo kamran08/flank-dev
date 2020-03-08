@@ -14,7 +14,7 @@ class Question extends Model {
     return this.belongsTo('App/Models/Legend', 'legend_id', 'id')
   }
   answers () {
-    return this.hasOne('App/Models/Answer', 'id', 'question_id').limit(1)
+    return this.hasOne('App/Models/Answer', 'id', 'question_id')
   }
   allAnswers () {
     return this.hasMany('App/Models/Answer', 'id', 'question_id') .orderBy('id', 'desc')

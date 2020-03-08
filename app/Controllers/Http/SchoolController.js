@@ -332,7 +332,7 @@ class SchoolController {
       'school_id': data.id,
       'name': name
     }
-    return   await SchoolCoach.create(coachob)
+    return   await SchoolCoach.create(coachob) 
   }
 
   /**

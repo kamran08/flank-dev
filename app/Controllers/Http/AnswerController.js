@@ -109,12 +109,16 @@ class AnswerController {
 
   async storeAnswerLike({ params, request, response ,auth}) {
     let data = request.all()
-    console.log("yes yes ")
     
 
-
-
-    data.user_id = await auth.user.id
+    
+    try {
+      data.user_id = await auth.user.id
+    } catch (error) {
+      return response.status(401).json({
+        message:'Please login for further action!'
+      })
+   }
 
    let alike =  await AnswerLike.findOrCreate(
       { answer_id: data.answer_id, user_id: data.user_id }
@@ -123,7 +127,8 @@ class AnswerController {
 
     await AnswerLike.query().where('id', alike.id).update({ helpful: data.helpful, not_helpful: data.not_helpful})
     const total = await Database.raw('SELECT SUM(helpful) as totoal_helpful , SUM(not_helpful) as total_not_helpful FROM `answer_likes` WHERE answer_id = ?', [data.answer_id])
-    return  await Answer.query().where('id', data.answer_id).update({ helpful: total[0][0].totoal_helpful , not_helpful: total[0][0].total_not_helpful  })
+    await Answer.query().where('id', data.answer_id).update({ helpful: total[0][0].totoal_helpful , not_helpful: total[0][0].total_not_helpful  })
+    return  await Answer.query().where('id', data.answer_id).first()
 
   }
 }

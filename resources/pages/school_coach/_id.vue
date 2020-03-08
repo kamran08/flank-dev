@@ -290,17 +290,7 @@
                                                 <div class="new-qu-text">
                                                     <p>{{legendData.question.content}}</p>
                                                 </div>
-                                                <!-- <div class="new-qu-img">
-                                                    <img src="/images/nf.png" alt="">
-                                                </div> -->
                                             </div>
-                                            <!-- <div class="inner-one-item-cont">
-                                                <div class="new-flank-search inner-item-one-cont-left">
-                                                    <h4>Question:</h4>
-                                                    <p style="font-size: 15px;font-family: CeraPro;"></p>
-                                                </div>
-                                                
-                                            </div> -->
                                             <div class="new-flank-coach-rev" v-if="legendData.question.user">
                                                 <div class="coach-rev-con">
                                                     <figure>
@@ -311,7 +301,7 @@
                                                         <h5>{{legendData.question.user.address}}</h5>
                                                         <ul class="fixed-list">
                                                             <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
-                                                            <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
+                                                            <li><img src="/images/mstar.png" alt=""><span>{{legendData.question.user.__meta__.totalreviewbyuser}} reviews</span></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -327,8 +317,8 @@
                                                     <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
                                                     <div class="helpful-btn-full">
                                                         <ul>
-                                                            <li><a @click="storeAnswerLike(legendData.question.answers,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                            <li><a @click="storeAnswerLike(legendData.question.answers,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>Not helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(legendData.question,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i><span>{{legendData.question.answers.helpful}}</span> helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(legendData.question,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i><span>{{legendData.question.answers.not_helpful}}</span> Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     
@@ -354,14 +344,14 @@
                                                         <h5>{{item.user.address}}</h5>
                                                         <ul class="fixed-list">
                                                             <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
-                                                            <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
+                                                            <li><img src="/images/mstar.png" alt=""><span>{{item.user.__meta__.totalreviewbyuser}} reviews</span></li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             
                                                 <div class="inner-one-item-help-area2"  >
                                                     <h6 class="help-ans" v-if="item.__meta__.answers_count>0">{{item.__meta__.answers_count}} {{(item.__meta__.answers_count>1)? 'Answers' : 'Answer' }}</h6>
-                                                    <h6 class="help-ans" else>No Answer</h6>
+                                                    <h6 class="help-ans" v-else-if="item.__meta__.answers_count==0">No Answer</h6>
                                                     <div v-if="item.answers">
                                                         
                                                         <p class="help-text">{{item.answers.content}}</p>
@@ -371,8 +361,8 @@
                                                     <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:item.id } }" >View questions details</nuxt-link></p>
                                                     <div class="helpful-btn-full">
                                                         <ul>
-                                                            <li><a @click="storeAnswerLike(item.answers,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                            <li><a @click="storeAnswerLike(item.answers,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>Not helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(item,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i> <span>{{item.answers.helpful}}</span> helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(item,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i> <span>{{item.answers.not_helpful}}</span>Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     
@@ -381,7 +371,8 @@
                                             </div>
                                         </div>
                                         <div class="show-more-ac">
-                                            <p><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
+                                            <p v-if="!isMoreQuestion"><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
+                                            <p  v-else-if="isMoreQuestion"><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-down"></i></span>Show less activity</a></p>
                                         </div>
                                     </div>
                                     <!-- <GChart
@@ -684,7 +675,7 @@
                 </div>
             </div>
        </div>
-       <div else>
+       <div v-else-if="mobileScreen">
             <div class="flank-page-header"> 
                 <div class="flank-page-top">
                     <div class="container no-padding">
@@ -2079,7 +2070,7 @@ export default {
                 },
                 {
                     property: 'og:image',
-                    content: '/images/flank-1.png',
+                    content: '/images/flank-daily.png',
                 },
                 {
                     property: 'og:image:type',
@@ -2402,7 +2393,7 @@ export default {
 
         // },
         async reviewImo(imo,index,imoItem){
-             if(this.isLoggedIn == false){
+            if(this.isLoggedIn == false){
                 this.i('Please login first !')
                 this.loginModal = true
                 return
@@ -2516,14 +2507,23 @@ export default {
         },
 
         async storeAnswerLike(item,helpful,not_helpful){
+             if(this.isLoggedIn == false){
+                this.i('Please login first !')
+                this.loginModal = true
+                return
+            }
+            let str = 'helpful';
+            if(helpful==1) str = 'helpful'
+            if(not_helpful==1) str = 'not helpful'
             let ob = {
-                answer_id:item.id,
+                answer_id:item.answers.id,
                 helpful:helpful,
                 not_helpful:not_helpful
             }
             const res = await this.callApi("post","/app/storeAnswerLike",ob)
             if(res.status == 200){
-                this.s()
+                item.answers = res.data
+                this.s('you mark this question as '+str)
             }
             else this.swr()
         }

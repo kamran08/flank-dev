@@ -66,6 +66,7 @@ class QuestionController {
       .where('legend_id', params.id)
       .where('type', type)
       .with('user')
+      .with('user', (builder) => builder.withCount('reviews as totalreviewbyuser'))
       .with('answers')
       .withCount('answers')
       .orderBy('id', 'desc')
