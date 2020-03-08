@@ -470,7 +470,7 @@
                                                     </div>
                                                     <div class="review-figure-exper">
                                                         <ul>
-                                                            <li @click="isShareModalOn">
+                                                            <li @click="isShareModalOn(item.reviwer)">
                                                                 <img src="/images/new-mstar.png" alt=""> 
                                                                 <p><a>Share review</a></p>
                                                             </li>
@@ -1375,7 +1375,7 @@
                                                 </div>
                                                 <div class="review-figure-exper">
                                                     <ul>
-                                                        <li @click="isShareModalOn">
+                                                        <li @click="isShareModalOn(item.reviwer)">
                                                             <img src="/images/new-mstar.png" alt=""> 
                                                             <p><a>Share review</a></p>
                                                         </li>
@@ -1537,7 +1537,7 @@
                         <div class="modal-details-social">
                             <ul>
                                 <li><button class="fb-btn"  :data-href="location" ><span><i class="fab fa-facebook-square"></i></span> <a style="color:#ffff !important;"  :href="'https://www.facebook.com/sharer/sharer.php?u='+location" target="_blank" >Share on facebook</a> </button></li>
-                                <li><button class="tw-btn"><span><i class="fab fa-twitter-square"></i></span><a  style="color:#ffff !important;" :href="`https://twitter.com/share?text=${this.twitter_text}&url=${location}&utm_campaign=www_review_share_popup&utm_medium=copy_link&utm_source=(direct)`" target="_blank" rel="noopener noreferrer">Share on twitter</a></button></li>
+                                <li><button class="tw-btn"><span><i class="fab fa-twitter-square"></i></span><a  style="color:#ffff !important;" :href="`https://twitter.com/share?text=${this.twitter_text};url=${twitter_location}`" target="_blank" rel="noopener noreferrer">Share on twitter</a></button></li>
                             </ul>
                         </div>
                         <div class="modal-input-value">
@@ -2056,6 +2056,7 @@ export default {
                 isReg: true
             },
             location:{},
+            twitter_location:'',
            shareForm:{
                name:'',
                email:'',
@@ -2194,7 +2195,7 @@ export default {
                 },
                 {
                     name: 'twitter:title',
-                    content: 'Check out Kanwarinder'
+                    content: this.title
                 },
                 {
                     name: 'twitter:image',
@@ -2202,7 +2203,7 @@ export default {
                 },
                 {
                     name: 'twitter:description',
-                    content: 'Experienced Digital Marketing Specialist with a demonstrated history of working in the computer software industry. Skilled in Search Engine Optimization (SEO).'
+                    content: this.metaContent
                 },
             ],
         }
@@ -2361,9 +2362,10 @@ export default {
                 this.swr()
             }
         },
-        isShareModalOn(){
+        isShareModalOn(user){
             
             this.isShareModal = true
+            this.twitter_text = `Check out Coach ${user.firstName} ${user.lastName}’s Review on @Flank`
         },
         submitShare(){
             this.s("Share Successfull !")
@@ -2690,6 +2692,8 @@ export default {
    
    async created(){
        this.location = window.location.href
+       this.twitter_location = `https%3A%2F%2Fgoflank.com%2Fschool_coach%2F${this.$route.params.id}`
+       this.twitter_text = `Check out Coach ${this.legendData.name}’s Review on @Flank`
       
         const [ res2, res4,res5,res6,res7] = await Promise.all([
             this.callApi('get', `/app/getAdditionCoachInfo/${this.$route.params.id}`),  
