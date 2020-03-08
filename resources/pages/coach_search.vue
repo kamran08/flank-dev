@@ -1880,13 +1880,8 @@
                                 <div class="new-best-rated rated-red mt-15">
                                     <p>{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
-                                <div class="new-content-rev-details">
-                                    <div class="new-content-rev-left">
-                                        
-                                        <figure>
-                                            <img src="/images/ps.png" alt="">
-                                        </figure>
-                                    </div>
+                                <div class="_2card _2card_new new-content-rev-details">
+                                    <div class="_2card_pic"><img src="/images/ps.png" alt="" title="" class="_2card_img"></div>
                                     <div class="new-content-rev-right" v-if="searchData[0].school">
                                         <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
                                         <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
@@ -1901,9 +1896,9 @@
                                             </ul>
                                             <!-- <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p> -->
                                         </div>
-                                        <div class="new-comment-para" style="margin-top: 25px;">
+                                        <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                             <p class="font-24 weight-400">
-                                                "{{searchData[0].allreviewLimit.content}}"
+                                                <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                 <a href="" class="new-text-blue">read more</a>
                                             </p>
                                         </div>
@@ -1945,9 +1940,9 @@
                                             </ul>
                                             <!-- <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p> -->
                                         </div>
-                                        <div class="new-comment-para" style="margin-top: 25px;">
+                                        <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                             <p class="font-24 weight-400">
-                                                "{{searchData[0].allreviewLimit.content}}"
+                                                <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                 <a href="" class="new-text-blue">read more</a>
                                             </p>
                                         </div>
@@ -1995,9 +1990,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2179,9 +2174,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2239,9 +2234,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2346,9 +2341,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2560,9 +2555,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2708,9 +2703,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2856,9 +2851,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2932,7 +2927,7 @@
                             </div>
 
                             <div class="_2coach_main _2coach_main_hooper">
-                                <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                <hooper :itemsToShow="3"  >
                                         <slide >
                                             <div class=" flex-1">
                                                 <div class="_1card">
@@ -3075,9 +3070,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -3222,9 +3217,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -3370,9 +3365,9 @@
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a href="">1</a></p>
                                                     </div>
-                                                    <div class="new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{searchData[0].allreviewLimit.content}}"
+                                                            <span>"{{searchData[0].allreviewLimit.content}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>

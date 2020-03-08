@@ -293,7 +293,7 @@
                                                 <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                             </div> -->
                                             <div class="row ">
-                                                <hooper :itemsToShow="3" :infiniteScroll="true">
+                                                <hooper :itemsToShow="3" :infiniteScroll="true"  class="new-pr-hooler-parent" >
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >
                                                             <div class="inner-scandal-video-item">
@@ -1045,7 +1045,7 @@
                             <li>
                                 <a href="">
                                     <div class="quick-link-caption">
-                                        <p>Tearms of service</p>
+                                        <p>Terms of service</p>
                                     </div>
                                 </a>
                             </li>
@@ -1075,12 +1075,17 @@
                                             </slide>
                                             <slide>
                                                 <figure>
-                                                    <img src="/images/mob-header-slider.png" alt="">
+                                                    <img src="/images/greatestyears.jpg" alt="">
                                                 </figure>
                                             </slide>
                                             <slide>
                                                 <figure>
-                                                    <img src="/images/mob-header-slider.png" alt="">
+                                                    <img src="/images/6Coaches.jpg" alt="">
+                                                </figure>
+                                            </slide>
+                                            <slide>
+                                                <figure>
+                                                    <img src="/images/StandardFlankerBanner.jpg" alt="">
                                                 </figure>
                                             </slide>
                                             <hooper-pagination slot="hooper-addons"></hooper-pagination>
@@ -1172,7 +1177,7 @@
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                                         </div>
                                         <div class="row plus-row" style="padding-bottom: 15px;">
-                                            <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                            <hooper :itemsToShow="3" :infiniteScroll="false">
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >
                                                             <div class="inner-scandal-video-item">
@@ -1294,7 +1299,7 @@
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span class="cera-black">LATEST ON FLANK</span></h2>
                                         </div>
                                         <div class="row plus-row" style="padding-bottom: 15px;">
-                                            <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                            <hooper :itemsToShow="3"  >
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >
                                                             <div class="inner-scandal-video-item">
@@ -1402,7 +1407,7 @@
                                             <h2 class="">ADVERTISING OPPORTUNITIES</h2>
                                         </div>
                                         <div class="vertising-bg">
-                                            <div class="vertising-title">
+                                            <!-- <div class="vertising-title">
                                                 <h3 class="cera-medium font-18 weight-900">Advertising Opportunities for Local Instructor</h3>
                                                 <p class="cera-regular weight-400">Flank is a website that connects people with great local instructors and sports related products.</p>
                                                 <a href="" class="">
@@ -1411,7 +1416,8 @@
                                             </div>
                                             <div class="vertising-image">
                                                 <img src="/images/1.png" alt="">
-                                            </div>
+                                            </div> -->
+                                            <img src="/images/local-ins2.png" >
                                         </div>
                                         <div class="vertising-text">
                                             <p>Coming soon</p>
@@ -1425,7 +1431,7 @@
                                         </div>
                                         <div class="drop-content mt-10">
                                             <div class="row plus-row">
-                                                 <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                                 <hooper :itemsToShow="3"  >
                                                     <slide v-for="(item,index) in recentReview " :key="index" v-if="index<showMoreActivity" class="new-mob-drop-item">
                                                         <div class="drop-item"  >
                                                             <div class="drop-item-inner">
@@ -1681,6 +1687,7 @@
 </template>
 <script>
 import { Hooper, Slide ,Pagination as HooperPagination ,Navigation as HooperNavigation} from 'hooper';
+
 export default {
     components: {
       Hooper,

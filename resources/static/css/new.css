@@ -1743,6 +1743,13 @@ border: 1px solid #dc4f4f;
     transform: translateX(-50%);
 }
 
+@media only screen and (max-width: 499px) {
+    
+    .mob-slider-box .hooper-pagination {
+        bottom: 0;
+    }
+}
+
 .mob-slider-box .hooper-indicators {
     display: flex;
     flex-flow: row;
@@ -1794,7 +1801,7 @@ border: 1px solid #dc4f4f;
 
 @media only screen and (max-width: 450px) {
     .inner-scandal-video .hooper-track {
-        margin: 0 90px;
+        /* margin: 0 90px; */
     }
     .inner-scandal-video .hooper-track .hooper-slide {
         flex: 0 0 33.33%;
@@ -1807,26 +1814,26 @@ border: 1px solid #dc4f4f;
 
 @media only screen and (max-width: 1199px) {
     .inner-scandal-video .hooper-track {
-        /* margin: 0 140px; */
+        /* margin: 0 -2%; */
     }
     .inner-scandal-video .hooper-track .hooper-slide {
-        flex: 0 0 33.33%;
-        width: 33.33% !important;
+        flex: 0 0 27%;
+        width: 27% !important;
     }
 
     .scandal-video-caption {
         padding: 12px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 }
 
 @media only screen and (max-width: 599px) {
     .inner-scandal-video .hooper-track {
-        margin: 0 33%;
+        /* margin: 0 54%; */
     }
     .inner-scandal-video .hooper-track .hooper-slide {
-        flex: 0 0 50%;
-        width: 50% !important;
+        flex: 0 0 40%;
+        width: 40% !important;
     }
 
     /* .scandal-video-caption {
@@ -1837,11 +1844,11 @@ border: 1px solid #dc4f4f;
 
 @media only screen and (max-width: 399px) {
     .inner-scandal-video .hooper-track {
-        margin: 0 57%;
+        /* margin: 0 69%; */
     }
     .inner-scandal-video .hooper-track .hooper-slide {
-        flex: 0 0 75%;
-        width: 75% !important;
+        flex: 0 0 65%;
+        width: 65% !important;
     }
 
     /* .scandal-video-caption {
@@ -1897,7 +1904,21 @@ border: 1px solid #dc4f4f;
     /* margin-top: 15px; */
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 599px) {
+    .drop-content .hooper-track .hooper-slide {
+        flex: 0 0 50%;
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 499px) {
+    .drop-content .hooper-track .hooper-slide {
+        flex: 0 0 70%;
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 399px) {
     .drop-content .hooper-track .hooper-slide {
         flex: 0 0 100%;
         width: 100%;

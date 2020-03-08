@@ -51,6 +51,7 @@
     "vue-chartkick": "^0.6.0",
     "vue-google-charts": "^0.3.2",
     "vue-media-queries": "0.0.5",
+    "vue-owl-carousel": "^2.0.3",
     "youch": "^2.0.10"
   },
   "standard": {

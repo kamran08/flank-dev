@@ -33,12 +33,12 @@
                     </div>
                 </div>
                 <div class="new-flank-nav-form">
-                    <div class="flank-new-form">
+                    <div class="flank-new-form fl-flank-new-form">
                         <form v-on:submit.prevent>
                             <div class="flank-new-indi">
-                                <div class="new-flank-selection">
+                                <div class="new-flank-selection fl-new-flank-selection">
                                     <p  @click="isStringMenu = (isStringMenu)? false : true" style="cursor:pointer;" > {{(pageOption)? pageOption: 'All'}} <span><i class="fas fa-caret-down"></i></span></p>
-                                    <div class="new-flank-selection-dropdown" v-if="isStringMenu"  >
+                                    <div class="new-flank-selection-dropdown new-flank-selection-dropdown-fl" v-if="isStringMenu"  >
                                         <ul>
                                             <li><a @click="pageOptionDropChange('school')">School</a></li>
                                             <li><a @click="pageOptionDropChange('coach')">Coach</a></li>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="flank-new-search">
+                            <div class="flank-new-search fl-flank-new-search">
                                 <button @click="SearchByKey" ><span><i class="fas fa-search"></i></span></button>
                             </div>
                         </form>

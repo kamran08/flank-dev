@@ -1226,6 +1226,8 @@ ul {
   overflow: hidden;
   position: relative;
   height: 100%;
+  display: flex;
+  flex-flow: column;
   /* margin-top: 15px; */
 }
 
@@ -1247,6 +1249,8 @@ ul {
   width: 100%;
   height: 135px;
   border-bottom: 1px solid #da0707;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
 }
 .inner-scandal-video-item figure img {
   width: 100%;
@@ -1258,7 +1262,7 @@ ul {
 
 .scandal-video-caption {
   padding: 12px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .scandal-video-caption p {
   font-weight: 400;
@@ -1271,10 +1275,14 @@ ul {
 }
 
 .video-logo {
-  position: absolute;
-  bottom: 10px;
-  width: 60px;
-  right: 10px;
+  /* position: absolute; */
+  /* bottom: 10px; */
+  width: 72px;
+  /* right: 10px; */
+  margin-top: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  padding: 0 12px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -1302,8 +1310,8 @@ ul {
 }
 
 .inner-scandal-video .row .col-md-3 {
-  padding: 0 5px;
-  flex: 0 0 33.33%;
+  padding: 0 0;
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
   /* margin-top: 15px; */
@@ -4814,6 +4822,10 @@ footer .foo-individual .foo-option ul li a:hover {
   overflow: hidden;
 }
 
+.fl-flank-new-form form {
+  overflow: visible;
+}
+
 .new-flank-selection {
   flex: 0 0 30%;
   background: #eaeaea !important;
@@ -4957,7 +4969,7 @@ footer .foo-individual .foo-option ul li a:hover {
 }
 
 .vertising-bg {
-  padding: 15px 15px 25px;
+  padding: 15px 15px;
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
@@ -5024,7 +5036,7 @@ footer .foo-individual .foo-option ul li a:hover {
 .vertising-text p {
   text-transform: uppercase;
   color: #000;
-  font-family: ceraProRegular;
+  font-family: ceraProLight;
   font-size: 14px;
   letter-spacing: 1px;
 }
@@ -5147,9 +5159,8 @@ footer .foo-individual .foo-option ul li a:hover {
 
   .vertising-bg {
     flex-flow: column-reverse;
+    margin: 0 25px;
   }
-
-  
 
   /* .activity-item .activity-inner {
     width: 70%;
@@ -5170,16 +5181,22 @@ footer .foo-individual .foo-option ul li a:hover {
   }
 }
 
+.vertising-bg img {
+  /* flex-flow: column-reverse; */
+  width: 100%;
+}
+
 .new-sidebar {
-  position: absolute;
+  position: fixed;
   z-index: 10000;
   background: #fff;
   width: 100%;
   top: 50px;
-  height: 100%;
+  height: 100vh;
   overflow-y: scroll;
   transform: translateX(-100%);
   transition: all 0.3s ease-in;
+  padding-bottom: 100px;
 }
 
 .new-sidebar.active {

@@ -1008,17 +1008,104 @@
                                         <h4 class="pad-border" style="padding-left: 0;">LATEST VIDEOS</h4>
                                     </div>
                                     <div class="row plus-row" style="margin-top: 20px">
+                                        <hooper :itemsToShow="3" :infiniteScroll="false">
+                                            <slide >
+                                                <div class="col-md-3 col-sm-6"  >
+                                                    <div class="inner-scandal-video-item">
+                                                        <figure @click="openVideo(1)">
+                                                    <img src="/newFile/1.png" alt="">
+                                                    <div class="play-caption">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <!-- <div class="video-duration">
+                                                        <p class="duration"><span>2:17</span></p>
+                                                    </div> -->
+                                                    </figure>
+                                                    <div class="scandal-video-caption">
+                                                        <p style="color: #d60606;">Out of control Coache's Abusive Behavior Often Under-Reported.</p>
+                                                    </div>
+                                                    <div class="video-logo">
+                                                        <img src="/image/flank.png" alt="">
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </slide>
+                                            <slide >
+                                                <div class="col-md-3 col-sm-6"  >
+                                                    <div class="inner-scandal-video-item">
+                                                        <figure @click="openVideo(1)">
+                                                    <img src="/newFile/2.png" alt="">
+                                                    <div class="play-caption">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <!-- <div class="video-duration">
+                                                        <p class="duration"><span>2:17</span></p>
+                                                    </div> -->
+                                                    </figure>
+                                                    <div class="scandal-video-caption">
+                                                        <p style="color: #d60606;">Rutgers coach fired for abuse of players.</p>
+                                                    </div>
+                                                    <div class="video-logo">
+                                                        <img src="/image/flank.png" alt="">
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </slide>
+                                            <slide >
+                                                <div class="col-md-3 col-sm-6"  >
+                                                    <div class="inner-scandal-video-item">
+                                                        <figure @click="openVideo(1)">
+                                                    <img src="/newFile/3.png" alt="">
+                                                    <div class="play-caption">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <!-- <div class="video-duration">
+                                                        <p class="duration"><span>2:17</span></p>
+                                                    </div> -->
+                                                    </figure>
+                                                    <div class="scandal-video-caption">
+                                                        <p style="color: #d60606;">The abuse of child atheletes by their coache.</p>
+                                                    </div>
+                                                    <div class="video-logo">
+                                                        <img src="/image/flank.png" alt="">
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </slide>
+                                            <slide >
+                                                <div class="col-md-3 col-sm-6"  >
+                                                    <div class="inner-scandal-video-item">
+                                                        <figure @click="openVideo(1)">
+                                                    <img src="/newFile/1.png" alt="">
+                                                    <div class="play-caption">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <!-- <div class="video-duration">
+                                                        <p class="duration"><span>2:17</span></p>
+                                                    </div> -->
+                                                    </figure>
+                                                    <div class="scandal-video-caption">
+                                                        <p style="color: #d60606;">Rutgers coach fired for abuse of players.</p>
+                                                    </div>
+                                                    <div class="video-logo">
+                                                        <img src="/image/flank.png" alt="">
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </slide>
+                                            <hooper-navigation slot="hooper-addons"></hooper-navigation>
+                                        </hooper>
                                         
-                                        <div class="col-md-3 col-sm-6 new-min-height">
+                                        <!-- <div class="col-md-3 col-sm-6 new-min-height">
                                             <div class="inner-scandal-video-item" style="margin-top: 0;">
                                                 <figure @click="openVideo(1)">
                                                     <img src="/newFile/1.png" alt="">
-                                                    <!-- <div class="play-caption">
+                                                    <div class="play-caption">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
                                                     <div class="video-duration">
                                                         <p class="duration"><span>2:17</span></p>
-                                                    </div> -->
+                                                    </div>
                                                 </figure>
                                                 <div class="scandal-video-caption">
                                                     <p>Out of control Coache's abusive behavior caught on tape.</p>
@@ -1027,20 +1114,20 @@
                                                     <img src="/image/flank.png" alt="">
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3 col-sm-6 new-min-height">
+                                        </div> -->
+                                        <!-- <div class="col-md-3 col-sm-6 new-min-height">
                                             <div class="inner-scandal-video-item">
-                                                <!-- <div class="inner-video-iframe">
+                                                <div class="inner-video-iframe">
                                                     <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                    </div> -->
+                                                    </div>
                                                 <figure @click="openVideo(2)">
                                                     <img src="/newFile/2.png" alt="">
-                                                    <!-- <div class="play-caption">
+                                                    <div class="play-caption">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
                                                     <div class="video-duration">
                                                         <p class="duration"><span>2:17</span></p>
-                                                    </div> -->
+                                                    </div>
                                                 </figure>
                                                 <div class="scandal-video-caption">
                                                     <p>Rutgers coach fired for abuse of players.</p>
@@ -1052,17 +1139,17 @@
                                         </div>
                                         <div class="col-md-3 col-sm-6 new-min-height">
                                             <div class="inner-scandal-video-item">
-                                                <!-- <div class="inner-video-iframe">
+                                                <div class="inner-video-iframe">
                                                     <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                    </div> -->
+                                                    </div>
                                                 <figure @click="openVideo(4)">
                                                     <img src="/newFile/4.png" alt="">
-                                                    <!-- <div class="play-caption">
+                                                    <div class="play-caption">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
                                                     <div class="video-duration">
                                                         <p class="duration"><span>2:17</span></p>
-                                                    </div> -->
+                                                    </div>
                                                 </figure>
                                                 <div class="scandal-video-caption">
                                                     <p>The abuse of child atheletes by their coaches. </p>
@@ -1071,7 +1158,7 @@
                                                     <img src="/images/flank.png" alt="">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- <div class="col-md-3 col-sm-6">
                                             <div class="inner-scandal-video-item">
                                                 <figure @click="openVideo(3)">
@@ -1920,10 +2007,17 @@
 </template>
 
 <script>
-import { GChart } from 'vue-google-charts'
+import { Hooper, Slide ,Pagination as HooperPagination ,Navigation as HooperNavigation} from 'hooper';
+import { GChart } from 'vue-google-charts';
 
 export default {
    
+   components: {
+       Hooper,
+      Slide,
+      HooperPagination,
+      HooperNavigation,
+   },
     data(){
         return{
             mobileScreen:false,
