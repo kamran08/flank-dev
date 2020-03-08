@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                        <h2 class="coaches-title">Have you ever played for those coaches?</h2>
+                        <h2 class="coaches-title">Have you ever played for these coaches?</h2>
                         <div class="row">
                             <!-- Item -->
                             <div class="col-sm-6" v-for="(item,index) in data.data" :key="index">
