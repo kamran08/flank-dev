@@ -2189,7 +2189,7 @@ export default {
                 },
                 {
                     name: 'twitter:image',
-                    content: '/images/flank-daily.png',
+                    content: 'https://goflank.com/images/act.png',
                 },
                 {
                     name: 'twitter:description',
