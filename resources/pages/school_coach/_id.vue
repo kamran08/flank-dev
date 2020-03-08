@@ -307,7 +307,8 @@
                                                 </div>
                                             
                                                 <div class="inner-one-item-help-area2"  >
-                                                    <h6 class="help-ans"><span>1</span> answer</h6>
+                                                    <h6 v-if="legendData.question.answers" class="help-ans"><span>1</span> answer</h6>
+                                                    <h6 v-else-if="legendData.question.answers==null" class="help-ans"><span>No</span> answer</h6>
                                                     <div v-if="legendData.question.answers">
                                                         
                                                         <p class="help-text">{{legendData.question.answers.content}}</p>
@@ -317,8 +318,8 @@
                                                     <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
                                                     <div class="helpful-btn-full">
                                                         <ul>
-                                                            <li><a @click="storeAnswerLike(legendData.question,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i><span>{{legendData.question.answers.helpful}}</span> helpful</a></li>
-                                                            <li><a @click="storeAnswerLike(legendData.question,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i><span>{{legendData.question.answers.not_helpful}}</span> Not helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(legendData.question,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i><span>{{legendData.question.answers ? legendData.question.answers.helpful : ''}}</span> helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(legendData.question,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i><span>{{legendData.question.answers ? legendData.question.answers.not_helpful : ''}}</span> Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     
@@ -361,8 +362,8 @@
                                                     <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:item.id } }" >View questions details</nuxt-link></p>
                                                     <div class="helpful-btn-full">
                                                         <ul>
-                                                            <li><a @click="storeAnswerLike(item,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i> <span>{{item.answers.helpful}}</span> helpful</a></li>
-                                                            <li><a @click="storeAnswerLike(item,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i> <span>{{item.answers.not_helpful}}</span>Not helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(item,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i> <span>{{item.answers ? item.answers.helpful : ''}}</span> helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(item,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i> <span>{{item.answers ? item.answers.not_helpful :''}}</span>Not helpful</a></li>
                                                         </ul>
                                                     </div>
                                                     
