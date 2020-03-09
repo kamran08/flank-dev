@@ -3061,6 +3061,12 @@ ul {
   font-weight: 400;
   /* color: rgb(35, 128, 187); */
 }
+@media only screen and (max-width: 599px) {
+  .inner-item-top-con .top-con-cap p span {
+    display: block;
+    padding-left: 0 !important;
+  }
+}
 .inner-item-top-con .top-con-cap p a {
   color: #ff0000 !important;
   text-transform: capitalize;
@@ -3083,7 +3089,7 @@ ul {
 
 
 .new-flank-search {
-  flex: 0 0 48%;
+  flex: 0 0 45%;
   width: 100%;
   /* margin-right: 10px; */
 }
@@ -3216,11 +3222,25 @@ ul {
 
 
 
-@media only screen and (max-width: 1115px) {
+@media only screen and (max-width: 1199px) {
   .new-flank-search {
+    flex: 0 0 42%;
+  }
+  .new-flank-sort {
     /* flex: 0 0 100%;
     width: 100%; */
-    /* margin-right: 10px; */
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding-left: 15px;
+    /* margin-top: 10px;
+    padding-left: 0; */
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .new-flank-search {
+    /* flex: 0 0 35%; */
   }
   .new-flank-sort {
     /* flex: 0 0 100%;
@@ -5647,5 +5667,27 @@ html {
   .up-ch-pad {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+
+@media only screen and (max-width: 1299px) {
+
+  /* .coach-rev-con {
+    flex: 0 0 35%;
+    width: 35%;
+  }
+
+  .inner-one-item-help-area2 {
+    flex: 0 0 65%;
+    width: 65%;
+  } */
+
+  .inner-one-item-help-btn a.helpful, .inner-one-item-help-btn .most-helpful {
+      padding: 10px 9px;
+      display: block;
+      color: #fff !important;
+      font-family: ceraPro;
+      font-size: 11px;
   }
 }

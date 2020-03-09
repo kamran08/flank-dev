@@ -1538,6 +1538,7 @@ a.sign-social-facebook:focus {
 .new-content-rev-left figure {
   flex: 0 0 179px;
   margin-left: auto;
+  margin-right: auto;
   width: 179px;
   padding-right: 17px;
 }
@@ -1600,6 +1601,15 @@ a.sign-social-facebook:focus {
   padding-left: 20px;
 }
 
+@media only screen and (max-width: 767px) {
+  
+.new-content-rev-right {
+  flex: 1;
+  width: 100%;
+  position: relative;
+  padding-left: 20px;
+}
+}
 .new-content-rev-right h2 {
   font-size: 20px;
   font-weight: 600;
@@ -1702,6 +1712,11 @@ a.sign-social-facebook:focus {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+}
+
+.new-comment-para.mo-new-comment-para p span.open {
+  display: block;
 
 }
 
@@ -2146,7 +2161,7 @@ a.sign-social-facebook:focus {
 ._2card_pic {
   flex: 0 0 50%;
   overflow: hidden;
-  padding-right: 35px;
+  /* padding-right: 35px; */
   height: 234px;
   position: relative;
   display: flex;
@@ -2156,7 +2171,12 @@ a.sign-social-facebook:focus {
 
 @media only screen and (max-width: 1199px) {
   ._2card_pic {
-    flex: 0 0 33%;
+    flex: 0 0 30%;
+  }
+
+  ._2card_img {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -2164,6 +2184,7 @@ a.sign-social-facebook:focus {
 
 ._2card_img {
   margin-left: auto;
+  margin-right: auto;
   display: block;
   right: 30px;
   top: 0;
@@ -4090,4 +4111,33 @@ body {
 .new-business-inner img {
   width: 70%;
   margin: auto;
+}
+
+@media only screen and (max-width: 992px) {
+  .new-comment-para p {
+    line-height: 33px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .new-content-rev-right h2 {
+    font-size: 18px !important;
+  }
+
+  .new-content-rev-right p {
+    font-size: 15px !important;
+  }
+
+  .new-content-rev-right .new-comment-para p  {
+    font-size: 14px !important;
+    line-height: 21px;
+  }
+
+  .new-content-rev-right .new-content-star  {
+    margin-top: 10px !important;
+  }
+
+  .new-content-rev-right .new-comment-para  {
+    margin-top: 15px !important;
+  }
 }

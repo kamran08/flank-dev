@@ -286,7 +286,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -489,7 +489,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-5 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -736,7 +736,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -886,7 +886,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -1035,7 +1035,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-5 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -1249,7 +1249,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -1398,7 +1398,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -1547,7 +1547,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-5 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -1928,7 +1928,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{item.ratingText}}"
+                                                            <span>"{{item.ratingText}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -1941,7 +1941,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right _2coach_main_right_new">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right _2coach_main_right_new">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -2005,7 +2005,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{item.ratingText}}"
+                                                            <span>"{{item.ratingText}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2065,7 +2065,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{item.ratingText}}"
+                                                            <span>"{{item.ratingText}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2078,7 +2078,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-5 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -2326,7 +2326,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{item.ratingText}}"
+                                                            <span>"{{item.ratingText}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2339,7 +2339,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right _2coach_main_right_new">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right _2coach_main_right_new">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -2474,7 +2474,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{item.ratingText}}"
+                                                            <span>"{{item.ratingText}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2487,7 +2487,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right _2coach_main_right_new">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right _2coach_main_right_new">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -2622,7 +2622,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{item.ratingText}}"
+                                                            <span>"{{item.ratingText}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2635,7 +2635,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-5 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -2841,7 +2841,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{item.ratingText}}"
+                                                            <span>"{{item.ratingText}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -2854,7 +2854,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right _2coach_main_right_new">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right _2coach_main_right_new">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -2988,7 +2988,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{item.ratingText}}"
+                                                            <span>"{{item.ratingText}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -3001,7 +3001,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 
@@ -3136,7 +3136,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            "{{item.ratingText}}"
+                                                            <span>"{{item.ratingText}}"</span>
                                                             <a href="" class="new-text-blue">read more</a>
                                                         </p>
                                                     </div>
@@ -3149,7 +3149,7 @@
                                         <!-- Left -->
 
                                         <!-- Right -->
-                                        <div class="col-xl-12 col-md-12 col-lg-5 _2coach_main_right">
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
                                             <div class="_2coach_title">
                                                 <p class="_2coach_title_one">Health Score:</p>
 

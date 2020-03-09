@@ -993,11 +993,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="inner-scandal-video new-box-shadow" style="padding-bottom: 20px;">
-                                    <div class="inner-item-review-title" style="padding: 0; background: transparent; padding-top: 15px; ">
+                                <div class="inner-scandal-video new-box-shadow" style="padding: 0px;">
+                                    <div class="inner-item-review-title" style="padding: 15px 30px; margin-bottom: 5px;background: transparent;">
                                         <h4 class="pad-border" style="padding-left: 0;">LATEST VIDEOS</h4>
                                     </div>
-                                    <div class="row plus-row" style="margin-top: 20px">
+                                    <div class="row plus-row up-ch-pad" style="padding-bottom: 15px;">
                                         <hooper :itemsToShow="3" :infiniteScroll="false">
                                             <slide >
                                                 <div class="col-md-3 col-sm-6"  >
@@ -1195,7 +1195,7 @@
                                                 </div>
                                                 
                                                 <div class="inner-one-item-help-btn">
-                                                    <p class="view-question-btn" style="text-align: left;"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                    <p class="view-question-btn" style="text-align: left; padding-left: 15px;"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
                                                     <div class="helpful-btn-full">
                                                         <ul>
                                                             <li><a @click="storeAnswerLike(legendData.question,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i><span>{{legendData.question.answers ? legendData.question.answers.helpful : ''}}</span> helpful</a></li>
