@@ -138,6 +138,7 @@ class SearchController {
      if(tempData.data.length>0){
 
       for (let d of tempData.data) {
+        d.isSeeMore = false
         if (d.avgRating == null) {
           d.avgRating = {
             averageRating: 0 
@@ -171,7 +172,7 @@ class SearchController {
                                // builder.orWhere('city',  place)
                               })
                               .whereNotIn('id',ids)
-                              .limit(40).fetch()
+                              .limit(10).fetch()
         }
        
         else if(pageOption == 'legend'){
@@ -186,7 +187,7 @@ class SearchController {
                                   builder.orWhere('state', 'LIKE', '%' + states + '%')
                                 })
                                 
-                                .whereNotIn('id',ids).limit(40).fetch()
+                                .whereNotIn('id',ids).limit(10).fetch()
         }
         else if(pageOption == 'school'){
          
@@ -202,11 +203,12 @@ class SearchController {
                                   
                                 })
                                 
-                                .limit(40).fetch()
+                                .limit(10).fetch()
         }
         if( pageOption != "product"){
           similar = JSON.parse(JSON.stringify(similar))
           for (let d of similar) {
+            d.isSeeMore = false
             if (d.avgRating == null) {
               d.avgRating = {
                 averageRating: 0 

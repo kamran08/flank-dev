@@ -42,7 +42,6 @@
                                         <ul>
                                             <li><a @click="pageOptionDropChange('school')">School</a></li>
                                             <li><a @click="pageOptionDropChange('coach')">Coach</a></li>
-                                            <li><a @click="pageOptionDropChange('legend')">Local</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -95,7 +94,7 @@
                     </ul>
                     <ul class="header-nav-indi-right">
                         <li><a @click="$router.push('/write_review')"><img src="/images/like.png" alt="">Write a Review</a></li>
-                        <li><a @click="$router.push('/local_bussniess')" ><img src="/images/bag.png" alt="">For Business</a></li>
+                        <li><a @click="$router.push('/bussniess-promotion')" ><img src="/images/bag.png" alt="">For Business</a></li>
                     </ul>
                 </div>
             </div>
@@ -145,7 +144,7 @@
     export default { 
         data(){
             return{
-                isStringMenu:true,
+                isStringMenu:false,
                 isMobileMenu:false,
                 tStr:'',
                 tPlace:'',
@@ -221,7 +220,7 @@
              pageOptionDropChange(item){
                 this.$store.commit('setPageOption', item )
                 this.isStringMenu = false
-                this.SearchByKey()
+                // this.SearchByKey()
             
             }, 
             async SearchByKey(){

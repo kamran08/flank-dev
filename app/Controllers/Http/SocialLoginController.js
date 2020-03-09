@@ -101,7 +101,7 @@ class SocialLoginController {
         };
         const user = await User.findOrCreate(whereClause, userDetails);
         await auth.login(user);
-        return response.route('home')
+        return response.route('step2')
         
       }
       async loginTest({response,auth}){

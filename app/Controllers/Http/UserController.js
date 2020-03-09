@@ -324,6 +324,44 @@ class UserController {
     }
   }
 
+  async sendInvitation ({ request, response ,auth}) {
+    let data = request.all()
+    let user = await auth.getUser();
+    
+    await Mail.send('emails.invitation', data, (message) => {
+      message
+        .to(data.mail)
+        .from(user.email, `${user.firstName} ${user.lastName}`)
+        .subject('Invitation')
+    })
+    if(data.mail1){
+      await Mail.send('emails.invitation', data, (message) => {
+        message
+          .to(data.mail1)
+          .from(user.email, `${user.firstName} ${user.lastName}`)
+          .subject('Invitation')
+      })
+    }
+    if(data.mail2){
+      await Mail.send('emails.invitation', data, (message) => {
+        message
+          .to(data.mail2)
+          .from(user.email, `${user.firstName} ${user.lastName}`)
+          .subject('Invitation')
+      })
+    }
+    if(data.mail3){
+      await Mail.send('emails.invitation', data, (message) => {
+        message
+          .to(data.mail3)
+          .from(user.email, `${user.firstName} ${user.lastName}`)
+          .subject('Invitation')
+      })
+    }
+    return  response.status(200).json({
+        'message': 'mail send Successfully!'
+    })
+  }
   async sendResetLinkEmail ({ request, response }) {
     console.log("ami asi re")
     let email = request.all().email

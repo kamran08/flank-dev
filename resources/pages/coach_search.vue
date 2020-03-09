@@ -30,13 +30,13 @@
                         <div class="new-flank-sidebar-list">
                             <h3>Department</h3>
                             <ul class="pad-list">
-                                <li @click="chnageType('school')" ><a :class="(pageOption == 'school')? 'active_coach': ''">All Schools</a></li>
-                                <li @click="chnageType('coach', '')" ><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''">All Coaches</a></li>
+                                <!-- <li @click="chnageType('school')" ><a :class="(pageOption == 'school')? 'active_coach': ''">All Schools</a></li>
+                                <li @click="chnageType('coach', '')" ><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''">All Coaches</a></li> -->
                                 <li @click="chnageType('coach', 'High School')" ><a :class="(pageOption == 'coach' && div == 'High School')? 'active_coach': ''">High school coaches</a></li>
                                 <li @click="chnageType('coach', 'Junior College')" ><a :class="(pageOption == 'coach' && div == 'Junior College')? 'active_coach': ''">College coaches</a></li>
-                                <li @click="chnageType('coach', 'all')" ><a :class="(pageOption == 'coach' && div == 'all')? 'active_coach': ''">Coming Soon</a></li>
+                                <!-- <li @click="chnageType('coach', 'all')" ><a :class="(pageOption == 'coach' && div == 'all')? 'active_coach': ''">Coming Soon</a></li> -->
                                 <li @click="chnageType('coach', 'Club/Travel')" ><a :class="(pageOption == 'coach' && div == 'Club/Travel')? 'active_coach': ''">Travel team coaches</a></li>
-                                <li @click="chnageType('legend')" ><a :class="(pageOption == 'legend' )? 'active_coach': ''">Local instructors</a></li>
+                                <li @click="$router.push('/local_business')" ><a >Local instructors</a></li>
                                 <!-- <li @click="chnageType('product')" ><a :class="(pageOption == 'product' )? 'active_coach': ''">Products & services</a></li> -->
                             </ul>
                         </div>
@@ -275,11 +275,9 @@
 
                                                         <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
+                                                    <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
                                                     <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
                                                 </div>
@@ -422,10 +420,9 @@
 
                                                         <p class="_2card_details_city">{{item.city}}/{{item.state}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
+                                                   <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
                                                     <!-- <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button> -->
                                                 </div>
@@ -481,10 +478,9 @@
 
                                                         <p class="_2card_details_city">{{item.city}}/{{item.state}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
+                                                   <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
                                                     <button @click="$router.push(`/addreview/${item.id}`)" class="_1btn">Write a Review</button>
                                                 </div>
@@ -729,10 +725,9 @@
 
                                                         <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
                                                     </div>          
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
+                                                   <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
                                                     <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
                                                 </div>
@@ -880,10 +875,9 @@
 
                                                         <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
+                                                    <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
                                                     <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
                                                 </div>
@@ -1030,10 +1024,9 @@
 
                                                         <p class="_2card_details_city">{{item.address}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
+                                                   <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
                                                     <button @click="$router.push(`/addreview/${item.id}`)" class="_1btn">Write a Review</button>
                                                 </div>
@@ -1245,10 +1238,9 @@
 
                                                         <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
+                                                    <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
                                                     <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
                                                 </div>
@@ -1395,10 +1387,9 @@
 
                                                         <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
+                                                    <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
                                                     <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button>
                                                 </div>
@@ -1545,10 +1536,9 @@
 
                                                         <p class="_2card_details_city">{{item.address}}</p>
                                                     </div>
-                                                    <p class="_2card_status _2taxt">{{item.ratingText}}</p>
-                                                    <p>
-                                                        <a href="" class="see_more">See more</a>
-                                                    </p>
+                                                    <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
                                                 <button @click="$router.push(`/addreview/${item.id}`)" class="_1btn">Write a Review</button>
                                                 </div>
@@ -1574,7 +1564,9 @@
                             </div>
                         
                         </div>
-                        
+                        <div style="text-align: center;padding: 20px 0px;" v-if="searchData.length>0">
+                            <Page prev-text="Previous" next-text="Next"  :current="parseInt(pagination.page)" :total="pagination.total" @on-change="SearchByKey" :page-size="parseInt(pagination.perPage)" />
+                        </div>
                         <div class="_1reiew_box desk-fl-top">
                             <p class="_1reiew_box_title">Tell us how can improve</p>
 
@@ -1623,7 +1615,7 @@
                             <li @click="chnageType('coach', 'Junior College')"><a :class="(pageOption == 'coach' && div == 'Junior College')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">College coaches</p></div></a></li>
                             <li @click="Healthiestcoaches('coach', '','averageHealthy')"><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Healthiest coaches</p></div></a></li>
                             <li @click="chnageType('coach', 'Club/Travel')"><a :class="(pageOption == 'coach' && div == 'Club/Travel')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Travel team coaches</p></div></a></li>
-                            <li @click="chnageType('school')"><a :class="(pageOption == 'school')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">All Schools</p></div></a></li>
+                            <!-- <li @click="chnageType('school')"><a :class="(pageOption == 'school')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">All Schools</p></div></a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -3179,9 +3171,7 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align: center;padding: 20px 0px;" v-if="searchData.length>0">
-                <Page :current="parseInt(pagination.page)" :total="pagination.total" @on-change="SearchByKey" :page-size="parseInt(pagination.perPage)" />
-            </div>
+            
             <div class="_1reiew_box new-padding no-border _1reiew_box_new">
                 <p class="_1reiew_box_title font-24">Tell us how can improve</p>
 
@@ -3951,14 +3941,14 @@ export default {
             this.attribute = att
             this.SearchByKey()
         },
-        async SearchByKey(){
+        async SearchByKey(page=1){
 
             // if(this.pageOption != 'product'){
             //     if(this.str == '' ) return this.i("Please Write a name")
             //     if(this.place == '') return this.i("Please Write a City")
             // }
 
-            const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.str}&pageOption=${this.pageOption}&sort=${this.sort}&div=${this.div}&rate=${this.oldrating.index}&sports=${this.sports}&attribute=${this.attribute}`)
+            const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.str}&pageOption=${this.pageOption}&sort=${this.sort}&div=${this.div}&rate=${this.oldrating.index}&sports=${this.sports}&attribute=${this.attribute}&page=${page}`)
             if(res.status === 200){
                 if(res.data.mainData.data.length>0){
 

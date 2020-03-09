@@ -3108,6 +3108,18 @@ ul {
   color: #000;
   font-family: ceraPro;
 }
+.new-flank-search .new-fl-search-new-box input {
+  outline: 0;
+  border: 1px solid #000;
+  border-right: 0;
+  flex: 0 0 85%;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px 0 0 5px;
+  font-size: 14px;
+  color: #000;
+  font-family: ceraPro;
+}
 
 .new-flank-search .search-new-box input::-webkit-input-placeholder {
   font-size: 14px;
@@ -3132,6 +3144,30 @@ ul {
   color: #8e9087;
   font-family: ceraProRegular;
 }
+
+.new-flank-search .new-fl-search-new-box input::-webkit-input-placeholder {
+  font-size: 14px;
+  color: #8e9087;
+  font-family: ceraProMedium;
+}
+
+.new-flank-search .new-fl-search-new-box input:-moz-placeholder {
+  font-size: 14px;
+  color: #8e9087;
+  font-family: ceraProMedium;
+}
+
+.new-flank-search .new-fl-search-new-box input:-ms-input-placeholder {
+  font-size: 14px;
+  color: #8e9087;
+  font-family: ceraProMedium;
+}
+
+.new-flank-search .new-fl-search-new-box input::placeholder {
+  font-size: 14px;
+  color: #8e9087;
+  font-family: ceraProMedium;
+}
 .new-flank-search .search-new-box button {
   outline: 0;
   background: #da0707;
@@ -3141,6 +3177,16 @@ ul {
   flex: 0 0 15%;
   width: 100%;
   border-radius: 0 10px 10px 0;
+}
+.new-flank-search .new-fl-search-new-box button {
+  outline: 0;
+  background: #ff0000;
+  color: #fff;
+  border: 1px solid #000;
+  border-left: 0;
+  flex: 0 0 15%;
+  width: 100%;
+  border-radius: 0 5px 5px 0;
 }
 
 .new-flank-sort {

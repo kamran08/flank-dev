@@ -152,8 +152,8 @@ Route.get('/app/videos','HomeController.showVideos')
 // kollol
 Route.get('/app/getStreak/:id', 'SchoolController.getStreak')
 
-
-
+// send Email
+Route.post('/app/sendInvitation', 'UserController.sendInvitation')
 
 Route.get('app/initdata', 'UserController.initdata')
 Route.any('/', 'NuxtController.render').as('home')
