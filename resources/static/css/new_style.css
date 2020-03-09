@@ -1262,7 +1262,7 @@ ul {
 
 .scandal-video-caption {
   padding: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .scandal-video-caption p {
   font-weight: 400;
@@ -1272,6 +1272,18 @@ ul {
   line-height: 20px;
   /* letter-spacing: 1px; */
   /* word-break: break-all; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+
+@media only screen and (max-width: 599px) {
+  .scandal-video-caption p {
+    font-size: 13px;
+  }
 }
 
 .video-logo {
@@ -5582,5 +5594,12 @@ html {
   .new-flank-sort .new-flank-select {
     flex: 0 0 60%;
     width: 60%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .up-ch-pad {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
