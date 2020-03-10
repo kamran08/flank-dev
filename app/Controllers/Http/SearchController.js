@@ -190,8 +190,6 @@ class SearchController {
                                 .whereNotIn('id',ids).limit(10).fetch()
         }
         else if(pageOption == 'school'){
-         
-          console.log(ids)
           similar = await SchoolCoach.query() 
                                 .with('allreviewLimit')
                                 .with('topAtrribute.info' )
@@ -199,8 +197,6 @@ class SearchController {
                                 .whereIn('school_id',   ids)
                                 .whereHas('school', (builder) => {
                                   builder.where('city', 'LIKE', '%' + place + '%')
-                                
-                                  
                                 })
                                 
                                 .limit(10).fetch()

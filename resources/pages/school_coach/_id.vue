@@ -959,7 +959,7 @@
                                     </div>
                                     <div class="new-inner-item-1 mb-new-red-border " style="padding-left: 20px; padding-right: 20px; padding-top: 15px;">
                                         <div class="switch-link-content no-margin no-shadow" style="border-radius: 0;">
-                                            <div class="switch-link-title" style="padding-left: 0;">  
+                                            <div class="switch-link-title sc-switch-link-title" style="padding-left: 0;padding-right: 0;">  
                                                 <h4 class="pad-border" style="padding-left: 0;">Coach Selection</h4>
                                             </div>
                                             <div class="switch-new-coach mb-switch-new-coach no-border">
@@ -1256,7 +1256,7 @@
                                             <img src="/images/sticker-3.png" alt="">
                                         </figure>
                                         <div class="top-con-cap">
-                                            <p style="font-family: ceraProRegular;"><span style="font-family: ceraPro;font-weight: 600;">Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
+                                            <p style="font-family: ceraProRegular;"><span style="font-family: ceraPro;font-weight: 600;">Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews.</p>
                                         </div>
                                     </div>
                                     <div class="new-flank-form" style="padding: 0 20px;">

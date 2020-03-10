@@ -2755,23 +2755,6 @@ a.sign-social-facebook:focus {
   font-family: ceraProRegular;
 }
 
-@media only screen and (max-width: 499px) {
-  .switch-new-coach-item {
-    flex-flow: column;
-    text-align: center;
-  }
-  
-  .switch-new-coach-item figure {
-    flex: 0 0 90px;
-    width: 90px;
-    height: 90px;
-    overflow: hidden;
-    /* border: 1px solid #b5b5b5; */
-    margin: auto;
-    margin-bottom: 10px;
-  }
-
-}
 
 .coach-btn {
   width: 100%;
@@ -4090,4 +4073,68 @@ body {
 .new-business-inner img {
   width: 70%;
   margin: auto;
+}
+
+
+@media only screen and (max-width: 499px) {
+  .switch-new-coach-item {
+    /* flex-flow: column;
+    text-align: center; */
+  }
+  
+  .switch-new-coach-item figure {
+    flex: 0 0 90px;
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    /* border: 1px solid #b5b5b5; */
+    /* margin: auto; */
+    /* margin-bottom: 10px; */
+  }
+  .mb-switch-new-coach {
+    margin: 15px;
+  }
+}
+
+@media only screen and (max-width: 449px) {
+  .switch-new-coach-item {
+    /* flex-flow: column;
+    text-align: center; */
+  }
+  
+  .switch-new-coach-item figure {
+    flex: 0 0 70px;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+    /* border: 1px solid #b5b5b5; */
+    /* margin: auto; */
+    /* margin-bottom: 10px; */
+  }
+
+  .new-coach-item-text h3 {
+      font-size: 13px;
+  }
+
+  .new-coach-item-text p {
+      font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 399px) {
+  
+  .switch-new-coach-item figure {
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+  }
+
+  .mb-switch-new-coach {
+    margin: 9px;
+  }
+  .mb-switch-new-coach {
+      /* margin: 15px 40px; */
+      padding: 10px 10px;
+  }
 }

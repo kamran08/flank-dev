@@ -691,7 +691,7 @@
                                                         
                                                         </div>
                                                     </div>
-                                                    <div class="activity-item"  @click="$router.push(`/coach_search?pageOption=legend`)">
+                                                    <div class="activity-item"  @click="$router.push(`/bussniess-promotion`)">
                                                         <div class="activity-inner">
                                                             <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
@@ -735,7 +735,7 @@
                                                         
                                                         </div>
                                                     </div>
-                                                    <div class="activity-item" @click="$router.push(`/coach_search?pageOption=product`)">
+                                                    <div class="activity-item" @click="$router.push(`/bussniess-promotion`)">
                                                         <div class="activity-inner">
                                                             <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
@@ -980,7 +980,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a @click="$router.push(`/local_business`)">
+                                <a @click="$router.push(`/bussniess-promotion`)">
                                     <figure>
                                         <img src="/image/Local-Coaches.gif" alt="">
                                     </figure>
@@ -990,7 +990,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a @click="$router.push(`/local_business`)">
+                                <a @click="$router.push(`/bussniess-promotion`)">
                                     <figure>
                                         <img src="/image/ProductsServices.gif" alt="">
                                     </figure>
@@ -1544,7 +1544,7 @@
                                                         
                                                     </div>
                                                 </div>
-                                                <div class="activity-item"  @click="$router.push('/local_business')">
+                                                <div class="activity-item"  @click="$router.push('/bussniess-promotion')">
                                                     <div class="activity-inner">
                                                         <!-- <div class="linear-border"></div> -->
                                                         <div class="activity-inner-fig">
