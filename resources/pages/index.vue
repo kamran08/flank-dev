@@ -1141,7 +1141,7 @@
                                         <div class="logo-title" style="padding: 15px 30px; margin-bottom: 5px;">
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANKs</span></h2>
                                         </div>
-                                        <div class="row plus-row" style="padding-bottom: 15px;">
+                                        <div class="row plus-row up-ch-pad" style="padding-bottom: 15px;">
                                             <hooper :itemsToShow="3" :infiniteScroll="false">
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >
@@ -1263,7 +1263,7 @@
                                         <div class="logo-title" style="padding: 15px 30px; margin-bottom: 5px;">
                                             <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span class="cera-black">LATEST ON FLANK</span></h2>
                                         </div>
-                                        <div class="row plus-row" style="padding-bottom: 15px;">
+                                        <div class="row plus-row up-ch-pad" style="padding-bottom: 15px;">
                                             <hooper :itemsToShow="3"  >
                                                     <slide v-for="(item,index) in videos" :key="index">
                                                         <div class="col-md-3 col-sm-6"  >
@@ -1368,10 +1368,10 @@
                                 </div>
                                 <div class="vertising-opportunity-sec new-box-shadow new-mt-10">
                                     <div class="review-sect no-box-shadow">
-                                        <div class="drop-title new-font mb-10">
+                                        <!-- <div class="drop-title new-font mb-10">
                                             <h2 class="">ADVERTISING OPPORTUNITIES</h2>
-                                        </div>
-                                        <div class="vertising-bg">
+                                        </div> -->
+                                        <div class="vertising-bg" style="margin: 0;margin-top: 15px;">
                                             <!-- <div class="vertising-title">
                                                 <h3 class="cera-medium font-18 weight-900">Advertising Opportunities for Local Instructor</h3>
                                                 <p class="cera-regular weight-400">Flank is a website that connects people with great local instructors and sports related products.</p>
@@ -1384,7 +1384,7 @@
                                             </div> -->
                                             <img src="/images/local-ins2.png" >
                                         </div>
-                                        <div class="vertising-text">
+                                        <div class="vertising-text" style="padding-left: 0;">
                                             <p>Coming soon</p>
                                         </div>
                                     </div>
@@ -1394,8 +1394,8 @@
                                         <div class="drop-title no-border">
                                             <h2 class="pad-border cera-bold weight-400 font-24" style="border-width: 2px !important;">Recent drops New</h2>
                                         </div>
-                                        <div class="drop-content mt-10">
-                                            <div class="row plus-row">
+                                        <div class="drop-content mt-10" style="padding-left: 0; padding-right: 0;">
+                                            <div class="row plus-row" style="padding-left: 0; padding-right: 0;">
                                                  <hooper :itemsToShow="3"  >
                                                     <slide v-for="(item,index) in recentReview " :key="index" v-if="index<showMoreActivity" class="new-mob-drop-item">
                                                         <div class="drop-item"  >

@@ -1262,7 +1262,7 @@ ul {
 
 .scandal-video-caption {
   padding: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .scandal-video-caption p {
   font-weight: 400;
@@ -1272,6 +1272,18 @@ ul {
   line-height: 20px;
   /* letter-spacing: 1px; */
   /* word-break: break-all; */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+
+@media only screen and (max-width: 599px) {
+  .scandal-video-caption p {
+    font-size: 13px;
+  }
 }
 
 .video-logo {
@@ -3089,7 +3101,7 @@ ul {
 
 
 .new-flank-search {
-  flex: 0 0 48%;
+  flex: 0 0 45%;
   width: 100%;
   /* margin-right: 10px; */
 }
@@ -3222,11 +3234,25 @@ ul {
 
 
 
-@media only screen and (max-width: 1115px) {
+@media only screen and (max-width: 1199px) {
   .new-flank-search {
+    flex: 0 0 42%;
+  }
+  .new-flank-sort {
     /* flex: 0 0 100%;
     width: 100%; */
-    /* margin-right: 10px; */
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding-left: 15px;
+    /* margin-top: 10px;
+    padding-left: 0; */
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .new-flank-search {
+    /* flex: 0 0 35%; */
   }
   .new-flank-sort {
     /* flex: 0 0 100%;
@@ -5657,5 +5683,34 @@ html {
   .new-flank-sort .new-flank-select {
     flex: 0 0 60%;
     width: 60%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .up-ch-pad {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+@media only screen and (max-width: 1299px) {
+
+  /* .coach-rev-con {
+    flex: 0 0 35%;
+    width: 35%;
+  }
+
+  .inner-one-item-help-area2 {
+    flex: 0 0 65%;
+    width: 65%;
+  } */
+
+  .inner-one-item-help-btn a.helpful, .inner-one-item-help-btn .most-helpful {
+      padding: 10px 9px;
+      display: block;
+      color: #fff !important;
+      font-family: ceraPro;
+      font-size: 11px;
   }
 }

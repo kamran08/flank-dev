@@ -1087,6 +1087,11 @@ footer {
     font-size: 12px;
     width: 33.33%;
 }
+@media only screen and (max-width: 767px) {
+    .attribute-table td {
+        padding: 1.5rem 10px;
+    } 
+}
 .td_lg {
     font-size: 17px;
     display: block;
@@ -1796,7 +1801,7 @@ border: 1px solid #dc4f4f;
     width: 33.33%;
     padding: 0 5px;
     /* margin-top: 15px; */
-    min-height: 273px;
+    min-height: 250px;
 }
 
 @media only screen and (max-width: 450px) {
@@ -1808,7 +1813,7 @@ border: 1px solid #dc4f4f;
         width: 33.33%;
         padding: 0 5px;
         /* margin-top: 15px; */
-        min-height: 262px;
+        min-height: 240px;
     }
 }
 
@@ -1823,7 +1828,7 @@ border: 1px solid #dc4f4f;
 
     .scandal-video-caption {
         padding: 12px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 }
 
