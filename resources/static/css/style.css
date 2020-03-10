@@ -6702,6 +6702,11 @@ ul.pull-right.navbar-nav.nav li {
   color: #0036b1 !important;
   margin-bottom: 15px;
   cursor: pointer;
+  display: block;
+}
+
+.expand.deactivate {
+  display: none;
 }
 
 .expand a:hover {
@@ -6710,6 +6715,10 @@ ul.pull-right.navbar-nav.nav li {
 
 .show-collapse {
   display: none;
+}
+
+.show-collapse.active {
+  display: block;
 }
 
 .expand-list {

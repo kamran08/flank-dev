@@ -16,6 +16,7 @@
                                 <li><nuxt-link to="/guidlines">Content Guidelines</nuxt-link></li>
                                 <li><nuxt-link to="/tos">Terms of Service</nuxt-link></li>
                                 <li><nuxt-link to="/policy">Privacy Policy</nuxt-link></li>
+                                <li><nuxt-link to="/legal">Legal Inquiries</nuxt-link></li>
                             </ul>
                         </div>
                         <div class="col-md-9">

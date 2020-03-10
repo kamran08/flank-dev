@@ -11,10 +11,10 @@
                                 <h3>About Flank</h3>
                                 <ul class="abp-list-box-link">
                                     <li><nuxt-link to="/about">About Us</nuxt-link></li>
-                                    <li class="active"><nuxt-link to="/guidlines">Content Guidelines</nuxt-link></li>
+                                    <li><nuxt-link to="/guidlines">Content Guidelines</nuxt-link></li>
                                     <li><nuxt-link to="/tos">Terms of Service</nuxt-link></li>
                                     <li><nuxt-link to="/policy">Privacy Policy</nuxt-link></li>
-                                    <li><nuxt-link to="/legal">Legal Inquiries</nuxt-link></li>
+                                    <li class="active"><nuxt-link to="/legal">Legal Inquiries</nuxt-link></li>
                                 </ul>
                                 <!-- <div class="about-blog-list">
                                     <h3>The Flank Blog</h3>
@@ -24,13 +24,17 @@
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <h2 class="fl-abs">Content Guidelines</h2>
-                            <hr>
+                            <h2 class="fl-abs">Legal inquiries</h2>
+                            <p>If you have any legal concerns about content or activity on Yelp, please let us know using the form below. Our Support team will review your inquiry and follow up if more information is needed.</p>
+                            <!-- <hr> -->
                             <div class="about-content mt-10">
-                                <div class="new-about-header">
-                                    <h3>General guidelines</h3>
-                                    <p>Flank allows users to contribute different kinds of content, including reviews, photos, videos, events, votes, tips, direct messages, and more. Playing nice isn’t rocket science, but just in case, we’ve put together these general guidelines. Please also read the guidelines below for specific types of content that you might contribute to the site.</p>
-                                </div>
+                                <form>
+                                    <div class="legal-form-main">
+                                        <div class="legal-form-item">
+                                            
+                                        </div>
+                                    </div>
+                                </form>
                                 <div class="new-about-content">
                                     <ul>
                                         <li><strong>Inappropriate content:</strong> Colorful language and imagery is fine, but there's no need for threats, harassment, lewdness, hate speech, and other displays of bigotry.</li>
