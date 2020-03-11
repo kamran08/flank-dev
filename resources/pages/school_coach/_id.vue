@@ -591,9 +591,9 @@
                                         <p class="_1health_main_title cera-bold weight-400 font-18">Flank News: We've enhanced our Health Meter</p>
 
                                         <ul class="_1health_main_list _new_1health_main_list">
-                                            <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
-                                            <li>We now have Verified Ratings and Reviews to make our Health Score more useful</li>
-                                            <li>When you see “Verified” it means we’ve confirmed a user verified their identity </li>
+                                            <li>We’re always working to improve the authenticity of the attributes selected on Flank.</li>
+                                            <li>We now have Verified Ratings and Reviews to make our Health Score more useful.</li>
+                                            <li>When you see “Verified” it means we’ve confirmed a user verified their identity. </li>
                                         </ul>
                                     </div>
 
@@ -900,9 +900,9 @@
                                         <p class="_1health_main_title cera-bold weight-400 font-18">Flank News: We've enhanced our Health Meter</p>
 
                                         <ul class="_1health_main_list _new_1health_main_list">
-                                            <li>We’re always working to improve the authenticity of the attributes selected on Flank</li>
-                                            <li>We now have Verified Ratings and Reviews to make our Health Score more useful</li>
-                                            <li>When you see “Verified” it means we’ve confirmed a user verified their identity </li>
+                                            <li>We’re always working to improve the authenticity of the attributes selected on Flank.</li>
+                                            <li>We now have Verified Ratings and Reviews to make our Health Score more useful.</li>
+                                            <li>When you see “Verified” it means we’ve confirmed a user verified their identity. </li>
                                         </ul>
                                     </div>
 
