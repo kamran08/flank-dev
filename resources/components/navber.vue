@@ -27,7 +27,7 @@
                     </div>
                     <div class="flank-new-autho" v-else>
                         <div class="autho-in">
-                            <button @click="logout" >Logout</button>
+                            <button @click="logout" >Log Out</button>
                         </div>
                         
                     </div>

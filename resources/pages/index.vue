@@ -63,7 +63,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a @click="$router.push('/bussniess-promotion')">
+                                                <a @click="$router.push('/local_business')">
                                                     <figure>
                                                         <img src="/image/Local-Coaches.gif" alt="">
                                                     </figure>
@@ -911,7 +911,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a @click="$router.push(`/bussniess-promotion`)">
+                                <a @click="$router.push(`/local_business`)">
                                     <figure>
                                         <img src="/image/Local-Coaches.gif" alt="">
                                     </figure>
@@ -1593,6 +1593,7 @@ export default {
     },
   data() {
     return {
+        
         mobileScreen:false,
       showMoreActivity: 3,
       name: "",
@@ -1899,6 +1900,7 @@ export default {
       this.callApi("get", `/app/getRecentReview`),
       this.callApi("get", `/app/topHeadline`),
       this.callApi("get", `/app/videos`),
+   
     ]);
     if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200) { 
     //  this.schoolCoaches = res1.data;
@@ -1906,6 +1908,7 @@ export default {
       this.recentReview = res3.data;
       this.topHeadlines = res4.data;
       this.videos = res5.data;
+     
      // this.allCity = res4.data;
       // this.review_of_day.bestReview = res2.data.bestReview
       this.loading = false;

@@ -6945,3 +6945,42 @@ ul.pull-right.navbar-nav.nav li {
   background-size: 100%;
   transition: background 0s;
 }
+
+.legal-alert-box {
+  width: 100%;
+}
+
+.legal-alert-box-inner {
+  width: 100%;
+  background: #fcd6d3;
+  margin-bottom: 12px;
+  padding: 18px 18px 18px 24px;
+  border-radius: 3px;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+
+.legal-alert-box-inner p {
+
+}
+
+.legal-alert-box-inner ul {
+  margin-top: 6px;
+  padding-left: 14px;
+}
+
+.legal-alert-box-inner ul li {
+  /* list-style: ; */
+    list-style: disc !important;
+    font-size: 14px;
+    line-height: 1.28571em;
+}
+
+.abp.second-section .legal-alert-box-inner ul a {
+  color: #0073bb !important;
+}
+
+.abp.second-section .legal-alert-box-inner ul a:hover {
+  background-color: transparent !important;
+  text-decoration: underline;
+}

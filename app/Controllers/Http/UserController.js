@@ -10,6 +10,7 @@
 const User = use('App/Models/User')
 const Legend = use('App/Models/Legend')
 const Review = use('App/Models/Review')
+const SchoolCoach = use('App/Models/SchoolCoach')
 const Product = use('App/Models/Product')
 const Database = use('Database')
 const Hash = use('Hash')
@@ -424,6 +425,7 @@ class UserController {
     })
 
 }
+
   async initdata ({ request, response, auth }) {
     try {
       const user = await auth.getUser()
@@ -480,6 +482,40 @@ class UserController {
                 })
       return res.data;
   }
+    async getSchoolCoachByhighRated ({ request, response, auth }) {
+
+      return await SchoolCoach.query()
+        .with('allreviewLimit').with('school')
+        .with('topAtrribute.info')
+        .withCount('allreview as allreview')
+       .orderBy('avg_rating', 'desc').limit(3).fetch()
+        // .whereHas('school', (builder) => {
+        //   builder.where('city', 'LIKE', '%' + place + '%')
+        // })
+      // return await SchoolCoach.query().orderBy('avg_rating', 'desc').limit(3).fetch()
+
+    }
+    async sendlegalData ({ request, response, auth }) {
+
+      let data = request.all()
+      // return data
+      if (data.email) {
+        await Mail.send('emails.legal', data, (message) => {
+          message
+            .to('ahmedkamran265@gmail.com')
+            .from('sa1021757@gmail.com', `Legal inquiries`)
+            .subject('Legal inquiries')
+        })
+      }
+      else{
+         return response.status(403).json({
+           'msg':"given email is invalid"
+         })
+      }
+
+
+
+    }
 }
 
 module.exports = UserController

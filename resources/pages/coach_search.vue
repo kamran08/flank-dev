@@ -1,6 +1,5 @@
 <template>
     <div class="pt-120">
-
         <div class="flank-container " v-if="!mobileScreen">  
             
 
@@ -586,7 +585,7 @@
                                     </div>
 
                                     <!-- Card Items -->
-                                    <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6">
+                                    <!-- <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6">
                                         <div class="_1card">
                                             <p class="_2title">Our Top Choice</p>
 
@@ -616,11 +615,11 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Card Items -->
 
                                     <!-- Card Items -->
-                                    <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6">
+                                    <!-- <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6">
                                         <div class="_1card">
                                             <p class="_2title">Our Top Choice</p>
 
@@ -650,34 +649,36 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Card Items -->
 
                                     <!-- Card Items -->
-                                    <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6">
+                                    <!-- tracter -->
+                                    <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6" v-for="(item,index) in ratedpost" :key="index">
+                                        
                                         <div class="_1card">
                                             <p class="_2title">Our Top Choice</p>
 
-                                            <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
+                                            <p class="_1card_subtitle">{{item.name}} - {{item.school.sport}} {{item.school.city}}</p>
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                             </div>
 
                                             <div class="_1card_details">
-                                                <p class="_3title">Coach Name - Sport Type</p>
-                                                <p class="_3title" style="margin-bottom: 10px;">City/State</p>
+                                                <p class="_3title">{{item.name}} - {{item.school.sport}}</p>
+                                                <p class="_3title" style="margin-bottom: 10px;">{{item.school.city}}</p>
                                                 <div class="_1rating">
                                                     <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
+                                                        <li :class="(item.avg_rating>0)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>1)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>2)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>2)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating==5)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                     </ul>
                                                 </div>
-                                                <p class="_1card_tag">67.0 Health Seore</p>
+                                                <p class="_1card_tag">{{item.averageHealthy}} Health Seore</p>
                                                 <p class="_1text">
                                                     When you're after a true empowering coach
                                                     , coach Jhon Doe nails all the healthy coaching attributes.
@@ -3617,6 +3618,7 @@ export default {
     },
     data(){
         return{
+            ratedpost:{},
             mobileScreen:false,
             isMobileMenu:true,
             showMenuButton:false,
@@ -4165,6 +4167,12 @@ export default {
         if(res.status == 200){
             this.allSports = res.data
         }
+        const res6 =await this.callApi("get", `/app/getSchoolCoachByhighRated`)
+         if(res6.status == 200){
+            this.ratedpost = res6.data
+        }
+
+
         // this. showCurrentPage = (Math.ceil(this.pagination.total)/(this.pagination.perPage)-this.pagination.page)
 
     },

@@ -26,50 +26,61 @@
                         </div>
                         <div class="col-md-9">
                             <h2 class="fl-abs">Legal inquiries</h2>
+                            <div class="legal-alert-box">
+                                <div class="legal-alert-box-inner" v-if="errorData.email==''||errorData.type==''||errorData.question==''||errorData.descriptions==''">
+                                    <p>Please correct the following errors and retry.</p>
+                                    <ul>
+                                        <li><span>Some of the data you entered is invalid.</span></li>
+                                        <li v-if="errorData.email==''"><span>An unknown error occured: You entered the wrong word verification code. Please try the new code shown below.</span></li>
+                                    </ul>
+                                </div>
+                            </div>
                             <p style="font-size: 15px;">If you have any legal concerns about content or activity on Yelp, please let us know using the form below. Our Support team will review your inquiry and follow up if more information is needed.</p>
                             <!-- <hr> -->
                             <div class="about-content mt-10">
-                                <form>
+                                <!-- <form> -->
                                     <div class="legal-form-main">
                                         <div class="legal-form-item">
                                             <label>Which of these best describes you?</label>
                                             <div class="legal-layer">
-                                                <select name="" id="" >
-                                                    <option value="">User/Reviewer</option>
-                                                    <option value="">Business Owner/Representative</option>
-                                                    <option value="">Lawyer</option>
-                                                    <option value="">Law Enforcement</option>
-                                                    <option value="">Other</option>
+                                                <select v-model="formData.type" name="" id="" >
+                                                    <option value="User/Reviewer">User/Reviewer</option>
+                                                    <option value="Business Owner/Representative">Business Owner/Representative</option>
+                                                    <option value="Lawyer">Lawyer</option>
+                                                    <option value="Law Enforcement">Law Enforcement</option>
+                                                    <option value="Other">Other</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="legal-form-item">
                                             <label>Yelp URL of content in question</label>
                                             <div class="legal-layer">
-                                                <input type="text" >
+                                                <input type="text" v-model="formData.question" >
                                             </div>
                                         </div>
                                         <div class="legal-form-item legal-form-item-danger">
                                             <label>Describe your concerns</label>
                                             <div class="legal-layer">
-                                                <textarea name="" id=""  rows="5" placeholder="Please provide any additional information that will help our support team to investigate your inquiry — the more detail, the better."></textarea>
+                                                <textarea v-model="formData.descriptions" name="" id=""  rows="5" placeholder="Please provide any additional information that will help our support team to investigate your inquiry — the more detail, the better."></textarea>
                                             </div>
                                         </div>
                                         <div class="legal-form-item">
                                             <label>Your Email Address</label>
                                             <div class="legal-layer">
-                                                <input  type="text" >
+                                                <input  type="text" v-model="formData.email">
                                                 <span class="legal-alert"><i class="fas fa-exclamation-circle"></i></span>
                                             </div>
                                         </div>
                                         <div class="legal-form-btn">
                                             <ul>
-                                                <li class="legal-btn"><button class="ripple">Send</button></li>
-                                                <li><a href="#" style="color: #0036b1 !important;">Cancel</a></li>
+                                                <li class="legal-btn" @click="sendData" v-if="!isLoading"><button class="ripple">Send</button></li>
+                                                <li class="legal-btn"  v-else><button class="ripple" disabled>Loading...</button></li>
+
+                                                <li><a href="/" style="color: #0036b1 !important;" >Cancel</a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                </form>
+                                <!-- </form> -->
                             </div>
                         </div>
                     </div>
@@ -80,229 +91,64 @@
 </template>
 
 <script>
-// export default {
-//   data() {
-//     return {
-//       reviewData: {
-//         reviewFor: "",
-//         school_id: "",
-//         content: "",
-//         is_active: 0,
-//         rating: ""
-//       },
-//       rating: 0,
-//       defaultList: [
-//         {
-//           name: "a42bdcc1178e62b4694c830f028db5c0",
-//           url:
-//             "https://o5wwk8baw.qnssl.com/a42bdcc1178e62b4694c830f028db5c0/avatar"
-//         },
-//         {
-//           name: "bc7521e033abdd1e92222d733590f104",
-//           url:
-//             "https://o5wwk8baw.qnssl.com/bc7521e033abdd1e92222d733590f104/avatar"
-//         }
-//       ],
-//       imgName: "",
-//       visible: false,
-//       uploadList: [],
-//       reviews: [],
-//       drating: {
-//         class: "",
-//         text: "Select your rating",
-//         index: 0
-//       },
-//       oldrating: {
-//         class: "",
-//         text: "",
-//         index: 0
-//       },
-//       onHover: false,
-//       loginModal: false,
-//       formData: {
-//         email: "",
-//         password: "",
-//         remember: false
-//       }
-//     };
-//   },
-//   async asyncData({ app, store, redirect, params }) {
-//     try {
-//       let { data } = await app.$axios.get(`/legends/${params.id}`);
-
-//       if (data.legend == null) {
-//         return redirect("/");
-//       }
-//       return {
-//         coachData: data.legend,
-//         AttributeInfo: data.AttributeInfo
-//       };
-//     } catch (error) {
-//       return redirect("/");
-//     }
-//   },
-//   methods: {
-//     async onSubmit() {
-//       if (this.formData.email == "") return this.i("email is empty");
-//       if (this.formData.password == "") return this.i("Password is empty");
-//       const res = await this.callApi(
-//         "post",
-//         "authentication/login",
-//         this.formData
-//       );
-//       if (res.status === 200) {
-//         this.s("Login Successfully !");
-//         this.$store.dispatch("setAuthInfo", res.data);
-
-//         this.loginModal = false;
-//       } else if (res.status == 401) {
-//         this.e(res.data.message);
-//       } else {
-//         this.swr();
-//       }
-//     },
-//      async logout() {
-//                 try {
-//                     let { data } = await this.$axios.get("/logout");
-//                     this.$store.commit("updateAuthUser", false);
-//                     window.location = '/'
-//                 } catch (error) {
-//                     console.log(error);
-//                 }
-//             },
-//     changeDataHover(index) {
-//       this.drating.index = index;
-//       this.onHover = true;
-//       if (index == 1) {
-//         this.drating.class = "review-star-1";
-//         this.drating.text = "Eek! Methinks not.";
-//       } else if (index == 2) {
-//         this.drating.class = "review-star-2";
-//         this.drating.text = "Meh. I've experienced better.";
-//       } else if (index == 3) {
-//         this.drating.class = "review-star-3";
-//         this.drating.text = "A-OK.";
-//       } else if (index == 4) {
-//         this.drating.class = "review-star-4";
-//         this.drating.text = "Yay! I'm a fan";
-//       } else if (index == 5) {
-//         this.drating.class = "review-star-5";
-//         this.drating.text = "Woohoo! As good as it gets!";
-//       }
-//     },
-
-//     changeDataHoverLeave() {
-//       this.onHover = false;
-//     },
-//     changeOldRating(index) {
-//       this.oldrating.index = index;
-//       if (index == 1) {
-//         this.oldrating.class = "review-star-1";
-//         this.oldrating.text = "Eek! Methinks not.";
-//       } else if (index == 2) {
-//         this.oldrating.class = "review-star-2";
-//         this.oldrating.text = "Meh. I've experienced better.";
-//       } else if (index == 3) {
-//         this.oldrating.class = "review-star-3";
-//         this.oldrating.text = "A-OK.";
-//       } else if (index == 4) {
-//         this.oldrating.class = "review-star-4";
-//         this.oldrating.text = "Yay! I'm a fan";
-//       } else if (index == 5) {
-//         this.oldrating.class = "review-star-5";
-//         this.oldrating.text = "Woohoo! As good as it gets!";
-//       }
-//     },
-//     async postReview() {
-//       if (this.isLoggedIn == false) {
-//         this.i("Please login first !");
-//         this.loginModal = true;
-//         return;
-//       }
-//       if (this.reviewData.content == "") {
-//         this.i("You must write something in the review box!");
-//         return;
-//       }
-//       if (this.reviewData.content == "") {
-//         this.i("You must write something in the review box!");
-//         return;
-//       }
-//       if (this.drating.index == 0) {
-//         this.i("Please rate this coach !");
-//         return;
-//       }
-//       this.reviewData.rating = this.oldrating.index;
-//       this.reviewData.review_type = "legend";
-//       // this.reviewData.uploadList = this.uploadList
-//       //  this.reviewData.AttributeInfo = this.AttributeInfo
-
-//       const res = await this.callApi(
-//         "post",
-//         "/app/storeSchoolCoachReview",
-//         this.reviewData
-//       );
-//       if (res.status === 200) {
-//         this.s("Review posted successfully!");
-//         // this.$router.push('/profile/'+this.legendData.id)
-//         this.$router.push("/scoach_review/step1/" + res.data.id);
-//       } else {
-//         this.swr();
-//       }
-//     },
-//     handleView(item) {
-//       this.imgName = item;
-//       this.visible = true;
-//     },
-//     handleRemove(index) {
-//       this.uploadList.splice(index, 1);
-//     },
-//     handleSuccess(res, file) {
-//       console.log(res);
-//       this.uploadList.push(res.file);
-//       // file.url = 'https://o5wwk8baw.qnssl.com/7eb99afb9d5f317c912f08b5212fd69a/avatar';
-//       // file.name = '7eb99afb9d5f317c912f08b5212fd69a';
-//     },
-//     handleFormatError(file) {
-//       this.$Notice.warning({
-//         title: "The file format is incorrect",
-//         desc:
-//           "File format of " +
-//           file.name +
-//           " is incorrect, please select jpg or png."
-//       });
-//     },
-//     handleMaxSize(file) {
-//       this.$Notice.warning({
-//         title: "Exceeding file size limit",
-//         desc: "File  " + file.name + " is too large, no more than 2M."
-//       });
-//     },
-//     handleBeforeUpload() {
-//       const check = this.uploadList.length < 3;
-//       if (!check) {
-//         this.$Notice.warning({
-//           title: "Up to 3 pictures can be uploaded."
-//         });
-//       }
-//       return check;
-//     }
-//   },
-//   async created() {
-//     if (this.$route.query.star) {
-//       this.rating = parseInt(this.$route.query.star);
-//       this.reviewData.rating = parseInt(this.$route.query.star);
-//       this.changeDataHover(parseInt(this.$route.query.star));
-//     }
-//     this.reviewData.reviewFor = this.coachData.id;
-//     this.reviewData.school_id = this.coachData.school_id;
-//     const [res1] = await Promise.all([
-//       this.callApi("get", `reviews/${this.$route.params.id}`)
-//     ]);
-//     if (res1.status === 200) {
-//       this.reviews = res1.data.data;
-//     } else {
-//       this.swr();
-//     }
-//   }
-// };
+export default {
+    data(){
+        return{
+            isLoading:false,
+            formData:{
+                type:'',
+                question:'',
+                descriptions:'',
+                email:'',
+            },
+            errorData:{
+                type:' ',
+                question:' ',
+                descriptions:' ',
+                email:' ',
+            },
+            someError:'Some of the data you entered is invalid.',
+            unError:'An unknown error occured: You entered the wrong word verification code. Please try the new code shown below.',
+            reg: /^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/,
+        }
+    },
+    methods:{
+        async sendData(){
+            this.i("kdjka")
+          
+            if (!this.formData.type || this.formData.type.trim()=='') {
+                this.errorData.type =''
+                return 
+             }
+            if (!this.formData.question || this.formData.question.trim()=='') {
+                this.errorData.question =''
+                return 
+             }
+            if (!this.formData.descriptions || this.formData.descriptions.trim()=='') {
+                this.errorData.descriptions =''
+                return 
+             }
+            if (!this.reg.test(this.formData.email)) {
+                this.errorData.email =''
+                return 
+             }
+             this.isLoading = true
+             const res = await this.callApi('post', '/app/sendlegalData', this.formData)
+             if(res.status==200){
+                 this.s("your request has been sent we will contact you soon!!")
+                 this.formData = {}
+                 this.errorData.type =' '
+                 this.errorData.question =' '
+                 this.errorData.question =' '
+                 this.errorData.email =' '
+                  this.isLoading = false
+             }
+             else{
+                 this.e("check your network !!")
+                   this.isLoading = false
+             }
+              this.isLoading = false
+        }
+    }
+}
 </script>
