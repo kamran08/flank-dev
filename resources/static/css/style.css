@@ -6823,3 +6823,125 @@ ul.pull-right.navbar-nav.nav li {
     display: none;
   }
 }
+
+
+.legal-form-item {
+  display: flex;
+  flex-flow: column;
+  margin-top: 15px;
+  position: relative;
+}
+
+.legal-form-item label {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.legal-form-item select {
+  font-size: 15px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  border: 1px solid #a9a9a9;
+  width: 100%;
+}
+
+.legal-form-item input {
+  font-size: 15px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  border: 1px solid #a9a9a9;
+  width: 100%;
+}
+
+.legal-form-item textarea {
+  font-size: 15px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  border: 1px solid #a9a9a9;
+  width: 100%;
+}
+
+.legal-form-item label.danger {
+  color: #d32323;
+}
+
+.legal-form-item select.danger {
+  border-color: #d32323;
+}
+
+.legal-form-item input.danger {
+  border-color: #d32323;
+}
+
+.legal-form-item textarea.danger {
+  border-color: #d32323;
+}
+
+.legal-layer {
+  position: relative;
+  width: 100%;
+}
+
+.legal-alert {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #d32323;
+  display: none;
+}
+
+.legal-alert.danger {
+  display: block;
+}
+
+.legal-form-btn {
+  margin-top: 15px;
+}
+
+.legal-form-btn ul {
+  display: flex;
+  flex-flow: row;
+  padding-left: 0 !important;
+  align-items: center;
+}
+
+.legal-form-btn ul li {
+  list-style: none !important;
+  padding-right: 10px !important;
+}
+
+.legal-form-btn ul li a {
+  color: #0036b1 !important;
+  
+}
+
+.legal-form-btn ul li a:hover {
+  background-color: transparent !important;
+}
+
+.legal-form-btn ul li button {
+  font-size: 14px;
+  line-height: 1.28571em;
+  padding: 8px 19px 9px;
+  border-radius: 3px;
+  color: #fff;
+  background: #d32323;
+  border: 1px solid #d32323;
+}
+
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+
+.ripple:hover {
+  background: #e24c4c radial-gradient(circle, transparent 1%, #dc4f4f 1%) center/15000%;
+}
+
+.ripple:active {
+  background-color: #d32323;
+  background-size: 100%;
+  transition: background 0s;
+}

@@ -299,7 +299,12 @@
                                                             <div class="inner-scandal-video-item">
                                                                 <figure @click="openDynamicVideo(item)">
                                                                     <img :src="item.img" alt="">
-                                                            
+                                                                    <div class="play-caption">
+                                                                        <span><i class="fas fa-play"></i></span>
+                                                                    </div>
+                                                                    <div class="video-duration">
+                                                                        <p class="duration"><span>2:17</span></p>
+                                                                    </div>
                                                                 </figure>
                                                                 <div class="scandal-video-caption">
                                                                     <p>{{item.title}}</p>
@@ -312,50 +317,6 @@
                                                     </slide>
                                                     <!-- <hooper-navigation slot="hooper-addons"></hooper-navigation> -->
                                                 </hooper>
-                                                
-                                                <!-- <div class="col-md-3 col-sm-6">
-                                                    <div class="inner-scandal-video-item">
-                                                     
-                                                        <figure @click="openVideo(2)">
-                                                            <img src="/newFile/2.png" alt="">
-                                                          
-                                                        </figure>
-                                                        <div class="scandal-video-caption">
-                                                            <p>Rutgers coach fired for abuse of players.</p>
-                                                        </div>
-                                                        <div class="video-logo">
-                                                            <img src="/images/flank.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="inner-scandal-video-item">
-                                                      
-                                                        <figure @click="openVideo(4)">
-                                                            <img src="/newFile/4.png" alt="">
-                                                       
-                                                        </figure>
-                                                        <div class="scandal-video-caption">
-                                                            <p>The abuse of child atheletes by their coaches. </p>
-                                                        </div>
-                                                        <div class="video-logo">
-                                                            <img src="/images/flank.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="col-md-3 col-sm-6">
-                                                    <div class="inner-scandal-video-item">
-                                                        <figure @click="openVideo(3)">
-                                                            <img src="/newFile/3.png" alt="">
-                                                        </figure>
-                                                        <div class="scandal-video-caption">
-                                                            <p>Players accuse GCU women's soccer coach of verbal, mental, physical abuse.</p>
-                                                        </div>
-                                                        <div class="video-logo">
-                                                            <img src="/images/flank.png" alt="">
-                                                        </div>
-                                                    </div>
-                                                </div> -->
                                                 
                                             </div>
                                         </div>

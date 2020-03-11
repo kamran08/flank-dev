@@ -1003,20 +1003,20 @@
                                                 <div class="col-md-3 col-sm-6"  >
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(1)">
-                                                    <img src="/newFile/1.png" alt="">
-                                                    <div class="play-caption">
-                                                        <span><i class="fas fa-play"></i></span>
-                                                    </div>
-                                                    <!-- <div class="video-duration">
-                                                        <p class="duration"><span>2:17</span></p>
-                                                    </div> -->
-                                                    </figure>
-                                                    <div class="scandal-video-caption">
-                                                        <p style="color: #d60606;">Out of control Coache's Abusive Behavior Often Under-Reported.</p>
-                                                    </div>
-                                                    <div class="video-logo">
-                                                        <img src="/image/flank.png" alt="">
-                                                    </div>
+                                                            <img src="/newFile/11.jpg" alt="">
+                                                            <div class="play-caption">
+                                                                <span><i class="fas fa-play"></i></span>
+                                                            </div>
+                                                            <div class="video-duration">
+                                                                <p class="duration"><span>2:18</span></p>
+                                                            </div>
+                                                        </figure>
+                                                        <div class="scandal-video-caption">
+                                                            <p style="color: #d60606;">Out of control Coache's Abusive Behavior Often Under-Reported.</p>
+                                                        </div>
+                                                        <div class="video-logo">
+                                                            <img src="/image/flank.png" alt="">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </slide>
@@ -1024,13 +1024,13 @@
                                                 <div class="col-md-3 col-sm-6"  >
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(1)">
-                                                    <img src="/newFile/2.png" alt="">
+                                                    <img src="/newFile/12.jpg" alt="">
                                                     <div class="play-caption">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
-                                                    <!-- <div class="video-duration">
-                                                        <p class="duration"><span>2:17</span></p>
-                                                    </div> -->
+                                                    <div class="video-duration">
+                                                        <p class="duration"><span>4:27</span></p>
+                                                    </div>
                                                     </figure>
                                                     <div class="scandal-video-caption">
                                                         <p style="color: #d60606;">Rutgers coach fired for abuse of players.</p>
@@ -1045,13 +1045,13 @@
                                                 <div class="col-md-3 col-sm-6"  >
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(1)">
-                                                    <img src="/newFile/3.png" alt="">
+                                                    <img src="/newFile/13.jpg" alt="">
                                                     <div class="play-caption">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
-                                                    <!-- <div class="video-duration">
-                                                        <p class="duration"><span>2:17</span></p>
-                                                    </div> -->
+                                                    <div class="video-duration">
+                                                        <p class="duration"><span>3:55</span></p>
+                                                    </div>
                                                     </figure>
                                                     <div class="scandal-video-caption">
                                                         <p style="color: #d60606;">The abuse of child atheletes by their coache.</p>
@@ -1066,13 +1066,13 @@
                                                 <div class="col-md-3 col-sm-6"  >
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(1)">
-                                                    <img src="/newFile/1.png" alt="">
+                                                    <img src="/newFile/12.jpg" alt="">
                                                     <div class="play-caption">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
-                                                    <!-- <div class="video-duration">
-                                                        <p class="duration"><span>2:17</span></p>
-                                                    </div> -->
+                                                    <div class="video-duration">
+                                                        <p class="duration"><span>1:37</span></p>
+                                                    </div>
                                                     </figure>
                                                     <div class="scandal-video-caption">
                                                         <p style="color: #d60606;">Rutgers coach fired for abuse of players.</p>
@@ -1850,10 +1850,10 @@
                                                 <div class="build-textarea">
                                                     <textarea v-model="step3Form.content" name="" id="" rows="10" placeholder="Your review helps others learn about good and bad coaches.
 
-                                                            You have been lied to. 
-                                                            Your values don't count.
-                                                            They don't take you seriously.                                                                                                                                                                                                                                                                     
-                                                            You owe this to yourself"></textarea>
+You have been lied to. 
+Your values don't count.
+They don't take you seriously.                                                                                                                                                                                                                                                                     
+You owe this to yourself"></textarea>
                                                 </div>
                                             </form>
                                         </div>
