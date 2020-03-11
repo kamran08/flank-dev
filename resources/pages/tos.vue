@@ -15,6 +15,7 @@
                                     <li class="active"><nuxt-link to="/tos">Terms of Services</nuxt-link></li>
                                     <li><nuxt-link to="/policy">Privacy Policy</nuxt-link></li>
                                     <li><nuxt-link to="/legal">Legal Inquiries</nuxt-link></li>
+                                    <li><nuxt-link to="">Close Your Account</nuxt-link></li>
                                 </ul>
                                 <!-- <div class="about-blog-list">
                                     <h3>The Flank Blog</h3>

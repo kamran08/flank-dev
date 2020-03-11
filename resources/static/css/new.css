@@ -1072,17 +1072,18 @@ footer {
     }
 }
 .attribute-table {
-    border: 2px solid #494949;
+    border: 3px solid #000;
     margin-top: 10px!important;
+    border-radius: 3px;
 }
 .attribute-table td {
-    border: 1px solid #494949;
+    border: 1px solid #000;
     text-align: center;
     /* text-transform: uppercase; */
-    padding: 3.5rem 10px;
+    padding: 2.5rem 10px;
     /* font-family: 'ceraPro'; */
     line-height: 19px;
-    color: #333;
+    color: #000;
     font-weight: 600;
     font-size: 12px;
     width: 33.33%;
@@ -1123,6 +1124,17 @@ footer {
 .coach-right {
     padding: 30px;
     height: 590px;
+}
+@media only screen and (max-width: 992px) {
+    .coach-right img {
+        width: 100%;
+        object-fit: contain;
+        height: auto;
+    }
+    .coach-right {
+        padding: 15px 30px;
+        height: auto;
+    }
 }
 .coach-title-area {
     width: 55%;
