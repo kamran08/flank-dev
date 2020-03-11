@@ -785,7 +785,7 @@
                             </div>
                             <div class="new-inner-item-1"  >
                                 <div class="col-md-3 col-sm-3" v-if="topHeadlines.length>0">
-                                    <div class="headline-link-content">
+                                    <div class="headline-link-content" style="display:none;">
                                         <h4 class="pad-border">Top headlines</h4>
                                         <ul>
                                             <li v-for="(item,index) in topHeadlines" :key="index">
@@ -793,37 +793,7 @@
                                                 {{item.title}}
                                                 </a>
                                             </li>
-                                            <!--<li>
-                                                <a href="#">
-                                                Example Test of Headline - Example 1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                Example Test of Headline - Example 1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                Example Test of Headline - Example 1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                Example Test of Headline - Example 1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                Example Test of Headline - Example 1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                <img src="/images/flan.png" alt="">
-                                                Example Test of Headline
-                                                </a>
-                                            </li> -->
+                                           
                                             <li>
                                                 <a href="#">
                                                 <img src="/images/flan.png" alt="">
@@ -1072,7 +1042,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="headline-link-content new-headline-link-content new-box-shadow new-mt-10">
+                                <!-- <div class="headline-link-content new-headline-link-content new-box-shadow new-mt-10">
                                     <h4 class="pad-border" style="text-transform: uppercase; font-size: 24px;">Top headlines</h4>
                                     <ul>
                                         <li>
@@ -1112,7 +1082,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                                 <div class="coach-scandal-sec new-box-shadow new-mt-10" style="padding: 0;">
                                     <div class="coach-scandal" style="padding: 25px 30px;">
                                         <div class="coach-scandal-title" style="border-width: 2px;">

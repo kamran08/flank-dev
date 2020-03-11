@@ -1615,6 +1615,7 @@
                             <li @click="chnageType('coach', 'Junior College')"><a :class="(pageOption == 'coach' && div == 'Junior College')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">College coaches</p></div></a></li>
                             <li @click="Healthiestcoaches('coach', '','averageHealthy')"><a :class="(pageOption == 'coach' && div == '')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Healthiest coaches</p></div></a></li>
                             <li @click="chnageType('coach', 'Club/Travel')"><a :class="(pageOption == 'coach' && div == 'Club/Travel')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Travel team coaches</p></div></a></li>
+                            <li @click="$router.push('/local_business')" ><a :class="(pageOption == 'coach' && div == 'Club/Travel')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">Local instructors</p></div></a></li>
                             <!-- <li @click="chnageType('school')"><a :class="(pageOption == 'school')? 'active_coach': ''"><div class="quick-link-caption"><p class="capitalize">All Schools</p></div></a></li> -->
                         </ul>
                     </div>
