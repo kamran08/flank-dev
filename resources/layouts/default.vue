@@ -1,5 +1,7 @@
 <template >
-  <div oncontextmenu="return false;">
+  <!-- <div oncontextmenu="return false;"> -->
+    <div>
+
     <div id="fb-root"></div>
    <navber v-if="header == 1"/>
    <navber2 v-else/>

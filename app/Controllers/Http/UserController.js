@@ -495,6 +495,19 @@ class UserController {
       // return await SchoolCoach.query().orderBy('avg_rating', 'desc').limit(3).fetch()
 
     }
+    async getSchoolCoachByMostRated ({ request, response, auth }) {
+
+      return await SchoolCoach.query()
+        .with('allreviewLimit').with('school')
+        .with('topAtrribute.info')
+        .withCount('allreview as allreview')
+       .orderBy('totalRating', 'desc').limit(4).fetch()
+        // .whereHas('school', (builder) => {
+        //   builder.where('city', 'LIKE', '%' + place + '%')
+        // })
+      // return await SchoolCoach.query().orderBy('avg_rating', 'desc').limit(3).fetch()
+
+    }
     async sendlegalData ({ request, response, auth }) {
 
       let data = request.all()
