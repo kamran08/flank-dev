@@ -17,14 +17,16 @@
                         </div> -->
                     </div>
 
-                    <div class="new-up-search-form">
+                    <div class="new-up-search-form" v-if="isCoachSearchPage">
                         <div class="flank-new-form fl-flank-new-form">
                             <form v-on:submit.prevent>
                                 <div class="flank-new-indi">
                                     <div class="new-flank-selection fl-new-flank-selection new-up-flank-selection">
-                                        <p  style="cursor:pointer;" >All <span><i class="fas fa-caret-down"></i></span></p>
+                                        <p  style="cursor:pointer;" @click="isStringMenu = (isStringMenu)? false : true">All <span><i class="fas fa-caret-down"></i></span></p>
                                         <!-- <p  @click="isStringMenu = (isStringMenu)? false : true" style="cursor:pointer;" > {{(pageOption)? pageOption: 'All'}} <span><i class="fas fa-caret-down"></i></span></p> -->
                                         <div class="new-flank-selection-dropdown new-flank-selection-dropdown-fl" v-if="isStringMenu"  >
+
+
                                             <ul>
                                                 <li><a @click="pageOptionDropChange('school')">School</a></li>
                                                 <li><a @click="pageOptionDropChange('coach')">Coach</a></li>
@@ -192,8 +194,7 @@
                 tStr:'',
                 tPlace:'',
                 allPlaces:[],
-
-
+                isCoachSearchPage:false,
                 packType:0,
                 legend_id:0,
                 reviewModal:false,
@@ -451,7 +452,19 @@
             //          this.legend_id = res.data.id
             //      }
             //  } 
+        },
+    watch: { 
+      '$route.name': function(newVal, oldVal) { // watch it
+        this.$store.commit('setIsMobileSideBar', false )
+        if(newVal == 'coach_search'){
+          this.isCoachSearchPage = true
         }
+        else{
+          this.isCoachSearchPage = false
+        }
+
+      }
+    },
     }
 </script>
 

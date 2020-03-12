@@ -1,12 +1,12 @@
 <template >
-  <!-- <div oncontextmenu="return false;"> -->
+  <div oncontextmenu="return false;">
     <div>
 
     <div id="fb-root"></div>
-   <navber v-if="header == 1"/>
-   <navber2 v-else/>
+   <navber />
     <nuxt />
     <myFooter/>
+  </div>
   </div>
 </template>
 
@@ -26,18 +26,7 @@ export default {
       header:1
     }
   },
-  watch: { 
-      '$route.name': function(newVal, oldVal) { // watch it
-        this.$store.commit('setIsMobileSideBar', false )
-        if(newVal == 'scoach_review-id' || newVal == "addreview-id"){
-          this.header = 2
-        }
-        else{
-          this.header = 1
-        }
 
-      }
-    },
   created(){
     if(this.$route.name == 'scoach_review-id' || this.$route.name == "addreview-id"){
           this.header = 2
