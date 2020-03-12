@@ -121,7 +121,7 @@
                                                     <div class="suggestion-container-inner">
                                                         <div class="suggestion-container-left">
                                                             <h3>Not here? Tell us what we're missing.</h3>
-                                                            <p>If the bussiness you are looking for isn't here, add it!</p>
+                                                            <p>If the coach you are looking for isn’t here, add him/her!</p>
                                                         </div>
                                                         <div class="suggestion-container-right">
                                                             <button @click="addNew.modal = true" >Add a School/Coach</button>
@@ -1794,7 +1794,7 @@
                                                     <div class="suggestion-container-inner">
                                                         <div class="suggestion-container-left">
                                                             <h3>Not here? Tell us what we're missing.</h3>
-                                                            <p>If the bussiness you are looking for isn't here, add it!</p>
+                                                            <p>If the coach you are looking for isn’t here, add him/her!</p>
                                                         </div>
                                                         <div class="suggestion-container-right">
                                                             <button @click="addNew.modal = true" >Add a School/Coach</button>

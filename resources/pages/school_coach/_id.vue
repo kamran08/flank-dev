@@ -16,7 +16,8 @@
                                 <div class="flank-header-cap">
                                     <h1>Coach <br><span>{{legendData.name}}</span></h1>
                                     <ul>
-                                        <li><img  :src="legendData.school.logo" alt="">{{legendData.school.schoolName}}</li>
+                                        <!-- <li><img  :src="legendData.school.logo" alt="">{{legendData.school.schoolName}}</li> -->
+                                        <li><img  src="/images/sticker-3.png" alt="">{{legendData.school.schoolName}}</li>
                                         <li>&bull;</li>
                                         <li>{{legendData.school.sport}}</li>
                                     </ul>
@@ -693,7 +694,8 @@
                                 <div class="flank-header-cap flank-header-cap-mob">
                                     <h1>Coach <br><span>{{legendData.name}}</span></h1>
                                     <ul>
-                                        <li><img  :src="legendData.school.logo" alt="">{{legendData.school.schoolName}}</li>
+                                        <!-- <li><img  :src="legendData.school.logo" alt="">{{legendData.school.schoolName}}</li> -->
+                                        <li><img  src="/images/sticker-3.png" alt="">{{legendData.school.schoolName}}</li>
                                         <li>&bull;</li>
                                         <li>{{legendData.school.sport}}</li>
                                     </ul>
@@ -1910,7 +1912,7 @@ You owe this to yourself"></textarea>
                                         <div class="build-right-form-inner build-right-form-non">
                                             <div class="build-confirmation-text">
                                                 <h3>Great! Way to Flank! <br> Your review has been submitted</h3>
-                                                <p>Please allow us 24-48 hours to pull your information into one place, and see your low risk insight instantly benefit the player communities where you play(ed).</p>
+                                                <p>Please allow us 24-48 hours to pull your information into one place, and see your low risk insight instantly benefit the player communities where you played.</p>
                                             </div>
                                         </div>
                                     </div>

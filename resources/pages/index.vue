@@ -106,9 +106,9 @@
                                                 <div class="recent-activity-part-inner">
                                                     <div class="activ-thumb" @click="directToCoachWall(item)" style="cursor: pointer;" >
                                                         <figure>
-                                                            <img v-if="item.review_type == 'school'"  :src="(item.school.logo != null)? item.school.logo : '/images/defult_coach.png'"  alt="">
-                                                            <img v-if="item.review_type == 'product'" :src="(item.product.img)? item.product.img : '/images/defult_coach.png'" alt="">
-                                                            <img   v-if="item.review_type == 'legend'"  :src="(item.legend.img)? item.legend.img : '/images/defult_coach.png'"   alt="">
+                                                            <img v-if="item.review_type == 'school'"  src="/images/sticker-3.png" alt="">
+                                                            <img v-if="item.review_type == 'product'" src="/images/sticker-3.png" alt="">
+                                                            <img   v-if="item.review_type == 'legend'"  src="/images/sticker-3.png"   alt="">
                                                         </figure>
                                                     </div>
                                                     <div class="activ-det">
@@ -187,7 +187,7 @@
                                         <div class="spotlight-foot-img">
                                             <p><a href="#">Learn More</a></p>
                                             <figure>
-                                                <img src="/images/flank.png" alt="">
+                                                <img src="/image/flank.png" alt="">
                                             </figure>
                                         </div>
                                         
@@ -224,7 +224,7 @@
                                             </div>
                                             <!-- <div class="blg-caption">
                                                 <figure>
-                                                    <img src="/images/flank.png" alt="">
+                                                    <img src="/image/flank.png" alt="">
                                                 </figure>
                                                 </div> -->
                                         </div>
@@ -1104,7 +1104,7 @@
                                                         <p>Players accuse GCU women's soccer coach of verbal, mental, physical abuse.</p>
                                                     </div>
                                                     <div class="video-logo">
-                                                        <img src="/images/flank.png" alt="">
+                                                        <img src="/image/flank.png" alt="">
                                                     </div>
                                                 </div>
                                             </div> -->
@@ -1122,9 +1122,9 @@
                                             <div class="recent-activity-part-inner">
                                                 <div class="activ-thumb new-activ-thumb" @click="directToCoachWall(item)" style="cursor: pointer;" >
                                                     <figure>
-                                                        <img v-if="item.review_type == 'school'"  :src="(item.school.logo != null)? item.school.logo : '/images/defult_coach.png'"  alt="">
-                                                        <img v-if="item.review_type == 'product'" :src="(item.product.img)? item.product.img : '/images/defult_coach.png'" alt="">
-                                                        <img   v-if="item.review_type == 'legend'"  :src="(item.legend.img)? item.legend.img : '/images/defult_coach.png'"   alt="">
+                                                        <img v-if="item.review_type == 'school'"  :src="(item.school.logo != null)? item.school.logo : '/images/sticker-3.png'"  alt="">
+                                                        <img v-if="item.review_type == 'product'" :src="(item.product.img)? item.product.img : '/images/sticker-3.png'" alt="">
+                                                        <img   v-if="item.review_type == 'legend'"  :src="(item.legend.img)? item.legend.img : '/images/sticker-3.png'"   alt="">
                                                     </figure>
                                                 </div>
                                                 <div class="activ-det new-activ-det">
