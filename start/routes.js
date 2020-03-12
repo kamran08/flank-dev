@@ -157,6 +157,7 @@ Route.get('/app/getStreak/:id', 'SchoolController.getStreak')
 Route.post('/app/sendInvitation', 'UserController.sendInvitation')
 Route.post('/app/sendlegalData', 'UserController.sendlegalData')
 Route.get('/app/getSchoolCoachByhighRated', 'UserController.getSchoolCoachByhighRated')
+Route.get('/app/getSchoolCoachByMostRated', 'UserController.getSchoolCoachByMostRated')
 
 Route.get('app/initdata', 'UserController.initdata')
 Route.any('/', 'NuxtController.render').as('home')

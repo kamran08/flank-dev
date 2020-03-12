@@ -5,7 +5,7 @@
 
             <div class="new-search-flank" id="topId">
                 <div class="new-search-flank-num">
-                    <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p>
+                    <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p> 
                 </div>
                 <div :class="(isMobileMenu)? 'modal-open': 'flank-filter'" v-if="showMenuButton" >
                     <span @click="isMobileMenu = (isMobileMenu)? false : true"><i class="fas fa-filter"></i></span>
@@ -64,24 +64,25 @@
                             <h3>Attributes</h3>
                             <ul>
                                 <li>
-                                    <input type="radio" name="gender"  v-model="attribute" id="che1" :value="'averageHealthy'" v-on:change="SearchByKey" ><label for="che1">Healthy index</label>
+                                    <input type="radio" name="gender"  v-model="attribute" id="che1" :value="'averageHealthy'" v-on:change="AttributesSearchByKey" ><label for="che1">Healthy index</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="gender"  v-model="attribute" id="che2" :value="'averageHarmful'" v-on:change="SearchByKey"><label for="che2">Harmful index</label>
+                                    <input type="radio" name="gender"  v-model="attribute" id="che2" :value="'averageHarmful'" v-on:change="AttributesSearchByKey"><label for="che2">Harmful index</label>
                                 </li>
                             </ul>
                         </div>
                         <div class="new-flank-sidebar-list"  v-if="pageOption != 'product' ">
                             <h3>Sport type</h3>
-                            <CheckboxGroup v-model="sports" @on-change="SearchByKey">
+                            <!-- <CheckboxGroup v-model="sports" @on-change="SpoprtsSearchByKey"> -->
                             <ul v-if="allSports.length">
                                 <li v-for="(item,index) in allSports" :key="index" >
-                                    <Checkbox :label="item.value">{{item.name}}</Checkbox>
+                                     <input type="radio" name="gender"  v-model="tsports" :id="`che${index+3}`" :value="item.value" v-on:change="SpoprtsSearchByKey"><label :for="`che${index+3}`">{{item.name}}</label>
+                                    <!-- <Checkbox :label="item.value">{{item.name}}</Checkbox> -->
                                     <!-- <input type="checkbox" id="che3"><label for="che3">Baseball</label> -->
                                 </li>
                             
                             </ul>
-                            </CheckboxGroup>
+                            <!-- </CheckboxGroup> -->
                         </div>
                     </div>
                 </transition>
@@ -120,7 +121,7 @@
                                                     <div class="suggestion-container-inner">
                                                         <div class="suggestion-container-left">
                                                             <h3>Not here? Tell us what we're missing.</h3>
-                                                            <p>If the bussiness you are looking for isn't here, add it!</p>
+                                                            <p>If the coach you are looking for isn’t here, add him/her!</p>
                                                         </div>
                                                         <div class="suggestion-container-right">
                                                             <button @click="addNew.modal = true" >Add a School/Coach</button>
@@ -585,37 +586,37 @@
                                     </div>
 
                                     <!-- Card Items -->
-                                    <!-- <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6">
+                                    <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6" v-for="(item,index) in ratedpost" :key="index">
                                         <div class="_1card">
                                             <p class="_2title">Our Top Choice</p>
 
-                                            <p class="_1card_subtitle">Coach Name - Sport Type City/State</p>
+                                              <p class="_1card_subtitle">{{item.name}} - {{item.school.sport}} {{item.school.city}}</p>
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                             </div>
 
                                             <div class="_1card_details">
-                                                <p class="_3title">Coach Name - Sport Type</p>
+                                                <p class="_3title">{{item.school.schoolName}} - {{item.school.sport}}</p>
                                                 <p class="_3title" style="margin-bottom: 10px;">City/State</p>
                                                 <div class="_1rating">
                                                     <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
+                                                        <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                     </ul>
                                                 </div>
-                                                <p class="_1card_tag">67.0 Health Seore</p>
+                                                <p class="_1card_tag">{{item.averageHealthy}} Health Seore</p>
                                                 <p class="_1text">
                                                     When you're after a true empowering coach
                                                     , coach Jhon Doe nails all the healthy coaching attributes.
                                                 </p>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <!-- Card Items -->
 
                                     <!-- Card Items -->
@@ -654,7 +655,7 @@
 
                                     <!-- Card Items -->
                                     <!-- tracter -->
-                                    <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6" v-for="(item,index) in ratedpost" :key="index">
+                                    <!-- <div class="col-xl-12 col-md-6 col-lg-3 col-sm-6 col-xs-6" v-for="(item,index) in ratedpost" :key="index">
                                         
                                         <div class="_1card">
                                             <p class="_2title">Our Top Choice</p>
@@ -667,7 +668,7 @@
 
                                             <div class="_1card_details">
                                                 <p class="_3title">{{item.name}} - {{item.school.sport}}</p>
-                                                <p class="_3title" style="margin-bottom: 10px;">{{item.school.city}}</p>
+                                                <p class="_3title" style="margin-bottom: 10px;">{{item.school.city}}/{{item.school.state}}</p>
                                                 <div class="_1rating">
                                                     <ul class="_1rating_list">
                                                         <li :class="(item.avg_rating>0)?'_1rating_active':''"><i class="fas fa-star"></i></li>
@@ -685,7 +686,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Card Items -->
                                 </div>
                             </div>
@@ -1096,24 +1097,24 @@
                             <div class="_2coach_main">
                                 <div class="row flex-row">
                                     <!-- Card -->
-                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1">
+                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1" v-for="(item,index) in mostratedpost" :key="index">
                                         <div class="_1card">
-                                            <p class="_1card_star">4 Stars & Up</p>
+                                            <p class="_1card_star">{{4-index}} Stars & Up</p>
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                             </div>
 
                                             <div class="_1card_details">
-                                                <p class="_3title">Coach Name - Sport Type City/State</p>
+                                                <p class="_3title">{{item.name}} - {{item.school.sport}} {{item.school.city}}/{{item.school.state}}</p>
                                                 <div class="_1rating">
-                                                    <ul class="_1rating_list">
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                        <li class=""><i class="fas fa-star"></i></li>
-                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
+                                                     <ul class="_1rating_list">
+                                                        <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.totalRating}}</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -1122,7 +1123,7 @@
                                     <!-- Card -->
 
                                     <!-- Card -->
-                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1">
+                                    <!-- <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1">
                                         <div class="_1card">
                                             <p class="_1card_star">3 Stars & Up</p>
 
@@ -1144,11 +1145,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Card -->
 
                                     <!-- Card -->
-                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1">
+                                    <!-- <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1">
                                         <div class="_1card">
                                             <p class="_1card_star">2 Stars & Up</p>
 
@@ -1170,11 +1171,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Card -->
 
                                     <!-- Card -->
-                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1">
+                                    <!-- <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1">
                                         <div class="_1card">
                                             <p class="_1card_star">1 Stars & Up</p>
 
@@ -1196,7 +1197,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Card -->
                                 </div>
                             </div>
@@ -1650,10 +1651,10 @@
                             <h3>Attributes</h3>
                             <ul>
                                 <li>
-                                    <input type="radio" name="gender"  v-model="attribute" id="che1" value="averageHealthy" v-on:change="SearchByKey" ><label for="che1">Healthy index</label>
+                                    <input type="radio" name="gender"  v-model="attribute" id="che1" value="averageHealthy" v-on:change="AttributesSearchByKey" ><label for="che1">Healthy index</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="gender"  v-model="attribute" id="che2" value="averageHarmful" v-on:change="SearchByKey"><label for="che2">Harmful index</label>
+                                    <input type="radio" name="gender"  v-model="attribute" id="che2" value="averageHarmful" v-on:change="AttributesSearchByKey"><label for="che2">Harmful index</label>
                                 </li>
                             </ul>
                         </div>
@@ -1663,15 +1664,16 @@
                     <div class="quick-link-content sidebar-con-list">
                         <div class="new-flank-sidebar-list"  v-if="pageOption != 'product' ">
                             <h3>Sport type</h3>
-                            <CheckboxGroup v-model="sports" @on-change="SearchByKey">
+                            <!-- <CheckboxGroup v-model="sports" @on-change="SearchByKey"> -->
                             <ul v-if="allSports.length">
                                 <li v-for="(item,index) in allSports" :key="index" >
-                                    <Checkbox :label="item.value">{{item.name}}</Checkbox>
+                                    <input type="radio" name="gender"  v-model="tsports" :id="`che${index+3}`" :value="item.value" v-on:change="SpoprtsSearchByKey"><label :for="`che${index+3}`">{{item.name}}</label>
+                                    <!-- <Checkbox :label="item.value">{{item.name}}</Checkbox> -->
                                     <!-- <input type="checkbox" id="che3"><label for="che3">Baseball</label> -->
                                 </li>
                             
                             </ul>
-                            </CheckboxGroup>
+                            <!-- </CheckboxGroup> -->
                         </div>
                             <!-- <li>
                                 <a href=""> 
@@ -1792,7 +1794,7 @@
                                                     <div class="suggestion-container-inner">
                                                         <div class="suggestion-container-left">
                                                             <h3>Not here? Tell us what we're missing.</h3>
-                                                            <p>If the bussiness you are looking for isn't here, add it!</p>
+                                                            <p>If the coach you are looking for isn’t here, add him/her!</p>
                                                         </div>
                                                         <div class="suggestion-container-right">
                                                             <button @click="addNew.modal = true" >Add a School/Coach</button>
@@ -1930,8 +1932,10 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{item.ratingText}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
+                                                            <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
+
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
@@ -2007,8 +2011,9 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{item.ratingText}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
+                                                            <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
@@ -2067,8 +2072,9 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{item.ratingText}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
+                                                              <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
@@ -2182,31 +2188,31 @@
                                 <div class="row pl-20 mt-20 new-flanker-top-choice">
                                     <hooper :itemsToShow="3" :infiniteScroll="true" >
                                     <!-- Card Items -->
-                                        <slide >
+                                        <slide v-for="(item,index) in ratedpost" :key="index" >
                                             <div class=" pad-10-b">
                                                 <div class="_1card _1card-border">
                                                     <p class="_2title">Our Top Choice</p>
 
-                                                    <p class="_1card_subtitle">Coach Name - Sport Type <br> City/State</p>
+                                                    <p class="_1card_subtitle">{{item.name}} - {{item.school.sport}} {{item.school.city}}</p>
 
                                                     <div class="_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                                     </div>
 
                                                     <div class="_1card_details">
-                                                        <p class="_3title">Coach Name - Sport Type</p>
-                                                        <p class="_3title" style="margin-bottom: 10px;">City/State</p>
+                                                       <p class="_3title">{{item.name}} - {{item.school.sport}}</p>
+                                                        <p class="_3title" style="margin-bottom: 10px;">{{item.school.city}}/{{item.school.state}}</p>
                                                         <div class="_1rating">
-                                                            <ul class="_1rating_list">
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class=""><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
+                                                           <ul class="_1rating_list">
+                                                                <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
+                                                                <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                             </ul>
                                                         </div>
-                                                        <p class="_1card_tag">67.0 Health Score</p>
+                                                       <p class="_1card_tag">{{item.averageHealthy}} Health Seore</p>
                                                         <p class="_1text">
                                                             When you're after a true empowering coach
                                                             , coach Jhon Doe nails all the healthy coaching attributes.
@@ -2218,43 +2224,7 @@
                                         <!-- Card Items -->
 
                                         <!-- Card Items -->
-                                        <slide >
-                                            <div class=" pad-10-b">
-                                                <div class="_1card _1card-border">
-                                                    <p class="_2title">Our Top Choice</p>
-
-                                                    <p class="_1card_subtitle">Coach Name - Sport Type <br> City/State</p>
-
-                                                    <div class="_1card_pic">
-                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
-                                                    </div>
-
-                                                    <div class="_1card_details">
-                                                        <p class="_3title">Coach Name - Sport Type</p>
-                                                        <p class="_3title" style="margin-bottom: 10px;">City/State</p>
-                                                        <div class="_1rating">
-                                                            <ul class="_1rating_list">
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class=""><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
-                                                            </ul>
-                                                        </div>
-                                                        <p class="_1card_tag">67.0 Health Seore</p>
-                                                        <p class="_1text">
-                                                            When you're after a true empowering coach
-                                                            , coach Jhon Doe nails all the healthy coaching attributes.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </slide>
-                                        <!-- Card Items -->
-
-                                        <!-- Card Items -->
-                                        <slide >
+                                        <!-- <slide >
                                             <div class=" pad-10-b">
                                                 <div class="_1card _1card-border">
                                                     <p class="_2title">Our Top Choice</p>
@@ -2286,7 +2256,43 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </slide>
+                                        </slide> -->
+                                        <!-- Card Items -->
+
+                                        <!-- Card Items -->
+                                        <!-- <slide >
+                                            <div class=" pad-10-b">
+                                                <div class="_1card _1card-border">
+                                                    <p class="_2title">Our Top Choice</p>
+
+                                                    <p class="_1card_subtitle">Coach Name - Sport Type <br> City/State</p>
+
+                                                    <div class="_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
+
+                                                    <div class="_1card_details">
+                                                        <p class="_3title">Coach Name - Sport Type</p>
+                                                        <p class="_3title" style="margin-bottom: 10px;">City/State</p>
+                                                        <div class="_1rating">
+                                                            <ul class="_1rating_list">
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
+                                                                <li class=""><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
+                                                            </ul>
+                                                        </div>
+                                                        <p class="_1card_tag">67.0 Health Seore</p>
+                                                        <p class="_1text">
+                                                            When you're after a true empowering coach
+                                                            , coach Jhon Doe nails all the healthy coaching attributes.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </slide> -->
                                         <hooper-navigation slot="hooper-addons"></hooper-navigation>
                                     </hooper>
                                 </div>
@@ -2328,8 +2334,9 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{item.ratingText}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
+                                                              <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
@@ -2476,8 +2483,9 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{item.ratingText}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
+                                                              <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
@@ -2624,8 +2632,9 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{item.ratingText}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
+                                                              <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
@@ -2699,33 +2708,33 @@
 
                             <div class="_2coach_main _2coach_main_hooper">
                                 <hooper :itemsToShow="3"  >
-                                        <slide >
+                                        <slide v-for="(item,index) in mostratedpost" :key="index" >
                                             <div class=" flex-1">
                                                 <div class="_1card">
-                                                    <p class="_1card_star">4 Stars & Up</p>
+                                                    <p class="_1card_star">{{4-index}} Stars & Up</p>
 
                                                     <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                                     </div>
 
                                                     <div class="_1card_details _1card_details_mob">
-                                                        <h3 class="_3title">Coach Name - <span>Football</span></h3>
-                                                        <p class="_3title">School Name</p>
+                                                        <h3 class="_3title">{{item.name}}  - <span>{{item.school.sport}}</span></h3>
+                                                        <p class="_3title">{{item.school.schoolName}}</p>
                                                         <div class="_1rating mt-10">
-                                                            <ul class="_1rating_list">
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_active"><i class="fas fa-star"></i></li>
-                                                                <li class=""><i class="fas fa-star"></i></li>
-                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span>10</li>
+                                                             <ul class="_1rating_list">
+                                                                <li :class="(item.avg_rating>0)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                                <li :class="(item.avg_rating>1)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                                <li :class="(item.avg_rating>2)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                                <li :class="(item.avg_rating>2)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                                <li :class="(item.avg_rating==5)?'_1rating_active':''"><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </slide>
-                                        <slide>
+                                        <!-- <slide>
                                             <div class=" flex-1">
                                                 <div class="_1card">
                                                     <p class="_1card_star">3 Stars & Up</p>
@@ -2750,7 +2759,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </slide>
+                                        </slide> 
                                         <slide>
                                             <div class=" flex-1">
                                                 <div class="_1card">
@@ -2802,7 +2811,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </slide>
+                                        </slide>-->
                                         <hooper-navigation slot="hooper-addons"></hooper-navigation>
                                     </hooper>
                             </div>
@@ -2843,8 +2852,9 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{item.ratingText}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
+                                                              <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
@@ -2990,8 +3000,9 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{item.ratingText}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
+                                                              <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
@@ -3138,8 +3149,9 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                            <span>"{{item.ratingText}}"</span>
-                                                            <a href="" class="new-text-blue">read more</a>
+                                                              <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
                                                         </p>
                                                     </div>
                                                     <div class="new-comment-btn mob-new-comment-btn">
@@ -3619,6 +3631,8 @@ export default {
     data(){
         return{
             ratedpost:{},
+            tsports:'',
+            mostratedpost:[],
             mobileScreen:false,
             isMobileMenu:true,
             showMenuButton:false,
@@ -3749,6 +3763,7 @@ export default {
            
         },
         changeOldRating(index){
+            this.attribute=''
              this.oldrating.index = index
             if(index == 1){
                 this.oldrating.class = 'review-star-1'
@@ -3953,6 +3968,15 @@ export default {
             this.$store.commit('setPageOption', item )
             this.$store.commit('setDiv', division )
             this.attribute = att
+            this.SearchByKey()
+        },
+        async AttributesSearchByKey(){
+            this.sports = [];
+            this.SearchByKey()
+        },
+        async SpoprtsSearchByKey(key){
+             this.sports = [];
+             this.sports.push(this.tsports);
             this.SearchByKey()
         },
         async SearchByKey(page=1){
@@ -4162,7 +4186,7 @@ export default {
         this.$store.commit('setPlace', tempPlace )
         let tempStr = (this.$route.query.str)? this.$route.query.str :''
         this.$store.commit('setStr', tempStr )
-        let tempPageOption = (this.$route.query.pageOption)? this.$route.query.pageOption :'coach'
+        let tempPageOption = (this.$route.query.pageOption)? this.$route.query.pageOption :'coach' 
         this.$store.commit('setPageOption', tempPageOption )
 
         this.sort = (this.$route.query.sort)? this.$route.query.sort :'normal'
@@ -4173,15 +4197,19 @@ export default {
         this.showStr = this.str
         this.splace = this.place
         await this.SearchByKey()
+        const [ res, res1,res2] = await Promise.all([
+            this.callApi("get", `/app/getAllSports`),
+            this.callApi("get", `/app/getSchoolCoachByhighRated`),
+            this.callApi("get", `/app/getSchoolCoachByMostRated`),
+        
+        ]);
+        if(res.status == 200 && res1.status == 200 && res2.status == 200){
 
-        const res = await this.callApi("get",'/app/getAllSports')
-        if(res.status == 200){
             this.allSports = res.data
+            this.ratedpost = res1.data
+            this.mostratedpost = res2.data
         }
-        const res6 =await this.callApi("get", `/app/getSchoolCoachByhighRated`)
-         if(res6.status == 200){
-            this.ratedpost = res6.data
-        }
+       
 
 
         // this. showCurrentPage = (Math.ceil(this.pagination.total)/(this.pagination.perPage)-this.pagination.page)

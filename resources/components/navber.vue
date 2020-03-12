@@ -16,6 +16,46 @@
                             <span><i class="fas fa-bars"></i></span>
                         </div> -->
                     </div>
+
+                    <div class="new-up-search-form">
+                        <div class="flank-new-form fl-flank-new-form">
+                            <form v-on:submit.prevent>
+                                <div class="flank-new-indi">
+                                    <div class="new-flank-selection fl-new-flank-selection new-up-flank-selection">
+                                        <p  style="cursor:pointer;" >All <span><i class="fas fa-caret-down"></i></span></p>
+                                        <!-- <p  @click="isStringMenu = (isStringMenu)? false : true" style="cursor:pointer;" > {{(pageOption)? pageOption: 'All'}} <span><i class="fas fa-caret-down"></i></span></p> -->
+                                        <div class="new-flank-selection-dropdown new-flank-selection-dropdown-fl" v-if="isStringMenu"  >
+                                            <ul>
+                                                <li><a @click="pageOptionDropChange('school')">School</a></li>
+                                                <li><a @click="pageOptionDropChange('coach')">Coach</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="new-flank-input">
+                                        <input type="text" v-model="tStr" @enter="SearchByKey" >
+                                    </div>
+                                </div>
+                                <div class="flank-new-indi" v-if=" pageOption != 'product' "  >
+                                    <div class="new-flank-selection">
+                                        <p>Near</p>
+                                    </div>
+                                    <div class="new-flank-input" >
+                                        <input type="text" v-model="tPlace" v-on:keyup="searchPlace" @enter="SearchByKey"  > 
+                                        <div class="new-flank-indi-dropdown" v-if="allPlaces.length>0 && tPlace != ''" >
+                                            <ul class="ssrolable" >
+                                                <li v-for="(item,index) in allPlaces" :key="index" >
+                                                    <a @click="letChangePlace(item)">{{item.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flank-new-search fl-flank-new-search new-up-flank-search">
+                                    <button @click="SearchByKey" ><span><i class="fas fa-search"></i></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     
                     <div class="flank-new-autho" v-if="!isLoggedIn" >
                         <div class="autho-in">
@@ -26,6 +66,9 @@
                         </div>
                     </div>
                     <div class="flank-new-autho" v-else>
+                        <div class="profile-ico">
+                            <button @click="$router.push('/login')"><i class="fas fa-user-circle"></i></button>
+                        </div>
                         <div class="autho-in">
                             <button @click="logout" >Log Out</button>
                         </div>
