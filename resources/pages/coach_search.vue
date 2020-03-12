@@ -612,7 +612,7 @@
                                                 <p class="_1card_tag">{{item.averageHealthy}} Health Score</p>
                                                 <p class="_1text">
                                                     When you're after a true empowering coach
-                                                    , coach Jhon Doe nails all the healthy coaching attributes.
+                                                    , coach {{item.name}} nails all the healthy coaching attributes.
                                                 </p>
                                             </div>
                                         </div>

@@ -1,5 +1,5 @@
 <template >
-  <div oncontextmenu="return false;">
+  <!-- <div oncontextmenu="return false;"> -->
     <div>
 
     <div id="fb-root"></div>
@@ -7,7 +7,7 @@
     <nuxt />
     <myFooter/>
   </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>

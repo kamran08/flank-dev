@@ -11,6 +11,7 @@
                         <img src="/images/new-cross.png" alt="">
                     </div>
                     <div class="flank-new-brand">
+                        <!-- /flanker'+authInfo.id  -->
                         <a @click="$router.push('/')"><img src="/images/new-l.png" alt=""></a>
                         <!-- <div class="mobile-button" @click="isMobileMenu = true" >
                             <span><i class="fas fa-bars"></i></span>
@@ -69,7 +70,7 @@
                     </div>
                     <div class="flank-new-autho" v-else>
                         <div class="profile-ico">
-                            <button @click="$router.push('/login')"><i class="fas fa-user-circle"></i></button>
+                            <button @click="$router.push('/flanker/'+authInfo.id)"><i class="fas fa-user-circle"></i></button>
                         </div>
                         <div class="autho-in">
                             <button @click="logout" >Log Out</button>
@@ -436,6 +437,9 @@
             },
         },
         async created(){
+            if(window.location.pathname=='/coach_search'){
+                this.isCoachSearchPage = true
+            }
             // let d = new Date('2019-08-11');
             // d.setDate(d.getDate() + 60);
             // let monthNumber = d.getMonth()+1
