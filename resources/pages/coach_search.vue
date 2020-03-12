@@ -609,7 +609,7 @@
                                                         <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                     </ul>
                                                 </div>
-                                                <p class="_1card_tag">{{item.averageHealthy}} Health Seore</p>
+                                                <p class="_1card_tag">{{item.averageHealthy}} Health Score</p>
                                                 <p class="_1text">
                                                     When you're after a true empowering coach
                                                     , coach Jhon Doe nails all the healthy coaching attributes.
@@ -643,7 +643,7 @@
                                                         <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
                                                     </ul>
                                                 </div>
-                                                <p class="_1card_tag">67.0 Health Seore</p>
+                                                <p class="_1card_tag">67.0 Health Score</p>
                                                 <p class="_1text">
                                                     When you're after a true empowering coach
                                                     , coach Jhon Doe nails all the healthy coaching attributes.
@@ -679,7 +679,7 @@
                                                         <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                     </ul>
                                                 </div>
-                                                <p class="_1card_tag">{{item.averageHealthy}} Health Seore</p>
+                                                <p class="_1card_tag">{{item.averageHealthy}} Health Score</p>
                                                 <p class="_1text">
                                                     When you're after a true empowering coach
                                                     , coach Jhon Doe nails all the healthy coaching attributes.
@@ -2212,7 +2212,7 @@
                                                                 <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                             </ul>
                                                         </div>
-                                                       <p class="_1card_tag">{{item.averageHealthy}} Health Seore</p>
+                                                       <p class="_1card_tag">{{item.averageHealthy}} Health Score</p>
                                                         <p class="_1text">
                                                             When you're after a true empowering coach
                                                             , coach Jhon Doe nails all the healthy coaching attributes.
@@ -2248,7 +2248,7 @@
                                                                 <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
                                                             </ul>
                                                         </div>
-                                                        <p class="_1card_tag">67.0 Health Seore</p>
+                                                        <p class="_1card_tag">67.0 Health Score</p>
                                                         <p class="_1text">
                                                             When you're after a true empowering coach
                                                             , coach Jhon Doe nails all the healthy coaching attributes.
@@ -2284,7 +2284,7 @@
                                                                 <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 10</li>
                                                             </ul>
                                                         </div>
-                                                        <p class="_1card_tag">67.0 Health Seore</p>
+                                                        <p class="_1card_tag">67.0 Health Score</p>
                                                         <p class="_1text">
                                                             When you're after a true empowering coach
                                                             , coach Jhon Doe nails all the healthy coaching attributes.

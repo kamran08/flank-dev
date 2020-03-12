@@ -1203,12 +1203,12 @@
                                                                     <img :src="item.img" alt="">
                                                             
                                                                 </figure>
-                                                                <div class="new-mob-latest-details">
+                                                                <!-- <div class="new-mob-latest-details">
                                                                     <div class="new-mob-latest-details-inner">
                                                                         <h3>Coach name</h3>
                                                                         <h4>School name</h4>
                                                                     </div>
-                                                                </div>
+                                                                </div> -->
                                                                 <div class="scandal-video-caption">
                                                                     <p>{{item.title}}</p>
                                                                 </div>
