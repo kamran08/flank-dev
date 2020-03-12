@@ -502,8 +502,8 @@ class UserController {
       if (data.email) {
         await Mail.send('emails.legal', data, (message) => {
           message
-            .to('ahmedkamran265@gmail.com')
-            .from('sa1021757@gmail.com', `Legal inquiries`)
+            .to('goflank@yahoo.com')
+            .from(data.email, `Legal inquiries`)
             .subject('Legal inquiries')
         })
       }

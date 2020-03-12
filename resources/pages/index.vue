@@ -1722,7 +1722,7 @@ export default {
 
         if(this.flankDaily.email == '') return this.i("Please enter Email Frist !")
         const res = await this.callApi('post','/app/emailSubscription', this.flankDaily)
-        if(res.status == 200){
+        if(res.status == 200 || res.status ==204){
             this.s("You have Subscribed to Flank Daily !")
             this.flankDaily.email = ''
         }

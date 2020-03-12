@@ -120,7 +120,8 @@ export default {
             if(this.sendMail.mail == '') return this.i("Please type atleast 1 email");
             const res = await this.callApi('post','/app/sendInvitation',this.sendMail)
             if(res.status == 200){
-                this.s("Invitation send successfully")
+                this.s("Invitation sent successfully")
+                
                 let sendMail={
                     mail:'',
                     mail2:'',

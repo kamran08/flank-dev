@@ -3701,13 +3701,24 @@ export default {
         }
     },
     methods:{
-        menuMethod(){
-            this.support.text = ''
-            this.s("Thank you for your response ")
-        },
-        submitSupport(){
-            this.support.text = ''
-            this.s("Thank you for your response ")
+        // menuMethod(){
+        //     this.support.text = ''
+        //     this.s("Thank you for your response ")
+        // },
+        async submitSupport(){
+            if(!this.support.text=='' || this.support.text=='' || this.support.text.trim()==''){
+               return this.e("please write your messege first!!")
+            }
+            const res = await this.callApi('post', '/app/sendSupportMessege', this.support)
+             if(res.status == 200 || res.status ==204){
+                     this.s("Thank you for your response ")
+                    this.support.text = ''
+             }
+            else{
+                this.swr();
+            }
+
+           
         },
         changeDataHover(index){
             console.log('changeDataHover')

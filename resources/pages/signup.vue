@@ -16,7 +16,7 @@
                                 <p style="font-family: CeraPro;line-height: 19px;font-size: 13px;">By continuing, you agree to Flank's <nuxt-link to="/tos">Terms of Service</nuxt-link> and acknowledge Flank's <nuxt-link to="/policy">Privacy Policy</nuxt-link>.</p>
                             </div>
                             <div class="sign-up-social">
-                                <a @click="goToFacebook" class="sign-social-facebook"><i class="fab fa-facebook-square"></i> Sign Up with Facebook</a>
+                                <!-- <a @click="goToFacebook" class="sign-social-facebook"><i class="fab fa-facebook-square"></i> Sign Up with Facebook</a> -->
                                 <a @click="goToGoogle" class="sign-social-google"><img src="/images/go.png" /> Sign Up with Google</a>
                             </div>
                             <p style="font-family: CeraPro;font-size: 13px;text-align: center;">Don't worry. We never post without your permission.</p>
@@ -128,23 +128,26 @@ export default {
     methods:{
         async onSubmit(){
             
+            
             if(this.formData.firstName == '') return this.i("Frist name is empty!")
             if(this.formData.lastName == '') return this.i("Last name is empty!")
             if(this.formData.email == '') return this.i("Email  is empty!")
             if(this.formData.password == '') return this.i("Password  is empty!")
             if(this.formData.zip == '') return this.i("Zip  is empty!")
-            if(this.formData.zip == '') return this.i("Zip  is empty!")
+            // if(this.formData.zip == '') return this.i("Zip  is empty!")
             //  if(this.formData.password_confirmation  !==  this.formData.password) return this.i("Password Doesn't match !")
             
-            if(this.birthday.month == '') return this.i("Month  is empty!")
-            if(this.birthday.day == '') return this.i("Day  is empty!")
-            if(this.birthday.year == '') return this.i("Year  is empty!")
+            // if(this.birthday.month == '') return this.i("Month  is empty!")
+            // if(this.birthday.day == '') return this.i("Day  is empty!")
+            // if(this.birthday.year == '') return this.i("Year  is empty!")
             this.formData.birthday= `${this.birthday.year}-${this.birthday.month}-${this.birthday.day}`
             this.formData.packType = 1
             this.formData.password_confirmation = this.formData.password
+            
             const res = await this.callApi('post','/users',this.formData)
             if(res.status==200){
-                this.s('Registration Completed !')
+                // this.s('Registration Completed !')
+                this.s("Start Flanking")
               
                 window.location= '/nlogin/step2'
                  //this.$router.push('/login')
@@ -163,10 +166,12 @@ export default {
         },
         goToFacebook(){
            // href="/login/facebook"
+           this.s("Start Flanking")
            window.location = '/login/facebook'
            
         },
         async goToGoogle(){
+            this.s("Start Flanking")
            // href="/login/facebook"
            window.location = '/login/google'
         //   let ob = {

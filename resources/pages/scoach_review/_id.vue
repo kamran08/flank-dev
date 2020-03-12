@@ -196,8 +196,8 @@
           </div>
 
           <div class="col-sm-12">
-            <div class="review-sidebar">
-              <span class="review-sidebar-arrow">
+            <div class="review-sidebar" :class="(isActive)?'active':''">
+              <span class="review-sidebar-arrow" :class="(isActive)?'active':''" @click="isActive=!isActive">
                 <i class="fas fa-caret-right"></i>
               </span>
               <div class="review-sidebar_main">
@@ -433,6 +433,7 @@ export default {
                 password:'',
                 remember: false,
             },
+            isActive:false,
             
             
         }

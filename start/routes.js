@@ -22,6 +22,7 @@ Route.resource('users', 'UserController').validator(new Map([
 // Home Routes
 
 Route.post('/app/emailSubscription', 'HomeController.storeEmailSubscription')
+Route.post('/app/sendSupportMessege', 'HomeController.sendSupportMessege')
 
 // Authentication route
 Route.post('/authentication/login', 'UserController.userLogin').middleware(['guest'])

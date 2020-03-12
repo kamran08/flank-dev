@@ -50,10 +50,10 @@ $(document).ready(function () {
     $(".form-main-dropdown").slideToggle();
   });
 
-  $(".review-sidebar-arrow").click(function(e) {
-    $(this).toggleClass("active");
-    $(".review-sidebar").toggleClass("active");
-  });
+  // $(".review-sidebar-arrow").click(function(e) {
+  //   $(this).toggleClass("active");
+  //   $(".review-sidebar").toggleClass("active");
+  // });
 });
 //   $(".expand a").click(function(e) {
 //     e.preventDefault();

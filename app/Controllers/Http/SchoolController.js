@@ -14,6 +14,7 @@ const Place = use('App/Models/Place')
 const ReviewImage = use('App/Models/ReviewImage')
 const Review = use('App/Models/Review')
 const ReviewAttribute = use('App/Models/ReviewAttribute')
+const Mail = use('Mail')
 const Database = use('Database')
 /**
  * Resourceful controller for interacting with schools
@@ -332,7 +333,13 @@ class SchoolController {
       'school_id': data.id,
       'name': name
     }
-    return   await SchoolCoach.create(coachob) 
+    await Mail.send('emails.coatch', data, (message) => {
+      message
+        .to('goflank@yahoo.com')
+        .from('Support@goflank.com', `new`)
+        .subject('add new coatch')
+    })
+    return   await SchoolCoach.create(coachob)
   }
 
   /**

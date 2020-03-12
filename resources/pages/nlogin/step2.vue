@@ -18,12 +18,12 @@
                                         </figure>
                                     </div>
                                     <div class="flanker-photo-soc">
-                                        <div class="flanker-photo-soc-box" @click="fbImage">
+                                        <!-- <div class="flanker-photo-soc-box" @click="fbImage">
                                             <button class="flanker-new-btn fb-flanker"><span><i class="fab fa-facebook-square"></i></span> Use facebook photo</button>
                                         </div>
                                         <div class="flanker-divider">
                                             <span>Or</span>
-                                        </div>
+                                        </div> -->
                                         <div class="flanker-photo-soc-box">
                                             <Upload
                                                 ref="upload"
