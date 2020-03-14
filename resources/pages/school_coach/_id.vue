@@ -1998,7 +1998,6 @@ export default {
                 lastName:'',
                 email:'',
                 password:'',
-                
                 password_confirmation :'',
                 birthday:'',
                 packType:''
@@ -2327,7 +2326,7 @@ export default {
         isShareModalOn(user){
             
             this.isShareModal = true
-           this.twitter_text = `Check out Coach ${user.firstName} ${user.lastName}’s Review on @Flank`
+            this.twitter_text = `Check out Coach ${user.firstName} ${user.lastName}’s Review on @Flank`
         },
         submitShare(){
             this.s("Share Successfull !")

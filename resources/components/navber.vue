@@ -22,19 +22,19 @@
                         <div class="flank-new-form fl-flank-new-form">
                             <form v-on:submit.prevent>
                                 <div class="flank-new-indi">
-                                    <div class="new-flank-selection fl-new-flank-selection new-up-flank-selection">
-                                        <p  style="cursor:pointer;" @click="isStringMenu = (isStringMenu)? false : true">All <span><i class="fas fa-caret-down"></i></span></p>
+                                    <div class="new-flank-selection fl-new-flank-selection new-up-flank-selection" style="flex: none;padding: 5px 15px;">
+                                        <p  style="cursor:pointer;" @click="isStringMenu = (isStringMenu)? false : true">{{slectedTitle}} <span><i class="fas fa-caret-down"></i></span></p>
                                         <!-- <p  @click="isStringMenu = (isStringMenu)? false : true" style="cursor:pointer;" > {{(pageOption)? pageOption: 'All'}} <span><i class="fas fa-caret-down"></i></span></p> -->
                                         <div class="new-flank-selection-dropdown new-flank-selection-dropdown-fl" v-if="isStringMenu"  >
 
 
                                             <ul>
-                                                <li><a @click="pageOptionDropChange('school')">School</a></li>
-                                                <li><a @click="pageOptionDropChange('coach')">Coach</a></li>
+                                                <li><a @click="pageOptionDropChange('school'),slectedTitle='School Name'">School Name</a></li>
+                                                <li><a @click="pageOptionDropChange('coach'),slectedTitle='Coach Name'">Coach Name</a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="new-flank-input">
+                                    <div class="new-flank-input" style="flex: 1;">
                                         <input type="text" v-model="tStr" @enter="SearchByKey" >
                                     </div>
                                 </div>
@@ -190,6 +190,7 @@
     export default { 
         data(){
             return{
+                slectedTitle:'All',
                 isStringMenu:false,
                 isMobileMenu:false,
                 tStr:'',
@@ -437,7 +438,7 @@
             },
         },
         async created(){
-            if(window.location.pathname=='/coach_search'){
+            if(window.location.pathname=='/coach_search' || window.location.pathname=='/'){
                 this.isCoachSearchPage = true
             }
             // let d = new Date('2019-08-11');
@@ -458,9 +459,11 @@
             //  } 
         },
     watch: { 
-      '$route.name': function(newVal, oldVal) { // watch it
+      '$route.name': function(newVal, oldVal) { 
+          console.log(newVal)
+        // watch it
         this.$store.commit('setIsMobileSideBar', false )
-        if(newVal == 'coach_search'){
+        if(newVal == 'coach_search' || newVal == 'index'){
           this.isCoachSearchPage = true
         }
         else{

@@ -5,9 +5,9 @@
             <div class="new-banner-section" >
                 <div class="container" style="">
                     <div class="inner-banner new-fl-inner-banner">
-                        <figure>
-                            <img src="/images/new-top.png" alt=""> 
-                        </figure>
+                        <figure v-if="leandingData.length>0">
+                        <img :src="leandingData[0].url" alt="">
+                    </figure>
                     </div>
                 </div>
             </div>
@@ -764,8 +764,8 @@
                                         </ul>
                                     </div>
                                     <div class="flank-banner ">
-                                        <figure>
-                                            <img src="/images/flank-banner.png" alt="">
+                                        <figure v-if="leandingData.length>0">
+                                            <img :src="leandingData[1].url" alt="">
                                         </figure>
                                     </div>
                                     <div class="scandal-analytics ">
@@ -1623,6 +1623,7 @@ export default {
       sData: {
         school_id: 0
       },
+      leandingData:[],
       iamIndex: false,
       toolTipModal: false,
       toolTipText: '',
@@ -1891,10 +1892,15 @@ export default {
   },
 
   async created() {
+      const res1 = await this.callApi("get", `/app/bannerImage`)
+      if(res1.status==200){
+          this.leandingData = res1.data
+      }
 
     if(this.$route.query.login == 'success') this.i("Login Successful !")
-    const [ res2, res3,res4,res5] = await Promise.all([
+    const [res2, res3,res4,res5] = await Promise.all([
     //  this.callApi("get", `/app/getSchoolcoaches`),
+      
       this.callApi("get", `/app/reviewOfTheDay`),
      // this.callApi("get", `/app/recentCitys`),
       this.callApi("get", `/app/getRecentReview`),
@@ -1902,12 +1908,13 @@ export default {
       this.callApi("get", `/app/videos`),
    
     ]);
-    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200) { 
+    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200 && res1.status==200) { 
     //  this.schoolCoaches = res1.data;
       this.review_of_day = res2.data;
       this.recentReview = res3.data;
       this.topHeadlines = res4.data;
       this.videos = res5.data;
+      
      
      // this.allCity = res4.data;
       // this.review_of_day.bestReview = res2.data.bestReview

@@ -156,9 +156,10 @@ Route.get('/app/getStreak/:id', 'SchoolController.getStreak')
 // send Email
 Route.post('/app/sendInvitation', 'UserController.sendInvitation')
 Route.post('/app/sendlegalData', 'UserController.sendlegalData')
+
 Route.get('/app/getSchoolCoachByhighRated', 'UserController.getSchoolCoachByhighRated')
 Route.get('/app/getSchoolCoachByMostRated', 'UserController.getSchoolCoachByMostRated')
-
+Route.get('/app/bannerImage', 'HomeController.bannerImage')
 Route.get('app/initdata', 'UserController.initdata')
 Route.any('/', 'NuxtController.render').as('home')
 Route.any('/nlogin/step2', 'NuxtController.render').as('step2')

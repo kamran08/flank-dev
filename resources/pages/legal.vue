@@ -15,7 +15,7 @@
                                     <li><nuxt-link to="/tos">Terms of Service</nuxt-link></li>
                                     <li><nuxt-link to="/policy">Privacy Policy</nuxt-link></li>
                                     <li class="active"><nuxt-link to="/legal">Legal Inquiries</nuxt-link></li>
-                                    <li><nuxt-link to="">Close Your Account</nuxt-link></li>
+                                    <li><nuxt-link to="/account_closure">Close Your Account</nuxt-link></li>
                                 </ul>
                                 <!-- <div class="about-blog-list">
                                     <h3>The Flank Blog</h3>
@@ -114,7 +114,7 @@ export default {
     },
     methods:{
         async sendData(){
-            this.i("kdjka")
+            console.log(this.formData)
           
             if (!this.formData.type || this.formData.type.trim()=='') {
                 this.errorData.type =''
@@ -128,13 +128,17 @@ export default {
                 this.errorData.descriptions =''
                 return 
              }
-            if (!this.reg.test(this.formData.email)) {
+            if (!this.formData.email || this.formData.email=='' || this.formData.email.trim()=='') {
                 this.errorData.email =''
                 return 
              }
+            // if (!this.reg.test(this.formData.email)) {
+            //     this.errorData.email =''
+            //     return 
+            //  }
              this.isLoading = true
              const res = await this.callApi('post', '/app/sendlegalData', this.formData)
-             if(res.status==200){
+             if(res.status==200 || res.status==204){
                  this.s("your request has been sent we will contact you soon!!")
                  this.formData = {}
                  this.errorData.type =' '
@@ -144,7 +148,7 @@ export default {
                   this.isLoading = false
              }
              else{
-                 this.e("check your network !!")
+                 this.e("check your network or your email id is not valid!!")
                    this.isLoading = false
              }
               this.isLoading = false

@@ -391,7 +391,11 @@
                                 </div>
                             </div>
                             <div class="_1coach_items" v-if="pageOption == 'school'"  v-for="(item,index) in searchData" :key="index"  >
-                                <p v-if="item.avgRating.averageRating !=0" class="worst yellow">{{ (item.avgRating.averageRating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div class="desk-fl-top">
+
+                                    <p v-if="item.avgRating.averageRating !=0" class="worst yellow">{{ (item.avgRating.averageRating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                </div>
+                                
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -449,7 +453,11 @@
                                 </div>
                             </div>
                             <div class="_1coach_items" v-if="pageOption == 'legend'"  v-for="(item,index) in searchData" :key="index"  >
-                                <p v-if="item.avg_rating !=0" class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div class="desk-fl-top">
+
+                                    <p v-if="item.avg_rating !=0" class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                </div>
+                                
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -695,9 +703,13 @@
                         <div v-if="searchData.length>0" >
 
                             <div class="_1coach_items"   v-for="(item,index) in similar" :key="index" v-if="pageOption == 'coach' && ((index%2) == 0)"  >
-                                <div v-if="item.avg_rating !=0" class="desk-fl-top">
-                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div class="desk-fl-top">
+
+                                    <div v-if="item.avg_rating !=0">
+                                        <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
                                 </div>
+                                
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -845,9 +857,13 @@
 
                             <div class="_1coach_items"   v-for="(item,index) in similar" :key="index" v-if="pageOption == 'school' && ((index%2) == 0)"  >
                                 <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
-                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
-                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div class="desk-fl-top">
+
+                                    <div v-if="item.avg_rating !=0">
+                                        <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
                                 </div>
+                                 
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -995,9 +1011,13 @@
                             
                             <div class="_1coach_items" v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) == 0)   "  >
                                 <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
-                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
-                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div class="desk-fl-top">
+
+                                    <div v-if="item.avg_rating !=0">
+                                        <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
                                 </div>
+                                 
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -1206,11 +1226,13 @@
                         <div v-if="searchData.length>0" >
 
                             <div class="_1coach_items"  v-for="(item,index) in similar" :key="index" v-if="(pageOption == 'coach') && ((index%2) != 0)"   >
-                                <div class="desk-fl-top"></div>
-                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
-                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
-                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div class="desk-fl-top">
+                                    <div v-if="item.avg_rating !=0">
+                                        <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
                                 </div>
+                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
+                                 
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -1356,10 +1378,13 @@
                                 </div>
                             </div>
                             <div class="_1coach_items"  v-for="(item,index) in similar" :key="index" v-if="(pageOption == 'school') && ((index%2) != 0)"   >
-                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
-                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
-                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div class="desk-fl-top">
+                                    <div v-if="item.avg_rating !=0">
+                                        <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
                                 </div>
+                                <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
+                                 
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -1507,9 +1532,12 @@
                             
                             <div class="_1coach_items"  v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) != 0)" >
                                 <!-- <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p> -->
-                                 <div v-if="item.avg_rating !=0" class="desk-fl-top">
-                                    <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                <div class="desk-fl-top">
+                                    <div v-if="item.avg_rating !=0">
+                                        <p class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
                                 </div>
+                                 
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -3180,6 +3208,12 @@
                             </div>
                         
                         </div>
+
+                        <div class="mob-pagination">
+                            <div style="text-align: center;padding: 20px 0px;" v-if="searchData.length>0">
+                                <Page prev-text="Previous" next-text="Next"  :current="parseInt(pagination.page)" :total="pagination.total" @on-change="SearchByKey" :page-size="parseInt(pagination.perPage)" />
+                            </div>
+                        </div>
                         
                         
                     </div>
@@ -4253,6 +4287,10 @@ export default {
 /* .slide-fade-leave-active below version 2.1.8 */ {
   transform: translateX(10px);
   opacity: 0;
+}
+
+.mob-pagination .ivu-page-next, .mob-pagination .ivu-page-prev{
+    background-color: transparent !important;
 }
 
 </style>

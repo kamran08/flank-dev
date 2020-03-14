@@ -508,6 +508,7 @@ class UserController {
       // return await SchoolCoach.query().orderBy('avg_rating', 'desc').limit(3).fetch()
 
     }
+ 
     async sendlegalData ({ request, response, auth }) {
 
       let data = request.all()

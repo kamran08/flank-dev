@@ -13,13 +13,13 @@
                                 <li  :class="(tab==3)? 'active': ''" @click="tab=3"><a ><img src="/images/yelp.png" alt="">Invite Friends to Flank</a></li>
                             </ul>
                         </div>
-                        <div class="flanker-find-search">
+                        <!-- <div class="flanker-find-search">
                             <h4>Search Friends on Flank</h4>
                             <div class="flanker-find-search-bar">
                                 <input type="text" placeholder="e.g Tom Shaw, Tom S, toms">
                                 <button><span><i class="fas fa-search"></i></span></button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="flanker-find-det flanker-find-pad" >
                         <div class="flanker-find-det-item" v-if="tab==1">
