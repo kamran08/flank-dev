@@ -1908,7 +1908,7 @@ export default {
       this.callApi("get", `/app/videos`),
    
     ]);
-    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200 && res1.status==200) { 
+    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200) { 
     //  this.schoolCoaches = res1.data;
       this.review_of_day = res2.data;
       this.recentReview = res3.data;
