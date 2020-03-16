@@ -2481,31 +2481,31 @@ export default {
       }
 
     if(this.$route.query.login == 'success') this.i("Login Successful !")
-    const [res2, res3,res4,res5] = await Promise.all([
-    //  this.callApi("get", `/app/getSchoolcoaches`),
+    // const [res2, res3,res4,res5] = await Promise.all([
+    // //  this.callApi("get", `/app/getSchoolcoaches`),
       
-      this.callApi("get", `/app/reviewOfTheDay`),
-     // this.callApi("get", `/app/recentCitys`),
-      this.callApi("get", `/app/getRecentReview`),
-      this.callApi("get", `/app/topHeadline`),
-      this.callApi("get", `/app/videos`),
+    //   this.callApi("get", `/app/reviewOfTheDay`),
+    //  // this.callApi("get", `/app/recentCitys`),
+    //   this.callApi("get", `/app/getRecentReview`),
+    //   this.callApi("get", `/app/topHeadline`),
+    //   this.callApi("get", `/app/videos`),
    
-    ]);
-    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200) { 
-    //  this.schoolCoaches = res1.data;
-      this.review_of_day = res2.data;
-      this.recentReview = res3.data;
-      this.topHeadlines = res4.data;
-      this.videos = res5.data;
+    // ]);
+    // if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200) { 
+    // //  this.schoolCoaches = res1.data;
+    //   this.review_of_day = res2.data;
+    //   this.recentReview = res3.data;
+    //   this.topHeadlines = res4.data;
+    //   this.videos = res5.data;
       
      
-     // this.allCity = res4.data;
-      // this.review_of_day.bestReview = res2.data.bestReview
-      this.loading = false;
-    } else {
-      this.swr();
-      this.loading = false;
-    }
+    //  // this.allCity = res4.data;
+    //   // this.review_of_day.bestReview = res2.data.bestReview
+    //   this.loading = false;
+    // } else {
+    //   this.swr();
+    //   this.loading = false;
+    // }
   },
 
   async created() {
