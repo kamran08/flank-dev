@@ -12,7 +12,7 @@
                             <form action="" class="new-flanker-form" v-on:submit.prevent>
                                 <div class="new-flanker-photo">
                                     <div class="flanker-photo-up">
-                                        <figure>
+                                        <figure v-if="formData.img">
                                             <!-- <img src="" alt=""> -->
                                             <img :src="(formData.img == '')? '/images/user_flanker.png' : formData.img" alt="">
                                         </figure>
