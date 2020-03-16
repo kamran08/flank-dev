@@ -29,11 +29,9 @@ module.exports = {
   //   ]
   // },
   plugins: [
-    '~plugins/vuecommon',
     '~plugins/ivuew',
-    // {src: '~plugins/ivuew', ssr: false},
+    {src: '~plugins/vuecommon', ssr: false},
     // '~plugins/googlechart'
-    {src: '~plugins/googlechart', ssr: false},
   ],
   head: {
     title: 'Go Flank',
