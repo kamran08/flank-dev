@@ -2470,7 +2470,7 @@ export default {
       }
     },
   },
-  mounted(){
+  async mounted(){
     //   if(window.innerWidth < 1199){
     //         this.mobileScreen = true
     //     }
