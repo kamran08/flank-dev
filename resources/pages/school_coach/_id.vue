@@ -321,7 +321,7 @@
                                                 
                                                 <div class="inner-one-item-help-btn">
                                                     <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
-                                                    <div class="helpful-btn-full">
+                                                    <div class="helpful-btn-full" v-if="legendData.question.answers!=null">
                                                         <ul>
                                                             <li><a @click="storeAnswerLike(legendData.question,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i><span>{{legendData.question.answers ? legendData.question.answers.helpful : ''}}</span> helpful</a></li>
                                                             <li><a @click="storeAnswerLike(legendData.question,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i><span>{{legendData.question.answers ? legendData.question.answers.not_helpful : ''}}</span> Not helpful</a></li>
@@ -365,7 +365,7 @@
                                                 
                                                 <div class="inner-one-item-help-btn">
                                                     <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:item.id } }" >View questions details</nuxt-link></p>
-                                                    <div class="helpful-btn-full">
+                                                    <div class="helpful-btn-full" v-if="item.__meta__.answers_count!=0">
                                                         <ul>
                                                             <li><a @click="storeAnswerLike(item,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i> <span>{{item.answers ? item.answers.helpful : ''}}</span> helpful</a></li>
                                                             <li><a @click="storeAnswerLike(item,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i> <span>{{item.answers ? item.answers.not_helpful :''}}</span>Not helpful</a></li>
@@ -610,25 +610,28 @@
                                         <div class="switch-link-title">
                                             <h4 class="mb-6">Latest videos</h4>
                                         </div>
-                                        <div class="flank-video">
-                                            <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                                        <div class="flank-video" v-if="playingVideo">
+                                            
+                                           <p v-html="playingVideo"></p>
+                                           <!-- {{ coachVideo[isPlayingItemId].body }} -->
+                                            <!-- <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
                                         </div>
 
                                         <div class="playing-list">
                                             <ul>
-                                                <li>
+                                                <li v-for="(item,index) in coachVideo" :key="index">
                                                     <div class="playing-btn">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
-                                                    <div class="video-info" @click="openVideo(1)" style="cursor:pointer;">
-                                                        <p>Out of control coaches' Abusive Behavior Often Under Reported</p>
+                                                    <div class="video-info" @click="openVideo(item.body,index)" style="cursor:pointer;">
+                                                        <p>{{item.title}}</p>
                                                         <ul>
-                                                            <li>Now playing <span>•</span></li>
-                                                            <li><p>2:18</p></li>
+                                                            <li v-if="index==isPlayingItemId">Now playing <span>•</span></li>
+                                                            <li><p>{{item.video_length}}</p></li>
                                                         </ul>
                                                     </div>
                                                 </li>
-                                                <li>
+                                                <!-- <li>
                                                     <div class="playing-btn">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
@@ -660,7 +663,7 @@
                                                             <li><p>3:55</p></li>
                                                         </ul>
                                                     </div>
-                                                </li>
+                                                </li> -->
                                             </ul>
                                         </div>
                                         <div class="video-foot-img">
@@ -669,6 +672,7 @@
                                             </figure>
                                         </div>
                                     </div>
+                                    <!-- this is my div to work -->
                                     <div class="flank-banner-two">
                                         <figure>
                                             <img src="/images/worstbanner.png" alt=""> 
@@ -1001,20 +1005,21 @@
                                     </div>
                                     <div class="row plus-row up-ch-pad" style="padding-bottom: 15px;">
                                         <hooper :itemsToShow="3" :infiniteScroll="false">
-                                            <slide >
+                                            <slide v-for="(item,index) in coachVideo" :key="index">
                                                 <div class="col-md-3 col-sm-6"  >
-                                                    <div class="inner-scandal-video-item">
-                                                        <figure @click="openVideo(1)">
-                                                            <img src="/newFile/11.jpg" alt="">
+                                                    <div class="inner-scandal-video-item" @click="openVideomobile(item.body)">
+                                                        <figure >
+                                                            <!-- <img src="/newFile/11.jpg" alt=""> -->
+                                                            <p v-html="item.body"></p>
                                                             <div class="play-caption">
                                                                 <span><i class="fas fa-play"></i></span>
                                                             </div>
                                                             <div class="video-duration">
-                                                                <p class="duration"><span>2:18</span></p>
+                                                                <p class="duration"><span>{{item.video_length}}</span></p>
                                                             </div>
                                                         </figure>
                                                         <div class="scandal-video-caption">
-                                                            <p style="color: #d60606;">Out of control Coache's Abusive Behavior Often Under-Reported.</p>
+                                                            <p style="color: #d60606;">{{item.title}}</p>
                                                         </div>
                                                         <div class="video-logo">
                                                             <img src="/image/flank.png" alt="">
@@ -1022,7 +1027,7 @@
                                                     </div>
                                                 </div>
                                             </slide>
-                                            <slide >
+                                            <!-- <slide >
                                                 <div class="col-md-3 col-sm-6"  >
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(1)">
@@ -1042,8 +1047,8 @@
                                                     </div>
                                                     </div>
                                                 </div>
-                                            </slide>
-                                            <slide >
+                                            </slide> -->
+                                            <!-- <slide >
                                                 <div class="col-md-3 col-sm-6"  >
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(1)">
@@ -1084,7 +1089,7 @@
                                                     </div>
                                                     </div>
                                                 </div>
-                                            </slide>
+                                            </slide> -->
                                             <hooper-navigation slot="hooper-addons"></hooper-navigation>
                                         </hooper>
                                         
@@ -1214,7 +1219,7 @@
                                         <div class="new-qu" style="padding-left: 0; border: 0; padding-bottom: 10px">
                                             
                                             <div class="new-qu-text">
-                                                <p>{{item.content}}</p>
+                                                <p>{{item.content}} </p>
                                             </div>
                                         </div>
                                         <div class="new-flank-coach-rev" style="padding-top: 0;">
@@ -2107,6 +2112,9 @@ export default {
             embededText:'',
             searchCoach:'',
             metaContent:'',
+            coachVideo:[],
+            isPlayingItemId:-1,
+            playingVideo:'',
        
         }
     },
@@ -2339,32 +2347,39 @@ export default {
             this.shareForm = shareForm
             this.isShareModal = false
         },
-        openVideo(no){ 
-            if(no == 1){
-                this.isVideo.link = `<div class="inner-video-iframe">
-                                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Vz738aqEI5w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> `
-                this.isVideo.header = `Out of control Coache's abusive behaviour caught on tape.`
-            }
-            else if(no == 2){
-                this.isVideo.link = `<div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> `
-                this.isVideo.header = `Players accuse GCU women's soccer coach of verbal, mental, physial abuse.`
-            }
-            else if(no == 3){
-                this.isVideo.link = `<div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/AzcPG9sRDMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> `
-                this.isVideo.header = `Rutgers coach fired for abuse of players.`
-            }
-            else if(no == 4){
-                this.isVideo.link = `<div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> `
-                this.isVideo.header = `The abuse of child atheletes by their coaches.`
-            }
+        openVideomobile(link){ 
+             this.isVideo.link = `<div class="inner-video-iframe">${link}</div>`
             this.isVideo.modal= true
+        },
+        openVideo(link,index){ 
+            this.isPlayingItemId = index
+            this.playingVideo = link
+            
+            // if(no == 1){
+            //     this.isVideo.link = `<div class="inner-video-iframe">
+            //                                                 <iframe width="560" height="315" src="https://www.youtube.com/embed/Vz738aqEI5w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            //                                                 </div> `
+            //     this.isVideo.header = `Out of control Coache's abusive behaviour caught on tape.`
+            // }
+            // else if(no == 2){
+            //     this.isVideo.link = `<div class="inner-video-iframe">
+            //                                                 <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            //                                                 </div> `
+            //     this.isVideo.header = `Players accuse GCU women's soccer coach of verbal, mental, physial abuse.`
+            // }
+            // else if(no == 3){
+            //     this.isVideo.link = `<div class="inner-video-iframe">
+            //                                                 <iframe src="https://www.youtube.com/embed/AzcPG9sRDMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            //                                                 </div> `
+            //     this.isVideo.header = `Rutgers coach fired for abuse of players.`
+            // }
+            // else if(no == 4){
+            //     this.isVideo.link = `<div class="inner-video-iframe">
+            //                                                 <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            //                                                 </div> `
+            //     this.isVideo.header = `The abuse of child atheletes by their coaches.`
+            // }
+            // this.isVideo.modal= true
         },
         closeVideo(){
             this.isVideo.modal = false
@@ -2582,6 +2597,7 @@ export default {
         },
 
         async storeAnswerLike(item,helpful,not_helpful){
+            console.log(item)
              if(this.isLoggedIn == false){
                 this.i('Please login first !')
                 this.loginModal = true
@@ -2656,14 +2672,15 @@ export default {
        this.twitter_location = `https%3A%2F%2Fgoflank.com%2Fschool_coach%2F${this.$route.params.id}`
        this.twitter_text = `Check out Coach ${this.legendData.name}’s Review on @Flank`
       
-        const [ res2, res4,res5,res6,res7] = await Promise.all([
+        const [ res2, res4,res5,res6,res7,res8] = await Promise.all([
             this.callApi('get', `/app/getAdditionCoachInfo/${this.$route.params.id}`),  
             this.callApi('get', `/reviews/${this.$route.params.id}?type=school`),
             this.callApi('get', `/app/getCoachTopReviews/${this.$route.params.id}?type=school`),
             this.callApi('get', `/app/getSimilarCoach/${this.school_id}/${this.$route.params.id}`), 
             this.callApi('get', `/questions/${this.$route.params.id}?type=school&limit=3`), 
+            this.callApi('get', `/app/allCoachVideo`), 
         ])
-        if( res2.status===200 && res4.status === 200){
+        if( res2.status===200 && res8.status===200 &&res7.status===200 &&res4.status === 200){
             
             this.reviews = res4.data.data
             this.similarCoaches = res6.data
@@ -2671,7 +2688,14 @@ export default {
             this.topReviews = res5.data
             delete this.rpagination.data
             this.healthSore = res2.data.healthSore
-            this. questionList = res7.data.data,
+            this.questionList = res7.data.data,
+            this.coachVideo = res8.data
+         if(res8.data.length>0){
+             console.log('creatd',res8.data)
+                this.playingVideo=  this.coachVideo[0].body
+                this.isPlayingItemId=0
+            
+            }
             this.isLoading = false
 
             this.allTableData = res2.data

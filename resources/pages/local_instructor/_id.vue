@@ -301,62 +301,102 @@
                                             <!-- <a >(Click Here)</a> -->
                                         </div>
                                     </div>
-                                    <div class="new-flank-form" v-if="legendData.question" >
-                                        <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;">Question:</p>
-                                        <div class="new-qu">
-                                            
-                                            <div class="new-qu-text">
-                                                <p>Does this coach have college connections? If so, to what schools?</p>
+                                     <div class="new-flank-form" v-if="legendData.question && !isMoreQuestion"  >
+                                            <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;font-weight: 600;">Question:</p>
+                                            <div class="new-qu" style="padding-left: 0; border: 0; padding-bottom: 10px">
+                                                
+                                                <div class="new-qu-text">
+                                                    <p>{{legendData.question.content}}</p>
+                                                </div>
+                                                <!-- <div class="new-qu-img">
+                                                    <img src="/images/nf.png" alt="">
+                                                </div> -->
                                             </div>
-                                            <!-- <div class="new-qu-img">
-                                                <img src="/images/nf.png" alt="">
-                                            </div> -->
-                                        </div>
-                                        <!-- <div class="inner-one-item-cont">
-                                            <div class="new-flank-search inner-item-one-cont-left">
-                                                <h4>Question:</h4>
-                                                <p style="font-size: 15px;font-family: CeraPro;">{{legendData.question.content}}</p>
-                                            </div>
+                                            <div class="new-flank-coach-rev" v-if="legendData.question.user">
+                                                <div class="coach-rev-con">
+                                                    <figure>
+                                                        <img :src="legendData.question.user.img" alt="">
+                                                    </figure>
+                                                    <div class="coach-rev-text-content">
+                                                        <h4>{{legendData.question.user | trimSecondLater}}</h4>
+                                                        <h5>{{legendData.question.user.address}}</h5>
+                                                        <ul class="fixed-list">
+                                                            <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
+                                                            <li><img src="/images/mstar.png" alt=""><span>{{legendData.question.user.__meta__.totalreviewbyuser}} reviews</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                             
-                                        </div> -->
-                                        <div class="new-flank-coach-rev">
-                                            <div class="coach-rev-con">
-                                                <figure>
-                                                    <img src="/images/ms.jpg" alt="">
-                                                </figure>
-                                                <div class="coach-rev-text-content">
-                                                    <h4>Nazmul Chowdhury</h4>
-                                                    <h5>Sylhet, Bangladesh</h5>
-                                                    <ul class="fixed-list">
-                                                        <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
-                                                        <li><img src="/images/mstar.png" alt=""><span>3 reviews</span></li>
-                                                    </ul>
+                                                <div class="inner-one-item-help-area2"  >
+                                                    <h6 v-if="legendData.question.answers" class="help-ans"><span>1</span> answer</h6>
+                                                    <h6 v-else-if="legendData.question.answers==null" class="help-ans"><span>No</span> answer</h6>
+                                                    <div v-if="legendData.question.answers">
+                                                        
+                                                        <p class="help-text">{{legendData.question.answers.content}}</p>
+                                                    </div>
+                                                
+                                                <div class="inner-one-item-help-btn">
+                                                    <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
+                                                    <div class="helpful-btn-full" v-if="legendData.question.answers!=null">
+                                                        <ul>
+                                                            <li><a @click="storeAnswerLike(legendData.question,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i><span>{{legendData.question.answers ? legendData.question.answers.helpful : ''}}</span> helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(legendData.question,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i><span>{{legendData.question.answers ? legendData.question.answers.not_helpful : ''}}</span> Not helpful</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
                                                 </div>
                                             </div>
-                                         
-                                            <div class="inner-one-item-help-area2"  >
-                                                <h6 class="help-ans"><span>1</span> answer</h6>
-                                                <div v-if="legendData.question.answers">
-                                                     
-                                                    <p class="help-text">{{legendData.question.answers.content}}</p>
+                                        </div>
+                                         <div class="new-flank-form" v-else-if="questionList.length>0 && isMoreQuestion" v-for="(item,index) in questionList " :key="index">
+                                            <p style="font-family: CeraPro;font-size: 14px;color: #000;margin-top: 7px;font-weight: 600;">Question:</p>
+                                            <div class="new-qu">
+                                                
+                                                <div class="new-qu-text">
+                                                    <p>{{item.content}}</p>
                                                 </div>
-                                              
-                                               <div class="inner-one-item-help-btn">
-                                                   <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:legendData.question.id } }" >View questions details</nuxt-link></p>
-                                                   <div class="helpful-btn-full">
-                                                       <ul>
-                                                           <li><a href="#" class="helpful"><i class="fas fa-long-arrow-alt-up"></i>helpful</a></li>
-                                                           <li><a href="#" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i>not helpful</a></li>
-                                                       </ul>
-                                                   </div>
-                                                   
-                                               </div>
+                                            </div>
+                                            <div class="new-flank-coach-rev" v-if="item.user">
+                                                <div class="coach-rev-con">
+                                                    <figure>
+                                                        <img :src="item.user.img" alt="">
+                                                    </figure>
+                                                    <div class="coach-rev-text-content">
+                                                        <h4>{{item.user | trimSecondLater}}</h4>
+                                                        <h5>{{item.user.address}}</h5>
+                                                        <ul class="fixed-list">
+                                                            <li><img src="/images/mw.png" alt=""><span>3 Friends</span></li>
+                                                            <li><img src="/images/mstar.png" alt=""><span>{{item.user.__meta__.totalreviewbyuser}} reviews</span></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            
+                                                <div class="inner-one-item-help-area2"  >
+                                                    <h6 class="help-ans" v-if="item.__meta__.answers_count>0">{{item.__meta__.answers_count}} {{(item.__meta__.answers_count>1)? 'Answers' : 'Answer' }}</h6>
+                                                    <h6 class="help-ans" v-else-if="item.__meta__.answers_count==0">No Answer</h6>
+                                                    <div v-if="item.answers">
+                                                        
+                                                        <p class="help-text">{{item.answers.content}}</p>
+                                                    </div>
+                                                
+                                                <div class="inner-one-item-help-btn">
+                                                    <p class="view-question-btn"><nuxt-link :to="{name: 'question_details-id', params: {  id:item.id } }" >View questions details</nuxt-link></p>
+                                                    <div class="helpful-btn-full" v-if="item.__meta__.answers_count!=0">
+                                                        <ul>
+                                                            <li><a @click="storeAnswerLike(item,1,0)" class="helpful"><i class="fas fa-long-arrow-alt-up"></i> <span>{{item.answers ? item.answers.helpful : ''}}</span> helpful</a></li>
+                                                            <li><a @click="storeAnswerLike(item,0,1)" class="most-helpful"><i class="fas fa-long-arrow-alt-down"></i> <span>{{item.answers ? item.answers.not_helpful :''}}</span>Not helpful</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="show-more-ac">
-                                            <p><a href=""><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
+                                         <div class="show-more-ac">
+                                            <p v-if="!isMoreQuestion"><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
+                                            <p  v-else-if="isMoreQuestion"><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-up"></i></span>Show less activity</a></p>
                                         </div>
-                                    </div>
+                               
                                 </div>
                                 <div class="inner-item-reco-sec">
                                     <div class="inner-item-reco-title">
@@ -1272,6 +1312,7 @@ export default {
             },
             embeded_id:16,
             embededText:'',
+            isMoreQuestion:false,
             
         }
     },
@@ -1740,6 +1781,28 @@ export default {
                 this.contact = contact
                 this.contactMOdal = false
             }
+        },
+         async storeAnswerLike(item,helpful,not_helpful){
+            console.log(item)
+             if(this.isLoggedIn == false){
+                this.i('Please login first !')
+                this.loginModal = true
+                return
+            }
+            let str = 'helpful';
+            if(helpful==1) str = 'helpful'
+            if(not_helpful==1) str = 'not helpful'
+            let ob = {
+                answer_id:item.answers.id,
+                helpful:helpful,
+                not_helpful:not_helpful
+            }
+            const res = await this.callApi("post","/app/storeAnswerLike",ob)
+            if(res.status == 200){
+                item.answers = res.data
+                this.s('you mark this question as '+str)
+            }
+            else this.swr()
         }
          
     },
@@ -1780,13 +1843,14 @@ export default {
          this.location = window.location.href
         if(this.isLoggedIn) this.user_id = this.authInfo.id
         
-        const [res1, res2, res3, res4,res5,res6] = await Promise.all([
+        const [res1, res2, res3, res4,res5,res6,res7] = await Promise.all([
             this.callApi('get', `/app/atrributeConteptData/${this.$route.params.id}`),  
             this.callApi('get', `/app/getAdditionlegendInfo/${this.$route.params.id}`),
             this.callApi('get', `/app/getTodayBussinessHour/${this.$route.params.id}`),
             this.callApi('get', `reviews/${this.$route.params.id}`), 
             this.callApi('get', `/app/getCoachTopReviews/${this.$route.params.id}?type=legend`),
             this.callApi('get', `/app/legendbussinessinfo/${this.$route.params.id}`),
+             this.callApi('get', `/questions/${this.$route.params.id}?type=legend&limit=3`), 
         ])
         if(res1.status===200 && res2.status===200 && res3.status === 200 && res4.status === 200 && res5.status === 200 && res6.status == 200){
             this.atrrtributepoint = res1.data
@@ -1794,7 +1858,8 @@ export default {
             this.rpagination = res4.data
             delete this.rpagination.data
             this.uploadList = res2.data.legendData.legendimages
-            this.questionList = res2.data.legendData.questions
+            // this.questionList = res2.data.legendData.questions
+            this.questionList = res7.data.data
             this.todayHour = res3.data
             this.hours = res2.data.legendData.hours
             this.totalQuestion = res2.data.legendData.__meta__.totalQuestion

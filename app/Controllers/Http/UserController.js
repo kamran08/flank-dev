@@ -59,7 +59,7 @@ class UserController {
     const formInfo = request.all()
     delete formInfo.password_confirmation
     const data = await User.create(formInfo)
-
+    // return formInfo
     if(formInfo.packType == 1){
       let user = await auth.query().attempt(formInfo.email, formInfo.password)
       return user
@@ -72,8 +72,8 @@ class UserController {
     let legend = await Legend.create(ledata);
     let user = await auth.query().attempt(formInfo.email, formInfo.password)
     return response.status(200).json({
-     user:user,
-     legend:legend
+      user:user,
+      legend:legend
     })
   }
 

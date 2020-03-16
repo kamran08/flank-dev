@@ -4,6 +4,7 @@ const EmailSubscription = use('App/Models/EmailSubscription')
 const TopHeadline = use('App/Models/TopHeadline')
 const LandingImage = use('App/Models/LandingImage')
 const Video = use('App/Models/Video')
+const CoachVideo = use('App/Models/CoachVideo')
 const axios = require('axios')
 const Mail = use('Mail')
 class HomeController {
@@ -49,6 +50,9 @@ class HomeController {
     }
     async bannerImage({request}){
         return await LandingImage.all()
+    }
+    async allCoachVideo({request}){
+        return await CoachVideo.all()
     }
 
 }

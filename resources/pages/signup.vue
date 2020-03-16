@@ -148,7 +148,7 @@ export default {
             if(res.status==200){
                 // this.s('Registration Completed !')
                 this.s("Start Flanking")
-              
+            // return
                 window.location= '/nlogin/step2'
                  //this.$router.push('/login')
                  

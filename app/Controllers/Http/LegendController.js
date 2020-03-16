@@ -110,6 +110,7 @@ class LegendController {
       .with('firstImage')
       .with('question.answers') 
       .with('topAtrribute.info' )
+      .with('question.user', (builder) => builder.withCount('reviews as totalreviewbyuser'))
       .first()
     const averageRating = await Database.raw('SELECT cast(AVG(rating) as decimal(10,2)) AS averageRating FROM `reviews` WHERE `reviewFor` = ?', [params.id])
     const healthPulse = await Database.raw('select SUM(good) as GoodCount , SUM(bad) as BadCount FROM `pulses` WHERE `legend_id` = ?', [params.id])

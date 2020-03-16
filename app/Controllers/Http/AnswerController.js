@@ -49,6 +49,8 @@ class AnswerController {
     const user_id = await auth.user.id
     let data = request.all()
     data.user_id = user_id
+    data.helpful = 0
+    data.not_helpful = 0
     return await Answer.create(data)
   }
   
@@ -124,10 +126,19 @@ class AnswerController {
       { answer_id: data.answer_id, user_id: data.user_id }
 
     )
+    // return alike
+    
+   
+     await AnswerLike.query().where('id', alike.id).update({
+      helpful: data.helpful,
+      not_helpful: data.not_helpful
+    })
 
-    await AnswerLike.query().where('id', alike.id).update({ helpful: data.helpful, not_helpful: data.not_helpful})
     const total = await Database.raw('SELECT SUM(helpful) as totoal_helpful , SUM(not_helpful) as total_not_helpful FROM `answer_likes` WHERE answer_id = ?', [data.answer_id])
-    await Answer.query().where('id', data.answer_id).update({ helpful: total[0][0].totoal_helpful , not_helpful: total[0][0].total_not_helpful  })
+    await Answer.query().where('id', data.answer_id).update({
+      helpful: total[0][0].totoal_helpful,
+      not_helpful: total[0][0].total_not_helpful
+    })
     return  await Answer.query().where('id', data.answer_id).first()
 
   }
