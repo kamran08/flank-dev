@@ -30,7 +30,8 @@ module.exports = {
   // },
   plugins: [
     '~plugins/vuecommon',
-    {src: '~plugins/ivuew', ssr: false},
+    '~plugins/ivuew',
+    // {src: '~plugins/ivuew', ssr: false},
     // '~plugins/googlechart'
     {src: '~plugins/googlechart', ssr: false},
   ],
