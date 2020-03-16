@@ -2167,23 +2167,27 @@
   </div>
 </template>
 <script>
-import { Hooper, Slide ,Pagination as HooperPagination ,Navigation as HooperNavigation} from 'hooper';
+import {
+  Hooper,
+  Slide,
+  Pagination as HooperPagination,
+  Navigation as HooperNavigation
+} from "hooper";
 
 export default {
-    components: {
-      Hooper,
-      Slide,
-      HooperPagination,
-      HooperNavigation,
-    },
+  components: {
+    Hooper,
+    Slide,
+    HooperPagination,
+    HooperNavigation
+  },
   data() {
     return {
-        
-        mobileScreen:false,
+      mobileScreen: false,
       showMoreActivity: 3,
       name: "",
       searchTxt: "",
-      
+
       addressTxt: "",
       openSearchDrop: false,
       schoolCoaches: [],
@@ -2198,7 +2202,7 @@ export default {
         key: "",
         school: ""
       },
-     
+
       coachList: [],
       topHeadlines: [],
       videos: [],
@@ -2208,35 +2212,34 @@ export default {
       sData: {
         school_id: 0
       },
-      leandingData:[],
+      leandingData: [],
       iamIndex: false,
       toolTipModal: false,
-      toolTipText: '',
-      isVideo:{
-          modal :false,
-          header:'',
-          link:''
+      toolTipText: "",
+      isVideo: {
+        modal: false,
+        header: "",
+        link: ""
       },
-      city:'All citys',
-      allCity:[],
-      isDropOption:false,
-        tabindex:0,
-        flankDaily:{
-            email:''
-        },
-        hooperSettings: {
-             infiniteScroll: true,
-            // centerMode: true
-        },
-        latesthooperSettings: {
-            infiniteScroll: true,
-            // centerMode: true,
-            // itemsToShow:3,
-            
-        }
+      city: "All citys",
+      allCity: [],
+      isDropOption: false,
+      tabindex: 0,
+      flankDaily: {
+        email: ""
+      },
+      hooperSettings: {
+        infiniteScroll: true
+        // centerMode: true
+      },
+      latesthooperSettings: {
+        infiniteScroll: true
+        // centerMode: true,
+        // itemsToShow:3,
+      }
     };
   },
-  
+
   async asyncData({ app, store, redirect, params }) {
     try {
       let { data } = await app.$axios.get(`/legends`);
@@ -2249,107 +2252,107 @@ export default {
     }
   },
   methods: {
-    openToolTip(no){
-        if(no == 1){
-            this.toolTipText = `Your coach’s health score collects historical data based on values from 0-100%. The closer to 100%, the healthier environment it is for you to play in. Each coach is also rated 
+    openToolTip(no) {
+      if (no == 1) {
+        this.toolTipText = `Your coach’s health score collects historical data based on values from 0-100%. The closer to 100%, the healthier environment it is for you to play in. Each coach is also rated 
                                             on a list of attributes to generate their overall health score. This score is our Flank standard and each coach is calculated the same across the country. Each score is point based, either +3.3 or -3.3 influenced by either positive attributes or demerit points based on the numbers of violations and severity of each. Every violation per inspection is assigned a score value as following:
 
                                            <p> +3.3 point per positive attribute </p>
                                            <p> -3.3 point per negative attribute </p>
-                                            `
-        }
-        else if(no == 2){
-            this.toolTipText = `PCI attempts to quantify the un-quantifiable: the overall sentiment of every sports program. 
-            Using “active player” reviews, selection regulated via the actual coach review screen, each player has the capability (with immunity) to affect the overall chemistry of their respective program based on their coach review. To calculate this, we take a 120-day view of a program’s operation and the summation of active player reviews to quantify the impact on your programs morale as regulated by your coach. To ensure the percentages are fair based on reporting standards, players outside of program jurisdiction as validated via sign-up are not included. `
-        }
-        else if(no == 3){
-            this.toolTipText = `After analyzing the previous four weeks of player reviews, we’ve identified two things that have predictive value. The metric that is associated most closely with the committee’s selections is “Strength of team index” which simply demonstrates how durable your team is, given the amount of reviews submitted. Along with the Program Chemistry Index (CPI) and overall Health Score, we can estimate a team’s chance at success. This can be done at any time during the season, even before the season the starts. `
-        }
-       
-        this.toolTipModal= true
-    },
-    openVideo(no){
-        if(no == 1){
-            this.isVideo.link = `<div class="inner-video-iframe">
-                                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Vz738aqEI5w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </div> `
-            this.isVideo.header = `Out of control Coache's abusive behaviour caught on tape.`
-        }
-        else if(no == 2){
-              this.isVideo.link = `<div class="inner-video-iframe">
-                                                        <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </div> `
-            this.isVideo.header = `Players accuse GCU women's soccer coach of verbal, mental, physial abuse.`
-        }
-        else if(no == 3){
-              this.isVideo.link = `<div class="inner-video-iframe">
-                                                        <iframe src="https://www.youtube.com/embed/AzcPG9sRDMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </div> `
-            this.isVideo.header = `Rutgers coach fired for abuse of players.`
-        }
-        else if(no == 4){
-              this.isVideo.link = `<div class="inner-video-iframe">
-                                                        <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                        </div> `
-            this.isVideo.header = `The abuse of child atheletes by their coaches.`
-        }
-        this.isVideo.modal= true
-    },
-    openDynamicVideo(item){
-        this.isVideo.link = `<div class="inner-video-iframe">${item.body}</div> `
-        this.isVideo.modal= true
-    },
-    closeVideo(){
-        this.isVideo.modal = false
-        this.isVideo.link = ''
-        this.isVideo.header = ''
-    },
-    async  emailSubcription(){
+                                            `;
+      } else if (no == 2) {
+        this.toolTipText = `PCI attempts to quantify the un-quantifiable: the overall sentiment of every sports program. 
+            Using “active player” reviews, selection regulated via the actual coach review screen, each player has the capability (with immunity) to affect the overall chemistry of their respective program based on their coach review. To calculate this, we take a 120-day view of a program’s operation and the summation of active player reviews to quantify the impact on your programs morale as regulated by your coach. To ensure the percentages are fair based on reporting standards, players outside of program jurisdiction as validated via sign-up are not included. `;
+      } else if (no == 3) {
+        this.toolTipText = `After analyzing the previous four weeks of player reviews, we’ve identified two things that have predictive value. The metric that is associated most closely with the committee’s selections is “Strength of team index” which simply demonstrates how durable your team is, given the amount of reviews submitted. Along with the Program Chemistry Index (CPI) and overall Health Score, we can estimate a team’s chance at success. This can be done at any time during the season, even before the season the starts. `;
+      }
 
-        if(this.flankDaily.email == '') return this.i("Please enter Email Frist !")
-        const res = await this.callApi('post','/app/emailSubscription', this.flankDaily)
-        if(res.status == 200 || res.status ==204){
-            this.s("You have Subscribed to Flank Daily !")
-            this.flankDaily.email = ''
-        }
-        else{
-            this.swr();
-        }
+      this.toolTipModal = true;
     },
-    handleFocus(){
-      
-      this.tabindex = -1
+    openVideo(no) {
+      if (no == 1) {
+        this.isVideo.link = `<div class="inner-video-iframe">
+                                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Vz738aqEI5w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        </div> `;
+        this.isVideo.header = `Out of control Coache's abusive behaviour caught on tape.`;
+      } else if (no == 2) {
+        this.isVideo.link = `<div class="inner-video-iframe">
+                                                        <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        </div> `;
+        this.isVideo.header = `Players accuse GCU women's soccer coach of verbal, mental, physial abuse.`;
+      } else if (no == 3) {
+        this.isVideo.link = `<div class="inner-video-iframe">
+                                                        <iframe src="https://www.youtube.com/embed/AzcPG9sRDMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        </div> `;
+        this.isVideo.header = `Rutgers coach fired for abuse of players.`;
+      } else if (no == 4) {
+        this.isVideo.link = `<div class="inner-video-iframe">
+                                                        <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        </div> `;
+        this.isVideo.header = `The abuse of child atheletes by their coaches.`;
+      }
+      this.isVideo.modal = true;
     },
-    handleFocusOut(){
-      
-      this.isDropOption=false
+    openDynamicVideo(item) {
+      this.isVideo.link = `<div class="inner-video-iframe">${item.body}</div> `;
+      this.isVideo.modal = true;
+    },
+    closeVideo() {
+      this.isVideo.modal = false;
+      this.isVideo.link = "";
+      this.isVideo.header = "";
+    },
+    async emailSubcription() {
+      if (this.flankDaily.email == "")
+        return this.i("Please enter Email Frist !");
+      const res = await this.callApi(
+        "post",
+        "/app/emailSubscription",
+        this.flankDaily
+      );
+      if (res.status == 200 || res.status == 204) {
+        this.s("You have Subscribed to Flank Daily !");
+        this.flankDaily.email = "";
+      } else {
+        this.swr();
+      }
+    },
+    handleFocus() {
+      this.tabindex = -1;
+    },
+    handleFocusOut() {
+      this.isDropOption = false;
       // this.tabindex = 0
     },
-    pageOptionDropChange(item){ 
-         this.$store.commit('setPageOption', item )
-        this.isDropOption = false
-       
+    pageOptionDropChange(item) {
+      this.$store.commit("setPageOption", item);
+      this.isDropOption = false;
     },
-    goToCoachSearch(){
-        this.$store.commit('setStr', this.searchTxt )
-        this.$router.push(`/coach_search?str=${this.str}&pageOption=${this.pageOption}`)
+    goToCoachSearch() {
+      this.$store.commit("setStr", this.searchTxt);
+      this.$router.push(
+        `/coach_search?str=${this.str}&pageOption=${this.pageOption}`
+      );
     },
-    directToCoachWall(item){
-       // return this.i();
-       
-        if(item.review_type == 'school') this.$router.push(`/school_coach/${item.coach.id}`)
-        else if(item.review_type == 'product') this.$router.push(`/product/${item.product.id}`)
-        else if(item.review_type == 'legend') this.$router.push(`/profile/${item.legend.id}`)
+    directToCoachWall(item) {
+      // return this.i();
+
+      if (item.review_type == "school")
+        this.$router.push(`/school_coach/${item.coach.id}`);
+      else if (item.review_type == "product")
+        this.$router.push(`/product/${item.product.id}`);
+      else if (item.review_type == "legend")
+        this.$router.push(`/profile/${item.legend.id}`);
     },
     closeModal() {
-       this.rData.for=0
-        this.rData.key=''
-        this.rData.school=''
-        this.coachList=[]
-        this.schoolList=[]
-        this.schoolCoachList=[]
-        this.productList=[]
-        this.sData.school_id = 0
+      this.rData.for = 0;
+      this.rData.key = "";
+      this.rData.school = "";
+      this.coachList = [];
+      this.schoolList = [];
+      this.schoolCoachList = [];
+      this.productList = [];
+      this.sData.school_id = 0;
 
       this.reviewModal = false;
     },
@@ -2386,9 +2389,7 @@ export default {
     async SearchByKeySchoolCoach() {
       const res = await this.callApi(
         "get",
-        `/app/SearchByKeySchoolCoach?key=${this.rData.key}&school_id=${
-          this.sData.school_id
-        }`
+        `/app/SearchByKeySchoolCoach?key=${this.rData.key}&school_id=${this.sData.school_id}`
       );
       if (res.status === 200) {
         this.schoolCoachList = res.data;
@@ -2448,69 +2449,73 @@ export default {
           `/local_instructor/${this.review_of_day.bestReview.reviewFor}`
         );
       } else if (this.review_of_day.bestReview.review_type == "school") {
-        this.$router.push(`/school_coach/${this.review_of_day.bestReview.school_id}`);
-      } 
-    //   else if (this.review_of_day.bestReview.review_type == "product") {
-    //     this.$router.push(
-    //       `/product/${this.review_of_day.bestReview.product_id}`
-    //     );
-    //   }
+        this.$router.push(
+          `/school_coach/${this.review_of_day.bestReview.school_id}`
+        );
+      }
+      //   else if (this.review_of_day.bestReview.review_type == "product") {
+      //     this.$router.push(
+      //       `/product/${this.review_of_day.bestReview.product_id}`
+      //     );
+      //   }
     },
     async getCity(item) {
-      this.city = item
-      if(item == 'All citys'){
-        item=''
+      this.city = item;
+      if (item == "All citys") {
+        item = "";
       }
-      const res  = await this.callApi('get',`/app/getSchoolcoaches?city=${item}`)
-      if(res.status === 200){
-        this.schoolCoaches = res.data
+      const res = await this.callApi(
+        "get",
+        `/app/getSchoolcoaches?city=${item}`
+      );
+      if (res.status === 200) {
+        this.schoolCoaches = res.data;
+      } else {
+        this.swr();
       }
-      else{
-        this.swr()
-      }
-    },
+    }
   },
-  async mounted(){
+  async mounted() {
     //   if(window.innerWidth < 1199){
     //         this.mobileScreen = true
     //     }
+  },
 
-    const res1 = await this.callApi("get", `/app/bannerImage`)
-      if(res1.status==200){
-          this.leandingData = res1.data
-      }
+  async created() {
+    const res1 = await this.callApi("get", `/app/bannerImage`);
+    if (res1.status == 200) {
+      this.leandingData = res1.data;
+    }
 
-    if(this.$route.query.login == 'success') this.i("Login Successful !")
-    const [res2, res3,res4,res5] = await Promise.all([
-    //  this.callApi("get", `/app/getSchoolcoaches`),
-      
+    if (this.$route.query.login == "success") this.i("Login Successful !");
+    const [res2, res3, res4, res5] = await Promise.all([
+      //  this.callApi("get", `/app/getSchoolcoaches`),
+
       this.callApi("get", `/app/reviewOfTheDay`),
-     // this.callApi("get", `/app/recentCitys`),
+      // this.callApi("get", `/app/recentCitys`),
       this.callApi("get", `/app/getRecentReview`),
       this.callApi("get", `/app/topHeadline`),
       this.callApi("get", `/app/videos`)
-   
     ]);
-    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200) { 
-    //  this.schoolCoaches = res1.data;
+    if (
+      res3.status === 200 &&
+      res2.status == 200 &&
+      res4.status == 200 &&
+      res5.status == 200
+    ) {
+      //  this.schoolCoaches = res1.data;
       this.review_of_day = res2.data;
       this.recentReview = res3.data;
       this.topHeadlines = res4.data;
       this.videos = res5.data;
-      
-     
-     // this.allCity = res4.data;
+
+      // this.allCity = res4.data;
       // this.review_of_day.bestReview = res2.data.bestReview
       this.loading = false;
     } else {
       this.swr();
       this.loading = false;
     }
-  },
-
-  async created() {
-      
-  },
-  
+  }
 };
 </script>
