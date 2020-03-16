@@ -360,38 +360,7 @@
                                                 <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
                       </div>-->
                       <div class="row">
-                        <hooper
-                          :itemsToShow="3"
-                          :infiniteScroll="true"
-                          class="new-pr-hooler-parent"
-                        >
-                          <slide v-for="(item,index) in videos" :key="index">
-                            <div class="col-md-3 col-sm-6">
-                              <div class="inner-scandal-video-item">
-                                <figure @click="openDynamicVideo(item)">
-                                  <img :src="item.img" alt />
-                                  <div class="play-caption">
-                                    <span>
-                                      <i class="fas fa-play"></i>
-                                    </span>
-                                  </div>
-                                  <div class="video-duration">
-                                    <p class="duration">
-                                      <span>2:17</span>
-                                    </p>
-                                  </div>
-                                </figure>
-                                <div class="scandal-video-caption">
-                                  <p>{{item.title}}</p>
-                                </div>
-                                <div class="video-logo">
-                                  <img src="/image/flank.png" alt />
-                                </div>
-                              </div>
-                            </div>
-                          </slide>
-                          <!-- <hooper-navigation slot="hooper-addons"></hooper-navigation> -->
-                        </hooper>
+                       <!-- **************************************************************** -->
                       </div>
                     </div>
                   </div>
@@ -601,204 +570,10 @@
                       </div>
                       <div class="drop-content mt-10">
                         <div class="row plus-row">
-                          <hooper :itemsToShow="3" :infiniteScroll="true">
-                            <slide
-                              v-for="(item,index) in recentReview "
-                              :key="index"
-                              v-if="index<5"
-                            >
-                              <div class="drop-item">
-                                <div class="drop-item-inner">
-                                  <div class="linear-border"></div>
-                                  <div class="drop-item-title">
-                                    <figure>
-                                      <!-- <img :src="item.reviwer.img"  alt=""> -->
-                                      <img src="/images/ms.jpg" alt />
-                                    </figure>
-                                    <div class="drop-title-caption">
-                                      <h3
-                                        style="cursor:pointer;"
-                                        @click="$router.push(`/flanker/${item.reviwer.id}`)"
-                                      >{{item.reviwer | trimSecondLater}}</h3>
-                                      <p>Wrote a Review</p>
-                                    </div>
-                                  </div>
-                                  <div class="drop-inner">
-                                    <div class="drop-inner-figure">
-                                      <figure>
-                                        <img src="/images/cmnt1.png" alt />
-                                      </figure>
-                                    </div>
-                                    <div class="drop-inner-cap">
-                                      <div class="drop-inner-coach">
-                                        <h4
-                                          style="cursor:pointer;"
-                                          @click="directToCoachWall(item)"
-                                          v-if="item.review_type == 'school' && item.coach"
-                                        >Coach {{item.coach.name}}</h4>
-                                        <h4
-                                          style="cursor:pointer;"
-                                          @click="directToCoachWall(item)"
-                                          v-if="item.review_type == 'legend'"
-                                        >Coach {{item.legend.name}}</h4>
-                                      </div>
-                                      <div class="review-star small-review-star">
-                                        <ul>
-                                          <li :class="(item.rating>0)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                          <li :class="(item.rating>1)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                          <li :class="(item.rating>2)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                          <li :class="(item.rating>3)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                          <li :class="(item.rating>4)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                      <div class="drop-inner-coach-txt">
-                                        <p>{{item.content}}</p>
-                                        <a @click="directToCoachWall(item)">Continue reading</a>
-                                      </div>
-                                    </div>
-                                    <div class="drop-bottom-icon small-drop-bottom-icon">
-                                      <ul>
-                                        <li>
-                                          <img src="/images/ic1.png" alt />
-                                          <span>{{item.official}}</span>
-                                        </li>
-                                        <li>
-                                          <img src="/images/ic2.png" alt />
-                                          <span>{{item.bravery}}</span>
-                                        </li>
-                                        <li>
-                                          <img src="/images/ic3.png" alt />
-                                          <span>{{item.distinguished}}</span>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </slide>
-
-                            <hooper-navigation slot="hooper-addons"></hooper-navigation>
-                          </hooper>
+                          <!-- @@@@@@@@@@222222222222222222222222222222222222222222222222222 -->
                         </div>
                         <div class="row plus-row" v-if="showMoreActivity>5">
-                          <hooper :itemsToShow="3" :infiniteScroll="true">
-                            <slide
-                              v-for="(item,index) in recentReview "
-                              :key="index"
-                              v-if="index>5"
-                            >
-                              <div class="drop-item">
-                                <div class="drop-item-inner">
-                                  <div class="linear-border"></div>
-                                  <div class="drop-item-title">
-                                    <figure>
-                                      <!-- <img :src="item.reviwer.img"  alt=""> -->
-                                      <img src="/images/ms.jpg" alt />
-                                    </figure>
-                                    <div class="drop-title-caption">
-                                      <h3
-                                        style="cursor:pointer;"
-                                        @click="$router.push(`/flanker/${item.reviwer.id}`)"
-                                      >{{item.reviwer | trimSecondLater}}</h3>
-                                      <p>Wrote a Review</p>
-                                    </div>
-                                  </div>
-                                  <div class="drop-inner">
-                                    <div class="drop-inner-figure">
-                                      <figure>
-                                        <img src="/images/cmnt1.png" alt />
-                                      </figure>
-                                    </div>
-                                    <div class="drop-inner-cap">
-                                      <div class="drop-inner-coach">
-                                        <h4
-                                          style="cursor:pointer;"
-                                          @click="directToCoachWall(item)"
-                                          v-if="item.review_type == 'school' && item.coach"
-                                        >Coach {{item.coach.name}}</h4>
-                                        <h4
-                                          style="cursor:pointer;"
-                                          @click="directToCoachWall(item)"
-                                          v-if="item.review_type == 'legend'"
-                                        >Coach {{item.legend.name}}</h4>
-                                      </div>
-                                      <div class="review-star small-review-star">
-                                        <ul>
-                                          <li :class="(item.rating>0)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                          <li :class="(item.rating>1)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                          <li :class="(item.rating>2)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                          <li :class="(item.rating>3)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                          <li :class="(item.rating>4)? '' : 'star-half'">
-                                            <span>
-                                              <i class="fas fa-star"></i>
-                                            </span>
-                                          </li>
-                                        </ul>
-                                      </div>
-                                      <div class="drop-inner-coach-txt">
-                                        <p>{{item.content}}</p>
-                                        <a @click="directToCoachWall(item)">Continue reading</a>
-                                      </div>
-                                    </div>
-                                    <div class="drop-bottom-icon small-drop-bottom-icon">
-                                      <ul>
-                                        <li>
-                                          <img src="/images/ic1.png" alt />
-                                          <span>{{item.official}}</span>
-                                        </li>
-                                        <li>
-                                          <img src="/images/ic2.png" alt />
-                                          <span>{{item.bravery}}</span>
-                                        </li>
-                                        <li>
-                                          <img src="/images/ic3.png" alt />
-                                          <span>{{item.distinguished}}</span>
-                                        </li>
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </slide>
-
-                            <hooper-navigation slot="hooper-addons"></hooper-navigation>
-                          </hooper>
+<!-- 33333333333333333333333333333333333333333333333333333333333333333333333333 -->
                         </div>
                         <div class="row">
                           <div class="drop-item" style="margin-top: 10px">
@@ -1314,7 +1089,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="mob-new-slider">
                   <div class="mob-slider-box">
-                    <hooper :settings="hooperSettings">
+                    <!-- <hooper :settings="hooperSettings">
                       <slide>
                         <figure>
                           <img src="/images/mob-header-slider.png" alt />
@@ -1336,7 +1111,7 @@
                         </figure>
                       </slide>
                       <hooper-pagination slot="hooper-addons"></hooper-pagination>
-                    </hooper>
+                    </hooper> -->
                   </div>
                 </div>
                 <div class="vertising-opportunity-sec mobile-signup-sec new-box-shadow">
@@ -1431,7 +1206,7 @@
                       </h2>
                     </div>
                     <div class="row plus-row up-ch-pad" style="padding-bottom: 15px;">
-                      <hooper :itemsToShow="3" :infiniteScroll="false">
+                      <!-- <hooper :itemsToShow="3" :infiniteScroll="false">
                         <slide v-for="(item,index) in videos" :key="index">
                           <div class="col-md-3 col-sm-6">
                             <div class="inner-scandal-video-item">
@@ -1448,7 +1223,7 @@
                           </div>
                         </slide>
                         <hooper-navigation slot="hooper-addons"></hooper-navigation>
-                      </hooper>
+                      </hooper> -->
 
                       <!-- <div class="col-md-3 col-sm-6">
                                                 <div class="inner-scandal-video-item">
@@ -1596,19 +1371,13 @@
                       </h2>
                     </div>
                     <div class="row plus-row up-ch-pad" style="padding-bottom: 15px;">
-                      <hooper :itemsToShow="3">
+                      <!-- <hooper :itemsToShow="3">
                         <slide v-for="(item,index) in videos" :key="index">
                           <div class="col-md-3 col-sm-6">
                             <div class="inner-scandal-video-item">
                               <figure @click="openDynamicVideo(item)">
                                 <img :src="item.img" alt />
                               </figure>
-                              <!-- <div class="new-mob-latest-details">
-                                                                    <div class="new-mob-latest-details-inner">
-                                                                        <h3>Coach name</h3>
-                                                                        <h4>School name</h4>
-                                                                    </div>
-                              </div>-->
                               <div class="scandal-video-caption">
                                 <p>{{item.title}}</p>
                               </div>
@@ -1619,7 +1388,7 @@
                           </div>
                         </slide>
                         <hooper-navigation slot="hooper-addons"></hooper-navigation>
-                      </hooper>
+                      </hooper> -->
                     </div>
                   </div>
                 </div>
@@ -1801,7 +1570,7 @@
                     </div>
                     <div class="drop-content mt-10" style="padding-left: 0; padding-right: 0;">
                       <div class="row plus-row" style="padding-left: 0; padding-right: 0;">
-                        <hooper :itemsToShow="3">
+                        <!-- <hooper :itemsToShow="3">
                           <slide
                             v-for="(item,index) in recentReview "
                             :key="index"
@@ -1813,7 +1582,6 @@
                                 <div class="linear-border"></div>
                                 <div class="drop-item-title new-drop-item-title">
                                   <figure>
-                                    <!-- <img :src="item.reviwer.img"  alt=""> -->
                                     <img src="/images/ms.jpg" alt />
                                   </figure>
                                   <div class="drop-title-caption">
@@ -1900,7 +1668,7 @@
                           </slide>
 
                           <hooper-navigation slot="hooper-addons"></hooper-navigation>
-                        </hooper>
+                        </hooper> -->
                       </div>
 
                       <div class="row plus-row">
@@ -2167,20 +1935,20 @@
   </div>
 </template>
 <script>
-import {
-  Hooper,
-  Slide,
-  Pagination as HooperPagination,
-  Navigation as HooperNavigation
-} from "hooper";
+// import {
+//   Hooper,
+//   Slide,
+//   Pagination as HooperPagination,
+//   Navigation as HooperNavigation
+// } from "hooper";
 
 export default {
-  components: {
-    Hooper,
-    Slide,
-    HooperPagination,
-    HooperNavigation
-  },
+//   components: {
+//     Hooper,
+//     Slide,
+//     HooperPagination,
+//     HooperNavigation
+//   },
   data() {
     return {
       mobileScreen: false,
@@ -2228,15 +1996,15 @@ export default {
       flankDaily: {
         email: ""
       },
-      hooperSettings: {
-        infiniteScroll: true
-        // centerMode: true
-      },
-      latesthooperSettings: {
-        infiniteScroll: true
-        // centerMode: true,
-        // itemsToShow:3,
-      }
+    //   hooperSettings: {
+    //     infiniteScroll: true
+    //     // centerMode: true
+    //   },
+    //   latesthooperSettings: {
+    //     infiniteScroll: true
+    //     // centerMode: true,
+    //     // itemsToShow:3,
+    //   }
     };
   },
 
