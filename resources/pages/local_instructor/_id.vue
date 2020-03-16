@@ -850,25 +850,28 @@
                                     <div class="switch-link-title">
                                         <h4 style="margin-bottom: 15px;">Latest videos</h4>
                                     </div>
-                                    <div class="flank-video">
-                                        <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                                    </div>
+                                      <div class="flank-video" v-if="playingVideo">
+                                            
+                                           <p v-html="playingVideo"></p>
+                                           <!-- {{ coachVideo[isPlayingItemId].body }} -->
+                                            <!-- <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
+                                        </div>
 
                                     <div class="playing-list">
                                         <ul>
-                                            <li>
-                                                <div class="playing-btn">
-                                                    <span><i class="fas fa-play"></i></span>
-                                                </div>
-                                                <div class="video-info" @click="openVideo(1)" style="cursor:pointer;">
-                                                    <p>Out of control coaches' Abusive Behaviour Often Under Reported</p>
-                                                    <ul>
-                                                        <li>Now playing <span>•</span></li>
-                                                        <li><p>2:18</p></li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                            <li>
+                                          <li v-for="(item,index) in coachVideo" :key="index">
+                                                    <div class="playing-btn">
+                                                        <span><i class="fas fa-play"></i></span>
+                                                    </div>
+                                                    <div class="video-info" @click="openVideo(item.body,index)" style="cursor:pointer;">
+                                                        <p>{{item.title}}</p>
+                                                        <ul>
+                                                            <li v-if="index==isPlayingItemId">Now playing <span>•</span></li>
+                                                            <li><p>{{item.video_length}}</p></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            <!-- <li>
                                                 <div class="playing-btn">
                                                     <span><i class="fas fa-play"></i></span>
                                                 </div>
@@ -900,7 +903,7 @@
                                                         <li><p>3:55</p></li>
                                                     </ul>
                                                 </div>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                     </div>
                                     <div class="video-foot-img">
@@ -1313,6 +1316,9 @@ export default {
             embeded_id:16,
             embededText:'',
             isMoreQuestion:false,
+            coachVideo:[],
+            isPlayingItemId:-1,
+            playingVideo:'',
             
         }
     },
@@ -1361,33 +1367,41 @@ export default {
             this.message = message
             this.messageModal = false
         },
-        openVideo(no){ 
-            if(no == 1){
-                this.isVideo.link = `<div class="inner-video-iframe">
-                                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Vz738aqEI5w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> `
-                this.isVideo.header = `Out of control Coache's abusive behaviour caught on tape.`
-            }
-            else if(no == 2){
-                this.isVideo.link = `<div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> `
-                this.isVideo.header = `Players accuse GCU women's soccer coach of verbal, mental, physial abuse.`
-            }
-            else if(no == 3){
-                this.isVideo.link = `<div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/AzcPG9sRDMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> `
-                this.isVideo.header = `Rutgers coach fired for abuse of players.`
-            }
-            else if(no == 4){
-                this.isVideo.link = `<div class="inner-video-iframe">
-                                                            <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                                            </div> `
-                this.isVideo.header = `The abuse of child atheletes by their coaches.`
-            }
+         openVideomobile(link){ 
+             this.isVideo.link = `<div class="inner-video-iframe">${link}</div>`
             this.isVideo.modal= true
         },
+        openVideo(link,index){ 
+            this.isPlayingItemId = index
+            this.playingVideo = link
+        },
+        // openVideo(no){ 
+        //     if(no == 1){
+        //         this.isVideo.link = `<div class="inner-video-iframe">
+        //                                                     <iframe width="560" height="315" src="https://www.youtube.com/embed/Vz738aqEI5w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        //                                                     </div> `
+        //         this.isVideo.header = `Out of control Coache's abusive behaviour caught on tape.`
+        //     }
+        //     else if(no == 2){
+        //         this.isVideo.link = `<div class="inner-video-iframe">
+        //                                                     <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        //                                                     </div> `
+        //         this.isVideo.header = `Players accuse GCU women's soccer coach of verbal, mental, physial abuse.`
+        //     }
+        //     else if(no == 3){
+        //         this.isVideo.link = `<div class="inner-video-iframe">
+        //                                                     <iframe src="https://www.youtube.com/embed/AzcPG9sRDMQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        //                                                     </div> `
+        //         this.isVideo.header = `Rutgers coach fired for abuse of players.`
+        //     }
+        //     else if(no == 4){
+        //         this.isVideo.link = `<div class="inner-video-iframe">
+        //                                                     <iframe src="https://www.youtube.com/embed/LdK2d4CGzrA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        //                                                     </div> `
+        //         this.isVideo.header = `The abuse of child atheletes by their coaches.`
+        //     }
+        //     this.isVideo.modal= true
+        // },
         closeVideo(){
             this.isVideo.modal = false
             this.isVideo.link = ''
@@ -1843,7 +1857,7 @@ export default {
          this.location = window.location.href
         if(this.isLoggedIn) this.user_id = this.authInfo.id
         
-        const [res1, res2, res3, res4,res5,res6,res7] = await Promise.all([
+        const [res1, res2, res3, res4,res5,res6,res7,res8] = await Promise.all([
             this.callApi('get', `/app/atrributeConteptData/${this.$route.params.id}`),  
             this.callApi('get', `/app/getAdditionlegendInfo/${this.$route.params.id}`),
             this.callApi('get', `/app/getTodayBussinessHour/${this.$route.params.id}`),
@@ -1851,14 +1865,21 @@ export default {
             this.callApi('get', `/app/getCoachTopReviews/${this.$route.params.id}?type=legend`),
             this.callApi('get', `/app/legendbussinessinfo/${this.$route.params.id}`),
              this.callApi('get', `/questions/${this.$route.params.id}?type=legend&limit=3`), 
+             this.callApi('get', `/app/allCoachVideo`)
         ])
-        if(res1.status===200 && res2.status===200 && res3.status === 200 && res4.status === 200 && res5.status === 200 && res6.status == 200){
+        if(res8.status==200  && res1.status===200 && res2.status===200 && res3.status === 200 && res4.status === 200 && res5.status === 200 && res6.status == 200){
             this.atrrtributepoint = res1.data
             this.reviews = res4.data.data
             this.rpagination = res4.data
             delete this.rpagination.data
             this.uploadList = res2.data.legendData.legendimages
             // this.questionList = res2.data.legendData.questions
+             this.coachVideo = res8.data
+             if(res8.data.length>0){
+                this.playingVideo=  this.coachVideo[0].body
+                this.isPlayingItemId=0
+            
+            }
             this.questionList = res7.data.data
             this.todayHour = res3.data
             this.hours = res2.data.legendData.hours

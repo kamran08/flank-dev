@@ -1009,8 +1009,8 @@
                                                 <div class="col-md-3 col-sm-6"  >
                                                     <div class="inner-scandal-video-item" @click="openVideomobile(item.body)">
                                                         <figure >
-                                                            <!-- <img src="/newFile/11.jpg" alt=""> -->
-                                                            <p v-html="item.body"></p>
+                                                            <img :src="item.img" alt="">
+                                                            <!-- <p v-html="item.body"></p> -->
                                                             <div class="play-caption">
                                                                 <span><i class="fas fa-play"></i></span>
                                                             </div>
