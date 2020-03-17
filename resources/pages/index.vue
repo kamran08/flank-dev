@@ -1887,9 +1887,9 @@ export default {
     },
   },
   mounted(){
-    //   if(window.innerWidth < 1199){
-    //         this.mobileScreen = true
-    //     }
+      if(window.innerWidth < 1199){
+            this.mobileScreen = true
+        }
   },
 
   async created() {
