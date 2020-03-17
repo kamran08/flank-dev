@@ -1,10 +1,10 @@
 <template>
     <div class="pt-120">
-        <div class="flank-page-header">
+        <div class="flank-page-header new-inst-header-1">
             <div class="flank-page-top">
                 <div class="container">
-                    <div class="flank-full" v-if="legendData.name"> 
-                        <div class="flank-item-1">  
+                    <div class="flank-full">
+                        <div class="flank-item-1">
                             <figure>
                                 <img src="/image/fl_lg.png" alt="">
                             </figure>
@@ -51,10 +51,117 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="flank-item-2">
-                            <div class="flank-item-2-inner new-s-flank-item-2-inner">
+                        <div class="flank-item-2 flank-item-2-inner new-s-flank-item-2-inner">
                                 
                                 <div class="flank-item-right-list" style="flex: 0 0 90%; width: 90%;"> 
+                                    <div class="linear-border">
+                                        <p>2019-20 season stats</p>
+                                    </div>
+                                    <div class="right-list-inner">
+                                        <div class="right-list-inner-item">
+                                            <h4>Rating</h4> 
+                                            <div class="review-star">
+                                                <ul>
+                                                    <li :class="(legendData.avg_rating> 0)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
+                                                    <li :class="(legendData.avg_rating> 1)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
+                                                    <li :class="(legendData.avg_rating> 2)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
+                                                    <li :class="(legendData.avg_rating> 3)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
+                                                    <li :class="(legendData.avg_rating> 4)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="right-list-inner-item" v-if="allTableData.healthSore">
+                                            <h4>Health score</h4>
+                                            <div class="ti">
+                                                <p>{{allTableData.healthSore.toFixed(2)}}</p>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="right-list-inner-item">
+                                            <h4>Heali</h4>
+                                            <div class="ti">
+                                                <p>0.0</p>
+                                            </div>
+                                        </div>
+                                        <div class="right-list-inner-item">
+                                            <h4>Harmi</h4>
+                                            <div class="ti">
+                                                <p>0.0</p>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flank-page-bottom">
+                <div class="container">
+                    <div class="flank-page-bottom-nav">
+                        <ul>
+                            <li class="active"><a href="#">Overview</a></li>
+                            <!-- <li><a href="#">Bio</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flank-page-header new-inst-header-2"> 
+            <div class="flank-page-top">
+                <div class="container no-padding">
+                    <div class="flank-full">
+                        <div class="flank-item-1 mob-flank-item-1">
+                            <figure>
+                            
+                                <img src="/image/fl_lg.png" alt="">
+                            </figure>
+                            <div class="flank-header-cap flank-header-cap-mob">
+                                <h1 style="font-size: 25px; font-weight: 800; color: #000;"><span style="font-weight: 400;">Coach</span><br> {{legendData.name}}</h1>
+                                <ul>
+                                    <!-- <li><img src="/image/d.png" alt="">Team name here</li> --> 
+                                    <li>&bull;</li>
+                                    <li>{{legendData.sport}}</li>
+                                </ul>
+                                <div class="flank-item-left-list flank-item-left-list-mob">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>Program type:</td>
+                                                <td>{{legendData.division}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>City/state:</td>
+                                                <td>{{legendData.city}}, {{legendData.state}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Profile views:</td>
+                                                <td>{{legendData.views}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Status:</td>
+                                                <td v-if="todayHour.today ==1 && todayHour.open == true ">
+                                                    <span class="green"></span>Active
+                                                </td>
+                                                <td v-else>
+                                                    Offline
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Streak:</td> 
+                                                <td>W5</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="flank-head-btn mt-10"  @click="$router.push(`/scoach_review/${legendData.id}`)"> 
+                                    <button>Review</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="flank-item-2">
+                            <div class="flank-item-2-inner">
+                                
+                                <div class="flank-item-right-list">
                                     <div class="linear-border">
                                         <p>2019-20 season stats</p>
                                     </div>
@@ -103,6 +210,9 @@
                             <li class="active"><a href="#">Overview</a></li>
                             <!-- <li><a href="#">Bio</a></li> -->
                         </ul>
+                        <!-- <div class="flank-page-bottom-btn">
+                            <button><img src="/images/fl-new-btn.gif" alt=""> Write a Review</button>
+                        </div> -->
                     </div>
                 </div>
             </div>

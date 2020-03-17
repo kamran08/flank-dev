@@ -854,9 +854,9 @@
             <div class="new-banner-section" >
                 <div class="container no-padding">
                     <div class="inner-banner new-fl-inner-banner">
-                        <figure>
-                            <img src="/images/new-top.png" alt=""> 
-                        </figure>
+                          <figure v-if="leandingData.length>0">
+                        <img :src="leandingData[0].url" alt="">
+                    </figure>
                     </div>
                 </div>
             </div>
