@@ -1,4 +1,5 @@
 <template >
+<client-only>
   <!-- <div oncontextmenu="return false;"> -->
     <div>
 
@@ -7,6 +8,7 @@
     <nuxt />
     <myFooter/>
   </div>
+  </client-only>
   <!-- </div> -->
 </template>
 

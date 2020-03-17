@@ -1,11 +1,23 @@
 import Vue from 'vue'
 //  import Chartkick from 'vue-chartkick'
 // import Chart from 'chart.js'
+// new
+
+// import * as VueGoogleMaps from 'vue2-google-maps'
+
+// Vue.use(VueGoogleMaps, {
+//   load: {
+//     key: 'my_key',
+//     libraries: 'places',
+//   }
+// })
+// new
 
 // Vue.use(Chartkick.use(Chart))
 import Clipboard from 'v-clipboard'
 Vue.use(Clipboard)
 import {mapGetters} from 'vuex'
+
 // import { Hooper, Slide } from 'hooper';
 Vue.mixin({
   methods: {

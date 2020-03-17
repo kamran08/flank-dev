@@ -1,4 +1,5 @@
 <template>
+    <client-only>
     <div v-if="isLoggedIn" class="pt-120">
          <div class="sign-up-content padd_tb40">
             <div class="container">
@@ -12,7 +13,7 @@
                             <form action="" class="new-flanker-form" v-on:submit.prevent>
                                 <div class="new-flanker-photo">
                                     <div class="flanker-photo-up">
-                                        <figure v-if="formData.img">
+                                        <figure v-if="formData">
                                             <!-- <img src="" alt=""> -->
                                             <img :src="(formData.img == '')? '/images/user_flanker.png' : formData.img" alt="">
                                         </figure>
@@ -51,7 +52,8 @@
                                 </div>
                                 <div class="next-btn">
                                     <button @click="onSubmit"> Save & continue</button>
-                                    <p><nuxt-link   :to="`/nlogin/step3`" >Skip</nuxt-link></p>
+                                    <!-- <p><nuxt-link   :to="`/nlogin/step3`" >Skip</nuxt-link></p> -->
+                                    <p><nuxt-link   :to="`/`" >Skip</nuxt-link></p>
                                 </div>
                             </form>
                         </div>
@@ -69,6 +71,7 @@
             </div>
         </div>
     </div>
+    </client-only>
 </template>
 <script>
 export default {
@@ -88,7 +91,8 @@ export default {
             if(res.status===200){
                
                 this.s('Profile have been upadated!')
-                this.$router.push(`/nlogin/step3`)
+                // this.$router.push(`/nlogin/step3`)
+                this.$router.push(`/`)
             }
             else if (res.status===401){
                 this.e(res.data.message)
@@ -114,8 +118,14 @@ export default {
         },
     },
     created(){
+        console.log(this.authInfo)
         if(this.isLoggedIn == false) return this.$router.push('/')
-        this.formData.img = this.authInfo.img
+        if(this.authInfo && this.authInfo.img){
+
+            this.formData.img = this.authInfo.img.trim()
+        }
+        // this.authInfo.img
+        // this.formData.img = this.authInfo.img
     }
 }
 </script>

@@ -15,7 +15,7 @@ module.exports = {
   ],
   
   axios: {
-       baseURL: 'https://goflank.com/'                             
+       baseURL: 'https://goflank.com/'                          
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360
@@ -32,6 +32,7 @@ module.exports = {
     '~plugins/ivuew',
     {src: '~plugins/vuecommon', ssr: false},
     // '~plugins/googlechart'
+    //  { ssr: false, src: '~plugins/googlemaps.js' }
   ],
   head: {
     title: 'Go Flank',
