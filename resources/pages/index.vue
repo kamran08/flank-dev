@@ -303,7 +303,8 @@
                                                                         <span><i class="fas fa-play"></i></span>
                                                                     </div>
                                                                     <div class="video-duration">
-                                                                        <p class="duration"><span>2:17</span></p>
+                                                                        <p class="duration"><span>{{item.video_length}}</span></p>
+                                                                        <!-- <p class="duration"><span>2:17</span></p> -->
                                                                     </div>
                                                                 </figure>
                                                                 <div class="scandal-video-caption">
