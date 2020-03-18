@@ -396,7 +396,7 @@
                                                 <img src="/images/sticker-3.png" alt="">
                                             </figure>
                                             <div class="top-con-cap">
-                                                <p style="font-family: ceraProRegular;"><span style="font-family: ceraPro;font-weight: 600;">Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
+                                                <p style="font-family: ceraProRegular;"><span style="font-family: ceraPro;font-weight: 600;">Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews.</p>
                                             </div>
                                         </div>
                                         <div class="new-flank-form">
@@ -2334,7 +2334,7 @@ export default {
         isShareModalOn(user){
             
             this.isShareModal = true
-            this.twitter_text = `Check out Coach ${user.firstName} ${user.lastName}’s Review on @Flank`
+            this.twitter_text = `Check out ${user.firstName} ${user.lastName}’s Review on @Flank`
         },
         submitShare(){
             this.s("Share Successfull !")

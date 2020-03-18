@@ -64,7 +64,8 @@
                                     <div class="row">
                                         <div class="col-sm-4 padding-right-0">
                                            <div class="single-coaches-left">
-                                               <h3 class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img :src="item.school.logo" alt=""></h3>
+                                               <!-- <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img :src="item.school.logo" alt=""></div> -->
+                                               <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img src="/images/sticker-3.png" alt=""></div>
                                            </div> 
                                         </div>
                                         <div class="col-sm-8 padding-left-0">

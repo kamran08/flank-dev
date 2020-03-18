@@ -25,43 +25,46 @@
               <div class="row">
               <div class="col-md-12">
                 <div class="coach-title-area">
-                  <h2 class="coach-title">Welcome to the Flank’s Coach Attribute Selection Survey. </h2>
+                  <h2 class="coach-title">Welcome to Flank’s Coach Attribute Selection Survey. </h2>
                   <p class="coach-sub">We value your candid feedback and appreciate you taking the time to complete our survey. </p>
                 </div>
               </div>
               </div>
               <div class="row">
-              <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="coach-left">
                   <h1 class="attribute-title">Harmful Attributes</h1>
                   <span class="attribute-sub">(Select all that apply)</span> 
-                  <table class="attribute-table">
-                    <tr>
-                      <td :class="(attributeInfo[0].isSelected)? 'active_td' : ''" @click="changeSelected(0)" > <span class="td_lg" >{{attributeInfo[0].content}}</span></td>
-                      <td :class="(attributeInfo[1].isSelected)? 'active_td' : ''" @click="changeSelected(1)"  ><span class="td_lg" >{{attributeInfo[1].content}}</span></td>
-                      <td :class="(attributeInfo[2].isSelected)? 'active_td' : ''" @click="changeSelected(2)" > <span class="td_lg" >{{attributeInfo[2].content}}</span></td>
-                    </tr>
-                    <tr>
-                      <td :class="(attributeInfo[3].isSelected)? 'active_td' : ''" @click="changeSelected(3)"  ><span class="td_lg" >{{attributeInfo[3].content}} </span></td>
-                      <td :class="(attributeInfo[4].isSelected)? 'active_td' : ''" @click="changeSelected(4)"  ><span class="td_lg" >{{attributeInfo[4].content}}</span></td>
-                      <td :class="(attributeInfo[5].isSelected)? 'active_td' : ''" @click="changeSelected(5)"  ><span class="td_lg" >{{attributeInfo[5].content}}</span></td>
-                    </tr>
-                    <tr>
-                      <td :class="(attributeInfo[6].isSelected)? 'active_td' : ''" @click="changeSelected(6)"  ><span class="td_lg" >{{attributeInfo[6].content}}</span></td>
-                      <td :class="(attributeInfo[7].isSelected)? 'active_td' : ''" @click="changeSelected(7)"  ><span class="td_lg" >{{attributeInfo[7].content}}</span></td>
-                      <td :class="(attributeInfo[8].isSelected)? 'active_td' : ''" @click="changeSelected(8)"  ><span class="td_lg" >{{attributeInfo[8].content}}</span></td>
-                    </tr>
-                    <tr>
-                      <td :class="(attributeInfo[9].isSelected)? 'active_td' : ''" @click="changeSelected(9)"  ><span class="td_lg" >{{attributeInfo[9].content}}</span></td>
-                      <td :class="(attributeInfo[10].isSelected)? 'active_td' : ''"@click="changeSelected(10)" ><span class="td_lg" >{{attributeInfo[10].content}}</span></td>
-                      <td :class="(attributeInfo[11].isSelected)? 'active_td' : ''"@click="changeSelected(11)" ><span class="td_lg" >{{attributeInfo[11].content}}</span></td>
-                    </tr>
-                    <tr>
-                      <td :class="(attributeInfo[12].isSelected)? 'active_td' : ''"@click="changeSelected(12)" ><span class="td_lg" >{{attributeInfo[12].content}}</span></td>
-                      <td :class="(attributeInfo[13].isSelected)? 'active_td' : ''"@click="changeSelected(13)" ><span class="td_lg" >{{attributeInfo[13].content}}</span></td>
-                      <td :class="(attributeInfo[14].isSelected)? 'active_td' : ''"@click="changeSelected(14)" ><span class="td_lg" >{{attributeInfo[14].content}}</span></td>
-                    </tr>
-                  </table>
+                  <div class="new-table-over">
+                    <table class="attribute-table">
+                      <tr>
+                        <td :class="(attributeInfo[0].isSelected)? 'active_td' : ''" @click="changeSelected(0)" > <span class="td_lg" >{{attributeInfo[0].content}}</span></td>
+                        <td :class="(attributeInfo[1].isSelected)? 'active_td' : ''" @click="changeSelected(1)"  ><span class="td_lg" >{{attributeInfo[1].content}}</span></td>
+                        <td :class="(attributeInfo[2].isSelected)? 'active_td' : ''" @click="changeSelected(2)" > <span class="td_lg" >{{attributeInfo[2].content}}</span></td>
+                      </tr>
+                      <tr>
+                        <td :class="(attributeInfo[3].isSelected)? 'active_td' : ''" @click="changeSelected(3)"  ><span class="td_lg" >{{attributeInfo[3].content}} </span></td>
+                        <td :class="(attributeInfo[4].isSelected)? 'active_td' : ''" @click="changeSelected(4)"  ><span class="td_lg" >{{attributeInfo[4].content}}</span></td>
+                        <td :class="(attributeInfo[5].isSelected)? 'active_td' : ''" @click="changeSelected(5)"  ><span class="td_lg" >{{attributeInfo[5].content}}</span></td>
+                      </tr>
+                      <tr>
+                        <td :class="(attributeInfo[6].isSelected)? 'active_td' : ''" @click="changeSelected(6)"  ><span class="td_lg" >{{attributeInfo[6].content}}</span></td>
+                        <td :class="(attributeInfo[7].isSelected)? 'active_td' : ''" @click="changeSelected(7)"  ><span class="td_lg" >{{attributeInfo[7].content}}</span></td>
+                        <td :class="(attributeInfo[8].isSelected)? 'active_td' : ''" @click="changeSelected(8)"  ><span class="td_lg" >{{attributeInfo[8].content}}</span></td>
+                      </tr>
+                      <tr>
+                        <td :class="(attributeInfo[9].isSelected)? 'active_td' : ''" @click="changeSelected(9)"  ><span class="td_lg" >{{attributeInfo[9].content}}</span></td>
+                        <td :class="(attributeInfo[10].isSelected)? 'active_td' : ''"@click="changeSelected(10)" ><span class="td_lg" >{{attributeInfo[10].content}}</span></td>
+                        <td :class="(attributeInfo[11].isSelected)? 'active_td' : ''"@click="changeSelected(11)" ><span class="td_lg" >{{attributeInfo[11].content}}</span></td>
+                      </tr>
+                      <tr>
+                        <td :class="(attributeInfo[12].isSelected)? 'active_td' : ''"@click="changeSelected(12)" ><span class="td_lg" >{{attributeInfo[12].content}}</span></td>
+                        <td :class="(attributeInfo[13].isSelected)? 'active_td' : ''"@click="changeSelected(13)" ><span class="td_lg" >{{attributeInfo[13].content}}</span></td>
+                        <td :class="(attributeInfo[14].isSelected)? 'active_td' : ''"@click="changeSelected(14)" ><span class="td_lg" >{{attributeInfo[14].content}}</span></td>
+                      </tr>
+                    </table>
+                  </div>
+                  
                   <h3 class="coach-table-bottom">Step 2 of 2</h3>
                   <button class="submit-btn" @click="onSubmit" >Submit</button> <a @click="$router.push(`/school_coach/${reviewInfo.reviewFor}`)" class="skip">(Skip)</a>
                 </div>
