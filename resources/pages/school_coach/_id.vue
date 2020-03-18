@@ -2168,7 +2168,7 @@ export default {
                 },
                 {
                     name: 'twitter:image',
-                    content: 'https://goflank.com/images/flank-1.png',
+                    content: 'https://goflank.com/images/sticker-3.png',
                 },
                 {
                     name: 'twitter:description',
