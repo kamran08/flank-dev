@@ -5546,7 +5546,7 @@ html {
 
 .ivu-tooltip-arrow {
   top: 0;
-  transform: rotate(180deg) translateX(20px);
+  /* transform: rotate(180deg) translateX(20px); */
   left: 100%;
 }
 

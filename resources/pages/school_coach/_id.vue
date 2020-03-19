@@ -1375,8 +1375,11 @@
                                                         <!-- <p>{{item.created_at}}</p> -->
                                                         <p>07/24/2019</p>
                                                     </div>
-                                                    <div class="review-checkin">
+                                                    <div class="review-checkin" v-if="item.is_active">
+                                                        <Tooltip content="We're always working to improve the authenticity of the reviews posted on Flank. When you see 'Verified' it means we've confirmed a user via (.edu, .org or.gov) profiles or reviews submitted by 'Active Player' profiles.">
                                                         <p><span><i class="far fa-check-circle"></i></span> Verified</p>
+                                                        </Tooltip>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="review-item-right-details">
