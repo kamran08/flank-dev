@@ -3133,7 +3133,7 @@ ul {
 }
 
 .inner-item-top-con .top-con-cap p span {
-  font-weight: 400
+  /* font-weight: 400 */
 }
 
 @media only screen and (max-width:599px) {
@@ -3517,7 +3517,14 @@ ul {
 .review-item-inner {
   display: flex;
   flex-flow: row;
-  padding: 15px
+  padding: 15px;
+  position: relative;
+}
+
+@media only screen and (max-width: 499px) {
+ .review-item-left-fig-c {
+   flex: 0;
+ }
 }
 
 .review-item-left {
@@ -4800,7 +4807,10 @@ footer {
 }
 
 .review-checkin {
-  margin-left: auto
+  margin-left: auto;
+  position: absolute;
+  top: 19px;
+  right: 15px;
 }
 
 .review-checkin p {
@@ -5534,12 +5544,19 @@ html {
   height: 100% !important
 }
 
+.ivu-tooltip-arrow {
+  top: 0;
+  transform: rotate(180deg) translateX(20px);
+  left: 100%;
+}
+
 .review-checkin .ivu-tooltip-popper {
   right: 0;
   white-space: normal !important;
-  left: auto !important
+  left: auto !important;
+  top: 100% !important;
+  width: 200px;
 }
-
 .review-checkin .ivu-tooltip-inner {
   white-space: normal !important
 }

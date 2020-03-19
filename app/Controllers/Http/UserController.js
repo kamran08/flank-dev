@@ -509,6 +509,7 @@ class UserController {
 
     }
  
+   
     async sendlegalData ({ request, response, auth }) {
 
       let data = request.all()
@@ -530,6 +531,24 @@ class UserController {
 
 
     }
+     async sendreviewMessage ({ request, response, auth }) {
+       let data = request.all()
+        if (data.email) {
+          await Mail.send('emails.messageFromReview', data, (message) => {
+            message
+            // goflank @yahoo.com
+              .to('goflank@yahoo.com')
+              .from(data.email, `New Message`)
+              .subject(data.subject)
+          })
+        } else {
+          return response.status(403).json({
+            'msg': "given data is invalid"
+          })
+        }
+
+     }
+    
 }
 
 module.exports = UserController

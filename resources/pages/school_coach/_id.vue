@@ -396,7 +396,7 @@
                                                 <img src="/images/sticker-3.png" alt="">
                                             </figure>
                                             <div class="top-con-cap">
-                                                <p style="font-family: ceraProRegular;"><span style="font-family: ceraPro;font-weight: 600;">Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews.</p>
+                                                <p style="font-family: ceraPro;font-weight: 600;"><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews.</p>
                                             </div>
                                         </div>
                                         <div class="new-flank-form">
@@ -1263,7 +1263,7 @@
                                             <img src="/images/sticker-3.png" alt="">
                                         </figure>
                                         <div class="top-con-cap">
-                                            <p style="font-family: ceraProRegular;"><span style="font-family: ceraPro;font-weight: 600;">Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews.</p>
+                                            <p style="font-family: ceraPro;font-weight: 600;"><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews.</p>
                                         </div>
                                     </div>
                                     <div class="new-flank-form" style="padding: 0 20px;">
@@ -1590,7 +1590,7 @@
                                 </div>
                                 <div class="group-item flex_item">
                                     <label >Subject</label>
-                                    <input type="email" v-model="message.submit">
+                                    <input type="email" v-model="message.subject">
                                 </div>
                                 <div class="group-item flex_item">
                                     <label >Message</label>
@@ -1600,7 +1600,8 @@
                             </form>
                             
                             <div class="group-item">
-                                    <input type="submit" @click="messageSubmit" value="Send Message">
+                                    <input type="submit" @click="messageSubmit" v-if="!isLoad" value="Send Message">
+                                    <input type="submit" v-else value="Loading..." disabled>
                             </div>
                         </div>
                     </div>
@@ -2105,7 +2106,7 @@ export default {
             newCoach:{},
             message:{
                 email:'',
-                submit: '',
+                subject: '',
                 message: '',
             },
             embeded_id:16,
@@ -2115,6 +2116,7 @@ export default {
             coachVideo:[],
             isPlayingItemId:-1,
             playingVideo:'',
+            isLoad:false,
        
         }
     },
@@ -2168,7 +2170,7 @@ export default {
                 },
                 {
                     name: 'twitter:image',
-                    content: 'https://goflank.com/images/sticker-3.png',
+                    content: 'https://goflank.com/images/flank-1.png',
                 },
                 {
                     name: 'twitter:description',
@@ -2203,15 +2205,36 @@ export default {
            this.$clipboard(this.embededText);
             this.$Message.info('code copied');
         },
-        messageSubmit(){
-            this.s("Message has been  sent  Successfull !")
-            let  message ={
+        async messageSubmit(){
+             if(!this.message.email || this.message.email=='' || this.message.email.trim()==''){
+                    return this.e("Email field can not be empty !")
+            }
+             if(!this.message.subject || this.message.subject=='' || this.message.subject.trim()==''){
+                  return  this.e("Subject field can not be empty !")
+            }
+             if(!this.message.message || this.message.message=='' || this.message.message.trim()==''){
+                  return  this.e("Message field can not be empty !")
+            }
+            this.isLoad = true
+            const res = await this.callApi('post', '/app/sendreviewMessage', this.message)
+            if(res.status==200 || res.status==204){
+                this.s("Message has been  sent  Successfull !")
+                 this.message={
                 email:'',
-                submit: '',
+                subject: '',
                 message: '',
             }
             this.message = message
             this.messageModal = false
+            this.isLoad = false
+            }
+            else{
+                this.e("Check Your Network Or Given Data is Invalid")
+                this.isLoad = false
+            }
+            
+
+            
         },
         embeddedModalOn(item){
             

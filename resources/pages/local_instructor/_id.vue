@@ -1184,7 +1184,7 @@
                                 </div>
                                 <div class="group-item flex_item">
                                     <label >Subject</label>
-                                    <input type="email" v-model="message.submit">
+                                    <input type="email" v-model="message.subject">
                                 </div>
                                 <div class="group-item flex_item">
                                     <label >Message</label>
@@ -1274,6 +1274,7 @@
 export default {
     data(){
         return{
+            isLoad:false,
             isEdit:false,
             isSmallScreen:false,
             messageModal:false,
@@ -1420,7 +1421,7 @@ export default {
             },
             message:{
                 email:'',
-                submit: '',
+                subject: '',
                 message: '',
             },
             embeded_id:16,
@@ -1467,15 +1468,33 @@ export default {
             this.shareForm = shareForm
             this.isShareModal = false
         },
-        messageSubmit(){
-            this.s("Message has been  sent  Successfull !")
-            let  message ={
+       async messageSubmit(){
+           if(!this.message.email || this.message.email=='' || this.message.email.trim()==''){
+                    return this.e("Email field can not be empty !")
+            }
+             if(!this.message.subject || this.message.subject=='' || this.message.subject.trim()==''){
+                  return  this.e("Subject field can not be empty !")
+            }
+             if(!this.message.message || this.message.message=='' || this.message.message.trim()==''){
+                  return  this.e("Message field can not be empty !")
+            }
+            this.isLoad = true
+            const res = await this.callApi('post', '/app/sendreviewMessage', this.message)
+            if(res.status==200 || res.status==204){
+                this.s("Message has been  sent  Successfull !")
+                 this.message={
                 email:'',
-                submit: '',
+                subject: '',
                 message: '',
             }
             this.message = message
             this.messageModal = false
+            this.isLoad = false
+            }
+            else{
+                this.e("Check Your Network Or Given Data is Invalid")
+                this.isLoad = false
+            }
         },
          openVideomobile(link){ 
              this.isVideo.link = `<div class="inner-video-iframe">${link}</div>`

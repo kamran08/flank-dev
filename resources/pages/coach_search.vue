@@ -35,7 +35,7 @@
                                 <li @click="chnageType('coach', 'Junior College')" ><a :class="(pageOption == 'coach' && div == 'Junior College')? 'active_coach': ''">College coaches</a></li>
                                 <!-- <li @click="chnageType('coach', 'all')" ><a :class="(pageOption == 'coach' && div == 'all')? 'active_coach': ''">Coming Soon</a></li> -->
                                 <li @click="chnageType('coach', 'Club/Travel')" ><a :class="(pageOption == 'coach' && div == 'Club/Travel')? 'active_coach': ''">Travel team coaches</a></li>
-                                <li @click="$router.push('/local_business')" ><a >Local instructors</a></li>
+                                <li @click="$router.push('/bussniess-promotion')" ><a >Local instructors</a></li>
                                 <!-- <li @click="chnageType('product')" ><a :class="(pageOption == 'product' )? 'active_coach': ''">Products & services</a></li> -->
                             </ul>
                         </div>
