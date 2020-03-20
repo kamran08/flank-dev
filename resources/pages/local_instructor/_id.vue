@@ -1491,6 +1491,10 @@ export default {
             this.messageModal = false
             this.isLoad = false
             }
+            else if(res.status==401){
+                this.isLoad = false
+               return this.e("Given Email is Invalid")
+            }
             else{
                 this.e("Check Your Network Or Given Data is Invalid")
                 this.isLoad = false

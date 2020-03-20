@@ -264,9 +264,9 @@
                 }
             },
              pageOptionDropChange(item){
+                this.SearchByKey()
                 this.$store.commit('setPageOption', item )
                 this.isStringMenu = false
-                // this.SearchByKey()
             
             }, 
             async SearchByKey(){

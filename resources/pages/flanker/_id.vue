@@ -27,9 +27,10 @@
                                         <!-- <li><a href=""><span><i class="fas fa-user-friends"></i></span><span>Add Friend</span></a></li> -->
                                         <!-- <li><a href=""><span><i class="fas fa-lightbulb"></i></span><span>Compliment</span></a></li> -->
                                         <li><a @click="messageModal = true"><span><i class="fas fa-envelope"></i></span><span>Send Message</span></a></li>
+                                        <li><a @click="$router.push(`/profile_edit/`+authInfo.id)"><span><i class="fas fa-edit"></i></span><span>Edit Profile</span></a></li>
                                         <!-- <li><a href=""><span><i class="fas fa-user-friends"></i></span><span>Follow Bryan B.</span></a></li> -->
                                         <!-- <li><a href=""><span><i class="fas fa-user-friends"></i></span><span>Edit Profile</span></a></li> -->
-                                        <li><a href="#user_review"><span><i class="fas fa-sync"></i></span><span>Simillar Reviews</span></a></li>
+                                        <!-- <li><a href="#user_review"><span><i class="fas fa-sync"></i></span><span>Simillar Reviews</span></a></li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -202,9 +203,9 @@
                                 <div class="about-side-bar">
                                     <p>Review Votes</p>
                                     <ul v-if="imosCount" >
-                                        <li  ><span><i class="fas fa-lightbulb"></i></span> <span>Useful <strong>{{imosCount.useful}}</strong></span></li>
-                                        <li  ><span><i class="far fa-laugh-wink"></i></span> <span>Funny <strong>{{imosCount.funny}}</strong></span></li>
-                                        <li  ><span><i class="fas fa-grin-beam"></i></span> <span>Cool <strong>{{imosCount.cool}}</strong></span></li>
+                                        <li  ><img src="/images/ic1.png" alt=""> <span>Official <strong>{{imosCount.useful}}</strong></span></li>
+                                        <li  ><img src="/images/ic2.png" alt=""> <span>Bravery Bagde <strong>{{imosCount.funny}}</strong></span></li>
+                                        <li  ><img src="/images/ic3.png" alt=""> <span>Distinguished <strong>{{imosCount.cool}}</strong></span></li>
                                     </ul>
                                 </div>
 
@@ -237,7 +238,7 @@
                                     <p class="in-ab">{{userData.address}}</p>
                                 </div>
                                 <div class="about-side-bar">
-                                    <p>Yelping Since</p>
+                                    <p>Flanking Since</p>
                                     <p class="in-ab">{{userData.created_at}}</p>
                                 </div>
                                 <!-- <div class="about-side-bar">
@@ -335,21 +336,21 @@
                     <div class="col-md-12">
                         <div class="signcont-left">
                            
-                            <form v-on:submit.prevent>
+                            <!-- <form v-on:submit.prevent> -->
                                 <div class="group-item flex_item">
                                     <label >Your Email</label>
                                     <input type="email" v-model="message.email">
                                 </div>
                                 <div class="group-item flex_item">
                                     <label >Subject</label>
-                                    <input type="email" v-model="message.submit">
+                                    <input type="email" v-model="message.subject">
                                 </div>
                                 <div class="group-item flex_item">
                                     <label >Message</label>
                                     <textarea id="" v-model="message.message" rows="5"></textarea>
                                 </div>
                                 
-                            </form>
+                            <!-- </form> -->
                             
                             <div class="group-item">
                                     <input type="submit" @click="messageSubmit" value="Send Message">
@@ -402,7 +403,7 @@ export default {
              messageModal:false,
              message:{
                 email:'',
-                submit: '',
+                subject: '',
                 message: '',
             },
         }
@@ -422,15 +423,37 @@ export default {
 		}
     },
     methods:{
-        messageSubmit(){
-            this.s("Message has been  sent  Successfull !")
-            let  message ={
+       async messageSubmit(){
+             if(!this.message.email || this.message.email=='' || this.message.email.trim()==''){
+                    return this.e("Email field can not be empty !")
+            }
+             if(!this.message.subject || this.message.subject=='' || this.message.subject.trim()==''){
+                  return  this.e("Subject field can not be empty !")
+            }
+             if(!this.message.message || this.message.message=='' || this.message.message.trim()==''){
+                  return  this.e("Message field can not be empty !")
+            }
+            this.isLoad = true
+            const res = await this.callApi('post', '/app/sendreviewMessage', this.message)
+            if(res.status==200 || res.status==204){
+                this.s("Message has been  sent  Successfull !")
+                this.message={
                 email:'',
-                submit: '',
+                subject: '',
                 message: '',
             }
-            this.message = message
             this.messageModal = false
+            this.isLoad = false
+            }
+            else if(res.status==401){
+                this.isLoad = false
+               return this.e("Given Email is Invalid")
+            }
+            else{
+                this.e("Check Your Network Or Given Data is Invalid")
+                this.isLoad = false
+            }
+            // this.messageModal = false
         },
          async onSubmit(){
             if(this.formData.email == '') return this.i("email is empty")

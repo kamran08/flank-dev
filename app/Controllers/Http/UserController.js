@@ -17,6 +17,7 @@ const Hash = use('Hash')
 const uniqid = require('uniqid');
 const axios = require('axios')
 const Mail = use('Mail')
+const { validateAll } = use('Validator')
 /**
  * Resourceful controller for interacting with users
  */
@@ -163,6 +164,47 @@ class UserController {
     }
 
     return tempData
+  }
+  async updateUserInformation ({ params, request, response, auth }) {
+      let data = request.all()
+      const user_id = await auth.user.id
+      delete data.id
+      return await User.query().where('id', user_id).update(data)
+  }
+  async updateUserPassword ({ params, request, response, auth }) {
+      let data = request.all()
+      const user_id = await auth.user.id
+      if (!data.oldpassword || data.oldpassword == '' || data.oldpassword.trim()==''){
+        return response.status(422).json({
+          'message': 'Old Password Can not be empty!.'
+        })
+      }
+     
+     let newuser = await User.query().setVisible(['id', 'password']).where('id', user_id).first()
+     const isSame = await Hash.verify(data.oldpassword, newuser.password)
+        if (!isSame) {
+          return response.status(422).json({
+            'message': 'Old password is incorrect.',
+          })
+        }
+      if (!data.password || data.password == '' || data.password.trim()==''){
+        return response.status(401).json({
+          'message': 'password not match .',
+        })
+      }
+     
+      let password = await Hash.make(data.password)
+      if (data.id == user_id){
+        let ob ={
+          'password': password
+        }
+        return await User.query().where('id', user_id).update(ob)
+      }
+      else{
+        return response.status(401).json({
+          'message': 'Your are not authInticate user.'
+        })
+      }
   }
   async show ({ params, request, response, view }) {
     let userData = await User.query()
@@ -513,13 +555,25 @@ class UserController {
     async sendlegalData ({ request, response, auth }) {
 
       let data = request.all()
+           const rules = {
+             email: "required|email|unique:users,email",
+           };
+           const messages = {
+             "email.required": "Email is required!",
+             "email.email": "Email is invalid!",
+             "email.unique": "Email is already in use!"
+           }
+           const validation = await validateAll(data, rules, messages);
+           if (validation.fails()) {
+             return this.errorResponse(response, 401, validation.messages())
+           }
       // return data
       if (data.email) {
         await Mail.send('emails.legal', data, (message) => {
           message
             .to('goflank@yahoo.com')
-            .from(data.email, `Legal inquiries`)
-            .subject('Legal inquiries')
+            .from(data.email, `Legal Inquiries`)
+            .subject('Flank – Urgent Legal Inquiry Request')
         })
       }
       else{
@@ -531,8 +585,34 @@ class UserController {
 
 
     }
+      // async tasting ({ request, response, auth }) {
+      //       const rules = {
+      //         email: "required|email|unique:users,email",
+      //       };
+      //       const messages = {
+      //          "email.required": "Email is required!",
+      //          "email.email": "Email is invalid!",
+      //          "email.unique": "Email is already in use!"
+      //       }
+      //       const validation = await validateAll(data, rules, messages);
+      //       if (validation.fails()) {
+      //         return this.errorResponse(response, 401, validation.messages())
+      //       }
+      // }
      async sendreviewMessage ({ request, response, auth }) {
        let data = request.all()
+            const rules = {
+              email: "required|email|unique:users,email",
+            };
+            const messages = {
+              "email.required": "Email is required!",
+              "email.email": "Email is invalid!",
+              "email.unique": "Email is already in use!"
+            }
+            const validation = await validateAll(data, rules, messages);
+            if (validation.fails()) {
+              return this.errorResponse(response, 401, validation.messages())
+            }
         if (data.email) {
           await Mail.send('emails.messageFromReview', data, (message) => {
             message

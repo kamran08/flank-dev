@@ -35,6 +35,8 @@ Route.get('/app/user/updateProductProfileImage/:id', 'ProductController.updatePr
 Route.put('/app/updateEmail', 'UserController.updateEmail')
 Route.put('/app/updatePassword', 'UserController.updatePassword')
 Route.get('/app/userReview/:id', 'UserController.showReview')
+Route.post('/app/updateUserInformation', 'UserController.updateUserInformation')
+Route.post('/app/updateUserPassword', 'UserController.updateUserPassword')
 
 Route.resource('legends', 'LegendController')
 Route.resource('questions', 'QuestionController')

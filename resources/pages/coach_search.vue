@@ -149,7 +149,7 @@
                                     </transition> -->
                                     <h2 class="pad-border uppercase" >Your past reviews</h2>
                                 
-                                    <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p>
+                                    <!-- <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p> -->
                                 </div>
                                 <div v-if="searchData[0].avg_rating !=0" class="new-best-rated rated-red mt-15">
                                     <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -164,7 +164,7 @@
                                     <div class="new-content-rev-right" v-if="searchData[0].school">
                                         <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" >{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
                                         <p>{{ searchData[0].school.schoolName}}</p>
-                                        <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                        <span class="city-s">{{searchData[0].school.city}}, {{searchData[0].school.state}}</span>
                                         <div class="new-content-star">
                                             <ul>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -193,7 +193,7 @@
                             <div class="new-flank-content-rev" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null && isLoggedIn"  >
                                 <div class="new-content-rev-title">
                                     <h2>Your past reviews</h2>
-                                    <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)">See all past reviews</a></p>
+                                    <!-- <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)">+++++++++++++++++++++++past reviews</a></p> -->
                                 </div>
                                 <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
                                     <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -208,7 +208,7 @@
                                     <div class="new-content-rev-right">
                                         <h2 style="cursor:pointer;"  @click="$router.push(`/local_instructor/${searchData[0].id}`)" >{{ searchData[0].name}} -  {{ searchData[0].sport}}  </h2>
                                         
-                                        <span class="city-s">{{searchData[0].city}}/{{searchData[0].state}}</span>
+                                        <span class="city-s">{{searchData[0].city}}, {{searchData[0].state}}</span>
                                         <div class="new-content-star">
                                             <ul>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -273,7 +273,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
+                                                        <p class="_2card_details_city">{{item.school.city}}, {{item.school.state}}</p>
                                                     </div>
                                                     <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
@@ -422,7 +422,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <p class="_2card_details_city">{{item.city}}/{{item.state}}</p>
+                                                        <p class="_2card_details_city">{{item.city}}, {{item.state}}</p>
                                                     </div>
                                                    <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
@@ -484,7 +484,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <p class="_2card_details_city">{{item.city}}/{{item.state}}</p>
+                                                        <p class="_2card_details_city">{{item.city}}, {{item.state}}</p>
                                                     </div>
                                                    <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
@@ -737,7 +737,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
+                                                        <p class="_2card_details_city">{{item.school.city}}, {{item.school.state}}</p>
                                                     </div>          
                                                    <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
@@ -891,7 +891,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
+                                                        <p class="_2card_details_city">{{item.school.city}}, {{item.school.state}}</p>
                                                     </div>
                                                     <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
@@ -1260,7 +1260,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
+                                                        <p class="_2card_details_city">{{item.school.city}}, {{item.school.state}}</p>
                                                     </div>
                                                     <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
@@ -1412,7 +1412,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <p class="_2card_details_city">{{item.school.city}}/{{item.school.state}}</p>
+                                                        <p class="_2card_details_city">{{item.school.city}}, {{item.school.state}}</p>
                                                     </div>
                                                     <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
@@ -1757,7 +1757,7 @@
                                   
                                     <h2 class="pad-border uppercase" >Your past reviews</h2>
                                 
-                                    <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p>
+                                    <!-- <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p> -->
                                 </div>
                                 <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
                                     <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -1767,7 +1767,7 @@
                                     <div class="new-content-rev-right" v-if="searchData[0].school">
                                         <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
                                         <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
-                                        <span class="city-s">{{searchData[0].school.city}}/{{searchData[0].school.state}}</span>
+                                        <span class="city-s">{{searchData[0].school.city}}, {{searchData[0].school.state}}</span>
                                         <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                             <ul>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -1795,7 +1795,7 @@
                             <div class="new-flank-content-rev new-box-shadow new-pad-lr" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null && isLoggedIn"  style="padding-bottom: 20px;">
                                 <div class="new-content-rev-title">
                                     <h2 class="pad-border uppercase" >Your past reviews</h2>
-                                    <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p>
+                                    <!-- <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p> -->
                                 </div>
                                 <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
                                     <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -1809,7 +1809,7 @@
                                     </div>
                                     <div class="new-content-rev-right">
                                         <h2 style="cursor:pointer;"  @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ searchData[0].sport}}  </h2>
-                                        <span class="city-s">{{searchData[0].city}}/{{searchData[0].state}}</span>
+                                        <span class="city-s">{{searchData[0].city}}, {{searchData[0].state}}</span>
                                         <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                             <ul>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -1858,7 +1858,7 @@
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                    <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
                                                             <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -1939,7 +1939,7 @@
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                    <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
                                                             <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -2000,7 +2000,7 @@
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                    <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
                                                             <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -2262,7 +2262,7 @@
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                    <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
                                                             <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -2411,7 +2411,7 @@
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                    <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
                                                             <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -2560,7 +2560,7 @@
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                    <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
                                                             <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -2780,7 +2780,7 @@
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                    <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
                                                             <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -2928,7 +2928,7 @@
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                    <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
                                                             <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -3077,7 +3077,7 @@
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
-                                                    <span class="city-s">{{item.school.city}}/{{item.school.state}}</span>
+                                                    <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
                                                             <li><span :class="( item.avg_rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
