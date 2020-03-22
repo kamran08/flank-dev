@@ -396,7 +396,7 @@
                                                 <img src="/images/sticker-3.png" alt="">
                                             </figure>
                                             <div class="top-con-cap">
-                                                <p style="font-family: ceraPro;font-weight: 600;"><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews.</p>
+                                                <p style="font-family: ceraProRegular;font-weight: 400;"><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews.</p>
                                             </div>
                                         </div>
                                         <div class="new-flank-form">
@@ -481,7 +481,7 @@
                                                             </li>
                                                             <li @click="embeddedModalOn(item)">
                                                                 <img src="/images/new-mstar1.png" alt="">
-                                                                <p><a>Embeded Review</a></p>
+                                                                <p><a>Embed Review</a></p>
                                                             </li>
                                                             <li @click="messageModal = true"> 
                                                                 <img src="/images/new-mstar2.png" alt="">
@@ -1348,7 +1348,7 @@
                                                         </li>
                                                         <li @click="embeddedModalOn(item)">
                                                             <img src="/images/new-mstar1.png" alt="">
-                                                            <p><a>Embeded Review</a></p>
+                                                            <p><a>Embed Review</a></p>
                                                         </li>
                                                         <li @click="messageModal = true"> 
                                                             <img src="/images/new-mstar2.png" alt="">

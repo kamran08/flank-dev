@@ -3523,7 +3523,13 @@ ul {
 
 @media only screen and (max-width: 499px) {
  .review-item-left-fig-c {
-   flex: 0;
+   flex: 0 0 180px;
+ }
+}
+
+@media only screen and (max-width: 349px) {
+ .review-item-left-fig-c {
+   flex: 0 0 128px;
  }
 }
 

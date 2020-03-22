@@ -26,7 +26,7 @@
                                     <ul>
                                         <!-- <li><a href=""><span><i class="fas fa-user-friends"></i></span><span>Add Friend</span></a></li> -->
                                         <!-- <li><a href=""><span><i class="fas fa-lightbulb"></i></span><span>Compliment</span></a></li> -->
-                                        <li><a @click="messageModal = true"><span><i class="fas fa-envelope"></i></span><span>Send Message</span></a></li>
+                                        <!-- <li><a @click="messageModal = true"><span><i class="fas fa-envelope"></i></span><span>Send Message</span></a></li> -->
                                         <li><a @click="$router.push(`/profile_edit/`+authInfo.id)"><span><i class="fas fa-edit"></i></span><span>Edit Profile</span></a></li>
                                         <!-- <li><a href=""><span><i class="fas fa-user-friends"></i></span><span>Follow Bryan B.</span></a></li> -->
                                         <!-- <li><a href=""><span><i class="fas fa-user-friends"></i></span><span>Edit Profile</span></a></li> -->
@@ -139,7 +139,7 @@
                                                 <li><i class="fas fa-grin-beam"></i>&nbsp;Useful</li>
                                             
                                                   <li @click="reviewImo('cool',index,item)"  :class="(item.imosall.cool >= 1)? 'active_imo' : ''" ><img src="/images/ic1.png" alt=""><span>Official</span> &nbsp;&nbsp;{{item.official}}</li>
-                                                <li  @click="reviewImo('funny',index,item)" :class="(item.imosall.funny >= 1)? 'active_imo' : ''" ><img src="/images/ic2.png" alt=""><span>Bravery Bagde</span> &nbsp;&nbsp;{{item.bravery}}</li>
+                                                <li  @click="reviewImo('funny',index,item)" :class="(item.imosall.funny >= 1)? 'active_imo' : ''" ><img src="/images/ic2.png" alt=""><span>bravery Bagde</span> &nbsp;&nbsp;{{item.bravery}}</li>
                                                 <li @click="reviewImo('useful',index,item)" :class="(item.imosall.useful >= 1)? 'active_imo' : ''" ><img src="/images/ic3.png" alt=""><span>Distinguished</span> &nbsp;&nbsp;{{item.distinguished}}</li>
                                             </ul> -->
                                             <div class="review-btn-sec">
@@ -147,7 +147,7 @@
                                                     <div class="review-btn">
                                                         <ul>
                                                             <li @click="reviewImo('cool',index,item)"   :class="(item.imosall.cool >= 1)? 'active_imo' : ''"    ><img src="/images/ic1.png" alt=""><span>Official</span> &nbsp;&nbsp;{{item.official}}</li>
-                                                            <li  @click="reviewImo('funny',index,item)"   :class="(item.imosall.funny >= 1)? 'active_imo' : ''"  ><img src="/images/ic2.png" alt=""><span>Bravery Bagde</span> &nbsp;&nbsp;{{item.bravery}}</li>
+                                                            <li  @click="reviewImo('funny',index,item)"   :class="(item.imosall.funny >= 1)? 'active_imo' : ''"  ><img src="/images/ic2.png" alt=""><span>Brevery Bagde</span> &nbsp;&nbsp;{{item.bravery}}</li>
                                                             <li @click="reviewImo('useful',index,item)"  :class="(item.imosall.useful >= 1)? 'active_imo' : ''"   ><img src="/images/ic3.png" alt=""><span>Distinguished</span> &nbsp;&nbsp;{{item.distinguished}}</li>
                                                         </ul>
                                                         <div class="review-btn-img">
@@ -204,7 +204,7 @@
                                     <p>Review Votes</p>
                                     <ul v-if="imosCount" >
                                         <li  ><img src="/images/ic1.png" alt=""> <span>Official <strong>{{imosCount.useful}}</strong></span></li>
-                                        <li  ><img src="/images/ic2.png" alt=""> <span>Bravery Bagde <strong>{{imosCount.funny}}</strong></span></li>
+                                        <li  ><img src="/images/ic2.png" alt=""> <span>Brevery Bagde <strong>{{imosCount.funny}}</strong></span></li>
                                         <li  ><img src="/images/ic3.png" alt=""> <span>Distinguished <strong>{{imosCount.cool}}</strong></span></li>
                                     </ul>
                                 </div>
@@ -496,7 +496,7 @@ export default {
                 }
                 else if(imo=='funny'){
                     imoItem.bravery += imoData[imo]
-                     this.s("you marked this review as Bravery Bagde  ")
+                     this.s("you marked this review as Brevery Bagde  ")
                 }
                 else if(imo=='useful'){
                     imoItem.distinguished += imoData[imo]
