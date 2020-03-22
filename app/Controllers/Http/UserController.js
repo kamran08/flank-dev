@@ -639,7 +639,7 @@ class UserController {
                   'msg': "Your are not valid User!!!"
               })
           }
-          await 
+          // await 
         }
      }
 
