@@ -569,9 +569,10 @@ class UserController {
            }
       // return data
       if (data.email) {
+        // goflank @yahoo.com
         await Mail.send('emails.legal', data, (message) => {
           message
-            .to('goflank@yahoo.com')
+            .to('sadek.hkm@gmail.com')
             .from(data.email, `Legal Inquiries`)
             .subject('Flank – Urgent Legal Inquiry Request')
         })
@@ -599,6 +600,7 @@ class UserController {
       //         return this.errorResponse(response, 401, validation.messages())
       //       }
       // }
+     
      async sendreviewMessage ({ request, response, auth }) {
        let data = request.all()
             const rules = {
@@ -617,7 +619,7 @@ class UserController {
           await Mail.send('emails.messageFromReview', data, (message) => {
             message
             // goflank @yahoo.com
-              .to('goflank@yahoo.com')
+              .to('sadek.hkm@gmail.com')
               .from(data.email, `New Email`)
               .subject(data.subject)
           })
@@ -628,6 +630,19 @@ class UserController {
         }
 
      }
+     async sendAccountCloseEmail ({ request, response, auth }) {
+        let data = request.all()
+        const user_id = await auth.user().id
+        if (data.taxt){
+          if (!user_id){
+              return response.status(403).json({
+                  'msg': "Your are not valid User!!!"
+              })
+          }
+          await 
+        }
+     }
+
     
 }
 

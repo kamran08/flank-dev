@@ -333,9 +333,10 @@ class SchoolController {
       'school_id': data.id,
       'name': name
     }
+    // sadek.hkm@gmail.com
     await Mail.send('emails.coatch', data, (message) => {
       message
-        .to('goflank@yahoo.com')
+        .to('sadek.hkm@gmail.com')
         .from('Support@goflank.com', `new`)
         .subject('Flank – Urgent New Coach/School ')
     })

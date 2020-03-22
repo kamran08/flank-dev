@@ -114,6 +114,10 @@ export default {
                   this.isSend = true
                   this.isLoading = false
              }
+             else if(res.status==403){
+                 this.isLoading = false
+                 return this.e(res.data.msg)
+             }
              else{
                  this.e("check your network or your email id is not valid!!")
                    this.isLoading = false

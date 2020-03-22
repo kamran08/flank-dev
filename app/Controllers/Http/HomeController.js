@@ -28,9 +28,10 @@ class HomeController {
             }
         await EmailSubscription.create(data)
         if (data.email) {
+          // goflank @yahoo.com
           await Mail.send('emails.invitation', data, (message) => {
             message
-              .to('goflank@yahoo.com')
+              .to('sadek.hkm@gmail.com')
               .from(data.email, `new mail`)
               .subject('Flank Daily – New Submission')
           })
@@ -43,9 +44,10 @@ class HomeController {
     async sendSupportMessege({request}){
         let data = request.all();
         if (data.text) {
+          // sadek.hkm@gmail.com
           await Mail.send('emails.suggestion', data, (message) => {
             message
-              .to('goflank@yahoo.com')
+              .to('sadek.hkm@gmail.com')
               .from(`Support@goflank.com`, `New Mail`)
               .subject('Flank – Improvement Inquiry Submitted')
           })

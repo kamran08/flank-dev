@@ -24,6 +24,7 @@ Route.resource('users', 'UserController').validator(new Map([
 Route.post('/app/emailSubscription', 'HomeController.storeEmailSubscription')
 Route.post('/app/sendSupportMessege', 'HomeController.sendSupportMessege')
 
+
 // Authentication route
 Route.post('/authentication/login', 'UserController.userLogin').middleware(['guest'])
 Route.get('/logout', 'UserController.logout')
@@ -159,6 +160,7 @@ Route.get('/app/getStreak/:id', 'SchoolController.getStreak')
 Route.post('/app/sendInvitation', 'UserController.sendInvitation')
 Route.post('/app/sendlegalData', 'UserController.sendlegalData')
 Route.post('/app/sendreviewMessage', 'UserController.sendreviewMessage')
+Route.post('/app/sendAccountCloseEmail', 'UserController.sendAccountCloseEmail')
 
 Route.get('/app/getSchoolCoachByhighRated', 'UserController.getSchoolCoachByhighRated')
 Route.get('/app/getSchoolCoachByMostRated', 'UserController.getSchoolCoachByMostRated')
