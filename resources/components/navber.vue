@@ -278,10 +278,28 @@
 
                 const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.tStr}&pageOption=${this.pageOption}`)
                 if(res.status === 200){
-                     if(this.pageOption == 'school') this.schoolAssignRateTExt(res.data.mainData.data)
+                    // console.log(res)
+                     if(this.pageOption == 'school') {
+
+                         if(res.data.mainData && res.data.mainData.data){
+                             
+                             this.schoolAssignRateTExt(res.data.mainData.data)
+                             this.$store.commit('setSearchData', res.data.mainData.data)
+                             console.log(res.data.mainData)
+                         }
+                         else if(res.data && res.data.data){
+                             this.schoolAssignRateTExt(res.data.data)
+                             this.$store.commit('setSearchData', res.data)
+                             console.log(res.data.data)
+
+                         }
+                        
+                     }
+                    //  if(this.pageOption == 'school') this.schoolAssignRateTExt(res.data.data)
                     else this.coachAssignRateText(res.data.mainData.data)
+                    
                     this.coachAssignRateText(res.data.similarData)
-                    this.$store.commit('setSearchData', res.data.mainData.data)
+                    // this.$store.commit('setSearchData', res.data.mainData.data)
                     delete res.data.mainData.data
                     this.$store.commit('setPagination', res.data.mainData )
                     this.$store.commit('setSimilar', res.data.similarData )

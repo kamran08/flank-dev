@@ -7,19 +7,32 @@ const Video = use('App/Models/Video')
 const CoachVideo = use('App/Models/CoachVideo')
 const axios = require('axios')
 const Mail = use('Mail')
+const { validateAll } = use('Validator')
 class HomeController {
 
     // Flank Daily Email Subscription
 
     async storeEmailSubscription({request}){
         let data = request.all();
+            const rules = {
+              email: "required|email|unique:users,email",
+            };
+            const messages = {
+              "email.required": "Email is required!",
+              "email.email": "Email is invalid!",
+              "email.unique": "Email is already in use!"
+            }
+            const validation = await validateAll(data, rules, messages);
+            if (validation.fails()) {
+              return this.errorResponse(response, 401, validation.messages())
+            }
         await EmailSubscription.create(data)
         if (data.email) {
           await Mail.send('emails.invitation', data, (message) => {
             message
               .to('goflank@yahoo.com')
-              .from(data.email, `falnk`)
-              .subject('Invitation')
+              .from(data.email, `new mail`)
+              .subject('Flank Daily – New Submission')
           })
         } else {
               return response.status(403).json({

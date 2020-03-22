@@ -58,6 +58,12 @@ class CoachController {
       'school_id': school.id,
       'name': name
     }
+      await Mail.send('emails.coatch', data, (message) => {
+        message
+          .to('goflank@yahoo.com')
+          .from('Support@goflank.com', `new mail`)
+          .subject('Flank – Urgent New Coach/School ')
+      })
     return   await SchoolCoach.create(coachob)
   }
 

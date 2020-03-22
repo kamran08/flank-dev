@@ -337,7 +337,7 @@ class SchoolController {
       message
         .to('goflank@yahoo.com')
         .from('Support@goflank.com', `new`)
-        .subject('add new coatch')
+        .subject('Flank – Urgent New Coach/School ')
     })
     return   await SchoolCoach.create(coachob)
   }

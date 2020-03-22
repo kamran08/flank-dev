@@ -66,8 +66,8 @@ class SearchController {
 
     } else if (pageOption == 'school') {
       return await School.query()
-        .with('avgRating').paginate(page, 10)
-        .withCount('allreview as allreview ')
+        .with('avgRating')
+        .withCount('allreview as allreview ').paginate(page, 10)
 
       if (str) {
         data.where('schoolName', 'LIKE', '%' + str + '%');

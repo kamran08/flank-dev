@@ -390,12 +390,25 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="_1coach_items" v-if="pageOption == 'school'"  v-for="(item,index) in searchData" :key="index"  >
-                                <div class="desk-fl-top">
-
+                                <!-- <div class="desk-fl-top">
                                     <p v-if="item.avgRating.averageRating !=0" class="worst yellow">{{ (item.avgRating.averageRating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
-                                
+                                 -->
+                                 <!-- <div class="desk-fl-top">
+
+                                    <div v-if="item.avg_rating !=0 || item.avg_rating!=null" class="new-best-rated rated-yellow">
+                                        <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
+                                    ami ekano kichu edit korsilam 
+                                </div> -->
+                                 <div class="desk-fl-top" v-if="item.avgRating">
+
+                                    <div v-if="item.avgRating.averageRating !=0 || item.avgRating.averageRating!=null" class="new-best-rated rated-yellow">
+                                        <p  class="">{{ (item.avgRating.averageRating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
+                                </div>
 
                                 <div class="_2coach_main">
                                     <div class="row">
@@ -405,11 +418,36 @@
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
-
-                                                <div class="_2card_details">
+                                                <div class="_2card_details" v-if="item.school">
                                                     <div class="_2card_details_top">
                                                         <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school/${item.id}`)" >{{item.schoolName}} {{item.sport}} </p>
+                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school/${item.id}`)" >{{item.name}} -  {{(item.school)? item.school.sport: ''}}  </p>
+                                                            <p style="color: #000;">{{ item.school.schoolName}}</p>
+                                                            <div class="_1rating">
+                                                                <ul class="_1rating_list">
+                                                                    <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
+                                                                    <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                    <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                    <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                    <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                    <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.__meta__.allreview}}</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                        <p class="_2card_details_city">{{item.school.city}}, {{item.school.state}}</p>
+                                                    </div>
+                                                    <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
+
+                                                    <!-- <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button> -->
+                                                </div>
+
+                                                <!-- <div class="_2card_details" >
+                                                    <div class="_2card_details_top">
+                                                        <div class="_2card_details_left">
+                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school/${item.id}`)">{{item.schoolName}} sdlafsdjf {{item.sport}} </p>
                                                             <div class="_1rating">
                                                                 <ul class="_1rating_list">
                                                                     <li :class="(item.avgRating.averageRating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
@@ -428,8 +466,8 @@
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
                                                     <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
+                                                </div> -->
                                                     <!-- <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button> -->
-                                                </div>
                                             </div>
                                         </div>
                                         <!-- Left -->
@@ -2013,7 +2051,7 @@
                                                     </div>
                                                     <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
                                                         <p class="font-24 weight-400">
-                                                              <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                              <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}} dsfa"</span>
                                                             <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
                                                             <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
                                                         </p>

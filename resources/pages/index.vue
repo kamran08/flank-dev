@@ -834,7 +834,8 @@
                                                     <input type="text" placeholder="Email Address" v-model="flankDaily.email" >
                                                 </div>
                                                 <div class="fla-form-button">
-                                                    <button @click="emailSubcription"> Sign me up!</button>
+                                                    <button @click="emailSubcription" v-if="!isLoad"> Sign me up!</button>
+                                                    <button v-else disabled> Loading...</button>
                                                 </div>
                                             </form>
                                             <div class="priv">
@@ -1555,7 +1556,8 @@
                                                 <input type="text" placeholder="Email Address" v-model="flankDaily.email" >
                                             </div>
                                             <div class="fla-form-button">
-                                                <button @click="emailSubcription" class="cera-medium"> Sign me up!</button>
+                                                <button @click="emailSubcription" v-if="!isLoad" class="cera-medium"> Sign me up!</button>
+                                                <button  v-else class="cera-medium" disabled> Loading..</button>
                                             </div>
                                         </form>
                                         <div class="priv">
@@ -1600,7 +1602,7 @@ export default {
     },
   data() {
     return {
-        
+        isLoad:false,
         mobileScreen:false,
       showMoreActivity: 3,
       name: "",
@@ -1729,12 +1731,19 @@ export default {
     async  emailSubcription(){
 
         if(this.flankDaily.email == '') return this.i("Please enter Email Frist !")
+        this.isLoad = true
         const res = await this.callApi('post','/app/emailSubscription', this.flankDaily)
         if(res.status == 200 || res.status ==204){
             this.s("You have Subscribed to Flank Daily !")
             this.flankDaily.email = ''
+            this.isLoad = false
+        }
+        else if(res.status == 401){
+            this.isLoad = false
+            return this.e('Email is invalid')
         }
         else{
+            this.isLoad = false
             this.swr();
         }
     },

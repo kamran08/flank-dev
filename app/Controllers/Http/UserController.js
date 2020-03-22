@@ -618,7 +618,7 @@ class UserController {
             message
             // goflank @yahoo.com
               .to('goflank@yahoo.com')
-              .from(data.email, `New Message`)
+              .from(data.email, `New Email`)
               .subject(data.subject)
           })
         } else {
