@@ -46,8 +46,8 @@ class HomeController {
           await Mail.send('emails.suggestion', data, (message) => {
             message
               .to('goflank@yahoo.com')
-              .from(data.email, `falnk`)
-              .subject('Suggestion')
+              .from(`Support@goflank.com`, `New Mail`)
+              .subject('Flank – Improvement Inquiry Submitted')
           })
         } else {
               return response.status(403).json({

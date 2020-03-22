@@ -460,9 +460,10 @@
             },
         },
         async created(){
-            if(window.location.pathname=='/coach_search' || window.location.pathname=='/'){
-                this.isCoachSearchPage = true
-            }
+            this.isCoachSearchPage = true
+            // if(window.location.pathname=='/coach_search' || window.location.pathname=='/'){
+            // this.isCoachSearchPage = true
+            // }
             // let d = new Date('2019-08-11');
             // d.setDate(d.getDate() + 60);
             // let monthNumber = d.getMonth()+1
@@ -484,13 +485,15 @@
       '$route.name': function(newVal, oldVal) { 
           console.log(newVal)
         // watch it
+        
         this.$store.commit('setIsMobileSideBar', false )
-        if(newVal == 'coach_search' || newVal == 'index'){
-          this.isCoachSearchPage = true
-        }
-        else{
-          this.isCoachSearchPage = false
-        }
+         this.isCoachSearchPage = true
+        // if(newVal == 'coach_search' || newVal == 'index'){
+        //   this.isCoachSearchPage = true
+        // }
+        // else{
+        //   this.isCoachSearchPage = false
+        // }
 
       }
     },

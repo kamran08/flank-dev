@@ -4,7 +4,7 @@
             
 
             <div class="new-search-flank" id="topId">
-                <div class="new-search-flank-num">
+                <div class="new-search-flank-num" v-if="searchOn">
                     <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p> 
                 </div>
                 <div :class="(isMobileMenu)? 'modal-open': 'flank-filter'" v-if="showMenuButton" >
@@ -487,10 +487,112 @@
                                     
                                         </div> -->
                                         <!-- Right -->
+                                        <!-- Right -->
+                                        <div class="col-xl-12 col-md-8 col-lg-5 _2coach_main_right">
+                                            <div class="_2coach_title">
+                                                <p class="_2coach_title_one">Health Score:</p>
+
+                                                <p :class="((item.recentHealthScore) > 10)? '_2coach_title_two' : '_2coach_title_two _2coach_title_two_red'"> {{ item.recentHealthScore }}
+                                                    
+                                                    <span>{{item.healthScore}}%</span>
+                                                
+                                                </p>
+                                            </div>
+
+                                            <div class="_2coach_main_right_main"  @click="$router.push(`/school_coach/${item.id}`)" >
+                                                <p class="_2coach_main_right_title">Known for:</p>
+                                                    <!-- 
+                                                <ul class="coach-main-known-list"  >
+                                                    <li  v-for="(item,index) in item.topAtrribute" :key="index">
+                                                        <figure>
+                                                            <img :src="item.info.image" alt="">
+                                                        </figure>
+                                                        <p>{{item.info.content}}</p>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src="/images/plus.gif" alt="">
+                                                        </figure>
+                                                        <p>Health Score<span>55 out of 100</span></p>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src="/images/veh.gif" alt="">
+                                                        </figure>
+                                                        <p>Delivery<span>No</span></p>
+                                                    </li>
+                                                    <li>
+                                                        <figure>
+                                                            <img src="/images/veh.gif" alt="">
+                                                        </figure>
+                                                        <p>Delivery<span>No</span></p>
+                                                    </li>
+                                                </ul> -->
+                                                <div class="known-for-list">
+                                                    <ul>
+                                                        <li><img src="/attribute/1.png" alt=""><span>Health Score</span></li>
+                                                        <li><img src="/attribute/2.png" alt=""><span>Great Communicator</span></li>
+                                                        <li><img src="/attribute/3.png" alt=""><span>Creates a Healthy Environment</span></li>
+                                                        <li><img src="/attribute/4.png" alt=""><span>Pushes you to be Better</span></li>
+                                                        <li><img src="/attribute/5.png" alt=""><span>Extension of your Parents</span></li>
+                                                        <!-- <li><img src="/attribute/6.png" alt=""><span>Earns your Respect</span></li>
+                                                        <li><img src="/attribute/7.png" alt=""><span>Remembers their promises</span></li>
+                                                        <li><img src="/attribute/8.png" alt=""><span>Adaptable</span></li>
+                                                        <li><img src="/attribute/9.png" alt=""><span>Natures your talents</span></li>
+                                                        <li><img src="/attribute/10.png" alt=""><span>Rides the storm</span></li> -->
+                                                    </ul>
+                                                </div>
+
+                                                <!-- <ul class="_2coach_main_right_list">
+                                                    <li>
+                                                        <i class="fab fa-algolia"></i>
+                                                        Health Score 55 out of 100
+                                                    </li>
+
+                                                    <li>
+                                                        <i class="fab fa-algolia"></i>
+                                                        Delivery No
+                                                    </li>
+
+                                                    <li>
+                                                        <i class="fab fa-algolia"></i>
+                                                    Accepts Credit Cards Yes
+                                                    </li>
+
+                                                    <li>
+                                                        <i class="fab fa-algolia"></i>
+                                                        Paking Private Lot
+                                                    </li>
+                                                </ul>
+
+                                                <ul class="_2coach_main_right_list">
+                                                    <li>
+                                                        <i class="fab fa-algolia"></i>
+                                                        Health Score 55 out of 100
+                                                    </li>
+
+                                                    <li>
+                                                        <i class="fab fa-algolia"></i>
+                                                        Delivery No
+                                                    </li>
+
+                                                    <li>
+                                                        <i class="fab fa-algolia"></i>
+                                                        Accepts Credit Cards Yes
+                                                    </li>
+
+                                                    <li>
+                                                        <i class="fab fa-algolia"></i>
+                                                        Paking Private Lot
+                                                    </li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+                                        <!-- Right -->
                                     </div>
                                 </div>
                             </div>
-                            <div class="_1coach_items" v-if="pageOption == 'legend'"  v-for="(item,index) in searchData" :key="index"  >
+                  <div class="_1coach_items" v-if="pageOption == 'legend'"  v-for="(item,index) in searchData" :key="index"  >
                                 <div class="desk-fl-top">
 
                                     <p v-if="item.avg_rating !=0" class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -644,7 +746,7 @@
 
                                             <div class="_1card_details">
                                                 <p class="_3title">{{item.school.schoolName}} - {{item.school.sport}}</p>
-                                                <p class="_3title" style="margin-bottom: 10px;">City/State</p>
+                                                <p class="_3title" style="margin-bottom: 10px;">{{item.school.city}}/{{item.school.state}}</p>
                                                 <div class="_1rating">
                                                     <ul class="_1rating_list">
                                                         <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
@@ -1641,7 +1743,8 @@
                             <p class="_1reiew_con">If you need help, Please <a href="">visit the help section</a> or contact us below</p>
 
                             <textarea class="_1reiew_taxtarea" rows="5" v-model="support.text" placeholder="Your voice is important. Help us make it easier to find the coach you want"></textarea>
-                            <button class="_1btn new-1btn" type="button" @click="submitSupport">Submit</button>
+                            <button class="_1btn new-1btn" type="button" @click="submitSupport" v-if="!isLoad">Submit</button>
+                            <button class="_1btn new-1btn" type="button"  v-else disabled>Loading...</button>
                         </div>
                     </div>
                 </div>
@@ -3178,7 +3281,8 @@
 
                 <textarea class="_1reiew_taxtarea new-mob-textarea" rows="5" v-model="support.text" placeholder="Your voice is important. Help us make it easier to find the coach you want"></textarea>
                 <div class="new-fl-btn">
-                    <button class="_1btn new-1btn" type="button" @click="submitSupport">Submit</button>
+                    <button class="_1btn new-1btn" type="button" @click="submitSupport"  v-if="!isLoad">Submit</button>
+                    <button class="_1btn new-1btn" type="button"  v-else disabled>Loading...</button>
                 </div>
             </div>
             <div class="backtop mb-15">
@@ -3615,6 +3719,7 @@ export default {
     },
     data(){
         return{
+            searchOn:true,
             ratedpost:{},
             tsports:'',
             mostratedpost:[],
@@ -3695,7 +3800,8 @@ export default {
             },
             support:{
                 text:''
-            }
+            },
+            isLoad:false
 
         }
     },
@@ -3705,15 +3811,23 @@ export default {
         //     this.s("Thank you for your response ")
         // },
         async submitSupport(){
-            if(!this.support.text=='' || this.support.text=='' || this.support.text.trim()==''){
+            // support.text
+            if(!this.support.text || this.support.text=='' || this.support.text.trim()==''){
                return this.e("please write your messege first!!")
             }
+            this.isLoad = true
             const res = await this.callApi('post', '/app/sendSupportMessege', this.support)
              if(res.status == 200 || res.status ==204){
                      this.s("Thank you for your response ")
+                     this.isLoad = false
                     this.support.text = ''
              }
+             else if(res.status==403){
+                 his.isLoad = false
+                return this.e("Given Data Is Ivalid")
+             }
             else{
+                his.isLoad = false
                 this.swr();
             }
 
@@ -3914,9 +4028,12 @@ export default {
             
         },
         chnageType(item , division=''){
+            this.searchOn=false
+            this.showStr=''
             this.attribute=''
             this.$store.commit('setPageOption', item )
             this.$store.commit('setDiv', division )
+            // this.$router.push(`/coach_search?pageOption=item&div=division`)
           
             this.SearchByKey()
         },
@@ -3957,22 +4074,33 @@ export default {
             this.SearchByKey()
         },
         async AttributesSearchByKey(){
+            this.searchOn = false
+            this.showStr = ''
             this.oldrating=[]
             this.sports = [];
             this.SearchByKey()
         },
         async SpoprtsSearchByKey(key){
+             this.searchOn = false
+             this.showStr = ''
              this.sports = [];
              this.sports.push(this.tsports);
+            // this.$router.push(`/coach_search?pageOption=item&div=division`) 
             this.SearchByKey()
         },
         async SearchByKey(page=1){
+            // this.showStr=''
 
             // if(this.pageOption != 'product'){
             //     if(this.str == '' ) return this.i("Please Write a name")
             //     if(this.place == '') return this.i("Please Write a City")
             // }
-            console.log("SearchByKey")
+            // console.log("SearchByKey")
+            if(!this.searchOn){
+               this.$store.commit('setStr', '')
+            }
+
+          
             const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.str}&pageOption=${this.pageOption}&sort=${this.sort}&div=${this.div}&rate=${this.oldrating.index}&sports=${this.sports}&attribute=${this.attribute}&page=${page}`)
             if(res.status === 200){
                 if(res.data.mainData.data.length>0){
@@ -3996,6 +4124,7 @@ export default {
             else{
                 this.swr();
             }
+            
         },
         
         
@@ -4023,6 +4152,7 @@ export default {
         this.showStr = this.str
         this.splace = this.place
         await this.SearchByKey()
+        
         const [ res, res1,res2] = await Promise.all([
             this.callApi("get", `/app/getAllSports`),
             this.callApi("get", `/app/getSchoolCoachByhighRated`),
