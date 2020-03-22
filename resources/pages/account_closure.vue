@@ -26,6 +26,17 @@
                         </div>
                         <div class="col-md-9">
                             <div>
+                                <h2 class="fl-abs">How do I close my account?</h2>
+                                <div class="new-about-header mt-30">
+                                    <h3>Flankers</h3>
+                                    <p class="mt-20">Closing your user account will remove any content you’ve posted to Flank as a reviewer, and once your account has been closed it cannot be restored.  If you’d like to proceed with closing your user account, please <a href="">submit an account closure request</a>.</p>
+                                </div>
+                                <div class="new-about-header mt-30">
+                                    <h3>Local Instructors</h3>
+                                    <p class="mt-20">If you’re a local instructor and you no longer need access to a business page that you’ve created, you can <a href="">close your account here</a>. However, keep in mind that closing your account will not remove the business page you created at Flank (we normally do not remove business pages).</p>
+                                </div>
+                            </div>
+                            <div>
                                 <h2 class="fl-abs">Closing your user account</h2>
                                     <div class="legal-alert-box">
                                         <div class="legal-alert-box-inner" v-if="errorData.email==''||errorData.type==''||errorData.question==''||errorData.descriptions==''">
