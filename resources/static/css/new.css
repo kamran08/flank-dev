@@ -1221,6 +1221,13 @@ footer {
     height: 100%;
 }
 
+@media only screen and (max-width:499px) {
+    .td_lg {
+        font-size: 12px;
+    }
+}
+
+
 .active_td {
     background: red!important;
     color: #fff!important

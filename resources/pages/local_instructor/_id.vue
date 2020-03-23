@@ -517,7 +517,7 @@
                                             <img src="/images/sticker-3.png" alt="">
                                         </figure>
                                         <div class="top-con-cap">
-                                            <p><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews. <a href="#">Learn more</a></p>
+                                            <p><span>Your trust is our top concern,</span> so coaches can't pay to alter or remove there reviews.</p>
                                         </div>
                                     </div>
                                     <div class="new-flank-form">
@@ -602,7 +602,7 @@
                                                         </li>
                                                         <li @click="embeddedModalOn(item)">
                                                             <img src="/images/mstar.png" alt="">
-                                                            <p><a>Embeded Review</a></p>
+                                                            <p><a>Embed Review</a></p>
                                                         </li>
                                                         <li @click="messageModal = true"> 
                                                             <img src="/images/mstar.png" alt="">

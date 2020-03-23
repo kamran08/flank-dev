@@ -746,7 +746,7 @@
 
                                             <div class="_1card_details">
                                                 <p class="_3title">{{item.school.schoolName}} - {{item.school.sport}}</p>
-                                                <p class="_3title" style="margin-bottom: 10px;">{{item.school.city}}/{{item.school.state}}</p>
+                                                <p class="_3title" style="margin-bottom: 10px;">{{item.school.city}}, {{item.school.state}}</p>
                                                 <div class="_1rating">
                                                     <ul class="_1rating_list">
                                                         <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
@@ -2283,7 +2283,7 @@
 
                                                     <div class="_1card_details">
                                                        <p class="_3title">{{item.name}} - {{item.school.sport}}</p>
-                                                        <p class="_3title" style="margin-bottom: 10px;">{{item.school.city}}/{{item.school.state}}</p>
+                                                        <p class="_3title" style="margin-bottom: 10px;">{{item.school.city}}, {{item.school.state}}</p>
                                                         <div class="_1rating">
                                                            <ul class="_1rating_list">
                                                                 <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
