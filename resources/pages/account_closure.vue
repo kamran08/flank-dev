@@ -45,7 +45,7 @@
                                     </div>
                                     <p style="font-size: 15px;">We're sorry to see you go! Please let us know a little about why you're closing your account.</p>
                                     <!-- <hr> -->
-                                    <div class="about-content mt-10">
+                                    <div class="about-content mt-10" v-if="!isSend">
                                         <!-- <form> -->
                                             <div class="legal-form-main">
                                                 <div class="legal-form-item legal-form-item-danger">
@@ -58,7 +58,7 @@
                                                         <li class="legal-btn" @click="sendData" v-if="!isLoading"><button class="ripple">Send</button></li>
                                                         <li class="legal-btn"  v-else><button class="ripple" disabled>Loading...</button></li>
 
-                                                        <li><a href="/" style="color: #0036b1 !important;" >Cancel</a></li>
+                                                        <!-- <li><a href="/" style="color: #0036b1 !important;" >Cancel</a></li> -->
                                                     </ul>
                                                 </div>
                                             </div>
@@ -108,11 +108,12 @@ export default {
              this.isLoading = true
              const res = await this.callApi('post', '/app/sendAccountCloseEmail', this.formData)
              if(res.status==200 || res.status==204){
-                 this.s("your request has been sent check your email!!")
+                 this.s("Your account has been deactivated!!")
                  this.formData = {}
                  this.errorData.taxt =' '
                   this.isSend = true
                   this.isLoading = false
+                  this.$store.dispatch('setAuthInfo',false)
              }
              else if(res.status==403){
                  this.isLoading = false

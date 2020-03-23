@@ -632,14 +632,27 @@ class UserController {
      }
      async sendAccountCloseEmail ({ request, response, auth }) {
         let data = request.all()
-        const user_id = await auth.user().id
+        const user_id = await  auth.user.id
         if (data.taxt){
           if (!user_id){
               return response.status(403).json({
                   'msg': "Your are not valid User!!!"
               })
           }
-          // await 
+          await User.query().where('id', user_id).delete()
+          // session.clear()
+          await auth.logout()
+          await Mail.send('emails.accountCloser', data, (message) => {
+            message
+              .to('ahmedkamran265@gmail.com')
+              .from('Support@goflank.com', `New Email`)
+              .subject('Flank – Urgent Account Closure Request')
+          })
+           return response.status(200).json({
+             'msg': "account deactivated!!!"
+           })
+          
+
         }
      }
 
