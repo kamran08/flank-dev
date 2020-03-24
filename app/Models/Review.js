@@ -11,6 +11,12 @@ class Review extends Model {
   reviwer () {
     return this.belongsTo('App/Models/User', 'reviwer_id')
   }
+  follow() {
+    return this.hasMany('App/Models/Follow','reviwer_id','following')
+  }
+  following() {
+    return this.hasMany('App/Models/Follow', 'reviwer_id', 'follower')
+  }
   reviewfor () {
     return this.belongsTo('App/Models/Legend', 'reviewFor')
   }

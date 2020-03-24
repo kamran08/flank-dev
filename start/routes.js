@@ -156,6 +156,8 @@ Route.get('/app/videos','HomeController.showVideos')
 // kollol
 Route.get('/app/getStreak/:id', 'SchoolController.getStreak')
 
+Route.post('/app/createNewFollow', 'UserController.createNewFollow')
+
 // send Email
 Route.post('/app/sendInvitation', 'UserController.sendInvitation')
 Route.post('/app/sendlegalData', 'UserController.sendlegalData')

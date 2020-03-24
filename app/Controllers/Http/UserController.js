@@ -12,6 +12,7 @@ const Legend = use('App/Models/Legend')
 const Review = use('App/Models/Review')
 const SchoolCoach = use('App/Models/SchoolCoach')
 const Product = use('App/Models/Product')
+const Follow = use('App/Models/Follow')
 const Database = use('Database')
 const Hash = use('Hash')
 const uniqid = require('uniqid');
@@ -657,6 +658,26 @@ class UserController {
           
 
         }
+     }
+     async createNewFollow ({ request, response, auth }) {
+        let data = request.all()
+        const user_id = await  auth.user.id
+        let chaeck = await Follow.query().where('follower', user_id).where('following', data.following).first()
+        if(chaeck){
+           return response.status(401).json({
+             'msg': "You Already Following!!"
+           })
+        }
+        else{
+          let ob={
+              follower: user_id,
+              following: data.following
+          }
+         return await Follow.create(ob)
+        }
+
+
+       
      }
 
     

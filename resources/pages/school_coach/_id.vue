@@ -487,9 +487,15 @@
                                                                 <img src="/images/new-mstar2.png" alt="">
                                                                 <p><a>Send message</a></p>
                                                             </li>
-                                                            <li>
+                                                            <li v-if="item.reviwer_id==authInfo.id" style="pointer-events: none;opacity: 0.6;">
                                                                 <img src="/images/new-mstar3.png" alt="">
-                                                                <p><a>Follow valerie C.</a></p>
+                                                                <p ><a>Follow valerie C.</a></p>
+                                                                {{item.__meta__.follow_count}}
+                                                            </li>
+                                                            <li v-else @click="followMethod(item)">
+                                                                <img src="/images/new-mstar3.png" alt="">
+                                                                <p ><a>Follow valerie C.</a></p>
+                                                                {{item.__meta__.follow_count}}
                                                             </li>
                                                         </ul>
                                                     </div> 
@@ -2410,6 +2416,27 @@ export default {
             //     this.isVideo.header = `The abuse of child atheletes by their coaches.`
             // }
             // this.isVideo.modal= true
+        },
+       async followMethod(item){
+           let ob = {
+               following:item.reviwer_id
+           }
+           this.isLoad =true
+        const res = await this.callApi('post','/app/createNewFollow',ob)
+            if(res.status==200 || res.status==201){
+                item.__meta__.follow_count = parseInt(item.__meta__.follow_count)+1
+                this.isLoad =false
+                this.s("Your now following ")
+            }
+            else if(res.status==401){
+                this.isLoad =false
+               return this.e(res.data.msg)
+            }
+            else{
+                this.isLoad =false
+                this.e("please check your network!")
+            }
+            console.log(item)
         },
         closeVideo(){
             this.isVideo.modal = false
