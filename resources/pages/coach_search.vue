@@ -64,10 +64,11 @@
                             <h3>Attributes</h3>
                             <ul>
                                 <li>
-                                    <input type="radio" name="gender"  v-model="attribute" id="che1" :value="'averageHealthy'" v-on:change="AttributesSearchByKey" ><label for="che1">Healthy index</label>
+                                    
+                                    <input type="radio" name="gende"  v-model="attribute" id="che1" :value="'averageHealthy'" v-on:change="AttributesSearchByKey" ><label for="che1">Healthy index</label>
                                 </li>
                                 <li>
-                                    <input type="radio" name="gender"  v-model="attribute" id="che2" :value="'averageHarmful'" v-on:change="AttributesSearchByKey"><label for="che2">Harmful index</label>
+                                    <input type="radio" name="gende"  v-model="attribute" id="che2" :value="'averageHarmful'" v-on:change="AttributesSearchByKey"><label for="che2">Harmful index</label>
                                 </li>
                             </ul>
                         </div>
@@ -1823,7 +1824,7 @@
                             <!-- <CheckboxGroup v-model="sports" @on-change="SearchByKey"> -->
                             <ul v-if="allSports.length">
                                 <li v-for="(item,index) in allSports" :key="index" >
-                                    <input type="radio" name="gender"  v-model="tsports" :id="`che${index+3}`" :value="item.value" v-on:change="SpoprtsSearchByKey"><label :for="`che${index+3}`">{{item.name}}</label>
+                                    <input type="radio" name="gend"  v-model="tsports" :id="`che${index+3}`" :value="item.value" v-on:change="SpoprtsSearchByKey"><label :for="`che${index+3}`">{{item.name}}</label>
                                     <!-- <Checkbox :label="item.value">{{item.name}}</Checkbox> -->
                                     <!-- <input type="checkbox" id="che3"><label for="che3">Baseball</label> -->
                                 </li>
@@ -3862,7 +3863,8 @@ export default {
            
         },
         changeOldRating(index){
-            this.attribute=''
+             this.attribute=''
+             this.tsports=''
              this.oldrating.index = index
             if(index == 1){
                 this.oldrating.class = 'review-star-1'
@@ -4075,15 +4077,16 @@ export default {
         },
         async AttributesSearchByKey(){
             this.searchOn = false
-            this.showStr = ''
             this.oldrating=[]
+            this.tsports=''
             this.sports = [];
             this.SearchByKey()
         },
         async SpoprtsSearchByKey(key){
              this.searchOn = false
-             this.showStr = ''
-             this.sports = [];
+            //  this.showStr = ''
+             this.oldrating=[]
+            //  this.sports = [];
              this.sports.push(this.tsports);
             // this.$router.push(`/coach_search?pageOption=item&div=division`) 
             this.SearchByKey()
@@ -4097,6 +4100,7 @@ export default {
             // }
             // console.log("SearchByKey")
             if(!this.searchOn){
+                this.showStr = ''
                this.$store.commit('setStr', '')
             }
 

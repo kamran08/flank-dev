@@ -2222,12 +2222,12 @@ export default {
             const res = await this.callApi('post', '/app/sendreviewMessage', this.message)
             if(res.status==200 || res.status==204){
                 this.s("Message has been  sent  Successfull !")
-                 this.message={
+            this.message={
                 email:'',
                 subject: '',
                 message: '',
             }
-            this.message = message
+            // this.message.message = ''
             this.messageModal = false
             this.isLoad = false
             }

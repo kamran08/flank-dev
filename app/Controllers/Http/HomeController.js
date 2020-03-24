@@ -24,7 +24,10 @@ class HomeController {
             }
             const validation = await validateAll(data, rules, messages);
             if (validation.fails()) {
-              return this.errorResponse(response, 401, validation.messages())
+              return response.status(401).json({
+                'msg': 'Email is already in use! or invalid!'
+              })
+              // return this.errorResponse(response, 401, validation.messages())
             }
         await EmailSubscription.create(data)
         if (data.email) {

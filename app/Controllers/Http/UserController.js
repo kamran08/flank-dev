@@ -556,16 +556,18 @@ class UserController {
 
       let data = request.all()
            const rules = {
-             email: "required|email|unique:users,email",
+             email: "required|email",
            };
            const messages = {
              "email.required": "Email is required!",
              "email.email": "Email is invalid!",
-             "email.unique": "Email is already in use!"
            }
            const validation = await validateAll(data, rules, messages);
            if (validation.fails()) {
-             return this.errorResponse(response, 401, validation.messages())
+             return response.status(401).json({
+               'msg': "Email is required or invalid"
+             })
+            //  return this.errorResponse(response, 401, validation.messages())
            }
       // return data
       if (data.email) {
@@ -588,12 +590,11 @@ class UserController {
     }
       // async tasting ({ request, response, auth }) {
       //       const rules = {
-      //         email: "required|email|unique:users,email",
+      //         email: "required|email",
       //       };
       //       const messages = {
       //          "email.required": "Email is required!",
       //          "email.email": "Email is invalid!",
-      //          "email.unique": "Email is already in use!"
       //       }
       //       const validation = await validateAll(data, rules, messages);
       //       if (validation.fails()) {
@@ -604,16 +605,18 @@ class UserController {
      async sendreviewMessage ({ request, response, auth }) {
        let data = request.all()
             const rules = {
-              email: "required|email|unique:users,email",
+              email: "required|email",
             };
             const messages = {
               "email.required": "Email is required!",
               "email.email": "Email is invalid!",
-              "email.unique": "Email is already in use!"
             }
             const validation = await validateAll(data, rules, messages);
             if (validation.fails()) {
-              return this.errorResponse(response, 401, validation.messages())
+              return response.status(401).json({
+                'msg': "Email is invalid!"
+              })
+              // return this.errorResponse(response, 401, validation.messages())
             }
         if (data.email) {
           await Mail.send('emails.messageFromReview', data, (message) => {
