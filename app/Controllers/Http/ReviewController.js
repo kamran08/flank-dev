@@ -121,7 +121,9 @@ class ReviewController {
       console.log('I am in catch')
     }
     let mdata = Review.query().where('reviewFor', params.id).where('review_type', type)
-      .with('reviwer').withCount('follow')
+      .with('reviwer').withCount('follow').with('hasfollow', (builder) => {
+        builder.where('follower', auth.user.id)
+      })
       .with('reviwer', (builder) => builder.withCount('reviews as totalreviewbyuser'))
       .with('imosall', (builder) => {
         builder.where('user_id', user_id)
