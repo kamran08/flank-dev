@@ -487,10 +487,10 @@
                                                                 <img src="/images/new-mstar2.png" alt="">
                                                                 <p><a>Send message</a></p>
                                                             </li>
-                                                            <li v-if="item.reviwer_id==authInfo.id" style="pointer-events: none;opacity: 0.6;">
+                                                            <li v-if="authInfo && item.reviwer_id==authInfo.id" style="pointer-events: none;opacity: 0.6;">
                                                                 <img src="/images/new-mstar3.png" alt="">
                                                                 <p ><a>Follow valerie C.</a></p>
-                                                                {{item.__meta__.follow_count}}
+                                                                <!-- {{item.__meta__.follow_count}} -->
                                                             </li>
                                                             <li v-else @click="followMethod(item)">
                                                                 <img src="/images/new-mstar3.png" alt="">
@@ -2418,6 +2418,9 @@ export default {
             // this.isVideo.modal= true
         },
        async followMethod(item){
+           if(!this.authInfo){
+               return this.e("Please login in")
+           }
            let ob = {
                following:item.reviwer_id
            }
