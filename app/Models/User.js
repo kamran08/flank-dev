@@ -34,7 +34,7 @@ class User extends Model {
     return this.hasMany('App/Models/Review', 'id', 'reviwer_id').select('id', 'reviwer_id', 'rating')
   }
   imosCount () {
-    return this.hasOne('App/Models/Reviewimo').select('id', 'user_id', Database.raw('sum(cool)   AS cool'), Database.raw('sum(funny)   AS funny'), Database.raw('sum(useful)   AS useful'))
+    return this.hasOne('App/Models/Reviewimo').select('id', 'user_id', Database.raw('sum(cool)  AS cool'), Database.raw('sum(funny)   AS funny'), Database.raw('sum(useful)   AS useful'))
   }
   tokens () {
     return this.hasMany('App/Models/Token')

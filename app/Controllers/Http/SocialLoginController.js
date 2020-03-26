@@ -101,6 +101,7 @@ class SocialLoginController {
         };
         const user = await User.findOrCreate(whereClause, userDetails);
         await auth.login(user);
+        return auth.getUser()
         return response.route('step2')
         
       }
