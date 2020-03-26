@@ -2159,10 +2159,10 @@ export default {
                     property: 'og:image:type',
                     content: 'image/png',
                 },
-                {
-                    property: 'og:image:width',
-                    content: '1024',
-                },
+                // {
+                //     property: 'og:image:width',
+                //     content: '1024',
+                // },
                 {
                     name: 'twitter:card',
                     content:"summary"
