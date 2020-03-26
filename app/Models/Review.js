@@ -11,9 +11,8 @@ class Review extends Model {
   reviwer () {
     return this.belongsTo('App/Models/User', 'reviwer_id')
   }
-  hasfollow ({  auth }) {
-    // if(auth)
-    return this.hasOne('App/Models/Follow', auth.user.id, 'following')
+  hasfollow () {
+    return this.hasMany('App/Models/Follow', 'reviwer_id', 'following')
   }
   follow() {
     return this.hasMany('App/Models/Follow','reviwer_id','following')

@@ -157,6 +157,7 @@ Route.get('/app/videos','HomeController.showVideos')
 Route.get('/app/getStreak/:id', 'SchoolController.getStreak')
 
 Route.post('/app/createNewFollow', 'UserController.createNewFollow')
+Route.post('/app/createNewUnFollow', 'UserController.createNewUnFollow')
 
 // send Email
 Route.post('/app/sendInvitation', 'UserController.sendInvitation')
