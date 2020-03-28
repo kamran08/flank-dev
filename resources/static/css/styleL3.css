@@ -686,7 +686,7 @@ a.sign-social-facebook:focus {
 }
 
 .pt-120 {
-  padding-top: 98px
+  padding-top: 143px;
 }
 
 .pof {
@@ -695,34 +695,34 @@ a.sign-social-facebook:focus {
   top: 0;
   left: 0;
   z-index: 1000;
-  height: 98px;
+  height: 143px;
   display: flex;
   flex-flow: column
 }
 
 .mt-15 {
-  margin-top: 15px
+  margin-top: 15px;
 }
 
 @media only screen and (max-width:1199px) {
   .pt-120 {
-    padding-top: 148px
+    padding-top: 148px;
   }
 
   .pof {
     background: #000;
-    height: 148px
+    height: 148px;
   }
 }
 
 @media only screen and (max-width:767px) {
   .pt-120 {
-    padding-top: 132px
+    padding-top: 132px;
   }
 
   .pof {
     background: #000;
-    height: 132px
+    height: 132px;
   }
 }
 
@@ -730,7 +730,7 @@ a.sign-social-facebook:focus {
   background: #2b2c2d;
   z-index: 11;
   position: relative;
-  height: 54px
+  height: 54px;
 }
 
 .new-flank-nav .container {
@@ -753,7 +753,13 @@ a.sign-social-facebook:focus {
 }
 
 .new-banner-section {
-  background: #edeef0
+  background: #edeef0;
+  /* border-bottom: 1px solid #000; */
+}
+
+.new-banner-section-black {
+  background: #000;
+  border-bottom: 1px solid #000;
 }
 
 .flank-new-brand a {
@@ -1023,9 +1029,12 @@ a.sign-social-facebook:focus {
 }
 
 .new-flank-header-nav {
-  background: #fafafa;
+  /* background: #fafafa; */
+  background: #fff;
   flex: 1;
-  height: 44px
+  /* height: 44px */
+  height: 73px;
+  border-bottom: 1px solid #000;
 }
 
 .new-flank-header-nav .container {
@@ -1045,7 +1054,8 @@ a.sign-social-facebook:focus {
 }
 
 .header-nav-indi-left {
-  margin-left: 150px
+  /* margin-left: 150px; */
+  /* margin-left: 185px; */
 }
 
 .header-nav-indi ul li {
@@ -1055,20 +1065,22 @@ a.sign-social-facebook:focus {
 .header-nav-indi ul li a {
   display: flex;
   align-items: center;
-  padding: 10px 30px;
+  padding: 10px 20px;
   color: #000 !important;
   border-right: 1px solid #000;
   height: 100%;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   font-weight: 400;
-  font-size: 18px;
-  font-family: ceraProRegular
+  /* font-size: 18px; */
+  /* font-family: ceraProRegular */
+  font-size: 16px;
+  font-family: ceraPro;
 }
 
 .header-nav-indi ul li a img {
   margin-right: 10px;
-  width: 20px
+  width: 23px;
 }
 
 .header-nav-indi ul li a span {

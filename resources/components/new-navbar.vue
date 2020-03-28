@@ -2,80 +2,169 @@
 <template>
     <div class="pof">
         <div class="new-flank-nav">
-            <div class="new-flank-nav-top">
-                <div class="container">
-                    <div class="flank-brand flank-search-item">
-                        <a href="#">
-                            <img src="/images/new-brand.png" alt="">
-                        </a>
+            <div class="container">
+                <div class="new-flank-nav-con">
+                    <div v-if="isMobileSideBar==false" class="flank-coll-bar" @click="isMobileSideBarEvent">
+                        <img src="/images/three-bar.png" alt="">
                     </div>
-                    <div class="flank-search flank-search-item">
-                        <div class="flank-search-inner">
-                            <div class="flank-search-label">
-                                <label for="">Coach Name<span><i class="fas fa-caret-down"></i></span></label>
-                                <!-- add class active with flank-search-dropdown class to show dropdown -->
-                                <div class="flank-search-dropdown">
-                                    <ul>
-                                        <li><a href="#">Coach Name</a></li>
-                                        <li><a href="#">School Name</a></li>
-                                    </ul>
+                    <div v-else class="flank-coll-bar" @click="isMobileSideBarEvent">
+                        <img src="/images/new-cross.png" alt="">
+                    </div>
+                    <div class="flank-new-brand">
+                        <!-- /flanker'+authInfo.id  -->
+                        <a @click="$router.push('/')"><img src="/images/new-l.png" alt=""></a>
+                        <!-- <div class="mobile-button" @click="isMobileMenu = true" >
+                            <span><i class="fas fa-bars"></i></span>
+                        </div> -->
+                    </div>
+
+                    <div class="new-up-search-form" v-if="isCoachSearchPage">
+                        <div class="flank-new-form ">
+                            <form v-on:submit.prevent>
+                                <div class="flank-new-indi">
+                                    <div class="new-flank-selection fl-new-flank-selection new-up-flank-selection" style="flex: none;padding: 5px 15px;">
+                                        <p  style="cursor:pointer;" @click="isStringMenu = (isStringMenu)? false : true">{{slectedTitle}} <span><i class="fas fa-caret-down"></i></span></p>
+                                        <!-- <p  @click="isStringMenu = (isStringMenu)? false : true" style="cursor:pointer;" > {{(pageOption)? pageOption: 'All'}} <span><i class="fas fa-caret-down"></i></span></p> -->
+                                        <div class="new-flank-selection-dropdown new-flank-selection-dropdown-fl" v-if="isStringMenu"  >
+
+
+                                            <ul>
+                                                <li><a @click="pageOptionDropChange('school'),slectedTitle='School Name'">School Name</a></li>
+                                                <li><a @click="pageOptionDropChange('coach'),slectedTitle='Coach Name'">Coach Name</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="new-flank-input" style="flex: 1;">
+                                        <input type="text" v-model="tStr" @enter="SearchByKey" >
+                                    </div>
+                                </div>
+                                <div class="flank-new-indi" v-if=" pageOption != 'product' "  >
+                                    <div class="new-flank-selection">
+                                        <p>Near</p>
+                                    </div>
+                                    <div class="new-flank-input" >
+                                        <input type="text" v-model="tPlace" v-on:keyup="searchPlace" @enter="SearchByKey"  > 
+                                        <div class="new-flank-indi-dropdown" v-if="allPlaces.length>0 && tPlace != ''" >
+                                            <ul class="ssrolable" >
+                                                <li v-for="(item,index) in allPlaces" :key="index" >
+                                                    <a @click="letChangePlace(item)">{{item.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flank-new-search fl-flank-new-search ">
+                                    <button @click="SearchByKey" ><span><i class="fas fa-search"></i></span></button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- <div class="flank-new-form fl-flank-new-form">
+                            <form v-on:submit.prevent>
+                                <div class="flank-new-indi">
+                                    <div class="new-flank-selection fl-new-flank-selection new-up-flank-selection" style="flex: none;padding: 5px 15px;">
+                                        <p  style="cursor:pointer;" @click="isStringMenu = (isStringMenu)? false : true">{{slectedTitle}} <span><i class="fas fa-caret-down"></i></span></p>
+                                        <div class="new-flank-selection-dropdown new-flank-selection-dropdown-fl" v-if="isStringMenu"  >
+
+
+                                            <ul>
+                                                <li><a @click="pageOptionDropChange('school'),slectedTitle='School Name'">School Name</a></li>
+                                                <li><a @click="pageOptionDropChange('coach'),slectedTitle='Coach Name'">Coach Name</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="new-flank-input" style="flex: 1;">
+                                        <input type="text" v-model="tStr" @enter="SearchByKey" >
+                                    </div>
+                                </div>
+                                <div class="flank-new-indi" v-if=" pageOption != 'product' "  >
+                                    <div class="new-flank-selection">
+                                        <p>Near</p>
+                                    </div>
+                                    <div class="new-flank-input" >
+                                        <input type="text" v-model="tPlace" v-on:keyup="searchPlace" @enter="SearchByKey"  > 
+                                        <div class="new-flank-indi-dropdown" v-if="allPlaces.length>0 && tPlace != ''" >
+                                            <ul class="ssrolable" >
+                                                <li v-for="(item,index) in allPlaces" :key="index" >
+                                                    <a @click="letChangePlace(item)">{{item.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flank-new-search fl-flank-new-search new-up-flank-search">
+                                    <button @click="SearchByKey" ><span><i class="fas fa-search"></i></span></button>
+                                </div>
+                            </form>
+                        </div> -->
+                    </div>
+                    
+                    <div class="flank-new-autho" v-if="!isLoggedIn" >
+                        <div class="autho-in">
+                            <button @click="$router.push('/login')">Log in</button>
+                        </div>
+                        <div class="autho-up">
+                            <button @click="$router.push('/signup')">Sign Up</button>
+                        </div>
+                    </div>
+                    <div class="flank-new-autho" v-else>
+                        <div class="profile-ico">
+                            <button @click="$router.push('/flanker/'+authInfo.id)"><i class="fas fa-user-circle"></i></button>
+                        </div>
+                        <div class="autho-in">
+                            <button @click="logout" >Log Out</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="new-flank-nav-form">
+                    <div class="flank-new-form fl-flank-new-form">
+                        <form v-on:submit.prevent>
+                            <div class="flank-new-indi">
+                                <div class="new-flank-selection fl-new-flank-selection">
+                                    <p  @click="isStringMenu = (isStringMenu)? false : true" style="cursor:pointer;" > {{(pageOption)? pageOption: 'All'}} <span><i class="fas fa-caret-down"></i></span></p>
+                                    <div class="new-flank-selection-dropdown new-flank-selection-dropdown-fl" v-if="isStringMenu"  >
+                                        <ul>
+                                            <li><a @click="pageOptionDropChange('school')">School</a></li>
+                                            <li><a @click="pageOptionDropChange('coach')">Coach</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="new-flank-input">
+                                    <input type="text" v-model="tStr" @enter="SearchByKey" >
                                 </div>
                             </div>
-                            <div class="flank-search-input">
-                                <input type="text">
+                            <div class="flank-new-indi" v-if=" pageOption != 'product' "  >
+                                <div class="new-flank-selection">
+                                    <p>City</p>
+                                </div>
+                                <div class="new-flank-input" >
+                                    <input type="text" v-model="tPlace" v-on:keyup="searchPlace" @enter="SearchByKey"  > 
+                                    <div class="new-flank-indi-dropdown" v-if="allPlaces.length>0 && tPlace != ''" >
+                                        <ul class="ssrolable" >
+                                            <li v-for="(item,index) in allPlaces" :key="index" >
+                                                <a @click="letChangePlace(item)">{{item.name}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flank-search-btn">
-                                <button><span><i class="fas fa-search"></i></span></button>
+                            <div class="flank-new-search fl-flank-new-search">
+                                <button @click="SearchByKey" ><span><i class="fas fa-search"></i></span></button>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                    <div class="flank-search-auth  flank-search-item">
-                        <div class="flank-search-auth-soc">
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="flank-search-auth-ac">
-                            <ul>
-                                <li><a href="#">Log in / sign up</a></li>
-                                <!-- <li>/</li>
-                                <li><a href="#">Log in</a></li> -->
-                            </ul>
-                        </div>
-                    </div>
+                </div>
+                <div class="new-navbar-link">
+                    <ul>
+                        <li><a @click="SearchByKeyV2('coach','High School')">HS Coaches</a></li> 
+                        <li><a @click="SearchByKeyV2('coach','Junior College')">CC Coaches</a></li>
+                        <li><a @click="SearchByKeyV2('coach','','averageHealthy')"><img src="/images/hos.png" alt="">Coaches</a></li>
+                    </ul>
                 </div>
             </div>
-            <!-- <div class="new-flank-nav-banner">
-                <div class="container">
-                    <img src="/images/new-top.png" alt="flank_banner">
-                </div>
-            </div> -->
-            <nav class="new-flank-header-nav" :class="(isMobileMenu)? 'active' : ''">
-                <div class="container">
-                    <div class="header-nav-indi"  :class="(isMobileMenu)? 'active' : ''">
-                        <div class="header-nav-close" @click="isMobileMenu = false" >
-                            <span><i class="fas fa-times"></i></span>
-                        </div>
-                        <ul class="header-nav-indi-left">
-                            <li :class="(div == 'High School')? 'active' : ''" ><a @click="SearchByKeyV2('coach','High School')"><img src="/images/n1.png" alt=""> HS Coaches<span><i class="fas fa-chevron-down"></i></span></a></li>
-                            <li :class="(div == 'Junior College')? 'active' : ''" ><a @click="SearchByKeyV2('coach','Junior College')"><img src="/images/n2.png" alt=""> CC Coaches<span><i class="fas fa-chevron-down"></i></span></a></li>
-                            <li :class="(div == 'Club/Travel')? 'active' : ''" ><a @click="SearchByKeyV2('coach','Club/Travel')"><img src="/images/n3.png" alt=""> Local Coaches<span><i class="fas fa-chevron-down"></i></span></a></li>
-                            <li :class="(div == '')? '' : ''" ><a @click="SearchByKeyV2('coach')">More<span><i class="fas fa-chevron-down"></i></span></a></li>
-                            <!-- <li :class="(div == '')? 'active' : ''" ><a @click="SearchByKeyV2('coach')">More<span><i class="fas fa-chevron-down"></i></span></a></li> -->
-                        </ul>
-                        <ul class="header-nav-indi-right">
-                            <!-- <li><a @click="$router.push('/write_review')"><img src="/images/like.png" alt="">Write a Review</a></li> -->
-                            <li><a @click="$router.push('/write_review')"><img src="/images/n4.png" alt=""> Write a Review</a></li>
-                            <li><a @click="$router.push('/bussniess-promotion')" ><img src="/images/bag.png" alt="">For Business</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav> 
         </div>
 
-        <!-- <nav class="new-flank-header-nav" :class="(isMobileMenu)? 'active' : ''">
+        <nav class="new-flank-header-nav" :class="(isMobileMenu)? 'active' : ''">
             <div class="container">
                 <div class="header-nav-indi"  :class="(isMobileMenu)? 'active' : ''">
                     <div class="header-nav-close" @click="isMobileMenu = false" >
@@ -85,6 +174,7 @@
                         <li :class="(div == 'High School')? 'active' : ''" ><a @click="SearchByKeyV2('coach','High School')">HS Coaches<span><i class="fas fa-chevron-down"></i></span></a></li>
                         <li :class="(div == 'Junior College')? 'active' : ''" ><a @click="SearchByKeyV2('coach','Junior College')">CC Coaches<span><i class="fas fa-chevron-down"></i></span></a></li>
                         <li :class="(div == 'Club/Travel')? 'active' : ''" ><a @click="SearchByKeyV2('coach','Club/Travel')">Local Coaches<span><i class="fas fa-chevron-down"></i></span></a></li>
+                        <!-- <li :class="(div == '')? 'active' : ''" ><a @click="SearchByKeyV2('coach')">More<span><i class="fas fa-chevron-down"></i></span></a></li> -->
                     </ul>
                     <ul class="header-nav-indi-right">
                         <li><a @click="$router.push('/write_review')"><img src="/images/like.png" alt="">Write a Review</a></li>
@@ -92,7 +182,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>  -->
+        </nav> 
 
         <!-- ========== Topbar Start ============= -->
         <!-- <div class="pof">

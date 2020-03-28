@@ -279,7 +279,7 @@
                     </div>
                 </div>
 
-                <div class="new-banner-section banner-mb" >
+                <div class="new-banner-section" >
                     <div class="container" style="">
                         <div class="inner-banner new-fl-inner-banner">
                             <figure v-if="leandingData.length>0">
@@ -292,7 +292,7 @@
             
             
             
-            <!-- <div class="new-section-content">
+            <div class="new-section-content">
                 <div class="container">
                     <div class="new-content-inner">
                         <div class="row">
@@ -327,6 +327,7 @@
                                                         <img src="/image/Most-Connected.gif" alt="">
                                                     </figure>
                                                     <div class="quick-link-caption">
+                                                        <!-- <p>Professional sports</p> -->
                                                         <p>Healthiest coaches</p>
                                                     </div>
                                                 </a>
@@ -357,6 +358,7 @@
                                                         <img src="/image/ProductsServices.gif" alt="">
                                                     </figure>
                                                     <div class="quick-link-caption">
+                                                        <!-- <p>Products & service</p> -->
                                                         <p>Products & services <span class="red">(Coming soon)</span></p>
                                                     </div>
                                                 </a>
@@ -376,6 +378,9 @@
                                     </div>
                                     <div class="recent-activity-part">
                                         <div class="linear-border"></div>
+                                        <!-- <div class="drop-title no-border">
+                                            <h2 class="pad-border cera-bold font-24 weight-400">Recent activity</h2>
+                                        </div> -->
                                         <ul class="activity-list activity-list-new">
                                             <li class="activity-list-inner" v-for="(item,index) in recentReview " :key="index" v-if="index<3" >
                                                 <div class="recent-activity-part-inner">
@@ -389,14 +394,62 @@
                                                     <div class="activ-det">
                                                         <div v-if="item.review_type == 'school'" @click="directToCoachWall(item)" style="cursor: pointer;" >
                                                             <h3 v-if="item.coach" class="cera-bold font-18 weight-600" style="margin-bottom: 10px;">{{item.coach.name}}</h3>
+                                                            <!-- <h4>{{item.school.city}}</h4> -->
                                                         </div>
+                                                        <!-- <div v-if="item.review_type == 'product'" @click="directToCoachWall(item)" style="cursor: pointer;" >
+                                                            <h3>{{item.product.name}}</h3>
+                                                            <h4>{{item.product.address}}</h4>
+                                                        </div>
+                                                        <div v-if="item.review_type == 'legend'"  @click="directToCoachWall(item)" style="cursor: pointer;">
+                                                            <h3>{{item.legend.name}}</h3>
+                                                            <h4>{{item.legend.address}}</h4>
+                                                        </div> -->
                                                         <p class="cera-regular font-18">{{item.content}}</p>
                                                         <h5 class="itl  cera-light-italic font-18" style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)">
+                                                        <!-- <img src="/images/title-logo.png" alt=""> -->
                                                          <span>by</span> {{item.reviwer.firstName}} {{item.reviwer.lastName}}
                                                          </h5>
                                                     </div>
                                                 </div>
                                             </li>
+                                            <!-- <li class="activity-list-inner">
+                                                <div class="recent-activity-part-inner">
+                                                    <div class="activ-thumb">
+                                                        <figure>
+                                                            <img src="/images/act.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="activ-det">
+                                                        <ul>
+                                                            <li>
+                                                                <h3>Coach mike berger</h3>
+                                                                <h4>Austin, TX</h4>
+                                                                <p>Sometimes I get to the little community of Austin. Be lorem ipsum dolor sit amet,</p>
+                                                                <h5>By. Randy B.</h5>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                </li>
+                                                <li class="activity-list-inner">
+                                                <div class="recent-activity-part-inner">
+                                                    <div class="activ-thumb">
+                                                        <figure>
+                                                            <img src="/images/act.png" alt="">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="activ-det">
+                                                        <ul>
+                                                            <li>
+                                                                <h3>Coach mike berger</h3>
+                                                                <h4>Austin, TX</h4>
+                                                                <p>Sometimes I get to the little community of Austin. Be lorem ipsum dolor sit amet,</p>
+                                                                <h5>By. Randy B.</h5>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                </li> -->
                                         </ul>
                                         <div class="recent-title no-border new-recent-title">
                                             <h2 class="cera-medium font-18 weight-400">Recent Activity</h2>
@@ -437,6 +490,7 @@
                                                                 <span><i class="fas fa-caret-down"></i></span>
                                                             </div>
                                                         </div>
+                                                        <!-- <label>Find</label> -->
                                                         <input type="text"  v-model="searchTxt" v-on:keyup.enter="goToCoachSearch"  > 
                                                         <button @click="goToCoachSearch"><img src="/images/form-search.png" alt=""></button>
                                                         <div class="form-main-dropdown" v-if="isDropOption" >
@@ -448,8 +502,48 @@
                                                     </div>
                                                 </form>
                                             </div>
+                                            <!-- <div class="blg-caption">
+                                                <figure>
+                                                    <img src="/image/flank.png" alt="">
+                                                </figure>
+                                                </div> -->
                                         </div>
+                                        <!-- <div class="inner-rated-iconic">
+                                            <div class="rated-iconic-item">
+                                                <figure><img src="/images/lg.png" alt=""></figure>
+                                                <div class="iconic-coaches-caption">
+                                                    <p>Best rated coaches</p>
+                                                </div>
+                                            </div>
+                                            <div class="rated-iconic-item">
+                                                <figure><img src="/images/lg1.png" alt=""></figure>
+                                                <div class="iconic-coaches-caption">
+                                                    <p>Worst rated coaches</p>
+                                                </div>
+                                            </div>
+                                            <div class="rated-iconic-item">
+                                                <figure><img src="/images/lg2.png" alt=""></figure>
+                                                <div class="iconic-coaches-caption">
+                                                    <p>Most connected</p>
+                                                </div>
+                                            </div>
+                                        </div> -->
                                     </div>
+                                    <!-- <div class="vertising-opportunity-sec mobile-signup-sec">
+                                        <div class="review-sect">
+                                            <div class="drop-title new-font">
+                                                <h2 class=" pad-border">Sign In For The Best Experience</h2>
+                                            </div>
+                                            <div class="new-auth-bx">
+                                                <div class="new-auth-bx-in">
+                                                    <a href="#">
+                                                        <button>Sign in</button>
+                                                    </a>
+                                                    <p><a href="">Create an Account</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
                                     <div class="coach-scandal-sec">
                                         <div class="coach-scandal">
                                             <div class="coach-scandal-title" style="border-width: 2px;">
@@ -465,6 +559,9 @@
                                                     <img src="/images/soccer.png" alt="">
                                                 </figure>
                                                 <div class="scandal-caption">
+                                                    <!-- <figure>
+                                                        <img src="/images/round.png" alt="">
+                                                    </figure> -->
                                                     <div class="blg-inner-cap new-blg-inner-cap">
                                                         <p class="">Come for the tour. But leave your review behind</p>
                                                     </div>
@@ -472,6 +569,9 @@
                                             </div>
                                         </div>
                                         <div class="inner-scandal-video no-border new-fl-hooper" v-if="videos.length>0" style="padding-top: 0;">
+                                            <!-- <div class="logo-title">
+                                                <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
+                                            </div> -->
                                             <div class="row ">
                                                 <hooper :itemsToShow="3" :infiniteScroll="true"  class="new-pr-hooler-parent" >
                                                     <slide v-for="(item,index) in videos" :key="index">
@@ -484,6 +584,7 @@
                                                                     </div>
                                                                     <div class="video-duration">
                                                                         <p class="duration"><span>{{item.video_length}}</span></p>
+                                                                        <!-- <p class="duration"><span>2:17</span></p> -->
                                                                     </div>
                                                                 </figure>
                                                                 <div class="scandal-video-caption">
@@ -495,11 +596,41 @@
                                                             </div>
                                                         </div>
                                                     </slide>
+                                                    <!-- <hooper-navigation slot="hooper-addons"></hooper-navigation> -->
                                                 </hooper>
                                                 
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div class="new-latest-flank" v-if="videos.length>0">
+                                        <div class="inner-scandal-video">
+                                            <div class="logo-title">
+                                                <h2 class="logo-title-heading"><img src="/images/title-logo.png" alt=""> <span>LATEST ON FLANK</span></h2>
+                                            </div>
+                                            <div class="row plus-row">
+                                                <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                                    <slide v-for="(item,index) in videos" :key="index">
+                                                        <div class="col-md-3 col-sm-6"  >
+                                                            <div class="inner-scandal-video-item">
+                                                                <figure @click="openDynamicVideo(item)">
+                                                                    <img :src="item.img" alt="">
+                                                            
+                                                                </figure>
+                                                                <div class="scandal-video-caption">
+                                                                    <p>{{item.title}}</p>
+                                                                </div>
+                                                                <div class="video-logo">
+                                                                    <img src="/image/flank.png" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </slide>
+                                                    <hooper-navigation slot="hooper-addons"></hooper-navigation>
+                                                </hooper>
+                                                
+                                            </div>
+                                        </div>
+                                    </div> -->
                                     <div class="review-sect-part" v-if="review_of_day.bestReview && loading == false">
                                         <div class="review-sect">
                                             <div class="linear-border"></div>
@@ -509,6 +640,7 @@
                                             <div class="review-sect-header">
                                                 <figure style="cursor:pointer;" @click="$router.push(`/flanker/${review_of_day.bestReview.reviwer.id}`)">
                                                     <img :src="review_of_day.bestReview.reviwer.img" alt="">
+                                                    <!-- <img src="/images/ms.jpg" alt=""> -->
                                                 </figure>
                                                 <div class="review-header-title new-font">
                                                     <div class="review-title-left">
@@ -525,6 +657,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- <div class="review-border">
+                                                <div class="review-border-left">
+                                                    <img src="/images/sticker-3.png" alt="">
+                                                </div>
+                                                <div class="review-border-right">
+                                                    <img src="/images/r.png" alt="">
+                                                </div>
+                                            </div> -->
                                             <div class="review-star">
                                                 <ul>
                                                     <li :class="(review_of_day.bestReview.rating> 0)? '' : 'star-half' "><span><i class="fas fa-star"></i></span></li>
@@ -534,11 +674,13 @@
                                                     <li :class="(review_of_day.bestReview.rating> 4)? '' : 'star-half' "><span  ><i class="fas fa-star"></i></span></li>
                                                 </ul>
                                                 <div class="review-time">
+                                                    <!-- <p>{{review_of_day.bestReview.created_at}}</p> -->
                                                     <p>7/02/2019</p>
                                                 </div>
                                             </div>
                                             <div class="revt-details new-font">
                                                 <p style="font-size: 15px;">
+                                                    <!-- {{review_of_day.bestReview.content}} -->
                                                     I was incredibly skeptical of Vespertine. And why wouldn't you be? Jordan Kahn is the
                                                     Elon Musk of the fine dining world, and it's the equivalent of paying a lot of money
                                                     for something that Musk thought up - it could very well be brilliant, because he's
@@ -559,6 +701,28 @@
                                         </div>
                                         
                                     </div>
+                                    <!-- <div class="vertising-opportunity-sec new-vertising-opportunity-sec">
+                                        <div class="review-sect">
+                                            <div class="drop-title new-font mb-10">
+                                                <h2 class="">ADVERTISING OPPORTUNITIES</h2>
+                                            </div>
+                                            <div class="vertising-bg">
+                                                <div class="vertising-title">
+                                                    <h3>Advertising Opportunities for Any Local Instructor</h3>
+                                                    <p>Flank is a website that connects people with great local instructors and sports related products.</p>
+                                                    <a href="" class="">
+                                                        <button> Coming soon </button>
+                                                    </a>
+                                                </div>
+                                                <div class="vertising-image">
+                                                    <img src="/images/1.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="vertising-text">
+                                                <p>Coming soon</p>
+                                            </div>
+                                        </div>
+                                    </div> -->
                                     <div class="review-sect-part">
                                         <div class="review-sect">
                                             <div class="drop-title no-border">
@@ -573,6 +737,7 @@
                                                                     <div class="linear-border"></div>
                                                                     <div class="drop-item-title">
                                                                         <figure>
+                                                                            <!-- <img :src="item.reviwer.img"  alt=""> -->
                                                                             <img src="/images/ms.jpg" alt="">
                                                                         </figure>
                                                                         <div class="drop-title-caption">
@@ -629,6 +794,7 @@
                                                                     <div class="linear-border"></div>
                                                                     <div class="drop-item-title">
                                                                         <figure>
+                                                                            <!-- <img :src="item.reviwer.img"  alt=""> -->
                                                                             <img src="/images/ms.jpg" alt="">
                                                                         </figure>
                                                                         <div class="drop-title-caption">
@@ -694,6 +860,7 @@
                                                                 </div>
                                                                 <div class="drop-inner-cap">
                                                                     <div class="drop-inner-coach">
+                                                                        <!---->
                                                                         <h4 style="cursor: pointer;">Coach Nazmul</h4></div>
                                                                     <div class="review-star small-review-star">
                                                                         <ul>
@@ -736,6 +903,7 @@
                                                 <div class="row plus-row no-margin">
                                                     <div class="activity-item"  @click="$router.push(`/coach_search?pageOption=coach&div=High School`)">
                                                         <div class="activity-inner">
+                                                            <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
                                                                 <figure>
                                                                     <img src="/images/high-school.png" alt="">
@@ -745,6 +913,7 @@
                                                     </div>
                                                     <div class="activity-item"  @click="$router.push(`/coach_search?pageOption=coach&div=Junior College`)">
                                                         <div class="activity-inner">
+                                                            <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
                                                                 <figure>
                                                                     <img src="/images/college-coaches.png" alt="">
@@ -755,6 +924,7 @@
                                                     </div>
                                                     <div class="activity-item" @click="$router.push(`/coach_search?pageOption=coach&div=Club/Travel`)">
                                                         <div class="activity-inner">
+                                                            <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
                                                                 <figure>
                                                                     <img src="/images/travel-coaches.png" alt="">
@@ -765,6 +935,7 @@
                                                     </div>
                                                     <div class="activity-item"  @click="$router.push(`/bussniess-promotion`)">
                                                         <div class="activity-inner">
+                                                            <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
                                                                 <figure>
                                                                     <img src="/images/local-coaches.png" alt="">
@@ -775,6 +946,7 @@
                                                     </div>
                                                     <div class="activity-item" @click="$router.push(`/coach_search?sort=rated`)">
                                                         <div class="activity-inner">
+                                                            <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
                                                                 <figure>
                                                                     <img src="/images/best-coaches.png" alt="">
@@ -785,6 +957,7 @@
                                                     </div>
                                                     <div class="activity-item" @click="$router.push(`/coach_search?sort=Worst`)">
                                                         <div class="activity-inner">
+                                                            <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
                                                                 <figure>
                                                                     <img src="/images/worst-coach.png" alt="">
@@ -795,6 +968,7 @@
                                                     </div>
                                                     <div class="activity-item" @click="$router.push(`/coach_search?sort=rated`)">
                                                         <div class="activity-inner">
+                                                            <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
                                                                 <figure>
                                                                     <img src="/images/healtiest-coach.png" alt="">
@@ -805,6 +979,7 @@
                                                     </div>
                                                     <div class="activity-item" @click="$router.push(`/bussniess-promotion`)">
                                                         <div class="activity-inner">
+                                                            <!-- <div class="linear-border"></div> -->
                                                             <div class="activity-inner-fig">
                                                                 <figure>
                                                                     <img src="/images/products-service.png" alt="">
@@ -817,6 +992,37 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    
+                                    <!-- <div class="inner-item-form">
+                                        <form action="#">
+                                            <div class="form-inner">
+                                                <label>Find</label>
+                                                <input type="text" placeholder="School Name, Coach Name">
+                                                <button><img src="/images/form-search.png" alt=""></button>
+                                            </div>
+                                        </form>
+                                        </div> -->
+                                    <!-- <div class="inner-rated-iconic">
+                                        <div class="rated-iconic-item">
+                                            <figure><img src="/images/lg.png" alt=""></figure>
+                                            <div class="iconic-coaches-caption">
+                                                <p>Best rated coaches</p>
+                                            </div>
+                                        </div>
+                                        <div class="rated-iconic-item">
+                                            <figure><img src="/images/lg1.png" alt=""></figure>
+                                            <div class="iconic-coaches-caption">
+                                                <p>Worst rated coaches</p>
+                                            </div>
+                                        </div>
+                                        <div class="rated-iconic-item">
+                                            <figure><img src="/images/lg2.png" alt=""></figure>
+                                            <div class="iconic-coaches-caption">
+                                                <p>Most connected</p>
+                                            </div>
+                                        </div>
+                                        </div> -->
                                 </div>
                             </div>
                             <div class="new-inner-item-1"  >
@@ -870,13 +1076,25 @@
                                             <ul>
                                                 <li>
                                                     <nuxt-link to="/tos">Terms of Service</nuxt-link>
+                                                    <!-- <a href="#">Terms of Service</a> -->
                                                 </li>
                                                 <li>
+                                                    <!-- <a href="#">Content Guidelines</a> -->
                                                     <nuxt-link to="/guidlines">Content Guidelines</nuxt-link>
                                                 </li>
                                                 <li>
                                                     <nuxt-link to="/policy">Privacy Policy</nuxt-link>
+                                                    <!-- <a href="#">Privacy Policy</a> -->
                                                 </li>
+                                                <!-- <li>
+                                                    <a href="#">Free Speech Act</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Add Choice</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Advertise on Flank</a>
+                                                </li> -->
                                             </ul>
                                         </div>
                                     </div>
@@ -911,7 +1129,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
         <div v-else-if="mobileScreen==true">
             <div class="new-banner-section" >
@@ -959,6 +1177,7 @@
                                         <img src="/image/Most-Connected.gif" alt="">
                                     </figure>
                                     <div class="quick-link-caption">
+                                        <!-- <p>Professional sports</p> -->
                                         <p>Healthiest coaches</p>
                                     </div>
                                 </a>
@@ -989,6 +1208,7 @@
                                         <img src="/image/ProductsServices.gif" alt="">
                                     </figure>
                                     <div class="quick-link-caption">
+                                        <!-- <p>Products & service</p> -->
                                         <p>Products & services <span class="red">(Coming soon)</span></p>
                                     </div>
                                 </a>
@@ -1065,6 +1285,47 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <div class="headline-link-content new-headline-link-content new-box-shadow new-mt-10">
+                                    <h4 class="pad-border" style="text-transform: uppercase; font-size: 24px;">Top headlines</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">
+                                            Example Test of Headline - Example 1
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                            Example Test of Headline - Example 1
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                            Example Test of Headline - Example 1
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                            Example Test of Headline - Example 1
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                            Example Test of Headline - Example 1
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                            Example Test of Headline - Example 1
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                            <img src="/images/flan.png" alt="">
+                                            Example Test of Headline
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div> -->
                                 <div class="coach-scandal-sec new-box-shadow new-mt-10" style="padding: 0;">
                                     <div class="coach-scandal" style="padding: 25px 30px;">
                                         <div class="coach-scandal-title" style="border-width: 2px;">
@@ -1080,6 +1341,9 @@
                                                 <img src="/images/soccer.png" alt="">
                                             </figure>
                                             <div class="scandal-caption">
+                                                <!-- <figure>
+                                                    <img src="/images/round.png" alt="">
+                                                </figure> -->
                                                 <div class="blg-inner-cap">
                                                     <p class="cera-black font-18 weight-400">Come for the tour. But leave your review behind</p>
                                                 </div>
@@ -1102,6 +1366,7 @@
                                                                     </div>
                                                                     <div class="video-duration">
                                                                         <p class="duration"><span>{{item.video_length}}</span></p>
+                                                                        <!-- <p class="duration"><span>2:17</span></p> -->
                                                                     </div>
                                                                 </figure>
                                                                 <div class="scandal-video-caption">
@@ -1116,10 +1381,27 @@
                                                     <hooper-navigation slot="hooper-addons"></hooper-navigation>
                                                 </hooper>
                                             
+                                           
+                                            
+                                            <!-- <div class="col-md-3 col-sm-6">
+                                                <div class="inner-scandal-video-item">
+                                                    <figure @click="openVideo(3)">
+                                                        <img src="/newFile/3.png" alt="">
+                                                    </figure>
+                                                    <div class="scandal-video-caption">
+                                                        <p>Players accuse GCU women's soccer coach of verbal, mental, physical abuse.</p>
+                                                    </div>
+                                                    <div class="video-logo">
+                                                        <img src="/image/flank.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <div class="recent-activity-part  new-box-shadow new-mt-10">
+                                    <!-- <div class="linear-border"></div> -->
                                     <div class="drop-title no-border">
                                         <h2 class="pad-border cera-bold font-24 weight-400" style="border-width: 2px !important;">Recent activity</h2>
                                     </div>
@@ -1136,13 +1418,63 @@
                                                 <div class="activ-det new-activ-det">
                                                     <div v-if="item.review_type == 'school'" @click="directToCoachWall(item)" style="cursor: pointer;" >
                                                         <h3 v-if="item.coach" class="cera-bold font-18 weight-400" style="margin-bottom: 10px;">{{item.coach.name}}</h3>
+                                                        <!-- <h4>{{item.school.city}}</h4> -->
                                                     </div>
+                                                    <!-- <div v-if="item.review_type == 'product'" @click="directToCoachWall(item)" style="cursor: pointer;" >
+                                                        <h3>{{item.product.name}}</h3>
+                                                        <h4>{{item.product.address}}</h4>
+                                                    </div>
+                                                    <div v-if="item.review_type == 'legend'"  @click="directToCoachWall(item)" style="cursor: pointer;">
+                                                        <h3>{{item.legend.name}}</h3>
+                                                        <h4>{{item.legend.address}}</h4>
+                                                    </div> -->
                                                     <p class="cera-medium font-18">{{item.content}}</p>
                                                     <h5 class="itl receiver-na cera-light-italic" style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"><img src="/images/title-logo.png" alt=""> <span>by</span> {{item.reviwer.firstName}} {{item.reviwer.lastName}}</h5>
                                                 </div>
                                             </div>
                                         </li>
+                                        <!-- <li class="activity-list-inner">
+                                            <div class="recent-activity-part-inner">
+                                                <div class="activ-thumb">
+                                                    <figure>
+                                                        <img src="/images/act.png" alt="">
+                                                    </figure>
+                                                </div>
+                                                <div class="activ-det">
+                                                    <ul>
+                                                        <li>
+                                                            <h3>Coach mike berger</h3>
+                                                            <h4>Austin, TX</h4>
+                                                            <p>Sometimes I get to the little community of Austin. Be lorem ipsum dolor sit amet,</p>
+                                                            <h5>By. Randy B.</h5>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            </li>
+                                            <li class="activity-list-inner">
+                                            <div class="recent-activity-part-inner">
+                                                <div class="activ-thumb">
+                                                    <figure>
+                                                        <img src="/images/act.png" alt="">
+                                                    </figure>
+                                                </div>
+                                                <div class="activ-det">
+                                                    <ul>
+                                                        <li>
+                                                            <h3>Coach mike berger</h3>
+                                                            <h4>Austin, TX</h4>
+                                                            <p>Sometimes I get to the little community of Austin. Be lorem ipsum dolor sit amet,</p>
+                                                            <h5>By. Randy B.</h5>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            </li> -->
                                     </ul>
+                                    <!-- <div class="recent-title">
+                                        <h2>Recent Activity</h2>
+                                    </div> -->
                                 </div>
                                 
                                 <div class="new-latest-flank  new-box-shadow new-mt-10" style="padding: 0;" v-if="videos.length>0">
@@ -1159,6 +1491,12 @@
                                                                     <img :src="item.img" alt="">
                                                             
                                                                 </figure>
+                                                                <!-- <div class="new-mob-latest-details">
+                                                                    <div class="new-mob-latest-details-inner">
+                                                                        <h3>Coach name</h3>
+                                                                        <h4>School name</h4>
+                                                                    </div>
+                                                                </div> -->
                                                                 <div class="scandal-video-caption">
                                                                     <p>{{item.title}}</p>
                                                                 </div>
@@ -1186,6 +1524,7 @@
                                         <div class="review-sect-header">
                                             <figure style="cursor:pointer;" @click="$router.push(`/flanker/${review_of_day.bestReview.reviwer.id}`)">
                                                 <img :src="review_of_day.bestReview.reviwer.img" alt="">
+                                                <!-- <img src="/images/ms.jpg" alt=""> -->
                                             </figure>
                                             <div class="review-header-title new-font">
                                                 <div class="review-title-left">
@@ -1202,6 +1541,14 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <!-- <div class="review-border">
+                                            <div class="review-border-left">
+                                                <img src="/images/sticker-3.png" alt="">
+                                            </div>
+                                            <div class="review-border-right">
+                                                <img src="/images/r.png" alt="">
+                                            </div>
+                                        </div> -->
                                         <div class="review-star">
                                             <ul>
                                                 <li :class="(review_of_day.bestReview.rating> 0)? '' : 'star-half' "><span><i class="fas fa-star"></i></span></li>
@@ -1211,11 +1558,13 @@
                                                 <li :class="(review_of_day.bestReview.rating> 4)? '' : 'star-half' "><span  ><i class="fas fa-star"></i></span></li>
                                             </ul>
                                             <div class="review-time">
+                                                <!-- <p>{{review_of_day.bestReview.created_at}}</p> -->
                                                 <p>7/02/2019</p>
                                             </div>
                                         </div>
                                         <div class="revt-details new-font">
                                             <p style="font-size: 15px;">
+                                                <!-- {{review_of_day.bestReview.content}} -->
                                                 I was incredibly skeptical of Vespertine. And why wouldn't you be? Jordan Kahn is the
                                                 Elon Musk of the fine dining world, and it's the equivalent of paying a lot of money
                                                 for something that Musk thought up - it could very well be brilliant, because he's
@@ -1238,7 +1587,20 @@
                                 </div>
                                 <div class="vertising-opportunity-sec new-box-shadow new-mt-10">
                                     <div class="review-sect no-box-shadow">
+                                        <!-- <div class="drop-title new-font mb-10">
+                                            <h2 class="">ADVERTISING OPPORTUNITIES</h2>
+                                        </div> -->
                                         <div class="vertising-bg" style="margin: 0;margin-top: 15px;">
+                                            <!-- <div class="vertising-title">
+                                                <h3 class="cera-medium font-18 weight-900">Advertising Opportunities for Local Instructor</h3>
+                                                <p class="cera-regular weight-400">Flank is a website that connects people with great local instructors and sports related products.</p>
+                                                <a href="" class="">
+                                                    <button class="cera-regular"> Coming soon </button>
+                                                </a>
+                                            </div>
+                                            <div class="vertising-image">
+                                                <img src="/images/1.png" alt="">
+                                            </div> -->
                                             <img src="/images/local-ins2.png" >
                                         </div>
                                         <div class="vertising-text" style="padding-left: 0;">
@@ -1260,6 +1622,7 @@
                                                                 <div class="linear-border"></div>
                                                                 <div class="drop-item-title new-drop-item-title">
                                                                     <figure>
+                                                                        <!-- <img :src="item.reviwer.img"  alt=""> -->
                                                                         <img src="/images/ms.jpg" alt="">
                                                                     </figure>
                                                                     <div class="drop-title-caption">
@@ -1370,6 +1733,7 @@
                                             <div class="row plus-row">
                                                 <div class="activity-item"  @click="$router.push(`/coach_search?pageOption=coach&div=High School`)">
                                                     <div class="activity-inner">
+                                                        <!-- <div class="linear-border"></div> -->
                                                         <div class="activity-inner-fig">
                                                             <figure>
                                                                 <img src="/images/high-school.png" alt="">
@@ -1379,6 +1743,7 @@
                                                 </div>
                                                 <div class="activity-item"  @click="$router.push(`/coach_search?pageOption=coach&div=Junior College`)">
                                                     <div class="activity-inner">
+                                                        <!-- <div class="linear-border"></div> -->
                                                         <div class="activity-inner-fig">
                                                             <figure>
                                                                 <img src="/images/college-coaches.png" alt="">
@@ -1389,6 +1754,7 @@
                                                 </div>
                                                 <div class="activity-item" @click="$router.push(`/coach_search?pageOption=coach&div=Club/Travel`)">
                                                     <div class="activity-inner">
+                                                        <!-- <div class="linear-border"></div> -->
                                                         <div class="activity-inner-fig">
                                                             <figure>
                                                                 <img src="/images/travel-coaches.png" alt="">
@@ -1399,6 +1765,7 @@
                                                 </div>
                                                 <div class="activity-item"  @click="$router.push('/bussniess-promotion')">
                                                     <div class="activity-inner">
+                                                        <!-- <div class="linear-border"></div> -->
                                                         <div class="activity-inner-fig">
                                                             <figure>
                                                                 <img src="/images/local-coaches.png" alt="">
@@ -1409,6 +1776,7 @@
                                                 </div>
                                                 <div class="activity-item" @click="$router.push(`/coach_search?sort=rated`)">
                                                     <div class="activity-inner">
+                                                        <!-- <div class="linear-border"></div> -->
                                                         <div class="activity-inner-fig">
                                                             <figure>
                                                                 <img src="/images/best-coaches.png" alt="">
@@ -1419,6 +1787,7 @@
                                                 </div>
                                                 <div class="activity-item" @click="$router.push(`/coach_search?sort=Worst`)">
                                                     <div class="activity-inner">
+                                                        <!-- <div class="linear-border"></div> -->
                                                         <div class="activity-inner-fig">
                                                             <figure>
                                                                 <img src="/images/worst-coach.png" alt="">
@@ -1429,6 +1798,7 @@
                                                 </div>
                                                 <div class="activity-item" @click="$router.push(`/coach_search?sort=rated`)">
                                                     <div class="activity-inner">
+                                                        <!-- <div class="linear-border"></div> -->
                                                         <div class="activity-inner-fig">
                                                             <figure>
                                                                 <img src="/images/healtiest-coach.png" alt="">
@@ -1439,6 +1809,7 @@
                                                 </div>
                                                 <div class="activity-item" @click="$router.push('/bussniess-promotion')">
                                                     <div class="activity-inner">
+                                                        <!-- <div class="linear-border"></div> -->
                                                         <div class="activity-inner-fig">
                                                             <figure>
                                                                 <img src="/images/products-service.png" alt="">
