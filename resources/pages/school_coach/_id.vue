@@ -2146,26 +2146,26 @@ export default {
                     name: 'viewport',
                     content: 'width=device-width, initial-scale=1'
                 },
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: this.metaContent
-                },
-                {
-                    property: 'og:image',
-                    content: 'https://goflank.com/images/flank-1.png',
-                },
-                {
-                    property: 'og:image:type',
-                    content: 'image/png',
-                },
-                {
-                    property: 'og:image:width',
-                    content: '1024',
-                },
+                // {
+                //     hid: 'description',
+                //     name: 'description',
+                //     content: this.metaContent
+                // },
+                // {
+                //     property: 'og:image',
+                //     content: 'https://goflank.com/images/flank-1.png',
+                // },
+                // {
+                //     property: 'og:image:type',
+                //     content: 'image/png',
+                // },
+                // {
+                //     property: 'og:image:width',
+                //     content: '1024',
+                // },
                 {
                     name: 'twitter:card',
-                    content:"summary"
+                    content:"summary_large_image"
                 },
                 {
                     name: 'twitter:domain',
@@ -2178,10 +2178,11 @@ export default {
                 {
                     name: 'twitter:site',
                     content:"@Flank",
-                },
+                }, 
                 {
                     name: 'twitter:title',
-                    content: this.title
+                    // content: this.title
+                    content: 'this is some title'
                 },
                 {
                     name: 'twitter:image',
@@ -2189,7 +2190,8 @@ export default {
                 },
                 {
                     name: 'twitter:description',
-                    content: this.metaContent
+                    // content: this.metaContent
+                    content: 'This is some description'
                 },
             ],
         }

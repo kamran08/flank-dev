@@ -456,12 +456,12 @@ class ReviewController {
     } else if (key == 'funny') {
       await Review.query().where('id', data.review_id).update({ bravery: (Database.raw(`bravery + ${data['funny']}`)) })
       await Review.query().where('id', data.review_id).update({ totalimo: (Database.raw(`official + bravery +  distinguished `)) })
-      return await Reviewimo.query().where('review_id', data.review_id).where('user_id', data.user_id).update({ funny: (Database.raw(`cool + ${data['funny']}`)) })
+      return await Reviewimo.query().where('review_id', data.review_id).where('user_id', data.user_id).update({ funny: (Database.raw(`funny + ${data['funny']}`)) })
     }
 
     await Review.query().where('id', data.review_id).update({ distinguished: (Database.raw(`distinguished + ${data['useful']}`)) })
     await Review.query().where('id', data.review_id).update({ totalimo: (Database.raw(`official + bravery +  distinguished `)) })
-    return await Reviewimo.query().where('review_id', data.review_id).where('user_id', data.user_id).update({ useful: (Database.raw(`cool + ${data['useful']}`)) })
+    return await Reviewimo.query().where('review_id', data.review_id).where('user_id', data.user_id).update({ useful: (Database.raw(`useful + ${data['useful']}`)) })
   }
   async stoteProductReviewImo ({ request, response, auth }) {
     let data = request.all()
