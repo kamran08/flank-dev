@@ -191,6 +191,7 @@
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                             <ul>
+                                                <!-- In these list, there are two types of rating. If the rating are 5 then show "<li class="mrat-full"><i class="fas fa-star"></i></li>" this list otherwise show "<li class="mrat"><i class="far fa-star"></i></li>" this list. First one is full star with red background and second one is only star  -->
                                                 <li class="mrat-full"><i class="fas fa-star"></i></li>
                                                 <li class="mrat-full"><i class="fas fa-star"></i></li>
                                                 <li class="mrat-full"><i class="fas fa-star"></i></li>
@@ -214,6 +215,7 @@
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                             <ul>
+                                                <!-- In these list, there are two types of rating. If the rating are 5 then show "<li class="mrat-full"><i class="fas fa-star"></i></li>" this list otherwise show "<li class="mrat"><i class="far fa-star"></i></li>" this list. First one is full star with red background and second one is only star  -->
                                                 <li class="mrat-full"><i class="fas fa-star"></i></li>
                                                 <li class="mrat-full"><i class="fas fa-star"></i></li>
                                                 <li class="mrat-full"><i class="fas fa-star"></i></li>
@@ -237,6 +239,7 @@
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                             <ul>
+                                                <!-- In these list, there are two types of rating. If the rating are 5 then show "<li class="mrat-full"><i class="fas fa-star"></i></li>" this list otherwise show "<li class="mrat"><i class="far fa-star"></i></li>" this list. First one is full star with red background and second one is only star  -->
                                                 <li class="mrat-full"><i class="fas fa-star"></i></li>
                                                 <li class="mrat-full"><i class="fas fa-star"></i></li>
                                                 <li class="mrat-full"><i class="fas fa-star"></i></li>
