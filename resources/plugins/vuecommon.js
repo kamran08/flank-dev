@@ -34,9 +34,16 @@ Vue.mixin({
       }
     },
      coachAssignRateText(sItem) {
+       console.log("another data from common ", sItem)
+
+      // if (sItem.length)
 
          for (let item of sItem) {
-           let rating = Math.ceil(item.avg_rating);
+
+          let rating =0
+          // console.log(item,'lLo')
+          if (item.avg_rating) rating = Math.ceil(item.avg_rating);
+          //  let 
            let name = item.name;
 
            let reivewText = [

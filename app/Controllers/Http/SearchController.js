@@ -28,7 +28,7 @@ class SearchController {
     let attribute = request.input('attribute') ? request.input('attribute') : ''
     let div = request.input('div') ? request.input('div') : ''
     let pageOption = request.input('pageOption') ? request.input('pageOption') : 'legend'
-    let similar = {};
+    let similar = [];
     let data = {}
 
     if (pageOption == 'legend') {
@@ -64,10 +64,11 @@ class SearchController {
         data.orWhere('description', 'LIKE', '%' + str + '%')
       }
 
-    } else if (pageOption == 'school') {
-      return await School.query()
+    } 
+    else if (pageOption == 'school') {
+       data = School.query()
         .with('avgRating')
-        .withCount('allreview as allreview ').paginate(page, 10)
+        .withCount('allreview as allreview')
 
       if (str) {
         data.where('schoolName', 'LIKE', '%' + str + '%');
@@ -88,7 +89,9 @@ class SearchController {
         var array = sports.split(",");
         data.whereIn('sport', array);
       }
-    } else if (pageOption == 'coach') {
+    } 
+    
+    else if (pageOption == 'coach') {
       data = SchoolCoach.query()
         .with('allreviewLimit')
         .with('topAtrribute.info')

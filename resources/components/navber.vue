@@ -11,31 +11,41 @@
                     </div>
 
                     <!-- When click bar, the bar will be hide and this cross will show -->
+                    <!-- ekane kaj hobe -->
                     <!-- <div class="flank-coll-bar">
                         <img src="/images/new-cross.png" alt="">
                     </div> -->
-                    <div class="flank-brand flank-search-item">
-                        <a href="#">
+
+
+                    <div class="flank-brand flank-search-item" >
+                        <nuxt-link to="/">
+
                             <img src="/images/new-brand.png" alt="">
-                        </a>
+                        </nuxt-link>
                     </div>
                     <div class="flank-search flank-search-item">
-                        <div class="flank-search-inner">
-                            <div class="flank-search-label">
-                                <label for="">Coach Name<span><i class="fas fa-caret-down"></i></span></label>
+                    
+                        <div class="flank-search-inner" >
+                            <div class="flank-search-label" @click="newMethod">
+                                
+                                <label >{{slectedTitle}}<span><i class="fas fa-caret-down"></i></span></label>
+                                <!-- <label for="">Coach Name<span><i class="fas fa-caret-down"></i></span></label> -->
                                 <!-- add class active with flank-search-dropdown class to show dropdown -->
-                                <div class="flank-search-dropdown">
+                                <!-- {{isStringMenu[0]}} -->
+                                <div class="flank-search-dropdown" :class="(isStringMenu[0])?'active':''">
                                     <ul>
-                                        <li><a href="#">Coach Name</a></li>
-                                        <li><a href="#">School Name</a></li>
+                                        <!-- <li><a @click="SearchByKeyV2('coach')">Coach Name</a></li>
+                                        <li><a @click="SearchByKeyV2('school')">School Name</a></li> -->
+                                        <li><a @click="pageOptionDropChange('coach')">Coach Name</a></li>
+                                        <li><a @click="pageOptionDropChange('school')">School Name</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="flank-search-input">
-                                <input type="text">
+                                <input type="text" v-model="tStr" @enter="SearchByKey">
                             </div>
                             <div class="flank-search-btn">
-                                <button><span><i class="fas fa-search"></i></span></button>
+                                <button @click="SearchByKey"><span><i class="fas fa-search"></i></span></button>
                             </div>
                         </div>
                     </div>
@@ -49,17 +59,20 @@
                         </div>
                         <div class="flank-search-auth-ac">
                             <!-- hide this after login -->
-                            <ul>
-                                <li><a href="#">Log in</a></li>
-                                <li>/</li>
-                                <li><a href="#">Sign up</a></li>
-                            </ul>
 
                             <!-- show this after login -->
-                            <!-- <ul class="after-login">
-                                <li><a href="#">Hello, <span>John</span></a></li>
-                                <li><a href="#">Sign out</a></li>
-                            </ul> -->
+                            <ul class="after-login" v-if="isLoggedIn">
+                                <li>
+                                    <a @click="$router.push('/flanker/'+authInfo.id)">Hello, <span>{{authInfo.firstName}}</span></a>
+                                    
+                                </li>
+                                <li><a @click="logout">Sign out</a></li>
+                            </ul>
+                            <ul v-else>
+                                <li><a @click="$router.push('/login')">Log in</a></li>
+                                <li>/</li>
+                                <li><a @click="$router.push('/signup')">Sign up</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -91,6 +104,110 @@
                 </div>
             </nav> 
         </div>
+
+        <div :class="(this.isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action pk-new-sidebar">
+                <div class="new-sidebar-item">
+                    <div class="quick-link-content sidebar-con-list">
+                        <h4>Account</h4>
+                    </div>
+                </div>
+                <div class="new-sidebar-item">
+                    <div class="quick-link-content sidebar-con-list">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li>
+                                <a @click="$router.push(`/coach_search?pageOption=coach&div=High School`)">
+                                    <figure>
+                                        <img src="/image/High-School-Coaches.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption" >
+                                        <p>High school coaches</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/coach_search?pageOption=coach&div=Junior College`)">
+                                    <figure>
+                                        <img src="/image/College-Coaches.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>College coaches</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/coach_search?pageOption=coach&div=High School`)">
+                                    <figure>
+                                        <img src="/image/Most-Connected.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>Healthiest coaches</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/coach_search?pageOption=coach&div=Club/Travel`)">
+                                    <figure>
+                                        <img src="/image/Travel-Coaches.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>Travel team coaches</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/local_business`)">
+                                    <figure>
+                                        <img src="/image/Local-Coaches.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>Local instructors <span class="red">(Coming soon)</span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/bussniess-promotion`)">
+                                    <figure>
+                                        <img src="/image/ProductsServices.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>Products & services <span class="red">(Coming soon)</span></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="new-sidebar-item">
+                    <div class="quick-link-content sidebar-con-list">
+                        <h4>Help & settings</h4>
+                        <ul>
+                            <li v-if="isLoggedIn"><nuxt-link :to="`flanker/${authInfo.id}`"><div class="quick-link-caption"><p>Your account</p></div></nuxt-link></li>
+                            <li v-if="!isLoggedIn"><nuxt-link to="/login?message=true"><div class="quick-link-caption"><p>Your account</p></div></nuxt-link></li>
+                            <li v-if="!isLoggedIn"><nuxt-link to="/login?message=true"><div class="quick-link-caption"><p>Sign in</p></div></nuxt-link></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="new-sidebar-item">
+                    <div class="quick-link-content sidebar-con-list">
+                        <h4>About</h4>
+                        <ul>
+                            <li><nuxt-link to="/about"><div class="quick-link-caption"><p>About flank</p></div></nuxt-link></li>
+                            <li><nuxt-link to="/guidlines"><div class="quick-link-caption"><p>Content Guidelines</p></div></nuxt-link></li>
+                            <li><nuxt-link to="/tos"><div class="quick-link-caption"><p>Tearms of service</p></div></nuxt-link></li>
+                            <li><nuxt-link to="/policy"><div class="quick-link-caption"><p>Privacy policy</p></div></nuxt-link></li>
+                        </ul>
+                    </div>
+
+                    <div class="mobile-social-icon">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
         <!-- <nav class="new-flank-header-nav" :class="(isMobileMenu)? 'active' : ''">
             <div class="container">
@@ -155,8 +272,8 @@
     export default { 
         data(){
             return{
-                slectedTitle:'All',
-                isStringMenu:false,
+                slectedTitle:'Coach Name',
+                isStringMenu:[false],
                 isMobileMenu:false,
                 tStr:'',
                 tPlace:'',
@@ -228,13 +345,36 @@
                     this.isLoading = false
                 }
             },
+            newMethod(){
+                // this.i("O")
+                this.$set(this.isStringMenu,0,!this.isStringMenu[0]);
+            },
              pageOptionDropChange(item){
+                //  this.newMethod()
+                //   this.$set(this.isStringMenu,0,false);
+                // console.log(this.isStringMenu[0])
+                //  this.i(item)
+                //  this.isStringMenu=false
+                 
+                //  console.log(this.isStringMenu)
+                 if(item=='school'){
+
+                     this.slectedTitle='School Name'
+                 }
+                 else{
+                     this.slectedTitle='Coach Name'
+                 }
+                //  this.i(this.slectedTitle)
+                
                 this.SearchByKey()
-                this.$store.commit('setPageOption', item )
-                this.isStringMenu = false
+                this.$store.commit('setPageOption', item)
+               
+                // this.isStringMenu = false
+                // this.i(this.isStringMenu)
             
             }, 
             async SearchByKey(){
+                // this.i('kd')
                 // if(this.pageOption != 'product'){
                 //     if(this.tStr == '' ) return this.i("Please Write a name")
                 //     if(this.place == '') return this.i("Please Write a City")
@@ -242,11 +382,13 @@
                 // }
 
                 const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.tStr}&pageOption=${this.pageOption}`)
-                if(res.status === 200){
-                    // console.log(res)
+                console.log(res, "testing") 
+                // console.log(this.pageOption, "testing") 
+              if(res.status === 200){
+                    console.log(this.pageOption)
                      if(this.pageOption == 'school') {
 
-                         if(res.data.mainData && res.data.mainData.data){
+                         if(res.data && res.data.mainData && res.data.mainData.data){
                              
                              this.schoolAssignRateTExt(res.data.mainData.data)
                              this.$store.commit('setSearchData', res.data.mainData.data)
@@ -261,11 +403,17 @@
                         
                      }
                     //  if(this.pageOption == 'school') this.schoolAssignRateTExt(res.data.data)
-                    else this.coachAssignRateText(res.data.mainData.data)
+                    else{
+                         if(res.data && res.data.mainData && res.data.mainData.data){
+
+                            this.coachAssignRateText(res.data.mainData.data)
+                             this.coachAssignRateText(res.data.similarData)
+                             this.$store.commit('setSearchData', res.data.mainData.data)
+                              delete res.data.mainData.data
+                        }
+                    } 
                     
-                    this.coachAssignRateText(res.data.similarData)
-                    // this.$store.commit('setSearchData', res.data.mainData.data)
-                    delete res.data.mainData.data
+                    
                     this.$store.commit('setPagination', res.data.mainData )
                     this.$store.commit('setSimilar', res.data.similarData )
                     this.$store.commit('setStr', this.tStr )
@@ -276,8 +424,11 @@
                     this.swr();
                    
                 }
+                console.log(this.searchData,'maindata')
             }, 
             async SearchByKeyV2(page = 'coach',div = '',attribute=''){
+                // this.isStringMenu = false
+                //  this.$set(this.isStringMenu, false);
                
                 
                 const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.tStr}&pageOption=${page}&div=${div}&attribute=${attribute}`)
@@ -425,6 +576,7 @@
             },
         },
         async created(){
+            
             this.isCoachSearchPage = true
             // if(window.location.pathname=='/coach_search' || window.location.pathname=='/'){
             // this.isCoachSearchPage = true
