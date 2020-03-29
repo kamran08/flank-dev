@@ -1,8 +1,8 @@
 
 <template>
     <div class="pt-120">
-        <div  v-if="mobileScreen==false">
-            <div class="new-banner-section new-banner-section-black" >
+        <div >
+            <div class="new-banner-section new-banner-section-black new-banner-width" >
                 <div class="container" style="">
                     <div class="inner-banner new-fl-inner-banner">
                         <figure v-if="leandingData.length>0">
@@ -167,7 +167,7 @@
                     </div>
                     
                 </div>
-                <div class="new-banner-section" >
+                <div class="new-banner-section middle-banner-section " >
                     <div class="container" style="">
                         <div class="inner-banner new-fl-inner-banner">
                             <figure v-if="leandingData.length>0">
@@ -191,11 +191,12 @@
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                             <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <!-- <li class="mrat-full"><i class="fas fa-star"></i></li> -->
+                                                <li class="mrat"><i class="far fa-star"></i></li>
                                             </ul>
                                             <h4><img src="/images/no-rat.png" alt=""> <span>5</span></h4>
                                         </div>
@@ -213,11 +214,12 @@
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                             <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <!-- <li class="mrat-full"><i class="fas fa-star"></i></li> -->
+                                                <li class="mrat"><i class="far fa-star"></i></li>
                                             </ul>
                                             <h4><img src="/images/no-rat.png" alt=""> <span>5</span></h4>
                                         </div>
@@ -235,11 +237,12 @@
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                             <ul>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
-                                                <li><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
+                                                <!-- <li class="mrat-full"><i class="fas fa-star"></i></li> -->
+                                                <li class="mrat"><i class="far fa-star"></i></li>
                                             </ul>
                                             <h4><img src="/images/no-rat.png" alt=""> <span>5</span></h4>
                                         </div>
@@ -250,8 +253,8 @@
                     </div>
                 </div>
 
-                <div class="container">
-                    <div class="most-blog-section">
+                <div class="most-blog-section">
+                    <div class="container">
                         <div class="row">
                             <div class="most-blog-item">
                                 <div class="most-blog-item-inner">
@@ -279,7 +282,7 @@
                     </div>
                 </div>
 
-                <div class="new-banner-section banner-mb" >
+                <div class="new-banner-section banner-mb middle-banner-section mobile-no-margin" >
                     <div class="container" style="">
                         <div class="inner-banner new-fl-inner-banner">
                             <figure v-if="leandingData.length>0">
@@ -913,7 +916,7 @@
                 </div>
             </div> -->
         </div>
-        <div v-else-if="mobileScreen==true">
+        <div >
             <div class="new-banner-section" >
                 <div class="container no-padding">
                     <div class="inner-banner new-fl-inner-banner">

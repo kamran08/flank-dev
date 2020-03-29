@@ -2,8 +2,18 @@
 <template>
     <div class="pof">
         <div class="new-flank-nav">
-            <div class="new-flank-nav-top">
+            <div class="new-flank-nav-top new-menu-flank">
                 <div class="container">
+
+                    <!-- This is for mobile menu. When click on this bar, sidebar will show and also hide this bar -->
+                    <div class="flank-coll-bar">
+                        <img src="/images/three-bar.png" alt="">
+                    </div>
+
+                    <!-- When click bar, the bar will be hide and this cross will show -->
+                    <!-- <div class="flank-coll-bar">
+                        <img src="/images/new-cross.png" alt="">
+                    </div> -->
                     <div class="flank-brand flank-search-item">
                         <a href="#">
                             <img src="/images/new-brand.png" alt="">
@@ -62,13 +72,13 @@
                             <li :class="(div == 'High School')? 'active' : ''" ><a @click="SearchByKeyV2('coach','High School')"><img src="/images/n1.png" alt=""> HS Coaches<span><i class="fas fa-chevron-down"></i></span></a></li>
                             <li :class="(div == 'Junior College')? 'active' : ''" ><a @click="SearchByKeyV2('coach','Junior College')"><img src="/images/n2.png" alt=""> CC Coaches<span><i class="fas fa-chevron-down"></i></span></a></li>
                             <li :class="(div == 'Club/Travel')? 'active' : ''" ><a @click="SearchByKeyV2('coach','Club/Travel')"><img src="/images/n3.png" alt=""> Local Coaches<span><i class="fas fa-chevron-down"></i></span></a></li>
-                            <li :class="(div == '')? '' : ''" ><a @click="SearchByKeyV2('coach')">More<span><i class="fas fa-chevron-down"></i></span></a></li>
+                            <!-- <li :class="(div == '')? '' : ''" ><a @click="SearchByKeyV2('coach')">More<span><i class="fas fa-chevron-down"></i></span></a></li> -->
                             <!-- <li :class="(div == '')? 'active' : ''" ><a @click="SearchByKeyV2('coach')">More<span><i class="fas fa-chevron-down"></i></span></a></li> -->
                         </ul>
                         <ul class="header-nav-indi-right">
                             <!-- <li><a @click="$router.push('/write_review')"><img src="/images/like.png" alt="">Write a Review</a></li> -->
                             <li><a @click="$router.push('/write_review')"><img src="/images/n4.png" alt=""> Write a Review</a></li>
-                            <li><a @click="$router.push('/bussniess-promotion')" ><img src="/images/bag.png" alt="">For Business</a></li>
+                            <!-- <li><a @click="$router.push('/bussniess-promotion')" ><img src="/images/bag.png" alt="">For Business</a></li> -->
                         </ul>
                     </div>
                 </div>
