@@ -75,29 +75,29 @@
                 <div class="container">
                     <div class="recent-submission-section">
                         <div class="row">
-                            <div class="submission-item">
+                            <div class="submission-item" v-for="(item,index) in recentReview " :key="index" v-if="index<4">
                                 <div class="submission-item-inner">
                                     <div class="submission-header">
                                         <h3>Recent <span>submission</span></h3>
                                     </div>
-                                    <div class="submission-img">
+                                    <div class="submission-img" >
                                         <img src="/images/sub1.jpg" alt="">
                                     </div>
-                                    <div class="submission-details">
-                                        <h4>Coach First Last Name </h4>
-                                        <p>Reviewed by: <span>Person First Last Name</span></p>
+                                    <div class="submission-details" @click="directToCoachWall(item)">
+                                        <h4 >{{item.coach.name}} </h4>
+                                        <p>Reviewed by: <span @click="$router.push(`/flanker/${item.reviwer.id}`)" style="cursor: pointer;">{{item.reviwer.firstName}} {{item.reviwer.lastName}}</span></p>
                                         <ul class="sub-rating">
-                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
-                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
-                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
-                                            <li><span><i class="fas fa-star"></i></span></li>
-                                            <li><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.rating>0)?'active':''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.rating>1)?'active':''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.rating>2)?'active':''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.rating>3)?'active':''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.rating==5)?'active':''"><span><i class="fas fa-star"></i></span></li>
                                         </ul>
-                                        <button class="sub-btn"><img src="/images/sub-img.png" alt=""> <span>See more</span></button>
+                                        <button class="sub-btn"><img src="/images/sub-img.png" alt="" @click="directToCoachWall(item)"> <span>See more</span></button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="flex-gap-4 submission-item">
+                            <!-- <div class="flex-gap-4 submission-item">
                                 <div class="submission-item-inner">
                                     <div class="submission-header">
                                         <h3>Recent <span>submission</span></h3>
@@ -162,7 +162,7 @@
                                         <button class="sub-btn"><img src="/images/sub-img.png" alt=""> <span>See more</span></button>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     

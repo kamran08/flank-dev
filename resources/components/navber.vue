@@ -5,27 +5,33 @@
             <div class="new-flank-nav-top">
                 <div class="container">
                     <div class="flank-brand flank-search-item">
-                        <a href="#">
+                        <a href="/">
                             <img src="/images/new-brand.png" alt="">
                         </a>
                     </div>
                     <div class="flank-search flank-search-item">
-                        <div class="flank-search-inner">
-                            <div class="flank-search-label">
-                                <label for="">Coach Name<span><i class="fas fa-caret-down"></i></span></label>
+                    
+                        <div class="flank-search-inner" >
+                            <div class="flank-search-label" @click="newMethod">
+                                
+                                <label >{{slectedTitle}}<span><i class="fas fa-caret-down"></i></span></label>
+                                <!-- <label for="">Coach Name<span><i class="fas fa-caret-down"></i></span></label> -->
                                 <!-- add class active with flank-search-dropdown class to show dropdown -->
-                                <div class="flank-search-dropdown">
+                                <!-- {{isStringMenu[0]}} -->
+                                <div class="flank-search-dropdown" :class="(isStringMenu[0])?'active':''">
                                     <ul>
-                                        <li><a href="#">Coach Name</a></li>
-                                        <li><a href="#">School Name</a></li>
+                                        <!-- <li><a @click="SearchByKeyV2('coach')">Coach Name</a></li>
+                                        <li><a @click="SearchByKeyV2('school')">School Name</a></li> -->
+                                        <li><a @click="pageOptionDropChange('coach')">Coach Name</a></li>
+                                        <li><a @click="pageOptionDropChange('school')">School Name</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="flank-search-input">
-                                <input type="text">
+                                <input type="text" v-model="tStr" @enter="SearchByKey">
                             </div>
                             <div class="flank-search-btn">
-                                <button><span><i class="fas fa-search"></i></span></button>
+                                <button @click="SearchByKey"><span><i class="fas fa-search"></i></span></button>
                             </div>
                         </div>
                     </div>
@@ -138,8 +144,8 @@
     export default { 
         data(){
             return{
-                slectedTitle:'All',
-                isStringMenu:false,
+                slectedTitle:'Coach Name',
+                isStringMenu:[false],
                 isMobileMenu:false,
                 tStr:'',
                 tPlace:'',
@@ -211,13 +217,36 @@
                     this.isLoading = false
                 }
             },
+            newMethod(){
+                // this.i("O")
+                this.$set(this.isStringMenu,0,!this.isStringMenu[0]);
+            },
              pageOptionDropChange(item){
+                //  this.newMethod()
+                //   this.$set(this.isStringMenu,0,false);
+                // console.log(this.isStringMenu[0])
+                //  this.i(item)
+                //  this.isStringMenu=false
+                 
+                //  console.log(this.isStringMenu)
+                 if(item=='school'){
+
+                     this.slectedTitle='School Name'
+                 }
+                 else{
+                     this.slectedTitle='Coach Name'
+                 }
+                //  this.i(this.slectedTitle)
+                
                 this.SearchByKey()
-                this.$store.commit('setPageOption', item )
-                this.isStringMenu = false
+                this.$store.commit('setPageOption', item)
+               
+                // this.isStringMenu = false
+                // this.i(this.isStringMenu)
             
             }, 
             async SearchByKey(){
+                // this.i('kd')
                 // if(this.pageOption != 'product'){
                 //     if(this.tStr == '' ) return this.i("Please Write a name")
                 //     if(this.place == '') return this.i("Please Write a City")
@@ -225,11 +254,13 @@
                 // }
 
                 const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.tStr}&pageOption=${this.pageOption}`)
-                if(res.status === 200){
-                    // console.log(res)
+                console.log(res, "testing") 
+                // console.log(this.pageOption, "testing") 
+              if(res.status === 200){
+                    console.log(this.pageOption)
                      if(this.pageOption == 'school') {
 
-                         if(res.data.mainData && res.data.mainData.data){
+                         if(res.data && res.data.mainData && res.data.mainData.data){
                              
                              this.schoolAssignRateTExt(res.data.mainData.data)
                              this.$store.commit('setSearchData', res.data.mainData.data)
@@ -244,11 +275,17 @@
                         
                      }
                     //  if(this.pageOption == 'school') this.schoolAssignRateTExt(res.data.data)
-                    else this.coachAssignRateText(res.data.mainData.data)
+                    else{
+                         if(res.data && res.data.mainData && res.data.mainData.data){
+
+                            this.coachAssignRateText(res.data.mainData.data)
+                             this.coachAssignRateText(res.data.similarData)
+                             this.$store.commit('setSearchData', res.data.mainData.data)
+                              delete res.data.mainData.data
+                        }
+                    } 
                     
-                    this.coachAssignRateText(res.data.similarData)
-                    // this.$store.commit('setSearchData', res.data.mainData.data)
-                    delete res.data.mainData.data
+                    
                     this.$store.commit('setPagination', res.data.mainData )
                     this.$store.commit('setSimilar', res.data.similarData )
                     this.$store.commit('setStr', this.tStr )
@@ -259,8 +296,11 @@
                     this.swr();
                    
                 }
+                console.log(this.searchData,'maindata')
             }, 
             async SearchByKeyV2(page = 'coach',div = '',attribute=''){
+                // this.isStringMenu = false
+                //  this.$set(this.isStringMenu, false);
                
                 
                 const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.tStr}&pageOption=${page}&div=${div}&attribute=${attribute}`)
@@ -408,6 +448,7 @@
             },
         },
         async created(){
+            
             this.isCoachSearchPage = true
             // if(window.location.pathname=='/coach_search' || window.location.pathname=='/'){
             // this.isCoachSearchPage = true

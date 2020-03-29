@@ -419,7 +419,7 @@
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
-                                                <div class="_2card_details" v-if="item.school">
+                                                <!-- <div class="_2card_details" v-if="item.school">
                                                     <div class="_2card_details_top">
                                                         <div class="_2card_details_left">
                                                             <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school/${item.id}`)" >{{item.name}} -  {{(item.school)? item.school.sport: ''}}  </p>
@@ -442,13 +442,13 @@
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
                                                     <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
+                                                </div> -->
                                                     <!-- <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button> -->
-                                                </div>
 
-                                                <!-- <div class="_2card_details" >
+                                                <div class="_2card_details" >
                                                     <div class="_2card_details_top">
                                                         <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school/${item.id}`)">{{item.schoolName}} sdlafsdjf {{item.sport}} </p>
+                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school/${item.id}`)">{{item.schoolName}} {{item.sport}} </p>
                                                             <div class="_1rating">
                                                                 <ul class="_1rating_list">
                                                                     <li :class="(item.avgRating.averageRating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
@@ -467,7 +467,7 @@
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
                                                     <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
-                                                </div> -->
+                                                </div>
                                                     <!-- <button @click="$router.push(`/scoach_review/${item.id}`)" class="_1btn">Write a Review</button> -->
                                             </div>
                                         </div>
@@ -2071,6 +2071,7 @@
 
                                 <div class="_2coach_main">
                                     <div class="row">
+                                       
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-7 _2coach_main_left">
                                             <div class="_2card">
@@ -4107,17 +4108,19 @@ export default {
           
             const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.str}&pageOption=${this.pageOption}&sort=${this.sort}&div=${this.div}&rate=${this.oldrating.index}&sports=${this.sports}&attribute=${this.attribute}&page=${page}`)
             if(res.status === 200){
-                if(res.data.mainData.data.length>0){
+                if(res.data && res.data.mainData && res.data.mainData.data && res.data.mainData.data.length>0){
 
                     if(this.pageOption == 'school') this.schoolAssignRateTExt(res.data.mainData.data)
                     else this.coachAssignRateText(res.data.mainData.data)
                     this.coachAssignRateText(res.data.similarData)
                 }
+                if(res.data && res.data.mainData && res.data.mainData.data && res.data.mainData.data.length>0){
                 this.$store.commit('setSearchData', res.data.mainData.data)
                 delete res.data.mainData.data
                 this.$store.commit('setPagination', res.data.mainData )
-               
-                this.$store.commit('setSimilar', res.data.similarData )
+                }
+            //    if(res.data.similarData.length>0)
+                this.$store.commit('setSimilar', res.data.similarData)
                 this.sstr = this.str
                 this.showStr = this.str
                 this.splace = this.place
