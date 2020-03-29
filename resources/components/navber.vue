@@ -48,11 +48,18 @@
                             </ul>
                         </div>
                         <div class="flank-search-auth-ac">
+                            <!-- hide this after login -->
                             <ul>
-                                <li><a href="#">Log in / sign up</a></li>
-                                <!-- <li>/</li>
-                                <li><a href="#">Log in</a></li> -->
+                                <li><a href="#">Log in</a></li>
+                                <li>/</li>
+                                <li><a href="#">Sign up</a></li>
                             </ul>
+
+                            <!-- show this after login -->
+                            <!-- <ul class="after-login">
+                                <li><a href="#">Hello, <span>John</span></a></li>
+                                <li><a href="#">Sign out</a></li>
+                            </ul> -->
                         </div>
                     </div>
                 </div>

@@ -5548,7 +5548,7 @@ footer .foo-individual .foo-option ul li a:hover {
   z-index: 10000;
   background: #fff;
   width: 100%;
-  top: 50px;
+  top: 53px;
   height: 100vh;
   overflow-y: scroll;
   transform: translateX(-100%);
@@ -6184,6 +6184,7 @@ html {
   flex: 0 0 25%;
   width: 25%;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .flank-search-auth-soc ul {
@@ -6213,15 +6214,18 @@ html {
   display: flex;
   flex-flow: row;
   list-style: none;
+  align-items: center;
 }
 
-/* .flank-search-auth-ac ul li {
-  margin-right: 20px;
-} */
+.flank-search-auth-ac ul li {
+  margin-right: 10px;
+  color: #fff;
+  font-size: 22px;
+}
 
-/* .flank-search-auth-ac ul li:last-child {
+.flank-search-auth-ac ul li:last-child {
   margin-right: 0;
-} */
+}
 
 .flank-search-auth-ac ul li a {
   color: #fff !important;
@@ -6229,6 +6233,26 @@ html {
   text-transform: uppercase;
   font-family: ceraProRegular;
   font-weight: 400;
+}
+
+.flank-search-auth-ac ul li a span {
+  text-transform: uppercase;
+  font-family: ceraPro;
+  font-weight: 400;
+}
+
+.after-login li a {
+  font-size: 18px !important;
+}
+
+.after-login li:first-child a {
+
+  text-transform: capitalize ;
+}
+
+.after-login li:first-child a span {
+
+  text-transform: capitalize ;
 }
 
 .new-flank-nav-banner {
@@ -6342,6 +6366,9 @@ html {
 }
 
 @media only screen and (max-width: 730px) {
+  .flank-search-auth-ac ul li  {
+      font-size: 17px;
+  }
   .flank-search-auth-ac ul li a {
       font-size: 17px;
   }
@@ -6349,7 +6376,11 @@ html {
 
 @media only screen and (max-width: 599px) {
   .flank-search-auth-ac ul li a {
-      font-size: 14px;
+      font-size: 13px;
+  }
+
+  .flank-search-auth-ac ul li  {
+      font-size: 13px;
   }
 
   .flank-brand {
@@ -6363,7 +6394,11 @@ html {
 
 @media only screen and (max-width: 499px) {
   .flank-search-auth-ac ul li a {
-      font-size: 12px;
+      font-size: 11px;
+  }
+
+  .flank-search-auth-ac ul li  {
+      font-size: 11px;
   }
   .flank-search-auth {
       flex: 0 0 35%;
@@ -6398,6 +6433,9 @@ html {
 
 @media only screen and (max-width: 399px) {
   .flank-search-auth-ac ul li a {
+      font-size: 9px;
+  }
+  .flank-search-auth-ac ul li  {
       font-size: 9px;
   }
   .flank-search-auth {
@@ -7312,7 +7350,15 @@ html {
   opacity: 1;
 }
 
+.pk-new-sidebar {
+  display: none;
+}
+
 @media only screen and (max-width: 992px) {
+
+  .pk-new-sidebar {
+    display: block;
+  }
 
   .most-blog-section .container {
     width: 100% !important;
@@ -7354,6 +7400,10 @@ html {
   .most-blog-item-details {
       padding: 20px 25px;
   }
+
+  .after-login li a {
+    font-size: 14px !important;
+  }
 }
 
 
@@ -7366,6 +7416,8 @@ html {
   .most-blog-item-details p {
       font-size: 14px;
   }
+
+  
 }
 
 @media only screen and (max-width: 559px) {
@@ -7377,4 +7429,54 @@ html {
   .most-blog-item-details p {
       font-size: 12px;
   }
+}
+
+@media only screen and (max-width: 599px) {
+
+  .after-login li a {
+    font-size: 11px !important;
+  }
+}
+
+@media only screen and (max-width: 499px) {
+
+  .after-login li a {
+    font-size: 9px !important;
+  }
+}
+
+@media only screen and (max-width: 399px) {
+
+  .flank-search-auth {
+      flex: 0 0 44%;
+      width: 44%;
+  }
+}
+
+.mobile-social-icon {
+  padding: 15px 20px;
+  padding-top: 0;
+}
+
+.mobile-social-icon ul {
+  display: flex;
+  flex-flow: row;
+  list-style: none;
+  padding-left: 15px;
+}
+
+.mobile-social-icon li {
+  margin-right: 5px;
+}
+
+.mobile-social-icon li a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ED1A38;
+  color: #fff !important;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
