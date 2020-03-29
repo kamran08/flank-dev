@@ -679,6 +679,15 @@ class UserController {
 
        
      }
+     async createNewUnFollow ({ request, response, auth }) {
+        let data = request.all()
+        const user_id = await  auth.user.id
+        if (data.following){
+
+          return await Follow.query().where('follower', user_id).where('following', data.following).delete()
+        }
+        return await Follow.query().where('follower', user_id).where('following', data[0].following).delete()
+     }
 
     
 }

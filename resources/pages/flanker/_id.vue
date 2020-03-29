@@ -203,9 +203,9 @@
                                 <div class="about-side-bar">
                                     <p>Review Votes</p>
                                     <ul v-if="imosCount" >
-                                        <li  ><img src="/images/ic1.png" alt=""> <span>Official <strong>{{imosCount.useful}}</strong></span></li>
+                                        <li  ><img src="/images/ic1.png" alt=""> <span>Official <strong>{{imosCount.cool}}</strong></span></li>
                                         <li  ><img src="/images/ic2.png" alt=""> <span>Brevery Bagde <strong>{{imosCount.funny}}</strong></span></li>
-                                        <li  ><img src="/images/ic3.png" alt=""> <span>Distinguished <strong>{{imosCount.cool}}</strong></span></li>
+                                        <li  ><img src="/images/ic3.png" alt=""> <span>Distinguished <strong>{{imosCount.useful}}</strong></span></li>
                                     </ul>
                                 </div>
 

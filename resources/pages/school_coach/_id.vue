@@ -492,11 +492,17 @@
                                                                 <p ><a>Follow valerie C.</a></p>
                                                                 <!-- {{item.__meta__.follow_count}} -->
                                                             </li>
-                                                            <li v-else @click="followMethod(item)">
+                                                            <li v-else-if="item.hasfollow.length==0"  @click="followMethod(item)">
                                                                 <img src="/images/new-mstar3.png" alt="">
                                                                 <p ><a>Follow valerie C.</a></p>
                                                                 {{item.__meta__.follow_count}}
                                                             </li>
+                                                            <li v-else @click="unfollowMethod(item)">
+                                                                <img src="/images/new-mstar3.png" alt="">
+                                                                <p ><a>UnFollow valerie C.</a></p>
+                                                                {{item.__meta__.follow_count}}
+                                                            </li>
+                                                            
                                                         </ul>
                                                     </div> 
                                                 </div>
@@ -2140,26 +2146,26 @@ export default {
                     name: 'viewport',
                     content: 'width=device-width, initial-scale=1'
                 },
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: this.metaContent
-                },
-                {
-                    property: 'og:image',
-                    content: 'https://goflank.com/images/flank-1.png',
-                },
-                {
-                    property: 'og:image:type',
-                    content: 'image/png',
-                },
-                {
-                    property: 'og:image:width',
-                    content: '1024',
-                },
+                // {
+                //     hid: 'description',
+                //     name: 'description',
+                //     content: this.metaContent
+                // },
+                // {
+                //     property: 'og:image',
+                //     content: 'https://goflank.com/images/flank-1.png',
+                // },
+                // {
+                //     property: 'og:image:type',
+                //     content: 'image/png',
+                // },
+                // {
+                //     property: 'og:image:width',
+                //     content: '1024',
+                // },
                 {
                     name: 'twitter:card',
-                    content:"summary"
+                    content:"summary_large_image"
                 },
                 {
                     name: 'twitter:domain',
@@ -2172,10 +2178,11 @@ export default {
                 {
                     name: 'twitter:site',
                     content:"@Flank",
-                },
+                }, 
                 {
                     name: 'twitter:title',
-                    content: this.title
+                    // content: this.title
+                    content: 'this is some title'
                 },
                 {
                     name: 'twitter:image',
@@ -2183,7 +2190,8 @@ export default {
                 },
                 {
                     name: 'twitter:description',
-                    content: this.metaContent
+                    // content: this.metaContent
+                    content: 'This is some description'
                 },
             ],
         }
@@ -2418,16 +2426,55 @@ export default {
             // this.isVideo.modal= true
         },
        async followMethod(item){
+           let temp = JSON.parse(JSON.stringify(item));
            if(!this.authInfo){
-               return this.e("Please login in")
+               return this.e("Please login")
            }
            let ob = {
-               following:item.reviwer_id
+               following:temp.reviwer_id
            }
            this.isLoad =true
         const res = await this.callApi('post','/app/createNewFollow',ob)
             if(res.status==200 || res.status==201){
-                item.__meta__.follow_count = parseInt(item.__meta__.follow_count)+1
+                  for(let i in this.reviews){
+                    if(temp.reviwer_id==this.reviews[i].reviwer_id){
+                        this.reviews[i].__meta__.follow_count = parseInt(this.reviews[i].__meta__.follow_count)+1
+                        this.reviews[i].hasfollow ={
+                             follower:this.authInfo.id,
+                             following:item.reviwer_id,
+                        }
+                    }
+                }
+                this.isLoad =false
+                this.s("Your now following ")
+            }
+            else if(res.status==401){
+                this.isLoad =false
+               return this.e(res.data.msg)
+            }
+            else{
+                this.isLoad =false
+                this.e("please check your network!")
+            }
+            console.log(item)
+        },
+       async unfollowMethod(item){
+           let temp = JSON.parse(JSON.stringify(item));
+           if(!this.authInfo){
+               return this.e("Please login")
+           }
+           let ob = {
+               following:temp.reviwer_id
+           }
+           this.isLoad =true
+        const res = await this.callApi('post','/app/createNewUnFollow',temp.hasfollow)
+            if(res.status==200 || res.status==201){
+                for(let i in this.reviews){
+                    if(temp.hasfollow[0].following==this.reviews[i].reviwer_id && temp.hasfollow[0].follower==this.authInfo.id){
+                        this.reviews[i].__meta__.follow_count = parseInt(this.reviews[i].__meta__.follow_count)-1
+                        this.reviews[i].hasfollow =[]
+                    }
+                }
                 this.isLoad =false
                 this.s("Your now following ")
             }

@@ -157,6 +157,7 @@ Route.get('/app/videos','HomeController.showVideos')
 Route.get('/app/getStreak/:id', 'SchoolController.getStreak')
 
 Route.post('/app/createNewFollow', 'UserController.createNewFollow')
+Route.post('/app/createNewUnFollow', 'UserController.createNewUnFollow')
 
 // send Email
 Route.post('/app/sendInvitation', 'UserController.sendInvitation')
@@ -170,6 +171,6 @@ Route.get('/app/bannerImage', 'HomeController.bannerImage')
 Route.get('/app/allCoachVideo', 'HomeController.allCoachVideo')
 Route.get('app/initdata', 'UserController.initdata')
 Route.any('/', 'NuxtController.render').as('home')
-Route.any('/nlogin/step2', 'NuxtController.render').as('step2')
+Route.get('/nlogin/step2', 'NuxtController.render').as('step2')
 Route.any('*', 'NuxtController.render')
 
