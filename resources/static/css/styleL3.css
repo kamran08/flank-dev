@@ -1055,7 +1055,7 @@ a.sign-social-facebook:focus {
   flex: 1;
   /* height: 44px */
   height: 73px;
-  border-bottom: 1px solid #000;
+  /* border-bottom: 1px solid #000; */
 }
 
 .new-flank-header-nav .container {
