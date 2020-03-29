@@ -714,15 +714,36 @@ a.sign-social-facebook:focus {
     height: 148px;
   }
 }
-
-@media only screen and (max-width:767px) {
+@media only screen and (max-width:992px) {
   .pt-120 {
-    padding-top: 132px;
+    padding-top: 130px;
   }
 
   .pof {
     background: #000;
-    height: 132px;
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width:767px) {
+  .pt-120 {
+    padding-top: 129px;
+  }
+
+  .pof {
+    background: #000;
+    height: 129px;
+  }
+}
+
+@media only screen and (max-width:499px) {
+  .pt-120 {
+    padding-top: 110px;
+  }
+
+  .pof {
+    background: #000;
+    height: 110px;
   }
 }
 
