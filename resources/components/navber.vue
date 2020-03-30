@@ -11,13 +11,17 @@
                     </div>
 
                     <!-- When click bar, the bar will be hide and this cross will show -->
+                    <!-- ekane kaj hobe -->
                     <!-- <div class="flank-coll-bar">
                         <img src="/images/new-cross.png" alt="">
                     </div> -->
-                    <div class="flank-brand flank-search-item">
-                        <a href="/">
+
+
+                    <div class="flank-brand flank-search-item" >
+                        <nuxt-link to="/">
+
                             <img src="/images/new-brand.png" alt="">
-                        </a>
+                        </nuxt-link>
                     </div>
                     <div class="flank-search flank-search-item">
                     
@@ -55,17 +59,20 @@
                         </div>
                         <div class="flank-search-auth-ac">
                             <!-- hide this after login -->
-                            <ul>
-                                <li><a href="#">Log in</a></li>
-                                <li>/</li>
-                                <li><a href="#">Sign up</a></li>
-                            </ul>
 
                             <!-- show this after login -->
-                            <!-- <ul class="after-login">
-                                <li><a href="#">Hello, <span>John</span></a></li>
-                                <li><a href="#">Sign out</a></li>
-                            </ul> -->
+                            <ul class="after-login" v-if="isLoggedIn">
+                                <li>
+                                    <a @click="$router.push('/flanker/'+authInfo.id)">Hello, <span>{{authInfo.firstName}}</span></a>
+                                    
+                                </li>
+                                <li><a @click="logout">Sign out</a></li>
+                            </ul>
+                            <ul v-else>
+                                <li><a @click="$router.push('/login')">Log in</a></li>
+                                <li>/</li>
+                                <li><a @click="$router.push('/signup')">Sign up</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -97,6 +104,110 @@
                 </div>
             </nav> 
         </div>
+
+        <div :class="(this.isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action pk-new-sidebar">
+                <div class="new-sidebar-item">
+                    <div class="quick-link-content sidebar-con-list">
+                        <h4>Account</h4>
+                    </div>
+                </div>
+                <div class="new-sidebar-item">
+                    <div class="quick-link-content sidebar-con-list">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li>
+                                <a @click="$router.push(`/coach_search?pageOption=coach&div=High School`)">
+                                    <figure>
+                                        <img src="/image/High-School-Coaches.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption" >
+                                        <p>High school coaches</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/coach_search?pageOption=coach&div=Junior College`)">
+                                    <figure>
+                                        <img src="/image/College-Coaches.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>College coaches</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/coach_search?pageOption=coach&div=High School`)">
+                                    <figure>
+                                        <img src="/image/Most-Connected.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>Healthiest coaches</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/coach_search?pageOption=coach&div=Club/Travel`)">
+                                    <figure>
+                                        <img src="/image/Travel-Coaches.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>Travel team coaches</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/local_business`)">
+                                    <figure>
+                                        <img src="/image/Local-Coaches.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>Local instructors <span class="red">(Coming soon)</span></p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a @click="$router.push(`/bussniess-promotion`)">
+                                    <figure>
+                                        <img src="/image/ProductsServices.gif" alt="">
+                                    </figure>
+                                    <div class="quick-link-caption">
+                                        <p>Products & services <span class="red">(Coming soon)</span></p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="new-sidebar-item">
+                    <div class="quick-link-content sidebar-con-list">
+                        <h4>Help & settings</h4>
+                        <ul>
+                            <li v-if="isLoggedIn"><nuxt-link :to="`flanker/${authInfo.id}`"><div class="quick-link-caption"><p>Your account</p></div></nuxt-link></li>
+                            <li v-if="!isLoggedIn"><nuxt-link to="/login?message=true"><div class="quick-link-caption"><p>Your account</p></div></nuxt-link></li>
+                            <li v-if="!isLoggedIn"><nuxt-link to="/login?message=true"><div class="quick-link-caption"><p>Sign in</p></div></nuxt-link></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="new-sidebar-item">
+                    <div class="quick-link-content sidebar-con-list">
+                        <h4>About</h4>
+                        <ul>
+                            <li><nuxt-link to="/about"><div class="quick-link-caption"><p>About flank</p></div></nuxt-link></li>
+                            <li><nuxt-link to="/guidlines"><div class="quick-link-caption"><p>Content Guidelines</p></div></nuxt-link></li>
+                            <li><nuxt-link to="/tos"><div class="quick-link-caption"><p>Tearms of service</p></div></nuxt-link></li>
+                            <li><nuxt-link to="/policy"><div class="quick-link-caption"><p>Privacy policy</p></div></nuxt-link></li>
+                        </ul>
+                    </div>
+
+                    <div class="mobile-social-icon">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
         <!-- <nav class="new-flank-header-nav" :class="(isMobileMenu)? 'active' : ''">
             <div class="container">

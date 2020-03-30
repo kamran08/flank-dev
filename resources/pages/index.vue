@@ -2,7 +2,7 @@
 <template>
     <div class="pt-120">
         <div >
-            <div :class="(this.isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action pk-new-sidebar">
+            <!-- <div :class="(this.isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action pk-new-sidebar">
                 <div class="new-sidebar-item">
                     <div class="quick-link-content sidebar-con-list">
                         <h4>Account</h4>
@@ -104,7 +104,7 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="new-banner-section new-banner-section-black new-banner-width" >
                 <div class="container" style="">
                     <div class="inner-banner new-fl-inner-banner">
@@ -282,31 +282,42 @@
 
                 <div class="container">
                     <div class="most-review-section">
-                        <div class="row">
-                            <div class="most-review-item">
+                        <div class="row" v-if="highRatedCoach && highRatedCoach[0] && highRatedCoach[1] && highRatedCoach[2]">
+                            <div class="most-review-item" v-if="highRatedCoach[0]">
                                 <div class="most-review-item-inner">
                                     <div class="most-review-item-img">
                                         <img src="/images/mr1.png" alt="">
                                     </div>
                                     <div class="most-review-item-details">
                                         <h3>Most <br> Reviewed</h3>
-                                        <h2>Baseball</h2>
+                                        <h2 v-if="highRatedCoach[0] && highRatedCoach[0].school && highRatedCoach[0].school.sport">{{highRatedCoach[0].school.sport}}</h2>
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                             <ul>
                                                 <!-- In these list, there are two types of rating. If the rating are 5 then show "<li class="mrat-full"><i class="fas fa-star"></i></li>" this list otherwise show "<li class="mrat"><i class="far fa-star"></i></li>" this list. First one is full star with red background and second one is only star  -->
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <!-- <li class="mrat-full"><i class="fas fa-star"></i></li> -->
-                                                <li class="mrat"><i class="far fa-star"></i></li>
+                                                <li :class="(highRatedCoach[0].avg_rating>0)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[0].avg_rating>0)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[0].avg_rating>1)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[0].avg_rating>1)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[0].avg_rating>2)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[0].avg_rating>2)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[0].avg_rating>3)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[0].avg_rating>3)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[0].avg_rating==5)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[0].avg_rating==5)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
                                             </ul>
-                                            <h4><img src="/images/no-rat.png" alt=""> <span>5</span></h4>
+                                            <h4><img src="/images/no-rat.png" alt=""> <span>{{highRatedCoach[0].totalRating}}</span></h4>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            
                             <div class="most-review-item">
                                 <div class="most-review-item-inner">
                                     <div class="most-review-item-img">
@@ -314,19 +325,28 @@
                                     </div>
                                     <div class="most-review-item-details">
                                         <h3>Most <br> Reviewed</h3>
-                                        <h2>Baseball</h2>
+                                         <h2 v-if="highRatedCoach[1] && highRatedCoach[1].school && highRatedCoach[1].school.sport">{{highRatedCoach[1].school.sport}}</h2>
                                         <p>Coach</p>
                                         <div class="most-review-rat">
-                                            <ul>
+                                            <ul  v-if="highRatedCoach &&highRatedCoach[1] && highRatedCoach[1].avg_rating">
                                                 <!-- In these list, there are two types of rating. If the rating are 5 then show "<li class="mrat-full"><i class="fas fa-star"></i></li>" this list otherwise show "<li class="mrat"><i class="far fa-star"></i></li>" this list. First one is full star with red background and second one is only star  -->
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <!-- <li class="mrat-full"><i class="fas fa-star"></i></li> -->
-                                                <li class="mrat"><i class="far fa-star"></i></li>
+                                                 <li :class="(highRatedCoach[1].avg_rating>0)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[1].avg_rating>0)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[1].avg_rating>1)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[1].avg_rating>1)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[1].avg_rating>2)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[1].avg_rating>2)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[1].avg_rating>3)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[1].avg_rating>3)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[1].avg_rating==5)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[1].avg_rating==5)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
                                             </ul>
-                                            <h4><img src="/images/no-rat.png" alt=""> <span>5</span></h4>
+                                            <h4><img src="/images/no-rat.png" alt=""> <span v-if="highRatedCoach &&highRatedCoach[1] && highRatedCoach[1].totalRating">{{highRatedCoach[1].totalRating}}</span></h4>
                                         </div>
                                     </div>
                                 </div>
@@ -341,20 +361,32 @@
                                         <h2>Baseball</h2>
                                         <p>Coach</p>
                                         <div class="most-review-rat">
-                                            <ul>
+                               <ul  v-if="highRatedCoach &&highRatedCoach[2] && highRatedCoach[2].avg_rating">
                                                 <!-- In these list, there are two types of rating. If the rating are 5 then show "<li class="mrat-full"><i class="fas fa-star"></i></li>" this list otherwise show "<li class="mrat"><i class="far fa-star"></i></li>" this list. First one is full star with red background and second one is only star  -->
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <li class="mrat-full"><i class="fas fa-star"></i></li>
-                                                <!-- <li class="mrat-full"><i class="fas fa-star"></i></li> -->
-                                                <li class="mrat"><i class="far fa-star"></i></li>
+                                                 <li :class="(highRatedCoach[2].avg_rating>0)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[2].avg_rating>0)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[2].avg_rating>1)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[2].avg_rating>1)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[2].avg_rating>2)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[2].avg_rating>2)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[2].avg_rating>3)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[2].avg_rating>3)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
+                                                <li :class="(highRatedCoach[2].avg_rating==5)?'mrat-full':'mrat'">
+                                                    <i :class="(highRatedCoach[2].avg_rating==5)?'fas fa-star':'far fa-star'"></i>
+                                                </li>
                                             </ul>
-                                            <h4><img src="/images/no-rat.png" alt=""> <span>5</span></h4>
+                                            <h4><img src="/images/no-rat.png" alt=""> <span v-if="highRatedCoach &&highRatedCoach[2] && highRatedCoach[2].totalRating">{{highRatedCoach[2].totalRating}}</span></h4>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div v-if="highRatedCoach.length<1">
+                            <h2>Loading...</h2>
                         </div>
                     </div>
                 </div>
@@ -1022,7 +1054,7 @@
                 </div>
             </div> -->
         </div>
-        <div >
+        <div style="display:none;">
             <div class="new-banner-section" >
                 <div class="container no-padding">
                     <div class="inner-banner new-fl-inner-banner">
@@ -1620,6 +1652,7 @@ export default {
     },
   data() {
     return {
+        highRatedCoach:[],
         isLoad:false,
         mobileScreen:false,
       showMoreActivity: 3,
@@ -1932,7 +1965,7 @@ export default {
       }
 
     if(this.$route.query.login == 'success') this.i("Login Successful !")
-    const [res2, res3,res4,res5] = await Promise.all([
+    const [res2, res3,res4,res5,res6] = await Promise.all([
     //  this.callApi("get", `/app/getSchoolcoaches`),
       
       this.callApi("get", `/app/reviewOfTheDay`),
@@ -1940,14 +1973,16 @@ export default {
       this.callApi("get", `/app/getRecentReview`),
       this.callApi("get", `/app/topHeadline`),
       this.callApi("get", `/app/videos`),
+      this.callApi("get", `/app/getSchoolCoachByhighRated`),
    
     ]);
-    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200) { 
+    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200 && res6.status == 200) { 
     //  this.schoolCoaches = res1.data;
       this.review_of_day = res2.data;
       this.recentReview = res3.data;
       this.topHeadlines = res4.data;
       this.videos = res5.data;
+      this.highRatedCoach = res6.data;
       
      
      // this.allCity = res4.data;
