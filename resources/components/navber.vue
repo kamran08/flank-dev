@@ -6,15 +6,15 @@
                 <div class="container">
 
                     <!-- This is for mobile menu. When click on this bar, sidebar will show and also hide this bar -->
-                    <div class="flank-coll-bar">
+                    <div class="flank-coll-bar" v-if="!isMobileSideBar" @click="isMobileSideBarEvent">
                         <img src="/images/three-bar.png" alt="">
                     </div>
 
                     <!-- When click bar, the bar will be hide and this cross will show -->
                     <!-- ekane kaj hobe -->
-                    <!-- <div class="flank-coll-bar">
+                    <div class="flank-coll-bar" v-if="isMobileSideBar" @click="isMobileSideBarEvent">
                         <img src="/images/new-cross.png" alt="">
-                    </div> -->
+                    </div>
 
 
                     <div class="flank-brand flank-search-item" >
@@ -105,7 +105,7 @@
             </nav> 
         </div>
 
-        <div :class="(this.isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action pk-new-sidebar">
+        <div :class="(isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action pk-new-sidebar">
                 <div class="new-sidebar-item">
                     <div class="quick-link-content sidebar-con-list">
                         <h4>Account</h4>
@@ -272,6 +272,7 @@
     export default { 
         data(){
             return{
+                showSideManu:false,
                 slectedTitle:'Coach Name',
                 isStringMenu:[false],
                 isMobileMenu:false,

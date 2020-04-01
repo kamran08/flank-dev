@@ -65,7 +65,7 @@ module.exports = {
   cookie: {
     httpOnly: true,
     sameSite: true,
-    // domain: '.goflank.com',
+    domain: '.goflank.com',
     path: '/'
   },
   /* Juan_goFlank@360 https://admin.goflank.com/uploads/1584428505721.jpeg

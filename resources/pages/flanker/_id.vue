@@ -425,8 +425,8 @@ export default {
     methods:{
        async messageSubmit(){
              if(!this.message.email || this.message.email=='' || this.message.email.trim()==''){
-                    return this.e("Email field can not be empty !")
-            }
+                return this.e("Email field can not be empty !")
+             }
              if(!this.message.subject || this.message.subject=='' || this.message.subject.trim()==''){
                   return  this.e("Subject field can not be empty !")
             }
@@ -477,6 +477,7 @@ export default {
             }
         },
            async reviewImo(imo,index,imoItem){
+            //    imosCount  cool funny useful
              if(this.isLoggedIn == false){
                 this.i('Please login first !')
                 this.loginModal = true
@@ -489,18 +490,21 @@ export default {
             imoData.key = imo
             const res = await this.callApi('post','/stoteReviewImo',imoData)
             if(res.status===200){
-               
+                
                 if(imo=='cool'){
                     imoItem.official += imoData[imo]
-                    this.s("you marked this review as Official  ")
+                    this.imosCount.cool += imoData[imo]
+                    this.s("you marked this review as Official")
                 }
                 else if(imo=='funny'){
                     imoItem.bravery += imoData[imo]
-                     this.s("you marked this review as Brevery Bagde  ")
+                    this.imosCount.funny +=imoData[imo]
+                     this.s("you marked this review as Brevery Bagde")
                 }
                 else if(imo=='useful'){
                     imoItem.distinguished += imoData[imo]
-                     this.s("you marked this review as Distinguished  ")
+                    this.imosCount.useful += imoData[imo]
+                    this.s("you marked this review as Distinguished ")
                 }
                   imoItem.imosall[imo] = imoData[imo]
             }
