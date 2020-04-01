@@ -1,12 +1,12 @@
 
 <template>
     <div class="pt-120">
-        <div class="new-banner-section" >
+        <div class="new-banner-section blog-mobile-banner-full" >
             <div class="container" style="">
                 <div class="inner-banner new-fl-inner-banner">
                     <figure v-if="leandingData.length>0">
-                    <img :src="leandingData[0].url" alt="">
-                </figure>
+                      <img :src="leandingData[0].url" alt="">
+                  </figure>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                                 <h2>Also <span>on flank</span></h2>
                               </div>
                               <div class="flank-blog-slider-inner">
-                                <hooper :progress="true"  >
+                                <hooper :progress="true" >
                                   <slide>
                                     <div class="flank-blog-slider-item">
                                       <div class="flank-slider-item-inner">
