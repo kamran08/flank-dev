@@ -68,7 +68,59 @@
                                 <h2>Also <span>on flank</span></h2>
                               </div>
                               <div class="flank-blog-slider-inner">
-                                <div class="flank-blog-slider-item">
+                                <hooper :progress="true"  >
+                                  <slide>
+                                    <div class="flank-blog-slider-item">
+                                      <div class="flank-slider-item-inner">
+                                        <div class="flank-blog-slider-img">
+                                          <img src="/images/recslider1.jpg" alt="">
+                                        </div>
+                                        <div class="flank-blog-slider-details">
+                                          <ul>
+                                            <li>a year ago</li>
+                                            <li>56 comments</li>
+                                          </ul>
+                                          <h2>Why can't i lose weight (What no one else lorem ipsum dolor sit ammet)</h2>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </slide>
+                                  <slide>
+                                    <div class="flank-blog-slider-item">
+                                      <div class="flank-slider-item-inner">
+                                        <div class="flank-blog-slider-img">
+                                          <img src="/images/recslider3.jpg" alt="">
+                                        </div>
+                                        <div class="flank-blog-slider-details">
+                                          <ul>
+                                            <li>a year ago</li>
+                                            <li>56 comments</li>
+                                          </ul>
+                                          <h2>What is functional fitness? lorem ipsum dolor sit ammet</h2>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </slide>
+                                  <slide>
+                                    <div class="flank-blog-slider-item">
+                                      <div class="flank-slider-item-inner">
+                                        <div class="flank-blog-slider-img">
+                                          <img src="/images/recslider2.jpg" alt="">
+                                        </div>
+                                        <div class="flank-blog-slider-details">
+                                          <ul>
+                                            <li>a year ago</li>
+                                            <li>56 comments</li>
+                                          </ul>
+                                          <h2>Why can't i lose weight (What no one else lorem ipsum dolor sit ammet)</h2>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </slide>
+
+                                  <hooper-navigation slot="hooper-addons"></hooper-navigation>
+                                </hooper>
+                                <!-- <div class="flank-blog-slider-item">
                                   <div class="flank-slider-item-inner">
                                     <div class="flank-blog-slider-img">
                                       <img src="/images/348s.jpg" alt="">
@@ -95,7 +147,7 @@
                                       <h2>What is functional fitness? lorem ipsum dolor sit ammet</h2>
                                     </div>
                                   </div>
-                                </div>
+                                </div> -->
                               </div>
                             </div>
                         </div>
@@ -408,13 +460,12 @@
     </div>
 </template>
 <script>
-import { Hooper, Slide ,Pagination as HooperPagination ,Navigation as HooperNavigation} from 'hooper';
+import { Hooper, Slide, Navigation as HooperNavigation} from 'hooper';
 
 export default {
     components: {
       Hooper,
       Slide,
-      HooperPagination,
       HooperNavigation,
     },
   data() {
@@ -468,7 +519,6 @@ export default {
         },
         hooperSettings: {
              infiniteScroll: true,
-            // centerMode: true
         },
         latesthooperSettings: {
             infiniteScroll: true,
