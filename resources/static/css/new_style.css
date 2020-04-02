@@ -6478,7 +6478,8 @@ html {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  justify-content: center;
 }
 
 .red-header-item {
