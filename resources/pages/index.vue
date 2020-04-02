@@ -116,56 +116,179 @@
             </div>
             <div class="red-header-bg">
                 <div class="container">
-                    <h1>You could select anything here.</h1>
-                    <div class="row">
-                        <div class="red-header-item">
-                            <div class="red-header-item-inner">
-                                <div class="red-inner-card">
-                                    <h2>Find a</h2>
-                                    <h3>Coach</h3>
+                    <!-- find a coach ba rate a coach e click korle ei div hide hobe. shudu header-none class ta add korlei hobe jkn click kora hobe -->
+                    <div class="first-header-content">
+                        <h1>You could select anything here.</h1>
+                        <div class="row">
+                            <div class="red-header-item">
+                                <div class="red-header-item-inner">
+                                    <div class="red-inner-card">
+                                        <h2>Find a</h2>
+                                        <h3>Coach</h3>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="red-header-item">
-                            <div class="red-header-item-inner">
-                                <div class="red-inner-card">
-                                    <h2>Find a</h2>
-                                    <h3>School</h3>
+                            <!-- <div class="red-header-item">
+                                <div class="red-header-item-inner">
+                                    <div class="red-inner-card">
+                                        <h2>Find a</h2>
+                                        <h3>School</h3>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="red-header-item">
-                            <div class="red-header-item-inner">
+                            </div> -->
+                            <div class="red-header-item">
+                                <div class="red-header-item-inner">
 
-                                <!-- When clicking on this class, add class active with this class -->
-                                <div class="red-inner-card">
-                                    <h2>Rate a</h2>
-                                    <h3>Coach</h3>
-                                </div>
+                                    <!-- When clicking on this class, add class active with this class -->
+                                    <div class="red-inner-card">
+                                        <h2>Rate a</h2>
+                                        <h3>Coach</h3>
+                                    </div>
 
-                                <!-- this class in currently hide. When clicking on .red-inner-class, add class open with the red-inner-popup class -->
-                                <div class="red-inner-popup">
-                                    <div class="red-popup-title">
-                                        <h4>Flankmeter</h4>
-                                        <div class="red-title-side">
-                                            <img src="/images/pop-flank.png" alt="">
-                                            <p>71%</p>
+                                    this class in currently hide. When clicking on .red-inner-class, add class open with the red-inner-popup class
+                                    <div class="red-inner-popup">
+                                        <div class="red-popup-title">
+                                            <h4>Flankmeter</h4>
+                                            <div class="red-title-side">
+                                                <img src="/images/pop-flank.png" alt="">
+                                                <p>71%</p>
+                                            </div>
+                                        </div>
+                                        <div class="red-popup-details">
+                                            <h3>Coach John Doe / <span>City, State</span></h3>
+                                            <p>School name</p>
+                                            <div class="red-popup-progress">
+                                                <div class="red-popup-progress-inner"></div>
+                                            </div>
+                                            <div class="red-progress-details">
+                                                <p>Average rating: <span>7.23/10</span></p>
+                                                <p>Total count: <span>256</span></p>
+                                                <ul>
+                                                    <li>Good: <span>32</span></li>
+                                                    <li>Bad: <span>4</span></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="red-popup-details">
-                                        <h3>Coach John Doe / <span>City, State</span></h3>
-                                        <p>School name</p>
-                                        <div class="red-popup-progress">
-                                            <div class="red-popup-progress-inner"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- find a coach ba rate a coach e click korle ei div show hobe. shudu header-show class ta add korlei hobe jkn click kora hobe -->
+                    <div class="second-header-content">
+                        <!-- ei div ta find a coach er jonno -->
+                        <div class="second-header-content-item">
+                            <h1>Find a Coach</h1>
+                            <div class="header-coach-new-search">
+                                <div class="header-coach-search-title">
+                                    <p>Flank by:</p>
+                                    <div class="header-coach-search-selection">
+                                        <!-- je item e click kora hobe sei item er class er sathe active class add hobe. taile item er background color change hobe -->
+                                        <div class="header-selection-item">
+                                            <span></span>
+                                            <p>Name</p>
                                         </div>
-                                        <div class="red-progress-details">
-                                            <p>Average rating: <span>7.23/10</span></p>
-                                            <p>Total count: <span>256</span></p>
-                                            <ul>
-                                                <li>Good: <span>32</span></li>
-                                                <li>Bad: <span>4</span></li>
-                                            </ul>
+                                        <div class="header-selection-item">
+                                            <span></span>
+                                            <p>Sport</p>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="header-coach-search-details">
+                                    <div class="header-details-input">
+                                        <label>I'm looking for a coach at</label>
+                                        <input type="text" placeholder="your school">
+                                    </div>
+                                    <!-- ei div hocche name er. name option e click korle ei div e active class add hobe -->
+                                    <div class="header-details-select">
+                                        <p>in the</p>
+                                        <div class="header-details-select-inner">
+                                            <div class="header-details-select-title">
+                                                <!-- change text here with the selected value -->
+                                                <p>select</p>
+                                            </div>
+                                            <!-- jkn select e click kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
+                                            <div class="header-details-select-dropdown">
+                                                <h4>Sport type</h4>
+                                                <ul>
+                                                    <li><a href="#">Baseball</a></li>
+                                                    <li><a href="#">Baseball (M)</a></li>
+                                                    <li><a href="#">Baseball (W)</a></li>
+                                                    <li><a href="#">Football</a></li>
+                                                    <li><a href="#">Lacrosse (M)</a></li>
+                                                    <li><a href="#">Lacrosse (W)</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- ei div hocche sport er. sport option e click korle ei div e active class add hobe -->
+                                    <div class="header-details-select">
+                                        <p>named</p>
+                                        <div class="header-details-select-inner">
+                                            <div class="header-details-select-input">
+                                                <input type="text" placeholder="coach name">
+                                            </div>
+                                            <!-- jkn input e type kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
+                                            <div class="header-details-select-dropdown header-details-school-dropdown">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <p>Coach name</p>
+                                                            <span>Sport type</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <p>Coach name</p>
+                                                            <span>Sport type</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <p>Coach name</p>
+                                                            <span>Sport type</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <p class="drop-click-here"><a href="#">Don't see your coach? <span>Click here</span></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ei div ta rate your coach er jonno -->
+                        <div class="second-header-content-item">
+                            <h1>Rate Your Coach</h1>
+                            <div class="header-coach-new-search">
+                                <div class="header-details-select-inner">
+                                    <div class="header-details-select-input">
+                                        <input type="text" placeholder="coach name">
+                                    </div>
+                                    <!-- jkn input e type kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
+                                    <div class="header-details-select-dropdown header-details-school-dropdown">
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <p>Lorem ipsum name</p>
+                                                    <span>Sport name</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <p>Lorem ipsum name</p>
+                                                    <span>Sport name</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <p>Lorem ipsum name</p>
+                                                    <span>Sport name</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <p class="drop-click-here"><a href="#">Don't see your coach? <span>Click here</span></a></p>
                                     </div>
                                 </div>
                             </div>
