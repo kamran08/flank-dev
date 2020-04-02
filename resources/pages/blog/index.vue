@@ -240,6 +240,7 @@ export default {
     },
   data() {
     return {
+      tab:0,
       mobileScreen:false,
       leandingData:[],
       posts:[],

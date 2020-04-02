@@ -130,8 +130,10 @@
                                     </div>
                                   </div>
                                 </div> -->
+                                
                               </div>
                             </div>
+                            <div style="" id="disqus_thread" class="new-reply"></div>
                         </div>
                        
                     </div>
@@ -199,8 +201,8 @@
       
     
       
-     <div style="padding: 14px 32px 0 309px;" id="dsq-count-scr"></div>
-     <div style="padding: 14px 32px 0 309px;" id="disqus_thread"></div>
+     <!-- <div style="padding: 14px 32px 0 309px;" id="dsq-count-scr"></div> -->
+     <!-- <div style="padding: 14px 32px 0 309px;" id="disqus_thread" class="new-reply"></div> -->
      
     <script>
 var disqus_thread = function () {
@@ -317,7 +319,7 @@ export default {
       else{
         this.id = this.$route.params.id
         this.url = 'http://localhost:3000/blog/'+this.$route.params.id
-        this.getAllBlogPostById(this.id)
+        this.getBlogPostsById(this.id)
 
 
 

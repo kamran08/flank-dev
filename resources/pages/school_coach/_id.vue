@@ -1976,10 +1976,10 @@
                                                 <div class="build-textarea">
                                                     <textarea v-model="step3Form.content" name="" id="" rows="10" placeholder="Your review helps others learn about good and bad coaches.
 
-You have been lied to. 
-Your values don't count.
-They don't take you seriously.                                                                                                                                                                                                                                                                     
-You owe this to yourself"></textarea>
+                        You have been lied to. 
+                        Your values don't count.
+                        They don't take you seriously.                                                                                                                                                                                                                                                                     
+                        You owe this to yourself"></textarea>
                                                 </div>
                                             </form>
                                         </div>

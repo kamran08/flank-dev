@@ -117,11 +117,11 @@
             <div class="red-header-bg">
                 <div class="container">
                     <!-- find a coach ba rate a coach e click korle ei div hide hobe. shudu header-none class ta add korlei hobe jkn click kora hobe -->
-                    <div class="first-header-content">
+                    <div class="first-header-content" :class="(tab==1 || tab==2)?'header-none':''">
                         <h1>You could select anything here.</h1>
                         <div class="row">
-                            <div class="red-header-item">
-                                <div class="red-header-item-inner">
+                            <div class="red-header-item" @click="tab=1">
+                                <div class="red-header-item-inner" @click="tab=1">
                                     <div class="red-inner-card">
                                         <h2>Find a</h2>
                                         <h3>Coach</h3>
@@ -137,15 +137,15 @@
                                 </div>
                             </div> -->
                             <div class="red-header-item">
-                                <div class="red-header-item-inner">
+                                <div class="red-header-item-inner" @click="tab=2">
 
                                     <!-- When clicking on this class, add class active with this class -->
-                                    <div class="red-inner-card">
+                                    <div class="red-inner-card" @click="tab=2">
                                         <h2>Rate a</h2>
                                         <h3>Coach</h3>
                                     </div>
 
-                                    this class in currently hide. When clicking on .red-inner-class, add class open with the red-inner-popup class
+                                    <!-- this class in currently hide. When clicking on .red-inner-class, add class open with the red-inner-popup class -->
                                     <div class="red-inner-popup">
                                         <div class="red-popup-title">
                                             <h4>Flankmeter</h4>
@@ -176,20 +176,20 @@
                     </div>
 
                     <!-- find a coach ba rate a coach e click korle ei div show hobe. shudu header-show class ta add korlei hobe jkn click kora hobe -->
-                    <div class="second-header-content">
+                    <div class="second-header-content" :class="(tab==1 || tab==2)?'header-show':''">
                         <!-- ei div ta find a coach er jonno -->
-                        <div class="second-header-content-item">
+                        <div class="second-header-content-item" v-if="tab==1">
                             <h1>Find a Coach</h1>
                             <div class="header-coach-new-search">
                                 <div class="header-coach-search-title">
                                     <p>Flank by:</p>
                                     <div class="header-coach-search-selection">
                                         <!-- je item e click kora hobe sei item er class er sathe active class add hobe. taile item er background color change hobe -->
-                                        <div class="header-selection-item">
+                                        <div class="header-selection-item" @click="tab1=1" :class="(tab1==1)?'active':''">
                                             <span></span>
                                             <p>Name</p>
                                         </div>
-                                        <div class="header-selection-item">
+                                        <div class="header-selection-item" @click="tab1=2" :class="(tab1==2)?'active':''">
                                             <span></span>
                                             <p>Sport</p>
                                         </div>
@@ -198,58 +198,46 @@
                                 <div class="header-coach-search-details">
                                     <div class="header-details-input">
                                         <label>I'm looking for a coach at</label>
-                                        <input type="text" placeholder="your school">
+                                        <input type="text" v-on:keyup="SearchByKeySchool" v-model="rData.school" placeholder="your school">
+                                        
                                     </div>
                                     <!-- ei div hocche name er. name option e click korle ei div e active class add hobe -->
-                                    <div class="header-details-select">
+                                    <div class="header-details-select" :class="(tab1==2)?'active':''">
                                         <p>in the</p>
                                         <div class="header-details-select-inner">
-                                            <div class="header-details-select-title">
+                                            <div class="header-details-select-title" @click="tab2=1">
                                                 <!-- change text here with the selected value -->
-                                                <p>select</p>
+                                                <p>{{sportValue}}</p>
                                             </div>
                                             <!-- jkn select e click kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
-                                            <div class="header-details-select-dropdown">
+                                            <div class="header-details-select-dropdown" :class="(tab2==1)?'active':''">
                                                 <h4>Sport type</h4>
                                                 <ul>
-                                                    <li><a href="#">Baseball</a></li>
-                                                    <li><a href="#">Baseball (M)</a></li>
-                                                    <li><a href="#">Baseball (W)</a></li>
-                                                    <li><a href="#">Football</a></li>
-                                                    <li><a href="#">Lacrosse (M)</a></li>
-                                                    <li><a href="#">Lacrosse (W)</a></li>
+                                                    <li @click="setValue('Baseball 1'), tab2=2">Baseball</li>
+                                                    <li @click="setValue('Baseball')">Baseball (M)</li>
+                                                    <li>Baseball (W)</li>
+                                                    <li>Football</li>
+                                                    <li>Lacrosse (M)</li>
+                                                    <li>Lacrosse (W)</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- ei div hocche sport er. sport option e click korle ei div e active class add hobe -->
-                                    <div class="header-details-select">
+                                    <div class="header-details-select" :class="(tab1==1)?'active':''">
                                         <p>named</p>
                                         <div class="header-details-select-inner">
                                             <div class="header-details-select-input">
                                                 <input type="text" placeholder="coach name">
                                             </div>
                                             <!-- jkn input e type kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
-                                            <div class="header-details-select-dropdown header-details-school-dropdown">
-                                                <ul>
-                                                    <li>
-                                                        <a href="#">
-                                                            <p>Coach name</p>
-                                                            <span>Sport type</span>
-                                                        </a>
+                                            <div class="header-details-select-dropdown header-details-school-dropdown active">
+                                                <ul v-if="schoolList.length>0">
+                                                    <li v-for="(shcool,index) in schoolList" :key="index">
+                                                            <p>{{shcool.name}}</p>
+                                                            <span>{{shcool.sport}}</span>
                                                     </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <p>Coach name</p>
-                                                            <span>Sport type</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            <p>Coach name</p>
-                                                            <span>Sport type</span>
-                                                        </a>
-                                                    </li>
+                                                  
                                                 </ul>
                                                 <p class="drop-click-here"><a href="#">Don't see your coach? <span>Click here</span></a></p>
                                             </div>
@@ -259,7 +247,7 @@
                             </div>
                         </div>
                         <!-- ei div ta rate your coach er jonno -->
-                        <div class="second-header-content-item">
+                        <div class="second-header-content-item" v-if="tab==2">
                             <h1>Rate Your Coach</h1>
                             <div class="header-coach-new-search">
                                 <div class="header-details-select-inner">
@@ -1761,6 +1749,353 @@
                 <p v-html="isVideo.link" ></p>
             </div>
         </Modal>
+
+               <Modal width="850px" v-model="addNew.modal" :closable='false'>
+            <div class="sss">
+                <div class="">
+                    <div class="bulid-section build-section-1" v-if="addNew.step == 1">
+                        <div class="build-section-title">
+                            <h3>Build together</h3>
+                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
+                                <img src="/images/Step-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="build-section-inner">
+                            <div class="build-section-inner-top">
+                                <div class="build-left">
+                                    <div class="build-item-box active">
+                                        <div class="build-item-box-active">
+                                            <span>1</span>
+                                        </div>
+                                        <p>Add School/Coach</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>2</span>
+                                        </div>
+                                        <p>Registration</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>3</span>
+                                        </div>
+                                        <p>Submit Review</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>4</span>
+                                        </div>
+                                        <p>Confirmation</p>
+                                    </div>
+                                </div>
+                                <div class="build-right">
+                                    <div class="build-right-title">
+                                        <h3>What are you working on?</h3>
+                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                    </div>
+                                    <div class="build-right-form">
+                                        <p>(Avg. Time of Completion - 2 minutes)</p>
+                                        <div class="build-right-form-inner">
+                                            <form action="#">
+                                                <div class="build-input">
+                                                    <label for="">School name <span class="required">*</span></label>
+                                                    <input disabled type="text" v-model="step1Form.schoolName">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Coach name <span class="required">*</span></label>
+                                                    <input type="text" v-model="step1Form.name">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">City <span class="required">*</span></label>
+                                                    <input disabled type="text" v-model="step1Form.city">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Division <span class="required">*</span></label>
+                                                        <input disabled type="text" v-model="step1Form.division">
+                                                    
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">State <span class="required">*</span></label>
+                                                    <input disabled type="text" v-model="step1Form.state">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Sport <span class="required">*</span></label>
+                                                    <input disabled type="text" v-model="step1Form.sport">
+                                                    
+                                                </div>
+                                            </form>
+                                            <div class="build-redirect">
+                                                <p>Information submitted on this site is subject to the <nuxt-link to="/policy">Privacy Policy.</nuxt-link></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bulid-section build-section-2" v-if="addNew.step == 2">
+                        <div class="build-section-title">
+                            <h3>Build together</h3>
+                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
+                                <img src="/images/Step-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="build-section-inner">
+                            <div class="build-section-inner-top">
+                                <div class="build-left">
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <!-- <span>1</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Add School/Coach</p>
+                                    </div>
+                                    <div class="build-item-box active">
+                                        <div class="build-item-box-active">
+                                            <span>2</span>
+                                        </div>
+                                        <p>Registration/Login</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>3</span>
+                                        </div>
+                                        <p>Submit Review</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>4</span>
+                                        </div>
+                                        <p>Confirmation</p>
+                                    </div>
+                                </div>
+                                <div class="build-right">
+                                    <div class="build-right-title">
+                                        <h3>What are you working on?</h3>
+                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                    </div>
+                                    <div class="build-right-form">
+                                        <p>(Avg. Time of Completion - 2 minutes)</p>
+                                        <div class="build-right-form-inner" v-if="addNew.isReg ">
+                                            <form action="#">
+                                                <div class="build-input">
+                                                    <label for="">Your First name <span class="required">*</span></label>
+                                                    <input type="text" v-model="step2Form.firstName">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Your Last name <span class="required">*</span></label>
+                                                    <input type="text" v-model="step2Form.lastName">
+                                                </div>
+                                                <div class="build-input full_input">
+                                                    <label for="">Email <span class="required">*</span></label>
+                                                    <input type="email" v-model="step2Form.email">
+                                                </div>
+                                                
+                                                <div class="build-input">
+                                                    <label for="">Password <span class="required">*</span></label>
+                                                    <input type="password" v-model="step2Form.password">
+                                                </div>
+                                                <div class="build-input">
+                                                    <label for="">Confirm password <span class="required">*</span></label>
+                                                    <input type="password" v-model="step2Form.password_confirmation">
+                                                </div>
+                                                
+                                            </form>
+                                            <div class="build-redirect">
+                                                <p>Already have an account Please <a @click="addNew.isReg = false"> Login .</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="build-right-form-inner" v-else>
+                                            <form action="#">
+
+                                                <div class="build-input full_input">
+                                                    <label for="">Email <span class="required">*</span></label>
+                                                    <input type="email" v-model="formData.email">
+                                                </div>
+
+                                                <div class="build-input full_input">
+                                                    <label for="">Password <span class="required">*</span></label>
+                                                    <input type="password" v-model="formData.password">
+                                                </div>
+                                            </form>
+                                            <div class="build-redirect">
+                                                <p>Don't have any account. Please <a @click="addNew.isReg = true">Register</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bulid-section build-section-2" v-if="addNew.step == 3">
+                        <div class="build-section-title">
+                            <h3>Build together</h3>
+                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
+                                <img src="/images/Step-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="build-section-inner">
+                            <div class="build-section-inner-top">
+                                <div class="build-left">
+                                    <div class="build-item-box active">
+                                        <div class="build-box-round">
+                                            <!-- <span>1</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Your work</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <!-- <span>1</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Registration/Login</p>
+                                    </div>
+                                    <div class="build-item-box active">
+                                        <div class="build-item-box-active">
+                                            <span>3</span>
+                                        </div>
+                                        <p>Submit Review</p>
+                                    </div>
+                                    <div class="build-item-box">
+                                        <div class="build-box-round">
+                                            <span>4</span>
+                                        </div>
+                                        <p>Confirmation</p>
+                                    </div>
+                                </div>
+                                <div class="build-right">
+                                    <div class="build-right-title">
+                                        <h3>What are you working on?</h3>
+                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                    </div>
+                                    <div class="build-right-form">
+                                        <p>(Avg. Time of Completion - 2 minutes)</p>
+                                        <div class="build-right-form-inner build-right-form-non">
+                                            <form action="#">
+                                                <div class="build-review">
+                                                    <div v-if="onHover">
+                                                        <ul>
+                                                            <li @mouseover="changeDataHover(1)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(1)" :class="(drating.index > 0)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(2)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(2)" :class="(drating.index > 1)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(3)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(3)" :class="(drating.index > 2)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(4)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(4)" :class="(drating.index > 3)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(5)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(5)" :class="(drating.index > 4)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p>Select your rating</p>
+                                                    </div>
+                                                    <div v-else>
+                                                        <ul>
+                                                            <li @mouseover="changeDataHover(1)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(1)" :class="(oldrating.index > 0)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(2)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(2)" :class="(oldrating.index > 1)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(3)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(3)" :class="(oldrating.index > 2)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(4)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(4)" :class="(oldrating.index > 3)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                            <li @mouseover="changeDataHover(5)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(5)" :class="(oldrating.index > 4)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p>Select your rating</p>
+                                                    </div>
+
+                                                </div>
+                                                <div class="build-textarea">
+                                                    <textarea v-model="step3Form.content" name="" id="" rows="10" placeholder="Your review helps others learn about good and bad coaches.
+
+                        You have been lied to. 
+                        Your values don't count.
+                        They don't take you seriously.                                                                                                                                                                                                                                                                     
+                        You owe this to yourself"></textarea>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bulid-section build-section-2" v-if="addNew.step == 4">
+                        <div class="build-section-title">
+                            <h3>Build together</h3>
+                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
+                                <img src="/images/Step-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="build-section-inner">
+                            <div class="build-section-inner-top">
+                                <div class="build-left">
+                                    <div class="build-item-box ">
+                                        <div class="build-box-round">
+                                            <!-- <span>1</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Add School/Coach</p>
+                                    </div>
+                                    <div class="build-item-box ">
+                                        <div class="build-box-round">
+                                            <!-- <span>2</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Registration/Login</p>
+                                    </div>
+                                    <div class="build-item-box ">
+                                        <div class="build-box-round">
+                                            <!-- <span>2</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Submit Review</p>
+                                    </div>
+                                    <div class="build-item-box active">
+                                        <div class="build-item-box-active">
+                                            <!-- <span>3</span> -->
+                                            <img src="/images/conf.png" alt="">
+                                        </div>
+                                        <p>Confirmation</p>
+                                    </div>
+                                </div>
+                                <div class="build-right">
+                                    <div class="build-right-title">
+                                        <h3>What are you working on?</h3>
+                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                    </div>
+                                    <div class="build-right-form">
+                                        <div class="build-right-form-inner build-right-form-non">
+                                            <div class="build-confirmation-text">
+                                                <h3>Great! Way to Flank! <br> Your review has been submitted</h3>
+                                                <p>Please allow us 24-48 hours to pull your information into one place, and see your low risk insight instantly benefit the player communities where you played.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="_footer_noCoach">
+                <div v-if="addNew.step == 1" class="mFooter">
+                    <p class="mCancel" @click="addNew.modal=false">Cancel</p>
+
+                    <Button class="mNext" @click="addNewItem">Next</Button>
+                </div>
+                <div v-if="addNew.step == 2" class="mFooter">
+                    <p class="mCancel" @click="addNew.modal=false">Cancel</p>
+                    <Button class="mBack" @click="addNew.modal=false">Back</Button>
+
+                    <Button v-if="addNew.isReg" class="mNext" @click="register">Next</Button>
+                    <Button v-else class="mNext" @click="login">Next</Button>
+                </div>
+
+                <div v-if="addNew.step == 3" class="mFooter">
+                    <p class="mCancel" @click="addNew.modal=false">Cancel</p>
+
+                    <Button class="mNext" @click="reviewSubmit">Submit</Button>
+                </div>
+
+                <div v-if="addNew.step == 4" class="mFooter">
+
+                    <Button class="mNext" @click="addNew.modal=false">Continue Browsing</Button>
+                </div>
+
+            </div>
+        </Modal>
     </div>
 </template>
 <script>
@@ -1775,6 +2110,42 @@ export default {
     },
   data() {
     return {
+        step1Form:{
+                schoolName:'',
+                city:'',
+                division:'',
+                state:'',
+                sport:'',
+                name:'',
+
+            },
+             step2Form:{
+                firstName:'',
+                lastName:'',
+                email:'',
+                password:'',
+                password_confirmation :'',
+                birthday:'',
+                packType:''
+            },
+            onHover: false,
+            step3Form:{
+                reviewFor:'',
+                school_id:'',
+                content:"",
+                review_type:'school',
+                rating:'',
+            },
+            addNew:{
+                step:1,
+                modal:false,
+                onHover:false,
+                isReg: true
+            },
+        sportValue:'Select',
+        tab:0,
+        tab1:0,
+        tab2:0,
         highRatedCoach:[],
         isLoad:false,
         mobileScreen:false,
@@ -1847,6 +2218,29 @@ export default {
     }
   },
   methods: {
+             async  addNewItem(){
+            if(this.step1Form.schoolName == '') return this.i("All Fields are required!")
+            if(this.step1Form.city == '') return this.i("All Fields are required!")
+            if(this.step1Form.division == '') return this.i("All Fields are required!")
+            if(this.step1Form.name == '') return this.i("All Fields are required!")
+            if(this.step1Form.sport == '') return this.i("All Fields are required!")
+            if(this.step1Form.state == '') return this.i("All Fields are required!")
+            this.step1Form.id = this.legendData.id
+            const res = await this.callApi('post','/schools',this.step1Form)
+
+            if(res.status == 200){
+                this.similarCoaches.push(res.data)
+                this.newCoach = res.data
+                this.i("New Coach Created !")
+                if(this.isLoggedIn) this.addNew.step = 3
+                else this.addNew.step = 2
+            }
+            else{
+                this.swr()
+                this.addNew.modal = false
+            }
+            
+        },
     openToolTip(no){
         if(no == 1){
             this.toolTipText = `Your coach’s health score collects historical data based on values from 0-100%. The closer to 100%, the healthier environment it is for you to play in. Each coach is also rated 
@@ -2060,6 +2454,9 @@ export default {
     //       `/product/${this.review_of_day.bestReview.product_id}`
     //     );
     //   }
+    },
+    async setValue(item) {
+        this.sportValue = item
     },
     async getCity(item) {
       this.city = item
