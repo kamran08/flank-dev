@@ -145,7 +145,7 @@
                                         <h3>Coach</h3>
                                     </div>
 
-                                    this class in currently hide. When clicking on .red-inner-class, add class open with the red-inner-popup class
+                                    <!-- this class in currently hide. When clicking on .red-inner-class, add class open with the red-inner-popup class -->
                                     <div class="red-inner-popup">
                                         <div class="red-popup-title">
                                             <h4>Flankmeter</h4>
@@ -198,9 +198,32 @@
                                 <div class="header-coach-search-details">
                                     <div class="header-details-input">
                                         <label>I'm looking for a coach at</label>
+                                        <!-- input e jkn type shuru hobe thkn active class add hobe -->
                                         <input type="text" placeholder="your school">
+
+                                        <!-- suggestion hisabe eta show hobe. active class add hobe jkn show hobe -->
+                                        <div class="header-details-select-dropdown header-details-school-dropdown">
+                                            <ul>
+                                                <li>
+                                                    <a href="#">
+                                                        <p>Lorem ipsum school name</p> <span>City name, state</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <p>Lorem ipsum school name</p> <span>City name, state</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <p>Lorem ipsum school name</p> <span>City name, state</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                            <p class="drop-click-here"><a href="#">Don't see your coach? <span>Click here</span></a></p>
+                                        </div>
                                     </div>
-                                    <!-- ei div hocche name er. name option e click korle ei div e active class add hobe -->
+                                    <!-- ei div hocche sport er. sport option e click korle ei div e active class add hobe -->
                                     <div class="header-details-select">
                                         <p>in the</p>
                                         <div class="header-details-select-inner">
@@ -222,11 +245,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- ei div hocche sport er. sport option e click korle ei div e active class add hobe -->
-                                    <div class="header-details-select">
+                                    <!-- ei div hocche name er. name option e click korle ei div e active class add hobe, by default etate active class thakbe. jokn sport e click kora hobe thkn eta theke active class chole jabe. -->
+                                    <div class="header-details-select active">
                                         <p>named</p>
                                         <div class="header-details-select-inner">
                                             <div class="header-details-select-input">
+                                                <!-- jkn type kora hobe thkn active class add hobe -->
                                                 <input type="text" placeholder="coach name">
                                             </div>
                                             <!-- jkn input e type kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
@@ -253,6 +277,16 @@
                                                 </ul>
                                                 <p class="drop-click-here"><a href="#">Don't see your coach? <span>Click here</span></a></p>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- eta button. search ar cancel korar jnno -->
+                                    <div class="header-submission">
+                                        <div class="header-submission-btn">
+                                            <button>Search</button>
+                                        </div>
+                                        <div class="header-close">
+                                            <p>Close</p>
                                         </div>
                                     </div>
                                 </div>

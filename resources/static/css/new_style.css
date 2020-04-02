@@ -6500,6 +6500,10 @@ html {
   transition: all 0.3s linear;
 }
 
+.red-inner-card:hover {
+  background: #ffc72c;
+}
+
 
 
 .red-inner-card.active {
@@ -8863,7 +8867,7 @@ html {
 }
 
 .first-header-content.header-none {
-  display: block;
+  display: none;
 }
 
 .second-header-content {
@@ -8959,6 +8963,7 @@ html {
   display: flex;
   flex-flow: column;
   align-items: center;
+  position: relative;
 }
 
 .header-details-input label {
@@ -8974,7 +8979,7 @@ html {
   border: 0;
   text-align: center;
   width: 100%;
-  height: 58px;
+  height: 59px;
   background: #f7bac3;
   font-size: 26px;
   font-weight: 100;
@@ -8982,11 +8987,26 @@ html {
   color: #4a4a4a;
   letter-spacing: 2px;
   padding: 10px;
+  outline: 0;
+}
+
+.header-details-input input:hover {
+  background: #fff;
+}
+
+.header-details-input input.active {
+  background: #edeef0;
+  color: #cd0000;
+  box-shadow: inset -2px -16px 21px -16px rgba(0, 0, 0, 0.5);
+}
+
+.header-details-input input.active:hover {
+  background-color: #edeef0;
 }
 
 .header-details-select {
   margin-top: 18px;
-  display: none;
+  /* display: none; */
 }
 
 .header-details-select.active {
@@ -9039,6 +9059,7 @@ html {
   visibility: hidden;
   pointer-events: none;
   transition: all 0.3s ease-in-out;
+  top: 100%;
 }
 
 .header-details-select-dropdown.active {
@@ -9079,19 +9100,32 @@ html {
 }
 
 .header-details-select-input input {
-  height: 59px;
-  width: 100%;
   border: 0;
-  outline: 0;
-  background: #edeef0;
   text-align: center;
-  padding: 10px;
-  color: #cd0000;
+  width: 100%;
+  height: 59px;
+  background: #f7bac3;
   font-size: 26px;
-  font-family: ceraProLight;
   font-weight: 100;
+  font-family: ceraProLight;
+  color: #4a4a4a;
   letter-spacing: 2px;
+  padding: 10px;
+  outline: 0;
+}
+
+.header-details-select-input input:hover {
+  background: #fff;
+}
+
+.header-details-select-input input.active {
+  background: #edeef0;
+  color: #cd0000;
   box-shadow: inset -2px -16px 21px -16px rgba(0, 0, 0, 0.5);
+}
+
+.header-details-select-input input.active:hover {
+  background: #edeef0;
 }
 
 .header-details-select-input input::placeholder {
@@ -9150,7 +9184,7 @@ html {
   height: 218px;
 }
 
-.header-details-select .drop-click-here {
+.drop-click-here {
   background: #cd0000;
   text-align: left !important;
   padding: 5px 30px;
@@ -9303,4 +9337,42 @@ html {
       width: 100%;
   }
 
+}
+
+.header-submission {
+  margin-top: 20px;
+}
+
+.header-submission-btn button {
+  border: 0;
+  text-align: center;
+  width: 100%;
+  height: 59px;
+  background: #FAA42E;
+  font-size: 40px;
+  font-weight: 100;
+  font-family: chairdrobeBold;
+  color: #EDF0F6;
+  letter-spacing: 1px;
+  padding: 10px 10px 18px;
+  line-height: 0;
+}
+
+.header-close {
+  margin-top: 10px;
+}
+
+.header-close p {
+  font-family: ceraPro;
+  color: #EDF0F6;
+  text-transform: uppercase;
+  
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.header-close p:hover {
+  color: #fff;
 }
