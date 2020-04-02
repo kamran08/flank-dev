@@ -6529,10 +6529,7 @@ html {
 }
 
 .red-inner-popup {
-  background-color: #fff;
-  border: 1px solid #000;
   overflow: hidden;
-  border-radius: 10px;
   position: absolute;
   top: 100%;
   z-index: 100;
@@ -6543,10 +6540,11 @@ html {
   visibility: hidden;
   pointer-events: none;
   transition: all 0.3s ease-in-out;
+  padding-top: 13px;
 }
 
-.red-inner-card:hover ~ .red-inner-popup {
-  transform: translate(0, 13px);
+.red-header-item-inner:hover .red-inner-popup {
+  transform: translate(0, 0);
   opacity: 1;
   visibility: visible;
   pointer-events: all;
@@ -6588,7 +6586,12 @@ html {
   padding: 10px 20px;
   align-items: center;
   flex-wrap: wrap;
+  border-style: solid;
+  border-color: #000 #000 transparent #000;
+  border-width: 1px;
+  border-radius: 10px 10px 0 0;
 }
+
 
 .red-popup-title h4 {
   font-family: chairdrobeRoundedBold;
@@ -6623,12 +6626,13 @@ html {
   padding: 20px;
 }
 
-.red-popup-details h3 {
-  font-family: ceraProBlack;
-  font-weight: 400;
-  font-size: 18px;
-  color: #000;
-  margin-bottom: 5px;
+.red-popup-details {
+  padding: 20px;
+  border-style: solid;
+  border-color: transparent #000 #000 #000;
+  border-width: 1px;
+  border-radius: 0 0 10px 10px;
+  background: #fff;
 }
 
 .red-popup-details h3 span {
