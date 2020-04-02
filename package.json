@@ -49,6 +49,7 @@
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.0",
     "vue-chartkick": "^0.6.0",
+    "vue-disqus-count": "^1.0.1",
     "vue-google-charts": "^0.3.2",
     "vue-media-queries": "0.0.5",
     "vue-owl-carousel": "^2.0.3",

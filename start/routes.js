@@ -164,6 +164,10 @@ Route.post('/app/sendInvitation', 'UserController.sendInvitation')
 Route.post('/app/sendlegalData', 'UserController.sendlegalData')
 Route.post('/app/sendreviewMessage', 'UserController.sendreviewMessage')
 Route.post('/app/sendAccountCloseEmail', 'UserController.sendAccountCloseEmail')
+Route.get('/app/getAllBlogPosts', 'BlogController.getAllBlogPosts')
+Route.get('/app/getBlogPostsById/:id', 'BlogController.getBlogPostsById')
+Route.get('/app/getAllBlogPostsFirst', 'BlogController.getAllBlogPostsFirst')
+
 
 Route.get('/app/getSchoolCoachByhighRated', 'UserController.getSchoolCoachByhighRated')
 Route.get('/app/getSchoolCoachByMostRated', 'UserController.getSchoolCoachByMostRated')

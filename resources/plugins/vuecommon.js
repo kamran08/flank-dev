@@ -1,4 +1,10 @@
 import Vue from 'vue'
+
+// import VueDisqusCount from 'vue-disqus-count'
+
+// Vue.use(VueDisqusCount, {
+//   shortname: 'disqus_j19gGLJZ6b'
+// })
 //  import Chartkick from 'vue-chartkick'
 // import Chart from 'chart.js'
 // new
