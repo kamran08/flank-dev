@@ -21,9 +21,9 @@
                                 <ul>
                                     <li><img src="/images/sticker-3.png" alt=""> By Steve Kamb</li>
                                     <li>Last updated: {{singlePosts.created_at}}</li>
-                                    <li>
-                                      <!-- 6666 comments -->
-                                    </li>
+                                    <!-- <li>
+                                      6666 comments
+                                    </li> -->
                                 </ul>
                             </div>
                             <div class="blog-lg-img">
@@ -75,7 +75,7 @@
                                 <hooper :progress="true" >
                                  
                                   <slide v-for="(post,index) in posts" :key="index">
-                                    <div class="flank-blog-slider-item">
+                                    <div class="flank-blog-slider-item" @click="assignSignlePost(post)">
                                       <div class="flank-slider-item-inner">
                                         <div class="flank-blog-slider-img">
                                           <img :src="post.img" alt="">
@@ -138,12 +138,12 @@
                       <div class="all-rec-blog">
                         <div class="row">
                           <div class="all-rec-blog-item" v-for="(post,index) in posts" :key="index" v-if="index<3">
-                            <div class="rec-blog-item-inner">
+                            <div class="rec-blog-item-inner" @click="assignSignlePost(post)">
                               <div class="rec-blog-img">
                                 <img :src="post.img" alt="">
                               </div>
                               <div class="rec-blog-details">
-                                <h3><a href="#">{{post.title}}</a></h3>
+                                <h3><nuxt-link :to="'/post/'+post.id">{{post.title}}</nuxt-link></h3>
                                 <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing Vestibulum nec neque enim. Aliquam quis est quis neque porta feugiat at id lacus. </p> -->
                                
                                   <!-- <p v-html="post.descritpion"></p> -->
@@ -241,6 +241,11 @@ export default {
   },
   
   methods: {
+    async assignSignlePost(item){
+      // this.getBlogPostsById(item.id)
+      this.$router.push('/blog/'+item.id)
+      // this.singlePosts = item
+    },
     async getAllBlogPost(){
       const res = await this.callApi('get','/app/getAllBlogPosts')
       if(res.status==200){
