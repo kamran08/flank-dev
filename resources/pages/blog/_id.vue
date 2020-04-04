@@ -30,12 +30,12 @@
                               <figure v-if="singlePosts.img">
                                 <img :src="singlePosts.img" alt="">
                               </figure>
-                              <div class="blog-caption">
+                              <!-- <div class="blog-caption">
                                 <p class="blog-cap-bold">So you want to lose weight and get in shape, but you don’t want to leave your house?</p>
-                              </div>
+                              </div> -->
                             </div>
                             <div class="blog-post-det">
-                              <p class="blog-cap-bold">So you want to lose weight and get in shape, but you don’t want to leave your house?</p>
+                              <!-- <p class="blog-cap-bold">So you want to lose weight and get in shape, but you don’t want to leave your house?</p>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br> eiusmod tempor incididunt ut labore et dolore magna aliqua. <br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
                               <p class="blog-cap-bold">Lorem ipsum dolor sit amet, <span>consectetur adipiscing elit</span> sed do eiusmod tempor incididunt</p>
                               <div class="blog-post-in-img">
@@ -57,7 +57,8 @@
                                 </figure>
                               </div>
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br> <br>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br> <br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-                              <p class="blog-cap-bold">- Lorem Ipsum</p>
+                              <p class="blog-cap-bold">- Lorem Ipsum</p> -->
+                              <p v-html="singlePosts.descritpion" ></p>
                             </div>
                             <div class="interest-box">
                               <h3>Are you interested?</h3>
@@ -144,6 +145,8 @@
                               <div class="rec-blog-details">
                                 <h3><a href="#">{{post.title}}</a></h3>
                                 <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing Vestibulum nec neque enim. Aliquam quis est quis neque porta feugiat at id lacus. </p> -->
+                               
+                                  <!-- <p v-html="post.descritpion"></p> -->
                               </div>
                             </div>
                           </div>

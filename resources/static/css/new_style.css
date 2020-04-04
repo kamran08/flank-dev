@@ -7066,10 +7066,13 @@ html {
   margin-top: 30px;
 }
 
-.banner-mb {
+/* .banner-mb {
   margin-bottom: 30px;
-}
+} */
 
+.banner-mb {
+  padding-bottom: 30px;
+}
 .most-review-section {
   margin-top: 30px;
 }
@@ -7402,7 +7405,8 @@ html {
   }
 
   .mobile-no-margin {
-    margin: 0 !important;
+    /* margin: 0 !important; */
+    padding: 0 !important;
   }
 }
 
@@ -8508,6 +8512,7 @@ html {
   padding: 10px;
   color: #363636;
   height: 100%;
+  margin-top: 1px;
 }
 
 .rec-blog-sub input::placeholder {
@@ -9418,4 +9423,20 @@ html {
 
 .header-close p:hover {
   color: #fff;
+}
+.header-details-input input:focus,
+.header-details-input input:active {
+  background: #edeef0;
+  color: #cd0000;
+  box-shadow: inset -2px -16px 21px -16px rgba(0, 0, 0, 0.5);
+}
+
+.header-details-select-input input:focus,
+.header-details-select-input input:active {
+  background: #edeef0;
+  color: #cd0000;
+  box-shadow: inset -2px -16px 21px -16px rgba(0, 0, 0, 0.5);
+}
+.header-details-school-dropdown.no-data {
+  height: auto;
 }

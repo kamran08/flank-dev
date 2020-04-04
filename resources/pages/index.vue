@@ -202,7 +202,7 @@
                                         <input type="text" v-on:keyup="SearchByKeySchool" v-model="rData.school"   placeholder="your school">
 
                                         <!-- suggestion hisabe eta show hobe. active class add hobe jkn show hobe -->
-                                        <div class="header-details-select-dropdown header-details-school-dropdown" :class="(rData.school)?'active':''" :style="(schoolList.length==0 && rData.school!='' && selectedSearchData.track==1)?'display:none;':''">
+                                        <div class="header-details-select-dropdown header-details-school-dropdown" :class="(schoolList.length==0 && rData.school)?'no-data active':(rData.school)?'active':''" :style="(schoolList.length==0 && rData.school!='' && selectedSearchData.track==1)?'display:none;':''">
                                         <!-- :class="(schoolList.length>0)?'active':''" -->
                                             <ul v-if="schoolList.length>0">
                                                     <li v-for="(shcool,index) in schoolList" :key="index" @click="selectSchoolName(shcool)">
@@ -249,7 +249,7 @@
                                                 <input type="text"  v-on:keyup="SearchByKeySchoolCoach" v-model="rData.key"  placeholder="coach name">
                                             </div>
                                             <!-- active jkn input e type kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
-                                            <div class="header-details-select-dropdown header-details-school-dropdown" :class="(rData.key!='' && selectedSearchData.track2==0)?'active':''" :style="(schoolCoachList.length==0 && rData.key!='' && selectedSearchData.track2==1)?'display:none;':''">
+                                            <div class="header-details-select-dropdown header-details-school-dropdown" :class="(schoolCoachList.length==0 && rData.key!='' && selectedSearchData.track2==0)?'no-data active':(rData.key!='' && selectedSearchData.track2==0)?'active':''" :style="(schoolCoachList.length==0 && rData.key!='' && selectedSearchData.track2==1)?'display:none;':''">
                                                 <ul v-if="schoolCoachList.length>0">
                                                     <li v-for="(coach,index) in schoolCoachList" :key="index" @click="selectSchoolCoachName(coach)">
                                                             <p>{{coach.name}}</p>
@@ -283,7 +283,7 @@
                                         <input type="text" v-on:keyup="SearchByKeySchoolCoachNew" v-model="coachName" placeholder="coach name">
                                     </div>
                                     <!-- jkn input e type kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
-                                    <div class="header-details-select-dropdown header-details-school-dropdown" :class="(coachName!='' && selectedSearchData.track3==0)?'active':''" >
+                                    <div class="header-details-select-dropdown header-details-school-dropdown"   :class="(coachList.length==0 && coachName!='' && selectedSearchData.track3==0)?'no-data active':(coachName!='' && selectedSearchData.track3==0)?'active':''" >
                                         <ul v-if="coachList.length>0">
                                             <li v-for="(coach,index) in coachList" :key="index" @click="selectCoachName(coach)">
                                                 <!-- <a href="#"> -->
