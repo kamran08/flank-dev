@@ -198,49 +198,77 @@
                                 <div class="header-coach-search-details">
                                     <div class="header-details-input">
                                         <label>I'm looking for a coach at</label>
-                                        <input type="text" v-on:keyup="SearchByKeySchool" v-model="rData.school" placeholder="your school">
-                                        
+                                        <!-- input e jkn type shuru hobe thkn active class add hobe   -->
+                                        <input type="text" v-on:keyup="SearchByKeySchool" v-model="rData.school"   placeholder="your school">
+
+                                        <!-- suggestion hisabe eta show hobe. active class add hobe jkn show hobe -->
+                                        <div class="header-details-select-dropdown header-details-school-dropdown" :class="(rData.school)?'active':''" :style="(schoolList.length==0 && rData.school!='' && selectedSearchData.track==1)?'display:none;':''">
+                                        <!-- :class="(schoolList.length>0)?'active':''" -->
+                                            <ul v-if="schoolList.length>0">
+                                                    <li v-for="(shcool,index) in schoolList" :key="index" @click="selectSchoolName(shcool)">
+                                                            <p>{{shcool.name}}</p>
+                                                            <span>{{shcool.sport}}</span>
+                                                    </li>
+                                                </ul>
+                                            <p @click="addNew.modal=true" class="drop-click-here" v-if="schoolCoachList.length==0 && rData.school!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p>
+                                        </div>
                                     </div>
-                                    <!-- ei div hocche name er. name option e click korle ei div e active class add hobe -->
-                                    <div class="header-details-select" :class="(tab1==2)?'active':''">
+                                    <!-- ei div hocche sport er. sport option e click korle ei div e active class add hobe -->
+                                    <div class="header-details-select" :class="(tab1==2)?'active':''" :style="(tab1==2)?'':'display:none;'">
                                         <p>in the</p>
                                         <div class="header-details-select-inner">
-                                            <div class="header-details-select-title" @click="tab2=1">
+                                            <div class="header-details-select-title" @click="tab2=2">
                                                 <!-- change text here with the selected value -->
                                                 <p>{{sportValue}}</p>
                                             </div>
                                             <!-- jkn select e click kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
-                                            <div class="header-details-select-dropdown" :class="(tab2==1)?'active':''">
+                                            <div class="header-details-select-dropdown" :class="(tab2==2)?'active':''">
                                                 <h4>Sport type</h4>
                                                 <ul>
-                                                    <li @click="setValue('Baseball 1'), tab2=2">Baseball</li>
-                                                    <li @click="setValue('Baseball')">Baseball (M)</li>
-                                                    <li>Baseball (W)</li>
-                                                    <li>Football</li>
-                                                    <li>Lacrosse (M)</li>
-                                                    <li>Lacrosse (W)</li>
+                                                    <li @click="setValue('Baseball')">Baseball</li>
+                                                    <li @click="setValue(`Men's Basketball`)">Basketball(M)</li>
+                                                    <li @click="setValue(`Women's Baseball`)">Baseball (W)</li>
+                                                    <li @click="setValue(`Football`)">Football</li>
+                                                    <li @click="setValue(`Men's Lacrosse`)">Lacrosse (M)</li>
+                                                    <li @click="setValue(`Women's Lacrosse`)">Lacrosse (W)</li>
+                                                    <li @click="setValue(`Men's Soccer`)">Soccer(M)</li>
+                                                    <li @click="setValue(`Women's Soccer`)">Soccer(W)</li>
+                                                    <li @click="setValue(`Softball`)">Softball</li>
+                                                    <li @click="setValue(`Men's Volleyball`)">Volleyball(M)</li>
+                                                    <li @click="setValue(`Women's Lacrosse`)">Volleyball(W)</li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- ei div hocche sport er. sport option e click korle ei div e active class add hobe -->
-                                    <div class="header-details-select" :class="(tab1==1)?'active':''">
+                                    <!-- ei div hocche name er. name option e click korle ei div e active class add hobe, by default etate active class thakbe. jokn sport e click kora hobe thkn eta theke active class chole jabe. -->
+                                    <div class="header-details-select" :class="(tab1==1)?'active':''" :style="(tab1==1)?'':'display:none;'">
                                         <p>named</p>
                                         <div class="header-details-select-inner">
-                                            <div class="header-details-select-input">
-                                                <input type="text" placeholder="coach name">
+                                            <div class="header-details-select-input active">
+                                                <!-- jkn type kora hobe thkn active class add hobe -->
+                                                <input type="text"  v-on:keyup="SearchByKeySchoolCoach" v-model="rData.key"  placeholder="coach name">
                                             </div>
-                                            <!-- jkn input e type kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
-                                            <div class="header-details-select-dropdown header-details-school-dropdown active">
-                                                <ul v-if="schoolList.length>0">
-                                                    <li v-for="(shcool,index) in schoolList" :key="index">
-                                                            <p>{{shcool.name}}</p>
-                                                            <span>{{shcool.sport}}</span>
+                                            <!-- active jkn input e type kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
+                                            <div class="header-details-select-dropdown header-details-school-dropdown" :class="(rData.key!='' && selectedSearchData.track2==0)?'active':''" :style="(schoolCoachList.length==0 && rData.key!='' && selectedSearchData.track2==1)?'display:none;':''">
+                                                <ul v-if="schoolCoachList.length>0">
+                                                    <li v-for="(coach,index) in schoolCoachList" :key="index" @click="selectSchoolCoachName(coach)">
+                                                            <p>{{coach.name}}</p>
+                                                            <span>{{coach.sport}}</span>
                                                     </li>
                                                   
                                                 </ul>
-                                                <p class="drop-click-here"><a href="#">Don't see your coach? <span>Click here</span></a></p>
+                                                <p @click="addNew.modal=true" class="drop-click-here" v-if="schoolCoachList.length==0 && rData.key!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- eta button. search ar cancel korar jnno -->
+                                    <div class="header-submission">
+                                        <div class="header-submission-btn" @click="gotoReviewPage()">
+                                            <button>Search</button>
+                                        </div>
+                                        <div class="header-close" @click="closeOpetions">
+                                            <p>Close</p>
                                         </div>
                                     </div>
                                 </div>
@@ -252,34 +280,31 @@
                             <div class="header-coach-new-search">
                                 <div class="header-details-select-inner">
                                     <div class="header-details-select-input">
-                                        <input type="text" placeholder="coach name">
+                                        <input type="text" v-on:keyup="SearchByKeySchoolCoachNew" v-model="coachName" placeholder="coach name">
                                     </div>
                                     <!-- jkn input e type kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
-                                    <div class="header-details-select-dropdown header-details-school-dropdown">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <p>Lorem ipsum name</p>
-                                                    <span>Sport name</span>
-                                                </a>
+                                    <div class="header-details-select-dropdown header-details-school-dropdown" :class="(coachName!='' && selectedSearchData.track3==0)?'active':''" >
+                                        <ul v-if="coachList.length>0">
+                                            <li v-for="(coach,index) in coachList" :key="index" @click="selectCoachName(coach)">
+                                                <!-- <a href="#"> -->
+                                                    <p v-if="coach.name">{{coach.name}}</p>
+                                                    <span v-if="coach.sport">{{coach.sport}}</span>
+                                                <!-- </a> -->
                                             </li>
-                                            <li>
-                                                <a href="#">
-                                                    <p>Lorem ipsum name</p>
-                                                    <span>Sport name</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <p>Lorem ipsum name</p>
-                                                    <span>Sport name</span>
-                                                </a>
-                                            </li>
+                                        
                                         </ul>
-                                        <p class="drop-click-here"><a href="#">Don't see your coach? <span>Click here</span></a></p>
+                                        <p @click="addNew.modal=true" class="drop-click-here" v-if="coachList.length==0 && coachName!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p>
                                     </div>
                                 </div>
                             </div>
+                               <div class="header-submission">
+                                        <div class="header-submission-btn" @click="gotoReviewPage()">
+                                            <button>Search</button>
+                                        </div>
+                                        <div class="header-close" @click="closeOpetions">
+                                            <p>Close</p>
+                                        </div>
+                                    </div>
                         </div>
                     </div>
                 </div>
@@ -1750,350 +1775,418 @@
             </div>
         </Modal>
 
-               <Modal width="850px" v-model="addNew.modal" :closable='false'>
+        <Modal width="850px"  v-model="addNew.modal"  :closable='false' >
             <div class="sss">
-                <div class="">
-                    <div class="bulid-section build-section-1" v-if="addNew.step == 1">
-                        <div class="build-section-title">
-                            <h3>Build together</h3>
-                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
-                                <img src="/images/Step-1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="build-section-inner">
-                            <div class="build-section-inner-top">
-                                <div class="build-left">
-                                    <div class="build-item-box active">
-                                        <div class="build-item-box-active">
-                                            <span>1</span>
-                                        </div>
-                                        <p>Add School/Coach</p>
-                                    </div>
-                                    <div class="build-item-box">
-                                        <div class="build-box-round">
-                                            <span>2</span>
-                                        </div>
-                                        <p>Registration</p>
-                                    </div>
-                                    <div class="build-item-box">
-                                        <div class="build-box-round">
-                                            <span>3</span>
-                                        </div>
-                                        <p>Submit Review</p>
-                                    </div>
-                                    <div class="build-item-box">
-                                        <div class="build-box-round">
-                                            <span>4</span>
-                                        </div>
-                                        <p>Confirmation</p>
-                                    </div>
+                    <div class="">
+                        <div class="bulid-section build-section-1" v-if="addNew.step == 1" >
+                            <div class="build-section-title">
+                                <h3>Build together</h3>
+                                <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false" >
+                                    <img src="/images/Step-1.png" alt="">
                                 </div>
-                                <div class="build-right">
-                                    <div class="build-right-title">
-                                        <h3>What are you working on?</h3>
-                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
-                                    </div>
-                                    <div class="build-right-form">
-                                        <p>(Avg. Time of Completion - 2 minutes)</p>
-                                        <div class="build-right-form-inner">
-                                            <form action="#">
-                                                <div class="build-input">
-                                                    <label for="">School name <span class="required">*</span></label>
-                                                    <input disabled type="text" v-model="step1Form.schoolName">
-                                                </div>
-                                                <div class="build-input">
-                                                    <label for="">Coach name <span class="required">*</span></label>
-                                                    <input type="text" v-model="step1Form.name">
-                                                </div>
-                                                <div class="build-input">
-                                                    <label for="">City <span class="required">*</span></label>
-                                                    <input disabled type="text" v-model="step1Form.city">
-                                                </div>
-                                                <div class="build-input">
-                                                    <label for="">Division <span class="required">*</span></label>
-                                                        <input disabled type="text" v-model="step1Form.division">
-                                                    
-                                                </div>
-                                                <div class="build-input">
-                                                    <label for="">State <span class="required">*</span></label>
-                                                    <input disabled type="text" v-model="step1Form.state">
-                                                </div>
-                                                <div class="build-input">
-                                                    <label for="">Sport <span class="required">*</span></label>
-                                                    <input disabled type="text" v-model="step1Form.sport">
-                                                    
-                                                </div>
-                                            </form>
-                                            <div class="build-redirect">
-                                                <p>Information submitted on this site is subject to the <nuxt-link to="/policy">Privacy Policy.</nuxt-link></p>
+                            </div>
+                            <div class="build-section-inner">
+                                <div class="build-section-inner-top">
+                                    <div class="build-left">
+                                        <div class="build-item-box active">
+                                            <div class="build-item-box-active">
+                                                <span>1</span>
                                             </div>
+                                            <p>Add School/Coach</p>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bulid-section build-section-2" v-if="addNew.step == 2">
-                        <div class="build-section-title">
-                            <h3>Build together</h3>
-                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
-                                <img src="/images/Step-1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="build-section-inner">
-                            <div class="build-section-inner-top">
-                                <div class="build-left">
-                                    <div class="build-item-box">
-                                        <div class="build-box-round">
-                                            <!-- <span>1</span> -->
-                                            <img src="/images/conf.png" alt="">
-                                        </div>
-                                        <p>Add School/Coach</p>
-                                    </div>
-                                    <div class="build-item-box active">
-                                        <div class="build-item-box-active">
-                                            <span>2</span>
-                                        </div>
-                                        <p>Registration/Login</p>
-                                    </div>
-                                    <div class="build-item-box">
-                                        <div class="build-box-round">
-                                            <span>3</span>
-                                        </div>
-                                        <p>Submit Review</p>
-                                    </div>
-                                    <div class="build-item-box">
-                                        <div class="build-box-round">
-                                            <span>4</span>
-                                        </div>
-                                        <p>Confirmation</p>
-                                    </div>
-                                </div>
-                                <div class="build-right">
-                                    <div class="build-right-title">
-                                        <h3>What are you working on?</h3>
-                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
-                                    </div>
-                                    <div class="build-right-form">
-                                        <p>(Avg. Time of Completion - 2 minutes)</p>
-                                        <div class="build-right-form-inner" v-if="addNew.isReg ">
-                                            <form action="#">
-                                                <div class="build-input">
-                                                    <label for="">Your First name <span class="required">*</span></label>
-                                                    <input type="text" v-model="step2Form.firstName">
-                                                </div>
-                                                <div class="build-input">
-                                                    <label for="">Your Last name <span class="required">*</span></label>
-                                                    <input type="text" v-model="step2Form.lastName">
-                                                </div>
-                                                <div class="build-input full_input">
-                                                    <label for="">Email <span class="required">*</span></label>
-                                                    <input type="email" v-model="step2Form.email">
-                                                </div>
-                                                
-                                                <div class="build-input">
-                                                    <label for="">Password <span class="required">*</span></label>
-                                                    <input type="password" v-model="step2Form.password">
-                                                </div>
-                                                <div class="build-input">
-                                                    <label for="">Confirm password <span class="required">*</span></label>
-                                                    <input type="password" v-model="step2Form.password_confirmation">
-                                                </div>
-                                                
-                                            </form>
-                                            <div class="build-redirect">
-                                                <p>Already have an account Please <a @click="addNew.isReg = false"> Login .</a></p>
+                                        <div class="build-item-box">
+                                            <div class="build-box-round">
+                                                <span>2</span>
                                             </div>
+                                            <p>Registration</p>
                                         </div>
-                                        <div class="build-right-form-inner" v-else>
-                                            <form action="#">
-
-                                                <div class="build-input full_input">
-                                                    <label for="">Email <span class="required">*</span></label>
-                                                    <input type="email" v-model="formData.email">
-                                                </div>
-
-                                                <div class="build-input full_input">
-                                                    <label for="">Password <span class="required">*</span></label>
-                                                    <input type="password" v-model="formData.password">
-                                                </div>
-                                            </form>
-                                            <div class="build-redirect">
-                                                <p>Don't have any account. Please <a @click="addNew.isReg = true">Register</a></p>
+                                        <div class="build-item-box">
+                                            <div class="build-box-round">
+                                                <span>3</span>
                                             </div>
+                                            <p>Submit Review</p>
+                                        </div>
+                                        <div class="build-item-box">
+                                            <div class="build-box-round">
+                                                <span>4</span>
+                                            </div>
+                                            <p>Confirmation</p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bulid-section build-section-2" v-if="addNew.step == 3">
-                        <div class="build-section-title">
-                            <h3>Build together</h3>
-                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
-                                <img src="/images/Step-1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="build-section-inner">
-                            <div class="build-section-inner-top">
-                                <div class="build-left">
-                                    <div class="build-item-box active">
-                                        <div class="build-box-round">
-                                            <!-- <span>1</span> -->
-                                            <img src="/images/conf.png" alt="">
+                                    <div class="build-right">
+                                        <div class="build-right-title">
+                                            <h3>What are you working on?</h3>
+                                            <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
                                         </div>
-                                        <p>Your work</p>
-                                    </div>
-                                    <div class="build-item-box">
-                                        <div class="build-box-round">
-                                            <!-- <span>1</span> -->
-                                            <img src="/images/conf.png" alt="">
-                                        </div>
-                                        <p>Registration/Login</p>
-                                    </div>
-                                    <div class="build-item-box active">
-                                        <div class="build-item-box-active">
-                                            <span>3</span>
-                                        </div>
-                                        <p>Submit Review</p>
-                                    </div>
-                                    <div class="build-item-box">
-                                        <div class="build-box-round">
-                                            <span>4</span>
-                                        </div>
-                                        <p>Confirmation</p>
-                                    </div>
-                                </div>
-                                <div class="build-right">
-                                    <div class="build-right-title">
-                                        <h3>What are you working on?</h3>
-                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
-                                    </div>
-                                    <div class="build-right-form">
-                                        <p>(Avg. Time of Completion - 2 minutes)</p>
-                                        <div class="build-right-form-inner build-right-form-non">
-                                            <form action="#">
-                                                <div class="build-review">
-                                                    <div v-if="onHover">
-                                                        <ul>
-                                                            <li @mouseover="changeDataHover(1)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(1)" :class="(drating.index > 0)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                            <li @mouseover="changeDataHover(2)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(2)" :class="(drating.index > 1)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                            <li @mouseover="changeDataHover(3)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(3)" :class="(drating.index > 2)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                            <li @mouseover="changeDataHover(4)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(4)" :class="(drating.index > 3)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                            <li @mouseover="changeDataHover(5)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(5)" :class="(drating.index > 4)? drating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                        </ul>
-                                                        <p>Select your rating</p>
+                                        <div class="build-right-form">
+                                            <p>(Avg. Time of Completion - 2 minutes)</p>
+                                            <div class="build-right-form-inner">
+                                                <form action="#">
+                                                    <div class="build-input">
+                                                        <label for="">School name <span class="required">*</span></label>
+                                                        <input type="text" v-model="step1Form.schoolName" >
                                                     </div>
-                                                    <div v-else>
-                                                        <ul>
-                                                            <li @mouseover="changeDataHover(1)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(1)" :class="(oldrating.index > 0)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                            <li @mouseover="changeDataHover(2)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(2)" :class="(oldrating.index > 1)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                            <li @mouseover="changeDataHover(3)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(3)" :class="(oldrating.index > 2)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                            <li @mouseover="changeDataHover(4)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(4)" :class="(oldrating.index > 3)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                            <li @mouseover="changeDataHover(5)" @mouseleave="changeDataHoverLeave" @click="changeOldRatingV2(5)" :class="(oldrating.index > 4)? oldrating.class: ''"><span><i class="fas fa-star"></i></span></li>
-                                                        </ul>
-                                                        <p>Select your rating</p>
+                                                    <div class="build-input">
+                                                        <label for="">Coach name <span class="required">*</span></label>
+                                                        <input type="text" v-model="step1Form.name" >
                                                     </div>
-
+                                                    <div class="build-input">
+                                                        <label for="">City <span class="required">*</span></label>
+                                                        <input type="text" v-model="step1Form.city" >
+                                                    </div>
+                                                    <div class="build-input">
+                                                        <label for="">Division <span class="required">*</span></label>
+                                                        <select name="" id="" v-model="step1Form.division" >
+                                                            <option value="Club/Travel">Club/Travel</option>
+                                                            <option value="FL">FL</option>
+                                                            <option value="High School">High School</option>
+                                                            <option value="Junior College">Junior College</option>
+                                                            <option value="MCLA">MCLA</option>
+                                                            <option value="MO">MO</option>
+                                                            <option value="NAIA">NAIA</option>
+                                                            <option value="NCAA DI">NCAA DI</option>
+                                                            <option value="NCAA DII">NCAA DII</option>
+                                                            <option value="NCAA DIII">NCAA DIII</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="build-input">
+                                                        <label for="">State <span class="required">*</span></label>
+                                                        <input type="text" v-model="step1Form.state" >
+                                                    </div>
+                                                    <div class="build-input">
+                                                        <label for="">Sport <span class="required">*</span> </label>
+                                                        <select name="" id="" v-model="step1Form.sport" >
+                                                            <option v-for="(item,index) in allSports" :key="index" :value="item.value">{{item.name}}</option>
+                                                            
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                                <div class="build-redirect" >
+                                                    <p>Information submitted on this site is subject to the <nuxt-link to="/policy">Privacy Policy.</nuxt-link></p>
                                                 </div>
-                                                <div class="build-textarea">
-                                                    <textarea v-model="step3Form.content" name="" id="" rows="10" placeholder="Your review helps others learn about good and bad coaches.
-
-                        You have been lied to. 
-                        Your values don't count.
-                        They don't take you seriously.                                                                                                                                                                                                                                                                     
-                        You owe this to yourself"></textarea>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bulid-section build-section-2" v-if="addNew.step == 4">
-                        <div class="build-section-title">
-                            <h3>Build together</h3>
-                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false">
-                                <img src="/images/Step-1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="build-section-inner">
-                            <div class="build-section-inner-top">
-                                <div class="build-left">
-                                    <div class="build-item-box ">
-                                        <div class="build-box-round">
-                                            <!-- <span>1</span> -->
-                                            <img src="/images/conf.png" alt="">
-                                        </div>
-                                        <p>Add School/Coach</p>
-                                    </div>
-                                    <div class="build-item-box ">
-                                        <div class="build-box-round">
-                                            <!-- <span>2</span> -->
-                                            <img src="/images/conf.png" alt="">
-                                        </div>
-                                        <p>Registration/Login</p>
-                                    </div>
-                                    <div class="build-item-box ">
-                                        <div class="build-box-round">
-                                            <!-- <span>2</span> -->
-                                            <img src="/images/conf.png" alt="">
-                                        </div>
-                                        <p>Submit Review</p>
-                                    </div>
-                                    <div class="build-item-box active">
-                                        <div class="build-item-box-active">
-                                            <!-- <span>3</span> -->
-                                            <img src="/images/conf.png" alt="">
-                                        </div>
-                                        <p>Confirmation</p>
-                                    </div>
-                                </div>
-                                <div class="build-right">
-                                    <div class="build-right-title">
-                                        <h3>What are you working on?</h3>
-                                        <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
-                                    </div>
-                                    <div class="build-right-form">
-                                        <div class="build-right-form-inner build-right-form-non">
-                                            <div class="build-confirmation-text">
-                                                <h3>Great! Way to Flank! <br> Your review has been submitted</h3>
-                                                <p>Please allow us 24-48 hours to pull your information into one place, and see your low risk insight instantly benefit the player communities where you played.</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <div class="build-section-inner-bottom">
+                                    <div class="build-cancel">
+                                        <p>Cancel</p>
+                                    </div>
+                                    <div class="build-btn">
+                                        <ul>
+                                            <li><button>Back</button></li>
+                                            <li class="go-btn"><button>Next</button></li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="bulid-section build-section-2"  v-if="addNew.step == 2">
+                            <div class="build-section-title">
+                                <h3>Build together</h3>
+                                <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false" >
+                                    <img src="/images/Step-1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="build-section-inner">
+                                <div class="build-section-inner-top">
+                                    <div class="build-left">
+                                        <div class="build-item-box">
+                                            <div class="build-box-round">
+                                                <!-- <span>1</span> -->
+                                                <img src="/images/conf.png" alt="">
+                                            </div>
+                                            <p>Add School/Coach</p>
+                                        </div>
+                                        <div class="build-item-box active">
+                                            <div class="build-item-box-active">
+                                                <span>2</span>
+                                            </div>
+                                            <p>Registration/Login</p>
+                                        </div>
+                                        <div class="build-item-box">
+                                            <div class="build-box-round">
+                                                <span>3</span>
+                                            </div>
+                                            <p>Submit Review</p>
+                                        </div>
+                                        <div class="build-item-box">
+                                            <div class="build-box-round">
+                                                <span>4</span>
+                                            </div>
+                                            <p>Confirmation</p>
+                                        </div>
+                                    </div>
+                                    <div class="build-right">
+                                        <div class="build-right-title">
+                                            <h3>What are you working on?</h3>
+                                            <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                        </div>
+                                        <div class="build-right-form">
+                                            <p>(Avg. Time of Completion - 2 minutes)</p>
+                                            <div class="build-right-form-inner" v-if="addNew.isReg " >
+                                                <form action="#">
+                                                    <div class="build-input">
+                                                        <label for="">Your First name <span class="required">*</span></label>
+                                                        <input type="text" v-model="step2Form.firstName" >
+                                                    </div>
+                                                    <div class="build-input">
+                                                        <label for="">Your Last name <span class="required">*</span></label>
+                                                        <input type="text" v-model="step2Form.lastName">
+                                                    </div>
+                                                    <div class="build-input full_input">
+                                                        <label for="">Email <span class="required">*</span></label>
+                                                        <input type="email" v-model="step2Form.email">
+                                                    </div>
+                                                    <!-- <div class="build-input">
+                                                        <label for="">Division <span class="required">*</span></label>
+                                                        <select name="" id="">
+                                                            <option value="one"></option>
+                                                            <option value="one"></option>
+                                                            <option value="one"></option>
+                                                            <option value="one"></option>
+                                                        </select>
+                                                    </div> -->
+                                                    <div class="build-input">
+                                                        <label for="">Password <span class="required">*</span></label>
+                                                        <input type="password" v-model="step2Form.password">
+                                                    </div>
+                                                    <div class="build-input">
+                                                        <label for="">Re-enter password <span class="required">*</span></label>
+                                                        <input type="password" v-model="step2Form.password_confirmation">
+                                                    </div>
+                                                    <!-- <div class="build-input">
+                                                        <label for="">Sport </label>
+                                                        <select name="" id="">
+                                                            <option value="one"></option>
+                                                            <option value="one"></option>
+                                                            <option value="one"></option>
+                                                            <option value="one"></option>
+                                                        </select>
+                                                    </div> -->
+                                                </form>
+                                                <div class="build-redirect">
+                                                    <p>Already have an account Please <a @click="addNew.isReg = false" > Login .</a></p>
+                                                </div>
+                                            </div>
+                                            <div class="build-right-form-inner" v-else>
+                                                <form action="#">
+                                                
+                                                    <div class="build-input full_input">
+                                                        <label for="">Email <span class="required">*</span></label>
+                                                        <input type="email" v-model="formData.email">
+                                                    </div>
+                                                
+                                                    <div class="build-input full_input">
+                                                        <label for="">Password <span class="required">*</span></label>
+                                                        <input type="password" v-model="formData.password">
+                                                    </div>
+                                                </form>
+                                                <div class="build-redirect">
+                                                    <p>Don't have any account. Please <a @click="addNew.isReg = true" >Register</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="build-section-inner-bottom">
+                                    <div class="build-cancel">
+                                        <p>Cancel</p>
+                                    </div>
+                                    <div class="build-btn">
+                                        <ul>
+                                            <li class="go-btn"><button>Submit</button></li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="bulid-section build-section-2"  v-if="addNew.step == 3">
+                            <div class="build-section-title">
+                                <h3>Build together</h3>
+                                <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false" >
+                                    <img src="/images/Step-1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="build-section-inner">
+                                <div class="build-section-inner-top">
+                                    <div class="build-left">
+                                        <div class="build-item-box active">
+                                            <div class="build-box-round">
+                                                <!-- <span>1</span> -->
+                                                <img src="/images/conf.png" alt="">
+                                            </div>
+                                            <p>Your work</p>
+                                        </div>
+                                        <div class="build-item-box">
+                                            <div class="build-box-round">
+                                                <!-- <span>1</span> -->
+                                                <img src="/images/conf.png" alt="">
+                                            </div>
+                                            <p>Registration/Login</p>
+                                        </div>
+                                        <div class="build-item-box active">
+                                            <div class="build-item-box-active">
+                                                <span>3</span>
+                                            </div>
+                                            <p>Submit Review</p>
+                                        </div>
+                                        <div class="build-item-box">
+                                            <div class="build-box-round">
+                                                <span>4</span>
+                                            </div>
+                                            <p>Confirmation</p>
+                                        </div>
+                                    </div>
+                                    <div class="build-right">
+                                        <div class="build-right-title">
+                                            <h3>What are you working on?</h3>
+                                            <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                        </div>
+                                        <div class="build-right-form">
+                                            <p>(Avg. Time of Completion - 2 minutes)</p>
+                                            <div class="build-right-form-inner build-right-form-non">
+                                                <form action="#">
+                                                    <div class="build-review">
+                                                        <div v-if="onHover" >
+                                                            <ul>
+                                                                <li  @mouseover="changeDataHover(1)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(1)" :class="(drating.index > 0)? drating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                                <li  @mouseover="changeDataHover(2)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(2)" :class="(drating.index > 1)? drating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                                <li  @mouseover="changeDataHover(3)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(3)" :class="(drating.index > 2)? drating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                                <li  @mouseover="changeDataHover(4)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(4)" :class="(drating.index > 3)? drating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                                <li  @mouseover="changeDataHover(5)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(5)" :class="(drating.index > 4)? drating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                            </ul>
+                                                            <p>Select your rating</p>
+                                                        </div>
+                                                        <div v-else>
+                                                            <ul>
+                                                                <li @mouseover="changeDataHover(1)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(1)" :class="(oldrating.index > 0)? oldrating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                                <li @mouseover="changeDataHover(2)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(2)" :class="(oldrating.index > 1)? oldrating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                                <li @mouseover="changeDataHover(3)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(3)" :class="(oldrating.index > 2)? oldrating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                                <li @mouseover="changeDataHover(4)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(4)" :class="(oldrating.index > 3)? oldrating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                                <li @mouseover="changeDataHover(5)"   @mouseleave="changeDataHoverLeave"  @click="changeOldRatingV2(5)" :class="(oldrating.index > 4)? oldrating.class: ''" ><span    ><i class="fas fa-star"></i></span></li>
+                                                            </ul>
+                                                            <p>Select your rating</p>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <div class="build-textarea">
+                                                        <textarea v-model="step3Form.content" name="" id="" rows="10" placeholder="Your review helps others learn about good and bad coaches.
+
+                                                        You have been lied to. 
+                                                        Your values don't count.
+                                                        They don't take you seriously.                                                                                                                                                                                                                                                                     
+                                                        You owe this to yourself"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="build-section-inner-bottom">
+                                    <div class="build-cancel">
+                                        <p>Cancel</p>
+                                    </div>
+                                    <div class="build-btn">
+                                        <ul>
+                                            <li class="go-btn"><button>Submit</button></li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="bulid-section build-section-2"  v-if="addNew.step == 4">
+                            <div class="build-section-title">
+                                <h3>Build together</h3>
+                            <div class="build-close" style="cursor:pointer;" @click="addNew.modal = false" >
+                                    <img src="/images/Step-1.png" alt="">
+                                </div>
+                            </div>
+                            <div class="build-section-inner">
+                                <div class="build-section-inner-top">
+                                    <div class="build-left">
+                                        <div class="build-item-box ">
+                                            <div class="build-box-round">
+                                                <!-- <span>1</span> -->
+                                                <img src="/images/conf.png" alt="">
+                                            </div>
+                                            <p>Add School/Coach</p>
+                                        </div>
+                                        <div class="build-item-box ">
+                                            <div class="build-box-round">
+                                                <!-- <span>2</span> -->
+                                                <img src="/images/conf.png" alt="">
+                                            </div>
+                                            <p>Registration/Login</p>
+                                        </div>
+                                        <div class="build-item-box ">
+                                            <div class="build-box-round">
+                                                <!-- <span>2</span> -->
+                                                <img src="/images/conf.png" alt="">
+                                            </div>
+                                            <p>Submit Review</p>
+                                        </div>
+                                        <div class="build-item-box active">
+                                            <div class="build-item-box-active">
+                                                <!-- <span>3</span> -->
+                                                <img src="/images/conf.png" alt="">
+                                            </div>
+                                            <p>Confirmation</p>
+                                        </div>
+                                    </div>
+                                    <div class="build-right">
+                                        <div class="build-right-title">
+                                            <h3>What are you working on?</h3>
+                                            <p>* We’ll guide you step-by-step to add the school/coach you need.</p>
+                                        </div>
+                                        <div class="build-right-form">
+                                            <div class="build-right-form-inner build-right-form-non">
+                                                <div class="build-confirmation-text">
+                                                    <h3>Great! Way to Flank! <br> Your review has been submitted</h3>
+                                                    <p>Please allow us 24-48 hours to pull your information into one place, and see your low risk insight instantly benefit the player communities where you play(ed).</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="build-section-inner-bottom">
+                                    <div class="build-cancel">
+                                        <p>Cancel</p>
+                                    </div>
+                                    <div class="build-btn">
+                                        <ul>
+                                            <li class="go-btn"><button>Continue Browsing</button></li>
+                                        </ul>
+                                    </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
-            <div class="_footer_noCoach">
-                <div v-if="addNew.step == 1" class="mFooter">
-                    <p class="mCancel" @click="addNew.modal=false">Cancel</p>
-
-                    <Button class="mNext" @click="addNewItem">Next</Button>
+            <div class="_footer_noCoach" >
+                <div v-if="addNew.step == 1" class="mFooter" >
+                    <p class="mCancel"  @click="addNew.modal=false">Cancel</p>
+                        
+                        <Button class="mNext" @click="addNewItem">Next</Button>
                 </div>
-                <div v-if="addNew.step == 2" class="mFooter">
-                    <p class="mCancel" @click="addNew.modal=false">Cancel</p>
-                    <Button class="mBack" @click="addNew.modal=false">Back</Button>
+                <div v-if="addNew.step == 2" class="mFooter" >
+                    <p class="mCancel"  @click="addNew.modal=false">Cancel</p>
+                        <Button  class="mBack" @click="addNew.modal=false">Back</Button>
 
-                    <Button v-if="addNew.isReg" class="mNext" @click="register">Next</Button>
-                    <Button v-else class="mNext" @click="login">Next</Button>
+                        <Button v-if="addNew.isReg"  class="mNext" @click="register">Next</Button>
+                        <Button v-else class="mNext" @click="login">Next</Button>
                 </div>
-
-                <div v-if="addNew.step == 3" class="mFooter">
-                    <p class="mCancel" @click="addNew.modal=false">Cancel</p>
-
-                    <Button class="mNext" @click="reviewSubmit">Submit</Button>
+                    
+                <div v-if="addNew.step == 3" class="mFooter"  >
+                        <p class="mCancel"  @click="addNew.modal=false">Cancel</p>
+                        
+                        <Button class="mNext" @click="reviewSubmit">Submit</Button>
                 </div>
-
-                <div v-if="addNew.step == 4" class="mFooter">
-
-                    <Button class="mNext" @click="addNew.modal=false">Continue Browsing</Button>
+                    
+                <div v-if="addNew.step == 4" class="mFooter"  >
+                    
+                        <Button class="mNext" @click="addNew.modal=false">Continue Browsing</Button>
                 </div>
-
             </div>
         </Modal>
     </div>
@@ -2110,41 +2203,9 @@ export default {
     },
   data() {
     return {
-        step1Form:{
-                schoolName:'',
-                city:'',
-                division:'',
-                state:'',
-                sport:'',
-                name:'',
-
-            },
-             step2Form:{
-                firstName:'',
-                lastName:'',
-                email:'',
-                password:'',
-                password_confirmation :'',
-                birthday:'',
-                packType:''
-            },
-            onHover: false,
-            step3Form:{
-                reviewFor:'',
-                school_id:'',
-                content:"",
-                review_type:'school',
-                rating:'',
-            },
-            addNew:{
-                step:1,
-                modal:false,
-                onHover:false,
-                isReg: true
-            },
         sportValue:'Select',
         tab:0,
-        tab1:0,
+        tab1:1,
         tab2:0,
         highRatedCoach:[],
         isLoad:false,
@@ -2202,10 +2263,69 @@ export default {
             // centerMode: true,
             // itemsToShow:3,
             
-        }
+        },
+        selectedSearchData:{
+            schoolId:'',
+            schoolName:'',
+            coachName:'',
+            coachId:'',
+            track:0,
+            track2:0,
+            track3:0,
+        },
+        coachName:'',
+        coachId:'',
+            addNew:{
+                step:1,
+                modal:false,
+                onHover:false,
+                isReg: true
+            },
+            step1Form:{
+                schoolName:'',
+                city:'',
+                division:'',
+                state:'',
+                sport:'',
+                name:'',
+
+            },
+             step2Form:{
+                firstName:'',
+                lastName:'',
+                email:'',
+                password:'',
+                
+                password_confirmation :'',
+                birthday:'',
+                packType:''
+            },
+            step3Form:{
+                reviewFor:'', 
+                school_id:'',
+                review_type:'school',
+                content:"",
+                
+                rating:'',
+            },
+            newCoach:{},
+            allSports:[],
+              dropName:'',
+          
+            drating:{
+                class:'',
+                text:'Select your rating',
+                index: 0
+            },
+            oldrating:{
+                class:'',
+                text:'',
+                index:0,
+            },
+            onHover: false,
     };
   },
-  
+
   async asyncData({ app, store, redirect, params }) {
     try {
       let { data } = await app.$axios.get(`/legends`);
@@ -2218,18 +2338,160 @@ export default {
     }
   },
   methods: {
-             async  addNewItem(){
+      selectCoachName(coach){
+          this.selectedSearchData.track3=1
+          this.coachName = coach.name
+          this.coachId = coach.id
+      },
+      gotoReviewPage(){
+        //   /scoach_review/507170
+        if(this.tab==1){
+            if(this.tab1==1){
+                if(this.selectedSearchData.coachId && this.selectedSearchData.schoolId){
+                    this.$router.push('/scoach_review/'+this.selectedSearchData.coachId)
+                }
+                else{
+                    this.i("please find first coach!!")
+                }
+            }
+            else if(this.tab1==2){
+                // /coach_search?place=&str=&pageOption=coach&div=High%20School&attribute=
+                this.$router.push(`/coach_search?pageOption=coach&str2=${this.selectedSearchData.schoolName}&sports=${this.sportValue}`)
+                // this.$router.push(`/coach_search?place=&sports=${this.sportValue}&str=${this.selectedSearchData.schoolName}&pageOption=school&div=High%20School&attribute=`)
+
+            }
+        }
+        else{
+            if(this.coachId){
+
+                this.$router.push('/scoach_review/'+this.coachId)
+            }
+             else{
+                    this.i("please find first coach!!")
+                }
+        }
+          
+      },
+      closeOpetions(){
+          this.tab=0
+          this.tab1=1
+          this.tab2=0
+      },
+      selectSchoolCoachName(coach){
+          console.log(coach)
+          this.rData.key = coach.name
+          this.selectedSearchData.track2=1
+          this.selectedSearchData.coachName = coach.name
+          this.selectedSearchData.coachId = coach.id
+      },
+      selectSchoolName(school){
+
+          this.rData.school = school.name
+            this.selectedSearchData.schoolName= school.name
+            // this.rData.key= school.name
+            this.selectedSearchData.schoolId= school.id
+            this.sData.school_id= school.id
+            this.schoolList =[]
+            this.selectedSearchData.track = 1
+
+      },
+
+    //   new coach add methods 
+
+    changeDataHover(index){
+            console.log('changeDataHover')
+            this.drating.index = index
+            this.onHover = true
+            // return
+            if(index == 1){
+                this.drating.class = 'review-star-1'
+                this.drating.text = 'Eek! Methinks not.'
+
+            }
+            else if(index == 2){
+                this.drating.class = 'review-star-2'
+                this.drating.text = "Meh. I've experienced better."
+            }
+            else if(index == 3){
+                this.drating.class = 'review-star-3'
+                this.drating.text = 'A-OK.'
+            }
+            else if(index == 4){
+                this.drating.class = 'review-star-4'
+                this.drating.text = "Yay! I'm a fan"
+            }
+            else if(index == 5){
+                this.drating.class = 'review-star-5'
+                this.drating.text = "Woohoo! As good as it gets!"
+            }
+           
+        },
+        changeOldRating(index){
+             this.attribute=''
+             this.tsports=''
+             this.oldrating.index = index
+            if(index == 1){
+                this.oldrating.class = 'review-star-1'
+                this.oldrating.text = 'Eek! Methinks not.'
+
+            }
+            else if(index == 2){
+                this.oldrating.class = 'review-star-2'
+                this.oldrating.text = "Meh. I've experienced better."
+            }
+            else if(index == 3){
+                this.oldrating.class = 'review-star-3'
+                this.oldrating.text = 'A-OK.'
+            }
+            else if(index == 4){
+                this.oldrating.class = 'review-star-4'
+                this.oldrating.text = "Yay! I'm a fan"
+            }
+            else if(index == 5){
+                this.oldrating.class = 'review-star-5'
+                this.oldrating.text = "Woohoo! As good as it gets!"
+            }
+
+            //  this.SearchByKey()
+
+        },
+        changeOldRatingV2(index){
+             this.oldrating.index = index
+            if(index == 1){
+                this.oldrating.class = 'review-star-1'
+                this.oldrating.text = 'Eek! Methinks not.'
+
+            }
+            else if(index == 2){
+                this.oldrating.class = 'review-star-2'
+                this.oldrating.text = "Meh. I've experienced better."
+            }
+            else if(index == 3){
+                this.oldrating.class = 'review-star-3'
+                this.oldrating.text = 'A-OK.'
+            }
+            else if(index == 4){
+                this.oldrating.class = 'review-star-4'
+                this.oldrating.text = "Yay! I'm a fan"
+            }
+            else if(index == 5){
+                this.oldrating.class = 'review-star-5'
+                this.oldrating.text = "Woohoo! As good as it gets!"
+            }
+
+            
+
+        },
+           async  addNewItem(){
             if(this.step1Form.schoolName == '') return this.i("All Fields are required!")
             if(this.step1Form.city == '') return this.i("All Fields are required!")
             if(this.step1Form.division == '') return this.i("All Fields are required!")
             if(this.step1Form.name == '') return this.i("All Fields are required!")
             if(this.step1Form.sport == '') return this.i("All Fields are required!")
             if(this.step1Form.state == '') return this.i("All Fields are required!")
-            this.step1Form.id = this.legendData.id
-            const res = await this.callApi('post','/schools',this.step1Form)
+            const res = await this.callApi('post','/coaches',this.step1Form)
 
             if(res.status == 200){
-                this.similarCoaches.push(res.data)
                 this.newCoach = res.data
                 this.i("New Coach Created !")
                 if(this.isLoggedIn) this.addNew.step = 3
@@ -2241,6 +2503,122 @@ export default {
             }
             
         },
+                async register(){
+
+             if(this.step2Form.firstName == '') return this.i("Frist name is empty!")
+            if(this.step2Form.lastName == '') return this.i("Last name is empty!")
+            if(this.step2Form.email == '') return this.i("Email  is empty!")
+            if(this.step2Form.password == '') return this.i("Password  is empty!")
+             if(this.step2Form.password_confirmation  !==  this.step2Form.password) return this.i("Password Doesn't match !")
+                
+            this.step2Form.packType = 1
+            const res = await this.callApi('post','/users',this.step2Form)
+            if(res.status==200){
+                this.s('Registration Completed !')
+                this.$store.dispatch('setAuthInfo',res.data)
+                this.addNew.step = 3
+                 
+            }
+            else if(res.status === 400){
+                for(let d of res.data){
+            
+                    this.e(d.message)
+                }
+            }
+            else{
+                console.log(res)
+                this.swr()
+            }
+        },
+         async login(){
+            if(this.formData.email == '') return this.i("email is empty")
+            if(this.formData.password == '') return this.i("Password is empty")
+            const res = await this.callApi('post','authentication/login',this.formData) 
+            if(res.status===200){
+                this.s("Login Successfully !")
+                this.$store.dispatch('setAuthInfo',res.data)
+
+               
+                 
+                 this.addNew.step = 3
+                  
+                
+            }
+            else if(res.status==401){
+                this.e(res.data.message)
+            }
+            else{
+                this.swr();
+            }
+        },
+
+           async reviewSubmit(){
+            
+            if(this.step3Form.content == ''){
+                this.i("You must write something in the review box!")
+                return
+            }
+            if(this.drating.index == 0 ){
+                this.i('Please rate this coach !')
+                return;
+            }
+            this.step3Form.rating = this.oldrating.index
+            if(this.newCoach.name){
+                this.step3Form.reviewFor =this.newCoach.id
+                this.step3Form.school_id = this.newCoach.school_id
+               
+            }
+            else {
+                 this.addNew.modal = false
+               
+                return this.swr()
+            }
+          
+             
+           // this.reviewData.uploadList = this.uploadList
+          //  this.reviewData.AttributeInfo = this.AttributeInfo
+
+            const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
+            if(res.status===200){
+                this.s('Review posted successfully!')
+                this.addNew.step = 4
+            }
+            else{
+                this.swr();
+            }
+           
+            
+        },
+        
+        changeDataHoverLeave(){
+            this.onHover = false
+            
+        },
+          chnageType(item , division=''){
+            this.searchOn=false
+            this.showStr=''
+            this.attribute=''
+            this.$store.commit('setPageOption', item )
+            this.$store.commit('setDiv', division )
+            // this.$router.push(`/coach_search?pageOption=item&div=division`)
+          
+            // this.SearchByKey()
+        },
+        changePriceType(item){
+            this.price = item
+            // this.SearchByKey()
+        },
+        changeDivType(item){
+            if(item != 'clear'){
+                this.$store.commit('setDiv', item )
+                
+            }
+            else {
+                this.$store.commit('setDiv', '' )
+            }
+            // this.SearchByKey()
+        },
+        //   new coach add methods 
     openToolTip(no){
         if(no == 1){
             this.toolTipText = `Your coach’s health score collects historical data based on values from 0-100%. The closer to 100%, the healthier environment it is for you to play in. Each coach is also rated 
@@ -2383,6 +2761,9 @@ export default {
       this.schoolList = [];
     },
     async SearchByKeySchoolCoach() {
+        this.selectedSearchData.track2=0
+        
+        // this.i(this.rData.key)
       const res = await this.callApi(
         "get",
         `/app/SearchByKeySchoolCoach?key=${this.rData.key}&school_id=${
@@ -2395,10 +2776,25 @@ export default {
         this.swr();
       }
     },
+    async SearchByKeySchoolCoachNew() {
+        this.selectedSearchData.track3=0
+        
+        // this.i(this.rData.key)
+      const res = await this.callApi(
+        "get",
+        `/app/SearchByKeySchoolCoachNew?coachName=${this.coachName}
+        `
+      );
+      if (res.status === 200) {
+        this.coachList = res.data;
+      } else {
+        this.swr();
+      }
+    },
     async SearchByKeyCoach() {
       const res = await this.callApi(
         "get",
-        `/app/SearchByKeyCoach?key=${this.rData.key}`
+        `/app/SearchByKeyCoach?key=${this.coachName}`
       );
       if (res.status === 200) {
         this.coachList = res.data;
@@ -2418,9 +2814,10 @@ export default {
       }
     },
     async SearchByKeySchool() {
+        this.selectedSearchData.track=0
       const res = await this.callApi(
         "get",
-        `/app/SearchByKeySchool?key=${this.rData.school}`
+        `/app/SearchByKeySchool?key=${this.rData.school}`  
       );
       if (res.status === 200) {
         this.schoolList = res.data;
@@ -2457,6 +2854,7 @@ export default {
     },
     async setValue(item) {
         this.sportValue = item
+        this.tab2=1
     },
     async getCity(item) {
       this.city = item
@@ -2494,7 +2892,7 @@ export default {
       this.callApi("get", `/app/topHeadline`),
       this.callApi("get", `/app/videos`),
       this.callApi("get", `/app/getSchoolCoachByhighRated`),
-   
+      
     ]);
     if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200 && res6.status == 200) { 
     //  this.schoolCoaches = res1.data;
@@ -2512,6 +2910,12 @@ export default {
       this.swr();
       this.loading = false;
     }
+    const res7 =await this.callApi("get", `/app/getAllSports`)
+    if(res7.status === 200 ){
+        this.allSports = res7.data
+    }
+   
+    
   },
   
 };

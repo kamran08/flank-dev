@@ -14,6 +14,7 @@ const ReviewAttribute = use('App/Models/ReviewAttribute')
 const Attribute = use('App/Models/Attribute')
 const SchoolCoach = use('App/Models/SchoolCoach')
 const Helpers = use('Helpers')
+const Mail = use('Mail')
 const Database = use('Database')
 /**
  * Resourceful controller for interacting with reviews
@@ -113,16 +114,18 @@ class ReviewController {
     let type = request.input('type') ? request.input('type') : 'legend'
     let sort = request.input('sort') ? request.input('sort') : ''
     let user_id = -1
+    let user_id2 = -1
 
     try {
       let user = await auth.getUser()
       user_id = user.id
+      user_id2 = auth.user.id
     } catch (error) {
       console.log('I am in catch')
     }
     let mdata = Review.query().where('reviewFor', params.id).where('review_type', type)
       .with('reviwer').withCount('follow').with('hasfollow', (builder) => {
-        builder.where('follower', auth.user.id)
+        builder.where('follower', user_id2)
       })
       .with('reviwer', (builder) => builder.withCount('reviews as totalreviewbyuser'))
       .with('imosall', (builder) => {

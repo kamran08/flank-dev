@@ -88,6 +88,7 @@ Route.post('/app/attributes', 'ReviewController.storeAttributes')
 
 Route.get('/app/SearchData', 'SearchController.SearchData')
 Route.get('/app/SearchByKeyCoach', 'SearchController.SearchByKeyCoach')
+Route.get('/app/SearchByKeySchoolCoachNew', 'SearchController.SearchByKeySchoolCoachNew')
 Route.get('/app/SearchByKeyProduct', 'SearchController.SearchByKeyProduct')
 Route.get('/app/SearchByKeyProduct', 'SearchController.SearchByKeyProduct')
 Route.get('/app/SearchByKeySchool', 'SearchController.SearchByKeySchool')

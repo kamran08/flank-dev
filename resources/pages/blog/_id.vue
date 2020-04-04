@@ -14,25 +14,21 @@
         <div class="new-blog-section">
             <div class="container">
                 <div class="row">
-                    <div class="new-blog-item new-blog-item-1">
+                    <div class="new-blog-item new-blog-item-1" v-if="singlePosts">
                         <div class="new-blog-post">
-                            <h1>The Beginner Bodyweight Workout: Try this 20 Minute Routine At Home or Anywhere!</h1>
+                            <h1 v-if="singlePosts.title">{{singlePosts.title}}</h1>
                             <div class="blog-holder">
                                 <ul>
                                     <li><img src="/images/sticker-3.png" alt=""> By Steve Kamb</li>
-                                    <li>Last updated: March 17, 2020</li>
+                                    <li>Last updated: {{singlePosts.created_at}}</li>
                                     <li>
-
                                       <!-- 6666 comments -->
-
-
-
                                     </li>
                                 </ul>
                             </div>
                             <div class="blog-lg-img">
-                              <figure>
-                                <img src="/images/blog1.jpg" alt="">
+                              <figure v-if="singlePosts.img">
+                                <img :src="singlePosts.img" alt="">
                               </figure>
                               <div class="blog-caption">
                                 <p class="blog-cap-bold">So you want to lose weight and get in shape, but you don’t want to leave your house?</p>
@@ -85,7 +81,7 @@
                                         </div>
                                         <div class="flank-blog-slider-details">
                                           <ul>
-                                            <li>{{post.created_at}}</li>
+                                            <li>Last updated: {{post.created_at}}</li>
                                             <li>
                                               <!-- <span class="disqus-comment-count" :data-disqus-url="`http://localhost:3000/blog/${post.id}`">First article</span> -->
                                                 <!-- <a :href="`http://localhost:3000/blog/${post.id}`" :data-disqus-identifier="`http://localhost:3000/blog/${post.id}#disqus_thread`">First article</a> -->
@@ -140,39 +136,19 @@
                     <div class="new-blog-item new-blog-item-2">
                       <div class="all-rec-blog">
                         <div class="row">
-                          <div class="all-rec-blog-item">
+                          <div class="all-rec-blog-item" v-for="(post,index) in posts" :key="index" v-if="index<3">
                             <div class="rec-blog-item-inner">
                               <div class="rec-blog-img">
-                                <img src="/images/recblog1.jpg" alt="">
+                                <img :src="post.img" alt="">
                               </div>
                               <div class="rec-blog-details">
-                                <h3><a href="#">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing Vestibulum nec neque enim. Aliquam quis est quis neque porta feugiat at id lacus. </p>
+                                <h3><a href="#">{{post.title}}</a></h3>
+                                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing Vestibulum nec neque enim. Aliquam quis est quis neque porta feugiat at id lacus. </p> -->
                               </div>
                             </div>
                           </div>
-                          <div class="all-rec-blog-item">
-                            <div class="rec-blog-item-inner">
-                              <div class="rec-blog-img">
-                                <img src="/images/recblog1.jpg" alt="">
-                              </div>
-                              <div class="rec-blog-details">
-                                <h3><a href="#">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing Vestibulum nec neque enim. Aliquam quis est quis neque porta feugiat at id lacus. </p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="all-rec-blog-item">
-                            <div class="rec-blog-item-inner">
-                              <div class="rec-blog-img">
-                                <img src="/images/recblog1.jpg" alt="">
-                              </div>
-                              <div class="rec-blog-details">
-                                <h3><a href="#">Lorem ipsum dolor sit amet,consectetur adipiscing elit.</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing Vestibulum nec neque enim. Aliquam quis est quis neque porta feugiat at id lacus. </p>
-                              </div>
-                            </div>
-                          </div>
+                      
+                        
                         </div>
                       </div>
                       <div class="rec-blog-daily-flank">
@@ -277,6 +253,7 @@ export default {
         }
         else{
           this.singlePosts = res.data
+          console.log(this.singlePosts, "single post")
         }
       }
       

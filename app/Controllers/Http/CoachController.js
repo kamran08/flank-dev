@@ -9,6 +9,7 @@ const Attribute = use('App/Models/Attribute')
 const ReviewImage = use('App/Models/ReviewImage')
 const Review = use('App/Models/Review')
 const ReviewAttribute = use('App/Models/ReviewAttribute')
+const Mail = use('Mail')
 const Database = use('Database')
 /**
  * Resourceful controller for interacting with coaches

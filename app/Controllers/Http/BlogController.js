@@ -13,14 +13,14 @@ class BlogController {
   
   async getAllBlogPosts ({ request, response }) {
     // let data = request.all()
-      return await Blog.all()
+      return await Blog.query().orderBy('id', 'desc').fetch()
   }
   async getAllBlogPostsFirst ({ request, response }) {
     // let data = request.all()
-      return await Blog.all()
+      return await Blog.query().orderBy('id', 'desc').first()
   }
   async getBlogPostsById ({ request, response,params }) {
-    let data = await Blog.query().where('id',params.id).fetch()
+    let data = await Blog.query().where('id',params.id).first()
     if(data){
       return data
     }

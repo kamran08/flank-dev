@@ -20,6 +20,7 @@ class SearchController {
   }) {
     let place = request.input('place') ? request.input('place') : ''
     let str = request.input('str') ? request.input('str') : ''
+    let str2 = request.input('str2') ? request.input('str2') : ''
     let page = request.input('page') ? request.input('page') : 1
     let price = request.input('price') ? request.input('price') : ''
     let sort = request.input('sort') ? request.input('sort') : ''
@@ -32,6 +33,7 @@ class SearchController {
     let data = {}
 
     if (pageOption == 'legend') {
+       console.log("ami ono taki call oise legend")
       data = Legend.query().withCount('totalReview as allreview ')
         .with('allreviewLimit')
       if (str) {
@@ -56,6 +58,7 @@ class SearchController {
 
 
     } else if (pageOption == 'product') {
+       console.log("ami ono taki call oise product")
 
       data = Product.query()
       if (str) {
@@ -66,6 +69,7 @@ class SearchController {
 
     } 
     else if (pageOption == 'school') {
+      console.log("ami ono taki call oise school")
        data = School.query()
         .with('avgRating')
         .withCount('allreview as allreview')
@@ -92,13 +96,23 @@ class SearchController {
     } 
     
     else if (pageOption == 'coach') {
+     
       data = SchoolCoach.query()
         .with('allreviewLimit')
         .with('topAtrribute.info')
         .withCount('allreview as allreview')
 
         .with('school')
-
+      if (str) {
+        //  console.log("ami ono taki call oise coach" + str)
+        data.where('name', 'LIKE', '%' + str + '%')
+        
+      }
+      if (str2) {
+        data.whereHas('school', (builder) => {
+          builder.where('schoolName', 'LIKE', '%' + str2 + '%')
+        })
+      }
       if (div) {
         data.whereHas('school', (builder) => {
           builder.where('division', div)
@@ -120,9 +134,7 @@ class SearchController {
         data.whereBetween('avg_rating', [brate, rate])
       }
 
-      if (str) {
-        data.where('name', 'LIKE', '%' + str + '%')
-      }
+     
       if (place) {
         data.whereHas('school', (builder) => {
           builder.where('city', 'LIKE', '%' + place + '%')
@@ -135,7 +147,9 @@ class SearchController {
     //   data.orderBy('allreview', 'desc')
     //  }
     let mdata = await data.paginate(page, 10)
+
     mdata = mdata.toJSON()
+    // console.log(mdata)
     let tempData = JSON.parse(JSON.stringify(mdata))
 
     let flankChoice = {};
@@ -287,6 +301,7 @@ class SearchController {
     const data = request.all()
     return await Legend.query()
       .select('name')
+      .select('sport')
       .select('id')
       .where('name', 'LIKE', '%' + data.key + '%')
       .fetch()
@@ -319,13 +334,25 @@ class SearchController {
 
   async SearchByKeySchoolCoach({
     request
-  }) {
+}) {
     const data = request.all()
     return await SchoolCoach.query()
       .select('name')
       .select('id')
       .where('name', 'LIKE', '%' + data.key + '%')
       .where('school_id', data.school_id)
+      .fetch()
+  }
+  async SearchByKeySchoolCoachNew({
+    request
+}) {
+    const data = request.all()
+    // return data.coachName
+    return await SchoolCoach.query()
+      .select('name')
+      // .select('sport')
+      .select('id')
+      .where('name', 'LIKE', '%' + data.coachName + '%')
       .fetch()
   }
   async getAllSports({
