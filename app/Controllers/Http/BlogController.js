@@ -19,6 +19,10 @@ class BlogController {
     // let data = request.all()
       return await Blog.query().orderBy('id', 'desc').first()
   }
+  async getAllBlogPostsTwo ({ request, response }) {
+    // let data = request.all()
+      return await Blog.query().orderBy('id', 'desc').limit(2).fetch()
+  }
   async getBlogPostsById ({ request, response,params }) {
     let data = await Blog.query().where('id',params.id).first()
     if(data){

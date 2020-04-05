@@ -168,6 +168,7 @@ Route.post('/app/sendAccountCloseEmail', 'UserController.sendAccountCloseEmail')
 Route.get('/app/getAllBlogPosts', 'BlogController.getAllBlogPosts')
 Route.get('/app/getBlogPostsById/:id', 'BlogController.getBlogPostsById')
 Route.get('/app/getAllBlogPostsFirst', 'BlogController.getAllBlogPostsFirst')
+Route.get('/app/getAllBlogPostsTwo', 'BlogController.getAllBlogPostsTwo')
 
 
 Route.get('/app/getSchoolCoachByhighRated', 'UserController.getSchoolCoachByhighRated')

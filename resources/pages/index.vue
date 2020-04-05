@@ -530,18 +530,18 @@
                 <div class="most-blog-section">
                     <div class="container">
                         <div class="row">
-                            <div class="most-blog-item">
+                            <div class="most-blog-item" v-for="(item,index) in lastTwoPost" :key="index">
                                 <div class="most-blog-item-inner">
-                                    <div class="most-blog-item-img">
-                                        <img src="/images/mb1.png" alt="">
+                                    <div class="most-blog-item-img" v-if="item.img">
+                                        <img :src="item.img" alt="">
                                     </div>
                                     <div class="most-blog-item-details">
                                         <h2>Recent blog post</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                                        <p>{{item.title}}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="most-blog-item">
+                            <!-- <div class="most-blog-item">
                                 <div class="most-blog-item-inner">
                                     <div class="most-blog-item-img">
                                         <img src="/images/mb2.png" alt="">
@@ -551,7 +551,7 @@
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -2203,6 +2203,7 @@ export default {
     },
   data() {
     return {
+        lastTwoPost:[],
         sportValue:'Select',
         tab:0,
         tab1:1,
@@ -2913,6 +2914,10 @@ export default {
     const res7 =await this.callApi("get", `/app/getAllSports`)
     if(res7.status === 200 ){
         this.allSports = res7.data
+    }
+    const res8 =await this.callApi("get", `/app/getAllBlogPostsTwo`)
+    if(res7.status === 200 ){
+        this.lastTwoPost = res8.data
     }
    
     

@@ -266,31 +266,66 @@ class SchoolController {
       //   'COACH 11': null,
       //   'COACH 12': null
       // }
+        {
+          "Name Of School": "Zuni High School dekar lagi",
+          "City": "Zuni ",
+          "State": " NM",
+          "Division": "High School",
+          "Sport": "Sport",
+          "Official Team Website": "null",
+          "COACH 1": "Gerry Duffy dekar lagi1",
+          "COACH 2": "Gerry Duffy dekar lagi2",
+          "COACH 3": "null",
+          "COACH 4": "null",
+          "COACH 5": "null",
+          "COACH 6": "null",
+          "COACH 7": "null",
+          "COACH 8": "null",
+          "COACH 9": "null",
+          "COACH 10": "Gerry Duffy dekar lagi10",
+          "COACH 11": "null",
+          "COACH 12": "null",
+          "": ""
+        }
     ]
     var start = new Date().getTime()
     for (let d of tempCoach) {
+      // let schoolData = {
+      //   'logo': d['logo'],
+      //   'schoolName': d['Name Of School'],
+      //   'city': d['City'],
+      //   'state': d['State'],
+      //   'division': d['lDivisionogo'],
+      //   'sport': d['Sport'],
+      //   'roster': d['roster'],
+      //   'alumni': d['alumni'],
+      //   'interestedAthletes': d['loInterested Athletesgo'],
+      //   'committedRecruit': d['Committed Recruit'],
+      //   'placedAthletes': d['Placed Athletes'],
+      //   'teamWebsite': d['Official Team Website']
+      // }
+        
       let schoolData = {
-        'logo': d['logo'],
+        'logo': null,
         'schoolName': d['Name Of School'],
         'city': d['City'],
         'state': d['State'],
-        'division': d['lDivisionogo'],
+        'division': d['Division'],
         'sport': d['Sport'],
-        'roster': d['roster'],
-        'alumni': d['alumni'],
-        'interestedAthletes': d['loInterested Athletesgo'],
-        'committedRecruit': d['Committed Recruit'],
-        'placedAthletes': d['Placed Athletes'],
+        'roster': null,
+        'alumni': null,
+        'interestedAthletes': null,
+        'committedRecruit': null,
+        'placedAthletes': null,
         'teamWebsite': d['Official Team Website']
       }
 
       let newSchoolData = await School.create(schoolData)
-
       let countVar = 0
       for (let dd in d) {
         countVar++
-        if (countVar > 12) {
-          if (d[dd] != null) {
+        if (countVar > 6) {
+          if (d[dd] != "null" && d[dd]!="") {
             let coachob = {
               'school_id': newSchoolData.id,
               'name': d[dd]
@@ -298,7 +333,9 @@ class SchoolController {
             SchoolCoach.create(coachob)
           }
         }
+        
       }
+      
     }
     let str = 'done'
     return str
