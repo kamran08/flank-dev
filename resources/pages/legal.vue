@@ -35,7 +35,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <p style="font-size: 15px;">If you have any legal concerns about content or activity on Yelp, please let us know using the form below. Our Support team will review your inquiry and follow up if more information is needed.</p>
+                            <p style="font-size: 15px;">If you have any legal concerns about content or activity on Flank, please let us know using the form below. Our Support team will review your inquiry and follow up if more information is needed.</p>
                             <!-- <hr> -->
                             <div class="about-content mt-10">
                                 <!-- <form> -->
@@ -53,7 +53,7 @@
                                             </div>
                                         </div>
                                         <div class="legal-form-item">
-                                            <label>Yelp URL of content in question</label>
+                                            <label>Flank URL of content in question</label>
                                             <div class="legal-layer">
                                                 <input type="text" v-model="formData.question" >
                                             </div>
