@@ -69,16 +69,16 @@ $(document).ready(function () {
 //   })
 // });
 
-$(window).scroll(function(){
-  if ($(this).scrollTop() > 40) {
-      $('.review-sidebar-arrow').css("top", "15px");
-      $(".review-sidebar").css("padding-top", "18px");
+// $(window).scroll(function(){
+//   if ($(this).scrollTop() > 40) {
+//       $('.review-sidebar-arrow').css("top", "15px");
+//       $(".review-sidebar").css("padding-top", "18px");
 
-  } 
-  else {
-       $('.review-sidebar-arrow').css("top", "135px");
-      $(".review-sidebar").css("padding-top", "143px");
-  }
-});
+//   } 
+//   else {
+//        $('.review-sidebar-arrow').css("top", "183px");
+//       $(".review-sidebar").css("padding-top", "190px");
+//   }
+// });
 
 

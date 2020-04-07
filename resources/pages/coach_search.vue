@@ -12,15 +12,15 @@
                 </div>
                 <!-- <div class="flank-filter" >
                     <span @click="submitSupport"><i class="fas fa-filter"></i></span>
-                </div> -->
-                <!-- <div class="new-search-flank-sort">
-                    <select name="" id="">
-                        <option value="one">Sort by: Featured</option>
-                        <option value="one">Sort by: Featured</option>
-                        <option value="one">Sort by: Featured</option>
-                        <option value="one">Sort by: Featured</option>
+                </div> --> 
+                <div class="new-search-flank-sort" v-if="searchOn">
+                    <select name="" id="" v-model="sort" @change="sortBySelect($event)">
+                        <option value="Sort By" disabled>Sort By</option>
+                        <option value="1">Review: Low to High</option>
+                        <option value="2">Review: High to Low</option>
+                        <option value="3">Newest Arrivals</option>
                     </select>
-                </div> -->
+                </div>
             </div>
 
             <div class="new-flank-container-fluid" style="margin-top: 15px;">
@@ -3744,7 +3744,7 @@ export default {
             
             iam:false,
             showCurrentPage:0,
-            sort:'normal',
+            sort:0,
             isLoading:true,
             
             dropName:'',
@@ -3808,6 +3808,9 @@ export default {
         }
     },
     methods:{
+        sortBySelect(e){
+             this.SearchByKey()
+        },
         // menuMethod(){
         //     this.support.text = ''
         //     this.s("Thank you for your response ")
@@ -4077,6 +4080,7 @@ export default {
             this.SearchByKey()
         },
         async AttributesSearchByKey(){
+            this.sort = 0
             this.searchOn = false
             this.oldrating=[]
             this.tsports=''
@@ -4174,7 +4178,7 @@ export default {
         }
        
 
-
+    this.sort = "Sort By"
         // this. showCurrentPage = (Math.ceil(this.pagination.total)/(this.pagination.perPage)-this.pagination.page)
 
     },

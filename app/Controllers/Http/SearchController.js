@@ -51,6 +51,7 @@ class SearchController {
       if (attribute) {
         data.orderBy(attribute, 'desc')
       }
+ 
       if (sports) {
         var array = sports.split(",");
         data.whereIn('sport', array)
@@ -84,6 +85,21 @@ class SearchController {
           builder.whereBetween('averageRating', [brate, rate]);
         });
       }
+       if (sort) {
+             if (sort == 1) {
+                data.whereHas('avgRating', (builder) => {
+                  builder.orderBy('averageRating', 'asc');
+                });
+              //  data.orderBy('avgRating', 'asc')
+             } else if (sort == 2) {
+               data.whereHas('avgRating', (builder) => {
+                 builder.orderBy('averageRating', 'desc');
+               });
+              //  data.orderBy('avgRating', 'desc')
+             } else if (sort == 3) {
+                data.orderBy('created_at', 'desc')
+             }
+         }
       if (place) {
         data.where('city', 'LIKE', '%' + place + '%');
         data.orWhere('state', 'LIKE', '%' + place + '%');
@@ -127,6 +143,15 @@ class SearchController {
       if (attribute) {
         data.orderBy(attribute, 'desc')
       }
+       if (sort) {
+         if (sort == 1) {
+           data.orderBy('avg_rating', 'asc')
+         } else if (sort == 2) {
+           data.orderBy('avg_rating', 'desc')
+         } else if (sort == 3) {
+           data.orderBy('created_at', 'desc')
+         }
+       }
       if (rate > 0) {
 
         rate = parseFloat(rate)

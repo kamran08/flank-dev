@@ -1224,11 +1224,13 @@ a.sign-social-facebook:focus {
 }
 
 .new-search-flank-sort select {
-  border: 1px solid #ddd;
-  padding: 3px 30px 3px 5px;
+  border: 1px solid #ADB1B9;
+  padding: 3px 30px 3px 10px;
   border-radius: 3px;
   -webkit-appearance: none;
-  background: url(../images/custom-select.png) right .75rem center no-repeat #eaebef
+  background: url(../images/custom-select.png) right .75rem center no-repeat #E8ECEF;
+  color: #000;
+  font-size: 14px;
 }
 
 .new-flank-container-fluid {

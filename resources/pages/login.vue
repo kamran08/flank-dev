@@ -74,7 +74,8 @@ export default {
             if(res.status===200){
                 this.s("Login Successfully !")
                 this.$store.dispatch('setAuthInfo',res.data)
-                     window.location ='/nlogin/step2'
+                this.$router.push('/nlogin/step2')
+                    //  window.location ='/nlogin/step2'
             }
             else if(res.status==401){
                 this.e(res.data.message)

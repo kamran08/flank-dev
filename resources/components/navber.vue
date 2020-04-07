@@ -367,7 +367,7 @@
                  }
                 //  this.i(this.slectedTitle)
                 
-                this.SearchByKey()
+                // this.SearchByKey()
                 this.$store.commit('setPageOption', item)
                
                 // this.isStringMenu = false

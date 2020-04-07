@@ -147,7 +147,7 @@
                                                     <div class="review-btn">
                                                         <ul>
                                                             <li @click="reviewImo('cool',index,item)"   :class="(item.imosall.cool >= 1)? 'active_imo' : ''"    ><img src="/images/ic1.png" alt=""><span>Official</span> &nbsp;&nbsp;{{item.official}}</li>
-                                                            <li  @click="reviewImo('funny',index,item)"   :class="(item.imosall.funny >= 1)? 'active_imo' : ''"  ><img src="/images/ic2.png" alt=""><span>Brevery Bagde</span> &nbsp;&nbsp;{{item.bravery}}</li>
+                                                            <li  @click="reviewImo('funny',index,item)"   :class="(item.imosall.funny >= 1)? 'active_imo' : ''"  ><img src="/images/ic2.png" alt=""><span>Bravery Badge</span> &nbsp;&nbsp;{{item.bravery}}</li>
                                                             <li @click="reviewImo('useful',index,item)"  :class="(item.imosall.useful >= 1)? 'active_imo' : ''"   ><img src="/images/ic3.png" alt=""><span>Distinguished</span> &nbsp;&nbsp;{{item.distinguished}}</li>
                                                         </ul>
                                                         <div class="review-btn-img">
@@ -198,13 +198,13 @@
                                             <td class="histogram-number">{{ratingD[0].total}}</td>
                                         </tr>
                                     </table>
-                                    <p><a href="">View more graphs</a></p>
+                                    <!-- <p><a href="">View more graphs</a></p> -->
                                 </div>
                                 <div class="about-side-bar">
                                     <p>Review Votes</p>
                                     <ul v-if="imosCount" >
                                         <li  ><img src="/images/ic1.png" alt=""> <span>Official <strong>{{imosCount.cool}}</strong></span></li>
-                                        <li  ><img src="/images/ic2.png" alt=""> <span>Brevery Bagde <strong>{{imosCount.funny}}</strong></span></li>
+                                        <li  ><img src="/images/ic2.png" alt=""> <span>Bravery Badge <strong>{{imosCount.funny}}</strong></span></li>
                                         <li  ><img src="/images/ic3.png" alt=""> <span>Distinguished <strong>{{imosCount.useful}}</strong></span></li>
                                     </ul>
                                 </div>
@@ -499,7 +499,7 @@ export default {
                 else if(imo=='funny'){
                     imoItem.bravery += imoData[imo]
                     this.imosCount.funny +=imoData[imo]
-                     this.s("you marked this review as Brevery Bagde")
+                     this.s("you marked this review as Bravery Badge")
                 }
                 else if(imo=='useful'){
                     imoItem.distinguished += imoData[imo]

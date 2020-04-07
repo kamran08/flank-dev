@@ -145,31 +145,7 @@
                                         <h3>Coach</h3>
                                     </div>
 
-                                    <!-- this class in currently hide. When clicking on .red-inner-class, add class open with the red-inner-popup class -->
-                                    <div class="red-inner-popup">
-                                        <div class="red-popup-title">
-                                            <h4>Flankmeter</h4>
-                                            <div class="red-title-side">
-                                                <img src="/images/pop-flank.png" alt="">
-                                                <p>71%</p>
-                                            </div>
-                                        </div>
-                                        <div class="red-popup-details">
-                                            <h3>Coach John Doe / <span>City, State</span></h3>
-                                            <p>School name</p>
-                                            <div class="red-popup-progress">
-                                                <div class="red-popup-progress-inner"></div>
-                                            </div>
-                                            <div class="red-progress-details">
-                                                <p>Average rating: <span>7.23/10</span></p>
-                                                <p>Total count: <span>256</span></p>
-                                                <ul>
-                                                    <li>Good: <span>32</span></li>
-                                                    <li>Bad: <span>4</span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -332,7 +308,37 @@
                                             <li :class="(item.rating>3)?'active':''"><span><i class="fas fa-star"></i></span></li>
                                             <li :class="(item.rating==5)?'active':''"><span><i class="fas fa-star"></i></span></li>
                                         </ul>
-                                        <button class="sub-btn"><img src="/images/sub-img.png" alt="" @click="directToCoachWall(item)"> <span>See more</span></button>
+                                        <Poptip trigger="hover">
+                                            <!-- <Button>Hover</Button> -->
+                                        <button  class="sub-btn"><img src="/images/sub-img.png" alt="" @click="directToCoachWall(item)" > <span>See more</span></button>
+                                            <div class="api" slot="content">
+                                                <div class="red-inner-popup">
+                                                    <div class="red-popup-title">
+                                                        <h4>Flankmeter</h4>
+                                                        <div class="red-title-side">
+                                                            <img src="/images/pop-flank.png" alt="">
+                                                            <p>71%</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="red-popup-details">
+                                                        <h3>Coach John Doe / <span>City, State</span></h3>
+                                                        <p>School name</p>
+                                                        <div class="red-popup-progress">
+                                                            <div class="red-popup-progress-inner"></div>
+                                                        </div>
+                                                        <div class="red-progress-details">
+                                                            <p>Average rating: <span>7.23/10</span></p>
+                                                            <p>Total count: <span>256</span></p>
+                                                            <ul>
+                                                                <li>Good: <span>32</span></li>
+                                                                <li>Bad: <span>4</span></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </Poptip>
                                     </div>
                                 </div>
                             </div>
