@@ -475,10 +475,10 @@
                                                     </div>
                                                     <div class="review-figure-exper">
                                                         <ul>
-                                                            <li @click="isShareModalOn(item.reviwer)">
+                                                            <!-- <li @click="isShareModalOn(item.reviwer)">
                                                                 <img src="/images/new-mstar.png" alt=""> 
                                                                 <p><a>Share review</a></p>
-                                                            </li>
+                                                            </li> -->
                                                             <li @click="embeddedModalOn(item)">
                                                                 <img src="/images/new-mstar1.png" alt="">
                                                                 <p><a>Embed Review</a></p>
@@ -487,10 +487,9 @@
                                                                 <img src="/images/new-mstar2.png" alt="">
                                                                 <p><a>Send message</a></p>
                                                             </li>
-                                                            <li v-if="authInfo && item.reviwer_id==authInfo.id" style="pointer-events: none;opacity: 0.6;">
+                                                            <!-- <li v-if="authInfo && item.reviwer_id==authInfo.id" style="pointer-events: none;opacity: 0.6;">
                                                                 <img src="/images/new-mstar3.png" alt="">
                                                                 <p ><a>Follow valerie C.</a></p>
-                                                                <!-- {{item.__meta__.follow_count}} -->
                                                             </li>
                                                             <li v-else-if="item.hasfollow.length==0"  @click="followMethod(item)">
                                                                 <img src="/images/new-mstar3.png" alt="">
@@ -501,7 +500,7 @@
                                                                 <img src="/images/new-mstar3.png" alt="">
                                                                 <p ><a>UnFollow valerie C.</a></p>
                                                                 {{item.__meta__.follow_count}}
-                                                            </li>
+                                                            </li> -->
                                                             
                                                         </ul>
                                                     </div> 
@@ -1457,10 +1456,10 @@
                                                 </div>
                                                 <div class="review-figure-exper">
                                                     <ul>
-                                                        <li @click="isShareModalOn(item.reviwer)">
+                                                        <!-- <li @click="isShareModalOn(item.reviwer)">
                                                             <img src="/images/new-mstar.png" alt=""> 
                                                             <p><a>Share review</a></p>
-                                                        </li>
+                                                        </li> -->
                                                         <li @click="embeddedModalOn(item)">
                                                             <img src="/images/new-mstar1.png" alt="">
                                                             <p><a>Embed Review</a></p>
@@ -1469,10 +1468,10 @@
                                                             <img src="/images/new-mstar2.png" alt="">
                                                             <p><a>Send message</a></p>
                                                         </li>
-                                                            <li>
+                                                            <!-- <li>
                                                             <img src="/images/new-mstar3.png" alt="">
                                                             <p><a>Follow valerie C.</a></p>
-                                                        </li>
+                                                        </li> -->
                                                     </ul>
                                                 </div> 
                                             </div>
