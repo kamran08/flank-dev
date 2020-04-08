@@ -529,6 +529,7 @@ class UserController {
 
       return await SchoolCoach.query()
         .with('allreviewLimit').with('school')
+        //  .with('school', (builder) => builder.withCount('reviews as totalreviewbyuser'))
         .with('topAtrribute.info')
         .withCount('allreview as allreview')
        .orderBy('avg_rating', 'desc').limit(3).fetch()

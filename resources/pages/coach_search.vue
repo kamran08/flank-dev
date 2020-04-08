@@ -3803,7 +3803,7 @@ export default {
             support:{
                 text:''
             },
-            isLoad:false
+            isLoad:false,
 
         }
     },
@@ -4156,6 +4156,7 @@ export default {
         this.$store.commit('setPageOption', tempPageOption )
 
         this.sort = (this.$route.query.sort)? this.$route.query.sort :'normal'
+        this.oldrating.index = (this.$route.query.rate)? this.$route.query.rate :''
         
         let div = (this.$route.query.div)? this.$route.query.div :''
         this.$store.commit('setDiv', div )
