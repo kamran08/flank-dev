@@ -9104,13 +9104,13 @@ html {
   background: #fff;
   border-top: 1px solid #d0d0d0;
   padding: 17px 30px;
-  height: 279px;
+  /* height: 279px; */
   position: absolute;
   width: 100%;
   z-index: 100;
   box-shadow: 0px 16px 26px -8px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  overflow-y: auto;
+  /* overflow: hidden;
+  overflow-y: auto; */
   transform: translateY(10px);
   opacity: 0;
   visibility: hidden;
@@ -9140,6 +9140,9 @@ html {
   list-style: none;
   padding-top: 8px;
   margin-bottom: 0;
+  max-height: 279px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .header-details-select-dropdown ul li {
@@ -9253,7 +9256,9 @@ html {
 .header-details-school-dropdown {
   /* display: none; */
   padding: 0;
-  height: 218px;
+  /* height: 218px; */
+  /* min-height: 218px;
+  height: 100%; */
 }
 
 .drop-click-here {
@@ -9463,4 +9468,11 @@ html {
 }
 .header-details-school-dropdown.no-data {
   height: auto;
+}
+.header-details-school-dropdown ul li:hover {
+  background: #f5f5ee;
+}
+
+.header-details-school-dropdown ul li:hover p {
+  color: #cd0000;
 }

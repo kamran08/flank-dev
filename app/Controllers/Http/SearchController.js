@@ -361,9 +361,10 @@ class SearchController {
     request
 }) {
     const data = request.all()
-    return await SchoolCoach.query()
+    return await SchoolCoach.query().with('school')
       .select('name')
       .select('id')
+      .select('school_id')
       .where('name', 'LIKE', '%' + data.key + '%')
       .where('school_id', data.school_id)
       .fetch()
@@ -373,9 +374,10 @@ class SearchController {
 }) {
     const data = request.all()
     // return data.coachName
-    return await SchoolCoach.query()
+    return await SchoolCoach.query().with('school')
       .select('name')
       // .select('sport')
+      .select('school_id')
       .select('id')
       .where('name', 'LIKE', '%' + data.coachName + '%')
       .fetch()

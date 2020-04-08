@@ -183,10 +183,12 @@
                                             <ul v-if="schoolList.length>0">
                                                     <li v-for="(shcool,index) in schoolList" :key="index" @click="selectSchoolName(shcool)">
                                                             <p>{{shcool.name}}</p>
-                                                            <span>{{shcool.sport}}</span>
+                                                            <span>{{shcool.city}}, {{shcool.state}}</span>
+                                                            <!-- <span>{{shcool.sport}}</span> -->
                                                     </li>
                                                 </ul>
-                                            <p @click="addNew.modal=true" class="drop-click-here" v-if="schoolCoachList.length==0 && rData.school!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p>
+                                            <!-- <p @click="addNew.modal=true" class="drop-click-here" v-if="schoolCoachList.length==0 && rData.school!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p> -->
+                                            <p @click="addNew.modal=true" class="drop-click-here" v-if="rData.school!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p>
                                         </div>
                                     </div>
                                     <!-- ei div hocche sport er. sport option e click korle ei div e active class add hobe -->
@@ -229,11 +231,11 @@
                                                 <ul v-if="schoolCoachList.length>0">
                                                     <li v-for="(coach,index) in schoolCoachList" :key="index" @click="selectSchoolCoachName(coach)">
                                                             <p>{{coach.name}}</p>
-                                                            <span>{{coach.sport}}</span>
+                                                            <span v-if="coach.school">{{coach.school.sport}}</span>
                                                     </li>
                                                   
                                                 </ul>
-                                                <p @click="addNew.modal=true" class="drop-click-here" v-if="schoolCoachList.length==0 && rData.key!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p>
+                                                <p @click="addNew.modal=true" class="drop-click-here" v-if="rData.key!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p>
                                             </div>
                                         </div>
                                     </div>
@@ -264,7 +266,8 @@
                                             <li v-for="(coach,index) in coachList" :key="index" @click="selectCoachName(coach)">
                                                 <!-- <a href="#"> -->
                                                     <p v-if="coach.name">{{coach.name}}</p>
-                                                    <span v-if="coach.sport">{{coach.sport}}</span>
+                                                    <!-- <span v-if="coach.sport">{{coach.sport}}</span> -->
+                                                    <span v-if="coach.school">{{coach.school.schoolName}}</span>
                                                 <!-- </a> -->
                                             </li>
                                         
