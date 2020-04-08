@@ -6583,6 +6583,7 @@ html {
   flex: 0 0 22%;
   width: 22%;
   padding: 0 15px;
+  margin-bottom: 30px;
 }
 
 .submission-item-inner {
@@ -6591,7 +6592,9 @@ html {
   border: 1px solid #000;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
+  max-height: 282px;
+  height: 100%;
 }
 
 .submission-header {
@@ -6979,7 +6982,7 @@ html {
   position: absolute;
   top: 0;
   left: 0;
-  width: 75%;
+  /* width: 75%; */
   height: 100%;
   background: #e51937;
 }

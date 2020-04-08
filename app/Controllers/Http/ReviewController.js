@@ -556,7 +556,7 @@ class ReviewController {
       .with('legend')
       .with('product')
       .with('school')
-      .with('coach')
+      .with('coach.allreview')
       .with('reviwer', (builder) => builder.withCount('reviews as totalreviewbyuser'))
       .with('imos')
       .with('images')

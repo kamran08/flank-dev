@@ -32,6 +32,12 @@ class Review extends Model {
   coach () {
     return this.belongsTo('App/Models/SchoolCoach', 'reviewFor')
   }
+  coachforreview () {
+    return this.belongsTo('App/Models/SchoolCoach', 'reviewFor')
+  }
+  coachforreviews () {
+    return this.belongsTo('App/Models/SchoolCoach', 'reviewFor')
+  }
   school () {
     return this.belongsTo('App/Models/School', 'school_id')
   }
