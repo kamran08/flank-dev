@@ -118,10 +118,10 @@
                 <div class="container">
                     <!-- find a coach ba rate a coach e click korle ei div hide hobe. shudu header-none class ta add korlei hobe jkn click kora hobe -->
                     <div class="first-header-content" :class="(tab==1 || tab==2)?'header-none':''">
-                        <h1>You could select anything here.</h1>
+                        <h1>{{findTaxt}}</h1>
                         <div class="row">
                             <div class="red-header-item" @click="tab=1">
-                                <div class="red-header-item-inner" @click="tab=1">
+                                <div class="red-header-item-inner" @click="tab=1" @mouseover="findTaxt='Find the coach you’re looking for.'" @mouseout="findTaxt='You could select ANYTHING here.'">
                                     <div class="red-inner-card">
                                         <h2>Find a</h2>
                                         <h3>Coach</h3>
@@ -137,7 +137,7 @@
                                 </div>
                             </div> -->
                             <div class="red-header-item">
-                                <div class="red-header-item-inner" @click="tab=2">
+                                <div class="red-header-item-inner" @click="tab=2" @mouseover="findTaxt='Flank the Coach you’re looking for.'" @mouseout="findTaxt='You could select ANYTHING here.'">
 
                                     <!-- When clicking on this class, add class active with this class -->
                                     <div class="red-inner-card" @click="tab=2">
@@ -272,7 +272,7 @@
                                             </li>
                                         
                                         </ul>
-                                        <p @click="addNew.modal=true" class="drop-click-here" v-if="coachList.length==0 && coachName!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p>
+                                        <p @click="addNew.modal=true" class="drop-click-here" v-if="coachName!=''"><a href="#">Don't see your coach? <span>Click here</span></a></p>
                                     </div>
                                 </div>
                             </div>
@@ -2213,6 +2213,7 @@ export default {
     },
   data() {
     return {
+        findTaxt:'You could select ANYTHING here.',
         lastTwoPost:[],
         sportValue:'Select',
         tab:0,

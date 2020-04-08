@@ -302,7 +302,7 @@ class SchoolController {
       // console.log(num)
       let counting = true, next = num + 1;
       numbers.delete(num);
-      while (counting) {
+      while(counting) {
         counting = false;
         while (numbers.has(next)) { numbers.delete(next++) }
         if (counts[next]) { counting = numbers.has(next += counts[next]) }
