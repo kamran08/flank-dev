@@ -430,13 +430,13 @@
                     <div class="most-review-section">
                         <div class="row" v-if="highRatedCoach && highRatedCoach[0] && highRatedCoach[1] && highRatedCoach[2]">
                             <div class="most-review-item" v-if="highRatedCoach[0]">
-                                <div class="most-review-item-inner">
+                                <div class="most-review-item-inner" @click="goToCoachSearchPage(highRatedCoach[0].avg_rating,highRatedCoach[0].school.sport)">
                                     <div class="most-review-item-img">
                                         <img src="/images/mr1.png" alt="">
                                     </div>
                                     <div class="most-review-item-details">
                                         <h3>Most <br> Reviewed</h3>
-                                        <h2 @click="goToCoachSearchPage(highRatedCoach[0].avg_rating,highRatedCoach[0].school.sport)" v-if="highRatedCoach[0] && highRatedCoach[0].school && highRatedCoach[0].school.sport">{{highRatedCoach[0].school.sport}}</h2>
+                                        <h2 v-if="highRatedCoach[0] && highRatedCoach[0].school && highRatedCoach[0].school.sport">{{highRatedCoach[0].school.sport}}</h2>
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                             <ul>
@@ -465,13 +465,13 @@
 
                             
                             <div class="most-review-item">
-                                <div class="most-review-item-inner">
+                                <div class="most-review-item-inner"  @click="goToCoachSearchPage(highRatedCoach[1].avg_rating,highRatedCoach[1].school.sport)">
                                     <div class="most-review-item-img">
                                         <img src="/images/mr2.png" alt="">
                                     </div>
                                     <div class="most-review-item-details">
                                         <h3>Most <br> Reviewed</h3>
-                                         <h2 @click="goToCoachSearchPage(highRatedCoach[1].avg_rating,highRatedCoach[1].school.sport)" v-if="highRatedCoach[1] && highRatedCoach[1].school && highRatedCoach[1].school.sport">{{highRatedCoach[1].school.sport}}</h2>
+                                         <h2 v-if="highRatedCoach[1] && highRatedCoach[1].school && highRatedCoach[1].school.sport">{{highRatedCoach[1].school.sport}}</h2>
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                             <ul  v-if="highRatedCoach &&highRatedCoach[1] && highRatedCoach[1].avg_rating">
@@ -498,13 +498,13 @@
                                 </div>
                             </div>
                             <div class="most-review-item">
-                                <div class="most-review-item-inner">
+                                <div class="most-review-item-inner"  @click="goToCoachSearchPage(highRatedCoach[2].avg_rating,'Baseball')">
                                     <div class="most-review-item-img">
                                         <img src="/images/mr3.png" alt="">
                                     </div>
                                     <div class="most-review-item-details">
                                         <h3>Most <br> Reviewed</h3>
-                                        <h2 @click="goToCoachSearchPage(highRatedCoach[2].avg_rating,'Baseball')">Baseball</h2>
+                                        <h2 >Baseball</h2>
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                <ul  v-if="highRatedCoach &&highRatedCoach[2] && highRatedCoach[2].avg_rating">
@@ -545,7 +545,7 @@
                                     <div class="most-blog-item-img" v-if="item.img">
                                         <img :src="item.img" alt="">
                                     </div>
-                                    <div class="most-blog-item-details">
+                                    <div class="most-blog-item-details" @click="$router.push('/blog/'+item.id)">
                                         <h2>Recent blog post</h2>
                                         <p>{{item.title}}</p>
                                     </div>

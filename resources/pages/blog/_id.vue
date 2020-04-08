@@ -7,6 +7,9 @@
                     <figure v-if="leandingData.length>0">
                       <img :src="leandingData[0].url" alt="">
                   </figure>
+                   <!-- <figure >
+                      <script data-ad-client="ca-pub-1329433058038954" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  </figure> -->
                 </div>
             </div>
         </div>
@@ -72,7 +75,7 @@
                                 <h2>Also <span>on flank</span></h2>
                               </div>
                               <div class="flank-blog-slider-inner">
-                                <hooper :progress="true" >
+                                <hooper>
                                  
                                   <slide v-for="(post,index) in posts" :key="index">
                                     <div class="flank-blog-slider-item" @click="assignSignlePost(post)">
@@ -215,13 +218,14 @@ s.setAttribute('data-timestamp', +new Date());
 
 
 <script>
-import { Hooper, Slide, Navigation as HooperNavigation} from 'hooper';
+import { Hooper, Slide,Navigation as HooperNavigation} from 'hooper';
 
 export default {
     components: {
       Hooper,
       Slide,
       HooperNavigation,
+      // HooperProgress,
     },
   data() {
     return {

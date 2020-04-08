@@ -6607,6 +6607,7 @@ html {
   font-weight: 400;
   color: #fff;
   text-transform: uppercase;
+  font-size: 23px;
 }
 
 .submission-header h3 span {
@@ -6712,6 +6713,12 @@ html {
   margin-left: 4%;
 }
 
+@media only screen and (max-width: 1299px) {
+  .submission-header h3 {
+    font-size: 20px;
+  }
+
+}
 @media only screen and (max-width: 1199px) {
   .flex-gap-4 {
     margin-left: 0%;
@@ -6745,6 +6752,7 @@ html {
     font-family: ceraProLight;
     font-size: 24px;
     font-weight: 400;
+
   }
 
   .submission-header h3 span {
@@ -6946,11 +6954,12 @@ html {
   background: #fff;
 }
 
-.submission-details .red-popup-details h3  {
+.submission-details .red-popup-details h3 {
   font-family: ceraProBlack;
   font-weight: 600;
   font-size: 18px;
   color: #000;
+  margin-bottom: 5px;
 }
 
 .submission-details .red-popup-details h3 span {
@@ -7014,7 +7023,7 @@ html {
   font-weight: 400;
   font-size: 18px;
   margin-bottom: 5px;
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
 .submission-details .red-progress-details ul li:last-child {
@@ -7026,7 +7035,7 @@ html {
   font-family: 'Brandon Grotesque Black';
   font-weight: 400;
   font-size: 18px;
-  margin-left: 5px;
+  margin-left: 2px;
 }
 
 
@@ -7121,6 +7130,7 @@ html {
   overflow: hidden;
   min-height: 500px;
   height: 100%;
+  cursor: pointer;
 }
 
 
@@ -7367,6 +7377,7 @@ html {
   bottom: 0;
   border-top: 4px solid transparent;
   transition: all 0.3s linear;
+  cursor: pointer;
 }
 
 .most-blog-item-details h2 {
@@ -8724,7 +8735,7 @@ html {
   display: none;
 }
 
-.hooper-navigation button.hooper-prev:before {
+.flank-blog-slider-inner  .hooper-navigation button.hooper-prev:before {
   content: "❮";
   position: absolute;
   font-size: 60px;
@@ -8733,7 +8744,7 @@ html {
   color: rgba(0,0,0,.8);
 }
 
-.hooper-navigation button.hooper-next:before {
+.flank-blog-slider-inner  .hooper-navigation button.hooper-next:before {
   content: "❯";
   position: absolute;
   font-size: 60px;

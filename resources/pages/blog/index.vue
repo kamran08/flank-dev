@@ -4,8 +4,11 @@
         <div class="new-banner-section blog-mobile-banner-full" >
             <div class="container" style="">
                 <div class="inner-banner new-fl-inner-banner">
-                    <figure v-if="leandingData.length>0">
+                    <!-- <figure v-if="leandingData.length>0">
                       <img :src="leandingData[0].url" alt="">
+                  </figure> -->
+                    <figure >
+                      <script data-ad-client="ca-pub-1329433058038954" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                   </figure>
                 </div>
             </div>
@@ -230,13 +233,14 @@ s.setAttribute('data-timestamp', +new Date());
     </div>
 </template>
 <script>
-import { Hooper, Slide, Navigation as HooperNavigation} from 'hooper';
+import { Hooper, Slide, Navigation as HooperNavigation, Progress as HooperProgress} from 'hooper';
 
 export default {
     components: {
       Hooper,
       Slide,
       HooperNavigation,
+      HooperProgress,
     },
   data() {
     return {
