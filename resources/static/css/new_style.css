@@ -8646,7 +8646,7 @@ html {
   display: flex;
   flex-flow: row;
   /* margin: 0 15px; */
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   padding-bottom: 40px;
 }
 
