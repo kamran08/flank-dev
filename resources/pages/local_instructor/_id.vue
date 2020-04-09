@@ -242,7 +242,7 @@
                                         <div class="latest-img-slider-carousel" v-if="uploadList.length>0" >
                                             <div class="latest-img-slider-item" >
                                                 <figure>
-                                                    <img :src="uploadList[this.img_index].url" alt="">
+                                                    <img :src="'https://dashboard.goflank.com'+uploadList[this.img_index].url" alt="">
                                                 </figure>
                                             </div>
                                         </div>
@@ -1037,7 +1037,7 @@
             <div class="row">
                 <div class="modal-image-carousel">
                         <figure>
-                            <img v-if="uploadList[galleryIndex]" :src="uploadList[galleryIndex].url" style="width: 100%">
+                            <img v-if="uploadList[galleryIndex]" :src="'https://dashboard.goflank.com'+uploadList[galleryIndex].url" style="width: 100%">
                         </figure>
                 </div>
                 

@@ -2,6 +2,8 @@
 <template>
     <div class="pt-120">
         <div >
+ 
+           
             <!-- <div :class="(this.isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action pk-new-sidebar">
                 <div class="new-sidebar-item">
                     <div class="quick-link-content sidebar-con-list">
@@ -107,10 +109,18 @@
             </div> -->
             <div class="new-banner-section new-banner-section-black new-banner-width" >
                 <div class="container" style="">
+                     <!-- <adsbygoogle /> -->
                     <div class="inner-banner new-fl-inner-banner">
                         <figure v-if="leandingData.length>0">
                         <img :src="leandingData[0].url" alt="">
                     </figure>
+                    <!-- <figure>
+                    <adsbygoogle />
+                    </figure> -->
+                            <!-- <Adsense
+                                data-ad-client="ca-pub-1329433058038954"
+                                data-ad-slot="1234567890">
+                            </Adsense> -->
                     </div>
                 </div>
             </div>
@@ -1207,6 +1217,7 @@
                           <figure v-if="leandingData.length>0">
                         <img :src="leandingData[0].url" alt="">
                     </figure>
+                    
                     </div>
                 </div>
             </div>

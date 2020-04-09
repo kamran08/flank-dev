@@ -8,9 +8,13 @@ module.exports = {
   */
 
   modules: [
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
 
     // With options
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-1329433058038954'
+    }]
+    
 
   ],
   
@@ -30,6 +34,7 @@ module.exports = {
   // },
   plugins: [
     '~plugins/ivuew',
+    // {src: '~plugins/ivuew', ssr: false},
     {src: '~plugins/vuecommon', ssr: false},
     // '~plugins/googlechart'
     //  { ssr: false, src: '~plugins/googlemaps.js' }
@@ -73,6 +78,7 @@ module.exports = {
 
     ],
     script: [
+      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', body: true },
       { src: '/js/plugin-js/jquery-1.12.0.min.js', body: true },
       // { src: '/js/plugin-js/owl.carousel.min.js' },
       { src: '/js/script.js', body: true },
