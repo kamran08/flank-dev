@@ -859,7 +859,7 @@
                                         <div class="right-list-inner">
                                             <div class="right-list-inner-item">
                                                 <h4>RTG</h4>
-                                                <div class="review-star">
+                                                <div class="review-star pranto-review-star">
                                                     <ul>
                                                         <li  :class="(averageRating>0)? 'review-star-5' : 'star_half_1'"><span><i class="fas fa-star"></i></span></li>
                                                         <li :class="(averageRating>1)? 'review-star-5' :  'star_half_1'" ><span><i class="fas fa-star"></i></span></li>

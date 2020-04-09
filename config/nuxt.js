@@ -11,15 +11,15 @@ module.exports = {
     '@nuxtjs/axios',
 
     // With options
-    ['@nuxtjs/google-adsense', {
-      id: 'ca-pub-1329433058038954'
-    }]
+    // ['@nuxtjs/google-adsense', {
+    //   id: 'ca-pub-1329433058038954'
+    // }]
     
 
   ],
   
   axios: {
-     baseURL: 'https://goflank.com/'              
+     baseURL: 'https://goflank.com/'             
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360
@@ -33,8 +33,8 @@ module.exports = {
   //   ]
   // },
   plugins: [
-    '~plugins/ivuew',
-    // {src: '~plugins/ivuew', ssr: false},
+    // '~plugins/ivuew',
+    {src: '~plugins/ivuew', ssr: false},
     {src: '~plugins/vuecommon', ssr: false},
     // '~plugins/googlechart'
     //  { ssr: false, src: '~plugins/googlemaps.js' }

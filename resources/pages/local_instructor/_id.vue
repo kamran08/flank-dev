@@ -220,7 +220,7 @@
 
         <div class="new-banner-section new-banner-section-1">
             <div class="container-fluid">
-                <div class="inner-banner">
+                <div class="inner-banner pranto-inner-banner">
                     <figure>
                         <img src="/image/long-form-example.png" alt="">
                     </figure>
@@ -280,7 +280,7 @@
                         </div>
                         <div class="new-inner-item-2">
                             <div :class="(!isSmallScreen)? 'col-md-6 col-sm-6' : 'col-md-8 col-sm-8'" >
-                                <div class="inner-item-book">
+                                <div class="inner-item-book pranto-inner-item-book">
                                     <div class="inner-item-book-txt">
                                         <img src="/image/book.png" alt="">
                                         <p>Sure, this coach looks <span>great!</span></p>
@@ -380,7 +380,7 @@
                                     <div class="inner-item-known-title">
                                         <h4>Known For</h4>
                                     </div>
-                                    <div class="inner-item-known-details"  >
+                                    <div class="inner-item-known-details pranto-inner-item-known-details"  >
                                         <div class="inner-item-known-item" v-for="(item,index) in legendData.topAtrribute" :key="index" >
                                             <figure>
                                                 <img :src="item.info.image" alt="">
@@ -616,7 +616,7 @@
                                                 </div> 
                                             </div>
                                             <div class="review-item-right">
-                                                <div class="review-item-right-rat">
+                                                <div class="review-item-right-rat pranto-review-item-right-rat">
                                                     <ul>
                                                         <li  :class="(item.rating>0)? '' : 'star-half'"><span><i class="fas fa-star"></i></span></li>
                                                         <li :class="(item.rating>1)? '' : 'star-half'" ><span><i class="fas fa-star"></i></span></li>
