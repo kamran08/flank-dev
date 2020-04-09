@@ -33,8 +33,8 @@ module.exports = {
   //   ]
   // },
   plugins: [
-    // '~plugins/ivuew',
-    {src: '~plugins/ivuew', ssr: false},
+    '~plugins/ivuew',
+    // {src: '~plugins/ivuew', ssr: false},
     {src: '~plugins/vuecommon', ssr: false},
     // '~plugins/googlechart'
     //  { ssr: false, src: '~plugins/googlemaps.js' }

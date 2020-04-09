@@ -5,13 +5,13 @@ import locale from 'iview/dist/locale/en-US';
 Vue.use(iView, { locale })
 
 
-import Ads from 'vue-google-adsense'
+// import Ads from 'vue-google-adsense'
 
-Vue.use(require('vue-script2'))
+// Vue.use(require('vue-script2'))
 
-Vue.use(Ads.Adsense)
-Vue.use(Ads.InArticleAdsense)
-Vue.use(Ads.InFeedAdsense)
+// Vue.use(Ads.Adsense)
+// Vue.use(Ads.InArticleAdsense)
+// Vue.use(Ads.InFeedAdsense)
 
     //import moment from 'moment'
     // Vue.filter('myDate', function(value) {
