@@ -215,7 +215,7 @@
                                                 <p>{{sportValue}}</p>
                                             </div> -->
                                             <!-- jkn select e click kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
-                                            <div class="header-details-select-dropdown" :class="(tab2==2)?'active':''">
+                                            <div class="header-details-select-dropdown sport-header-details-select-dropdown" :class="(tab2==2)?'active':''">
                                                 <h4>Sport type</h4>
                                                 <ul>
                                                     <li @click="setValue('Baseball')">Baseball</li>
