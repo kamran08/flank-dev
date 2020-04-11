@@ -306,9 +306,133 @@
 
             <div class="flank-section">
                 <div class="container">
-                    <div class="recent-submission-section">
+                    <div class="recent-submission-section pc-recent-submission-section">
                         <div class="row">
                             <div :class="(index>0)?'flex-gap-4':''" class="submission-item"  v-for="(item,index) in recentReview " :key="index" v-if="index<4"  >
+                                <div class="submission-item-inner">
+                                    <div class="submission-header">
+                                        <h3>Recent <span>submission</span></h3>
+                                    </div>
+                                    <div class="submission-img" >
+                                        <img src="/images/sub1.jpg" alt="">
+                                    </div>
+                                    <div class="submission-details" >
+                                        <!-- @click="directToCoachWall(item)" -->
+                                        <h4 >{{item.coach.name}} </h4>
+                                        <p>Reviewed by: <span @click="$router.push(`/flanker/${item.reviwer.id}`)" style="cursor: pointer;">{{item.reviwer.firstName}} {{item.reviwer.lastName}}</span></p>
+                                        <ul class="sub-rating" v-if="item.coach">
+                                            <li :class="(item.coach.avg_rating>0)?'active':''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.coach.avg_rating>1)?'active':''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.coach.avg_rating>2)?'active':''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.coach.avg_rating>3)?'active':''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.coach.avg_rating==5)?'active':''"><span><i class="fas fa-star"></i></span></li>
+                                        </ul>
+                                        <Poptip trigger="hover">
+                                            <!-- <Button>Hover @click="directToCoachWall(item)"</Button> -->
+                                        <button  class="sub-btn"><img src="/images/sub-img.png" alt=""  > <span>See more</span></button>
+                                            <div class="api" slot="content">
+                                                <div class="red-inner-popup">
+                                                    <div class="red-popup-title">
+                                                        <h4>Flankmeter</h4>
+                                                        <div class="red-title-side">
+                                                            <img src="/images/pop-flank.png" alt="">
+                                                            <p v-if="item.coach">{{(100*item.coach.avg_rating)/5}}%</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="red-popup-details">
+                                                        <h3 v-if="item.coach">{{item.coach.name}} / <span v-if="item.school">{{item.school.city}}, {{item.school.state}}</span></h3>
+                                                        <p v-if="item.school">{{item.school.schoolName}}</p>
+                                                        <div class="red-popup-progress" v-if="item.coach">
+                                                            <div class="red-popup-progress-inner" :style="(item.coach.totalRating==5)?'width:100%;':(item.coach.totalRating>=4)?'width:80% ;':(item.coach.totalRating>=3)?'width:60%;':(item.coach.totalRating>=2)?'width:40% ;':(item.coach.totalRating>=1)?'width:20%;':'width:0%;'"></div>
+                                                        </div>
+                                                        <div class="red-progress-details" v-if="item.coach">
+                                                            <!-- <p>Average rating: <span>{{item.coach.avg_rating}}/{{item.coach.totalRating}}</span></p> -->
+                                                            <p>Average rating: <span>{{item.coach.avg_rating}}/5</span></p>
+                                                            <p>Total count: <span>{{item.coach.totalRating}}</span></p>
+                                                            <ul>
+                                                                <li>Good: <span>{{Math.ceil(item.coach.totalRating/2+1)}}</span></li>
+                                                                <li>Bad: <span>{{Math.ceil(item.coach.totalRating/2-1)}}</span></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </Poptip>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="flex-gap-4 submission-item">
+                                <div class="submission-item-inner">
+                                    <div class="submission-header">
+                                        <h3>Recent <span>submission</span></h3>
+                                    </div>
+                                    <div class="submission-img">
+                                        <img src="/images/sub2.jpg" alt="">
+                                    </div>
+                                    <div class="submission-details">
+                                        <h4>Coach First Last Name </h4>
+                                        <p>Reviewed by: <span>Person First Last Name</span></p>
+                                        <ul class="sub-rating">
+                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
+                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
+                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
+                                            <li><span><i class="fas fa-star"></i></span></li>
+                                            <li><span><i class="fas fa-star"></i></span></li>
+                                        </ul>
+                                        <button class="sub-btn"><img src="/images/sub-img.png" alt=""> <span>See more</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-gap-4 submission-item">
+                                <div class="submission-item-inner">
+                                    <div class="submission-header">
+                                        <h3>Recent <span>submission</span></h3>
+                                    </div>
+                                    <div class="submission-img">
+                                        <img src="/images/sub3.jpg" alt="">
+                                    </div>
+                                    <div class="submission-details">
+                                        <h4>Coach First Last Name </h4>
+                                        <p>Reviewed by: <span>Person First Last Name</span></p>
+                                        <ul class="sub-rating">
+                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
+                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
+                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
+                                            <li><span><i class="fas fa-star"></i></span></li>
+                                            <li><span><i class="fas fa-star"></i></span></li>
+                                        </ul>
+                                        <button class="sub-btn"><img src="/images/sub-img.png" alt=""> <span>See more</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-gap-4 submission-item">
+                                <div class="submission-item-inner">
+                                    <div class="submission-header">
+                                        <h3>Recent <span>submission</span></h3>
+                                    </div>
+                                    <div class="submission-img">
+                                        <img src="/images/sub4.jpg" alt="">
+                                    </div>
+                                    <div class="submission-details">
+                                        <h4>Coach First Last Name </h4>
+                                        <p>Reviewed by: <span>Person First Last Name</span></p>
+                                        <ul class="sub-rating">
+                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
+                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
+                                            <li class="active"><span><i class="fas fa-star"></i></span></li>
+                                            <li><span><i class="fas fa-star"></i></span></li>
+                                            <li><span><i class="fas fa-star"></i></span></li>
+                                        </ul>
+                                        <button class="sub-btn"><img src="/images/sub-img.png" alt=""> <span>See more</span></button>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="recent-submission-section mobile-recent-submission-section">
+                        <div class="row">
+                            <div :class="(index>0)?'flex-gap-4':''" class="submission-item"  v-for="(item,index) in recentReview " :key="index" v-if="index<3"  >
                                 <div class="submission-item-inner">
                                     <div class="submission-header">
                                         <h3>Recent <span>submission</span></h3>
