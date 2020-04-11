@@ -346,7 +346,8 @@
                                                             <div class="red-popup-progress-inner" :style="(item.coach.totalRating==5)?'width:100%;':(item.coach.totalRating>=4)?'width:80% ;':(item.coach.totalRating>=3)?'width:60%;':(item.coach.totalRating>=2)?'width:40% ;':(item.coach.totalRating>=1)?'width:20%;':'width:0%;'"></div>
                                                         </div>
                                                         <div class="red-progress-details" v-if="item.coach">
-                                                            <p>Average rating: <span>{{item.coach.avg_rating}}/{{item.coach.totalRating}}</span></p>
+                                                            <!-- <p>Average rating: <span>{{item.coach.avg_rating}}/{{item.coach.totalRating}}</span></p> -->
+                                                            <p>Average rating: <span>{{item.coach.avg_rating}}/5</span></p>
                                                             <p>Total count: <span>{{item.coach.totalRating}}</span></p>
                                                             <ul>
                                                                 <li>Good: <span>{{Math.ceil(item.coach.totalRating/2+1)}}</span></li>
