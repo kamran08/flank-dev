@@ -353,8 +353,8 @@ class SearchController {
       .select('state')
       .select('division')
       .select('id')
-      .where('schoolName', 'LIKE', '%' + data.key + '%')
-      .fetch()
+      .where('schoolName', 'LIKE', '%' + data.key + '%').
+      limit(10).fetch()
   }
 
   async SearchByKeySchoolCoach({
@@ -366,7 +366,8 @@ class SearchController {
       .select('id')
       .select('school_id')
       .where('name', 'LIKE', '%' + data.key + '%')
-      .where('school_id', data.school_id)
+      .where('school_id', data.school_id).
+      limit(10)
       .fetch()
   }
   async SearchByKeySchoolCoachNew({
@@ -380,8 +381,8 @@ class SearchController {
       .select('id')
       .with('school')
       
-      .where('name', 'LIKE', '%' + data.coachName + '%')
-      .fetch()
+      .where('name', 'LIKE', '%' + data.coachName + '%').
+      limit(10).fetch()
   }
   async getAllSports({
     request

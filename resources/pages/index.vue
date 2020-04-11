@@ -205,10 +205,15 @@
                                     <div class="header-details-select" :class="(tab1==2)?'active':''" :style="(tab1==2)?'':'display:none;'">
                                         <p>in the</p>
                                         <div class="header-details-select-inner">
-                                            <div class="header-details-select-title" @click="tab2=2">
-                                                <!-- change text here with the selected value -->
+                                            <div class="header-details-select-title" @click="tab2=2" v-if="tab2==0 || tab2==1">
                                                 <p>{{sportValue}}</p>
                                             </div>
+                                            <div class="header-details-select-title" @click="tab2=1" v-if="tab2==2">
+                                                <p>{{sportValue}}</p>
+                                            </div>
+                                            <!-- <div class="header-details-select-title" @click="tab1=1,tab2=0" v-if="tab2==2">
+                                                <p>{{sportValue}}</p>
+                                            </div> -->
                                             <!-- jkn select e click kora hobe thkn ei div ta show hobe tai ei div e active class ta add korte hobe -->
                                             <div class="header-details-select-dropdown" :class="(tab2==2)?'active':''">
                                                 <h4>Sport type</h4>

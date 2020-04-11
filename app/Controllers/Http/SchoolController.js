@@ -31,11 +31,38 @@ class SchoolController {
    */
   async index({ request, response, view }) {
      let tempCoach = [
-   
+                  {
+                    "Name Of School": "Summit Christian Academy",
+                    "City": "Broken Arrow ",
+                    "State": " OK",
+                    "Division": "High School",
+                    "Sport": "Sport",
+                    "Official Team Website": "null",
+                    "COACH 1": "James Edgeller ",
+                    "COACH 2": "null",
+                    "COACH 3": "null",
+                    "COACH 4": "null",
+                    "COACH 5": "null",
+                    "COACH 6": "null",
+                    "COACH 7": "null",
+                    "COACH 8": "null",
+                    "COACH 9": "null",
+                    "COACH 10": "null",
+                    " COACH 11": "null",
+                    " COACH 12": "null",
+                    "": ""
+                  },
 
     ]
+    let i =1
     var start = new Date().getTime()
     for (let d of tempCoach) {
+      return tempCoach.length
+      if (i == 1453) {
+        break
+      }
+      i++
+      
       // let schoolData = {
       //   'logo': d['logo'],
       //   'schoolName': d['Name Of School'],
