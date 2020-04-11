@@ -220,7 +220,7 @@
                                                 <ul>
                                                     <li @click="setValue('Baseball')">Baseball</li>
                                                     <li @click="setValue(`Men's Basketball`)">Basketball(M)</li>
-                                                    <li @click="setValue(`Women's Baseball`)">Baseball (W)</li>
+                                                    <li @click="setValue(`Women's Basketball`)">Basketball (W)</li>
                                                     <li @click="setValue(`Football`)">Football</li>
                                                     <li @click="setValue(`Men's Lacrosse`)">Lacrosse (M)</li>
                                                     <li @click="setValue(`Women's Lacrosse`)">Lacrosse (W)</li>
@@ -228,7 +228,7 @@
                                                     <li @click="setValue(`Women's Soccer`)">Soccer(W)</li>
                                                     <li @click="setValue(`Softball`)">Softball</li>
                                                     <li @click="setValue(`Men's Volleyball`)">Volleyball(M)</li>
-                                                    <li @click="setValue(`Women's Lacrosse`)">Volleyball(W)</li>
+                                                    <li @click="setValue(`Women's Volleyball`)">Volleyball(W)</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -514,13 +514,17 @@
                                 </div>
                             </div>
                             <div class="most-review-item">
-                                <div class="most-review-item-inner"  @click="goToCoachSearchPage(highRatedCoach[2].avg_rating,'Baseball')">
+                                <div class="most-review-item-inner"  @click="goToCoachSearchPage(highRatedCoach[2].avg_rating,highRatedCoach[2].school.sport)">
+                                <!-- <div class="most-review-item-inner"  @click="goToCoachSearchPage(highRatedCoach[2].avg_rating,'Soccer')"> -->
                                     <div class="most-review-item-img">
                                         <img src="/images/mr3.png" alt="">
                                     </div>
                                     <div class="most-review-item-details">
                                         <h3>Most <br> Reviewed</h3>
-                                        <h2 >Baseball</h2>
+                                        <!-- <h2 >Baseball</h2> -->
+                                         <!-- <h2 v-if="highRatedCoach[2] && highRatedCoach[2].school && highRatedCoach[2].school.sport">{{highRatedCoach[2].school.sport}}</h2> -->
+                                         <h2 v-if="highRatedCoach[2] && highRatedCoach[2].school && highRatedCoach[2].school.sport">Soccer</h2>
+
                                         <p>Coach</p>
                                         <div class="most-review-rat">
                                <ul  v-if="highRatedCoach &&highRatedCoach[2] && highRatedCoach[2].avg_rating">
@@ -2356,11 +2360,54 @@ export default {
   },
 
   async asyncData({ app, store, redirect, params }) {
-    try {
-      let { data } = await app.$axios.get(`/legends`);
 
-      return {
-        legendList: data
+    try {
+    const [res1,res2, res3,res4,res5,res6,res7,res8] = await Promise.all([
+    //  this.callApi("get", `/app/getSchoolcoaches`),
+      app.$axios.get(`/app/bannerImage`),
+      app.$axios.get( `/app/reviewOfTheDay`),
+     // app.$axios.get( `/app/recentCitys`),
+      app.$axios.get( `/app/getRecentReview`),
+      app.$axios.get( `/app/topHeadline`),
+      app.$axios.get( `/app/videos`),
+      app.$axios.get( `/app/getSchoolCoachByhighRated`),
+      app.$axios.get( `/app/getAllBlogPostsTwo`),
+      app.$axios.get(`/legends`)
+      
+    ])
+
+    var review_of_day
+    var recentReview
+    var topHeadlines
+    var videos
+    var highRatedCoach
+    var leandingData
+    var lastTwoPost
+    var legendList
+
+    // if (res1.status==200 && res3.status == 200 && res2.status == 200 && res4.status == 200 && res5.status == 200 && res6.status == 200 && res7.status == 200 && res8.status == 200) { 
+    //  this.schoolCoaches = res1.data;
+      leandingData = res1.data
+      review_of_day = res2.data;
+      recentReview = res3.data;
+      topHeadlines = res4.data;
+      videos = res5.data;
+      highRatedCoach = res6.data;
+      lastTwoPost = res7.data
+      legendList=res8.data
+      console.log(highRatedCoach.length)
+    
+    // }
+     return {
+         leandingData:leandingData,
+         review_of_day:review_of_day,
+         recentReview:recentReview,
+         topHeadlines:topHeadlines,
+         videos:videos,
+         highRatedCoach:highRatedCoach,
+         lastTwoPost:lastTwoPost,
+         legendList:legendList,
+         
       };
     } catch (error) {
       //return redirect('/404')
@@ -2909,47 +2956,48 @@ export default {
   },
 
   async created() {
-      const res1 = await this.callApi("get", `/app/bannerImage`)
-      if(res1.status==200){
-          this.leandingData = res1.data
-      }
+    //   const res1 = await this.callApi("get", `/app/bannerImage`)
+    //   if(res1.status==200){
+    //       this.leandingData = res1.data
+    //   }
 
     if(this.$route.query.login == 'success') this.i("Login Successful !")
-    const [res2, res3,res4,res5,res6] = await Promise.all([
-    //  this.callApi("get", `/app/getSchoolcoaches`),
+    // const [res1,res2, res3,res4,res5,res6] = await Promise.all([
+    // //  this.callApi("get", `/app/getSchoolcoaches`),
+    //   this.callApi("get", `/app/bannerImage`),
+    //   this.callApi("get", `/app/reviewOfTheDay`),
+    //  // this.callApi("get", `/app/recentCitys`),
+    //   this.callApi("get", `/app/getRecentReview`),
+    //   this.callApi("get", `/app/topHeadline`),
+    //   this.callApi("get", `/app/videos`),
+    //   this.callApi("get", `/app/getSchoolCoachByhighRated`),
       
-      this.callApi("get", `/app/reviewOfTheDay`),
-     // this.callApi("get", `/app/recentCitys`),
-      this.callApi("get", `/app/getRecentReview`),
-      this.callApi("get", `/app/topHeadline`),
-      this.callApi("get", `/app/videos`),
-      this.callApi("get", `/app/getSchoolCoachByhighRated`),
-      
-    ]);
-    if (res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200 && res6.status == 200) { 
-    //  this.schoolCoaches = res1.data;
-      this.review_of_day = res2.data;
-      this.recentReview = res3.data;
-      this.topHeadlines = res4.data;
-      this.videos = res5.data;
-      this.highRatedCoach = res6.data;
+    // ]);
+    // if (res1.status==200 && res3.status === 200 && res2.status == 200 && res4.status == 200 && res5.status == 200 && res6.status == 200) { 
+    // //  this.schoolCoaches = res1.data;
+    //   this.review_of_day = res2.data;
+    //   this.recentReview = res3.data;
+    //   this.topHeadlines = res4.data;
+    //   this.videos = res5.data;
+    //   this.highRatedCoach = res6.data;
+    //   this.leandingData = res1.data
       
      
-     // this.allCity = res4.data;
-      // this.review_of_day.bestReview = res2.data.bestReview
-      this.loading = false;
-    } else {
-      this.swr();
-      this.loading = false;
-    }
-    const res7 =await this.callApi("get", `/app/getAllSports`)
-    if(res7.status === 200 ){
-        this.allSports = res7.data
-    }
-    const res8 =await this.callApi("get", `/app/getAllBlogPostsTwo`)
-    if(res7.status === 200 ){
-        this.lastTwoPost = res8.data
-    }
+    //  // this.allCity = res4.data;
+    //   // this.review_of_day.bestReview = res2.data.bestReview
+    //   this.loading = false;
+    // } else {
+    //   this.swr();
+    //   this.loading = false;
+    // }
+    // const res7 =await this.callApi("get", `/app/getAllSports`)
+    // if(res7.status === 200 ){
+    //     this.allSports = res7.data
+    // }
+    // const res8 =await this.callApi("get", `/app/getAllBlogPostsTwo`)
+    // if(res7.status === 200 ){
+    //     this.lastTwoPost = res8.data
+    // }
    
     
   },
