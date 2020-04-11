@@ -4148,6 +4148,7 @@ export default {
     async  created(){
        
         let tempPlace = (this.$route.query.place)? this.$route.query.place : ''
+        
         this.attribute = (this.$route.query.attribute)? this.$route.query.attribute : ''
         this.$store.commit('setPlace', tempPlace )
         let tempStr = (this.$route.query.str)? this.$route.query.str :''
@@ -4163,6 +4164,20 @@ export default {
         
         this.showStr = this.str
         this.splace = this.place
+        let sportss = (this.$route.query.sports)? this.$route.query.sports :''
+        if(sportss=="Women's Soccer"){
+
+            this.sports.push(sportss)
+            this.sports.push("Men's Soccer")
+        }
+        else if(sportss=="Men's Soccer"){
+
+            this.sports.push(sportss)
+            this.sports.push("Women's Soccer")
+        }
+        else{
+            this.sports.push(sportss)
+        }
         await this.SearchByKey()
         
         const [ res, res1,res2] = await Promise.all([

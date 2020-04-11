@@ -527,18 +527,66 @@ class UserController {
   }
     async getSchoolCoachByhighRated ({ request, response, auth }) {
 
-      return await SchoolCoach.query()
-        .with('allreviewLimit')
-        .with('school')
+      // return await SchoolCoach.query()
+      //   .with('allreviewLimit')
+      //   .with('school')
         
-        //  .with('school', (builder) => builder.distinct('sport'))
-        .with('topAtrribute.info')
-        .withCount('allreview as allreview')
-       .orderBy('avg_rating', 'desc').limit(3).fetch()
+      //   .with('topAtrribute.info')
+      //   .withCount('allreview as allreview')
+      //  .orderBy('avg_rating', 'desc').limit(3).fetch()
+
         // .whereHas('school', (builder) => {
         //   builder.where('city', 'LIKE', '%' + place + '%')
         // })
       // return await SchoolCoach.query().orderBy('avg_rating', 'desc').limit(3).fetch()
+
+
+      let one =  await SchoolCoach.query()
+        .with('allreviewLimit').
+         whereHas('school', (builder) => {
+                 builder.where('sport', 'Baseball')
+               }).with('school')
+        .with('topAtrribute.info')
+        .withCount('allreview as allreview')
+        .orderBy('avg_rating', 'desc').first()
+      let two =  await SchoolCoach.query()
+        .with('allreviewLimit') .
+        whereHas('school', (builder) => {
+          builder.where('sport', 'Football')
+        }).with('school')
+        .with('topAtrribute.info')
+        .withCount('allreview as allreview')
+        .orderBy('avg_rating', 'desc').first()
+
+      let three =  await SchoolCoach.query()
+        .with('allreviewLimit').whereHas('school', (builder) => {
+          builder.where('sport', "Women's Soccer")
+        })
+        .with('school')
+        .with('topAtrribute.info')
+        .withCount('allreview as allreview')
+        .orderBy('avg_rating', 'desc').first()
+
+      let four =  await SchoolCoach.query()
+        .with('allreviewLimit').whereHas('school', (builder) => {
+          builder.where('sport', "Men's Soccer")
+        })
+        .with('school')
+        .with('topAtrribute.info')
+        .withCount('allreview as allreview')
+        .orderBy('avg_rating', 'desc').first()
+        let alldata = []
+        alldata.push(one)
+        alldata.push(two)
+        // if (three.)
+        if (four.avg_rating > three.avg_rating){
+
+          alldata.push(four)
+        }
+        else{
+          alldata.push(three)
+        }
+        return alldata
 
     }
     async getSchoolCoachByMostRated ({ request, response, auth }) {
