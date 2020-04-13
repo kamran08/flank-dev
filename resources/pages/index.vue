@@ -676,7 +676,7 @@
                                                     <i :class="(highRatedCoach[2].avg_rating==5)?'fas fa-star':'far fa-star'"></i>
                                                 </li>
                                             </ul>
-                                              <h4 v-if="highRatedCoach[2] && highRatedCoach[2].totalRating"><img src="/images/no-rat.png" alt=""> <span >{{highRatedCoach[0].totalRating}}</span></h4>
+                                              <h4 v-if="highRatedCoach[2] && highRatedCoach[2].totalRating"><img src="/images/no-rat.png" alt=""> <span >{{highRatedCoach[2].totalRating}}</span></h4>
                                               <h4 v-else><img src="/images/no-rat.png" alt=""> <span >0</span></h4>
                                         </div>
                                     </div>
