@@ -32,12 +32,13 @@ class SchoolController {
   async index({ request, response, view }) {
      let tempCoach =
      [
+
    
     ]
     let i =1
     var start = new Date().getTime()
     for (let d of tempCoach) {
-      return tempCoach.length
+      // return tempCoach.length
       if (i == 7746) {
         break
       }
@@ -48,11 +49,11 @@ class SchoolController {
         'schoolName': d['Name Of School'],
         'city': d['City'],
         'state': d['State'],
-        'division': d['lDivisionogo'],
+        'division': d['Division'],
         'sport': d['Sport'],
         'roster': d['roster'],
         'alumni': d['alumni'],
-        'interestedAthletes': d['loInterested Athletesgo'],
+        'interestedAthletes': d['Interested Athletes'],
         'committedRecruit': d['Committed Recruit'],
         'placedAthletes': d['Placed Athletes'],
         'teamWebsite': d['Official Team Website']
