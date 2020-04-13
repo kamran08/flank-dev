@@ -30,16 +30,15 @@ class SchoolController {
    * @param {View} ctx.view
    */
   async index({ request, response, view }) {
-     let tempCoach = [
-               
+     let tempCoach =
+     [
    
-
     ]
     let i =1
     var start = new Date().getTime()
     for (let d of tempCoach) {
-      // return tempCoach.length
-      if (i == 18835) {
+      return tempCoach.length
+      if (i == 7746) {
         break
       }
       i++
@@ -205,7 +204,13 @@ class SchoolController {
 
       let avg = await SchoolCoach.query().with('avgRating').where('id',data.reviewFor).first()
       avg = JSON.parse(JSON.stringify(avg))
-      // return avg
+
+      if(data.rating>=3){
+         avg.totalgood+=1 
+      }
+      else{
+          avg.totalbad+=1
+      }
       await SchoolCoach.query().where('id',data.reviewFor).update({
         avg_rating:avg.avgRating.averageRating,
         totalRating:avg.avgRating.totalRating,
@@ -213,6 +218,8 @@ class SchoolController {
         averageHealthy:avg.avgRating.averageHealthy,
         totalHealthy:avg.avgRating.totalHealthy,
         averageHarmful:avg.avgRating.averageHarmful,
+        totalgood:avg.totalgood,
+        totalbad:avg.totalbad,
         
       })
      
@@ -221,6 +228,12 @@ class SchoolController {
 
       let avg = await Legend.query().with('avgRating').where('id',data.reviewFor).first()
       avg = JSON.parse(JSON.stringify(avg))
+       if(data.rating>=3){
+         avg.totalgood+=1 
+      }
+      else{
+          avg.totalbad+=1
+      }
       await Legend.query().where('id',data.reviewFor).update({
         avg_rating:avg.avgRating.averageRating,
         totalRating:avg.avgRating.totalRating,
@@ -228,6 +241,8 @@ class SchoolController {
         averageHealthy:avg.avgRating.averageHealthy,
         totalHealthy:avg.avgRating.totalHealthy,
         averageHarmful:avg.avgRating.averageHarmful,
+         totalgood:avg.totalgood,
+        totalbad:avg.totalbad,
         
       })
      
