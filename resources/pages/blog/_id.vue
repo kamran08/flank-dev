@@ -63,13 +63,13 @@
                               <p class="blog-cap-bold">- Lorem Ipsum</p> -->
                               <p v-html="singlePosts.descritpion" ></p>
                             </div>
-                            <div class="interest-box">
+                            <!-- <div class="interest-box">
                               <h3>Are you interested?</h3>
                               <ul>
                                 <li><button>Love it!</button></li>
                                 <li><button>It's ok!</button></li>
                               </ul>
-                            </div>
+                            </div> -->
                             <div class="flank-blog-slider">
                               <div class="flank-blog-slider-header">
                                 <h2>Also <span>on flank</span></h2>

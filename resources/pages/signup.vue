@@ -17,7 +17,7 @@
                             </div>
                             <div class="sign-up-social">
                                 <!-- <a @click="goToFacebook" class="sign-social-facebook"><i class="fab fa-facebook-square"></i> Sign Up with Facebook</a> -->
-                                <a @click="goToGoogle" class="sign-social-google"><img src="/images/go.png" /> Sign Up with Google</a>
+                                <!-- <a @click="goToGoogle" class="sign-social-google"><img src="/images/go.png" /> Sign Up with Google</a> -->
                             </div>
                             <p style="font-family: CeraPro;font-size: 13px;text-align: center;">Don't worry. We never post without your permission.</p>
                             <div class="flanker-divider"><span>Or</span></div>
