@@ -244,8 +244,12 @@
                                         </div>
                                         <div class="inner-item-reco-details">
                                             <div class="inner-item-rev-item" v-for="(item,index) in topReviews" :key="index" >
-                                                <figure>
-                                                    <img src="/images/act.png" alt="">
+                                                <figure style="border: 1px solid #a60202; border-radius: 10px" v-if="item.reviwer && item.reviwer.img">
+                                                    <img :src="item.reviwer.img" alt="">
+                                                </figure>
+                                                <figure v-else>
+                                                    <!-- <img src="/images/act.png" alt=""> -->
+                                                    <img src="/images/sticker-3.png" alt="">
                                                 </figure>
                                                 <div class="rev-item-caption">
                                                     <p class="readmore">"{{item.content}}"</p>
@@ -517,7 +521,8 @@
                                                         <div class="review-date">
                                                             <!-- <p>5/8/2019 <span>5:25:36</span></p> -->
                                                             <!-- <p>{{item.created_at}}</p> -->
-                                                            <p>07/24/2019</p>
+                                                            <!-- <p>07/24/2019</p> -->
+                                                            <p>{{item.created_at}}</p>
                                                         </div>
                                                         <div class="review-checkin" v-if="item.is_active">
                                                             <Tooltip content="We're always working to improve the authenticity of the reviews posted on Flank. When you see 'Verified' it means we've confirmed a user via (.edu, .org or.gov) profiles or reviews submitted by 'Active Player' profiles.">
@@ -1104,8 +1109,12 @@
                                     </div>
                                     <div class="inner-item-reco-details" style="padding: 25px 0;">
                                         <div class="inner-item-rev-item mob-inner-item-rev-item" v-for="(item,index) in topReviews" :key="index" >
-                                            <figure style="border: 1px solid #a60202; border-radius: 10px">
-                                                <img src="/images/act.png" alt="">
+                                            <figure style="border: 1px solid #a60202; border-radius: 10px" v-if="item.reviwer && item.reviwer.img">
+                                                <img :src="item.reviwer.img" alt="">
+                                            </figure>
+                                            <figure style="border: 1px solid #a60202; border-radius: 10px" v-else>
+                                                <!-- <img src="/images/act.png" alt=""> -->
+                                                <img src="/images/sticker-3.png" alt="">
                                             </figure>
                                             <div class="rev-item-caption">
                                                 <p class="readmore">"{{item.content}}"</p>

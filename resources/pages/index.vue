@@ -2577,7 +2577,8 @@ export default {
         if(this.tab==1){
             if(this.tab1==1){
                 if(this.selectedSearchData.coachId && this.selectedSearchData.schoolId){
-                    this.$router.push('/scoach_review/'+this.selectedSearchData.coachId)
+                    // this.$router.push('/scoach_review/'+this.selectedSearchData.coachId)
+                    this.$router.push('/school_coach/'+this.selectedSearchData.coachId)
                 }
                 else{
                     this.i("please find first coach!!")
@@ -2593,7 +2594,8 @@ export default {
         else{
             if(this.coachId){
 
-                this.$router.push('/scoach_review/'+this.coachId)
+                // this.$router.push('/scoach_review/'+this.coachId)
+                this.$router.push('/school_coach/'+this.coachId)
             }
              else{
                     this.i("please find first coach!!")
