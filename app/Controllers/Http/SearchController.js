@@ -342,31 +342,52 @@ class SearchController {
       .fetch()
   }
 
+  //  for school search
   async SearchByKeySchool({
     request
   }) {
     const data = request.all()
+    
     return await School.query()
-      .select('schoolName as name')
+      .distinct('schoolName as name')
       .select('sport')
       .select('city')
       .select('state')
       .select('division')
       .select('id')
       .where('schoolName', 'LIKE', '%' + data.key + '%').
-      limit(10).fetch()
+      limit(10).groupBy('schoolName').fetch()
   }
+  // for coach search 
 
   async SearchByKeySchoolCoach({
     request
 }) {
     const data = request.all()
+
+     let school =  await School.query().where('id', data.school_id).first()
+
+
+   let schoolss = await School.query().select('id').where('schoolName', school.schoolName).fetch()
+     schoolss = schoolss.toJSON()
+     // console.log(mdata)
+     let tempData = JSON.parse(JSON.stringify(schoolss))
+     let arr = []
+      //  return schoolss[0].id
+     for (let i of tempData) {
+      //  return schoolss[i].id
+       arr.push(i.id)
+     }
+    //  return arr
+
+
+
     return await SchoolCoach.query().with('school')
       .select('name')
       .select('id')
       .select('school_id')
       .where('name', 'LIKE', '%' + data.key + '%')
-      .where('school_id', data.school_id).
+      .whereIn('school_id', arr).
       limit(10)
       .fetch()
   }

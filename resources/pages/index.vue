@@ -2596,12 +2596,15 @@ export default {
           this.selectedSearchData.coachId = coach.id
       },
       selectSchoolName(school){
-
-          this.rData.school = school.name
-            this.selectedSearchData.schoolName= school.name
+        //    school = school.toJSON()
+     // console.log(mdata)
+             let tempData = JSON.parse(JSON.stringify(school))
+             this.schoolList =[]
+          this.rData.school = tempData.name
+            this.selectedSearchData.schoolName= tempData.name
             // this.rData.key= school.name
-            this.selectedSearchData.schoolId= school.id
-            this.sData.school_id= school.id
+            this.selectedSearchData.schoolId= tempData.id
+            this.sData.school_id= tempData.id
             this.schoolList =[]
             this.selectedSearchData.track = 1
 
