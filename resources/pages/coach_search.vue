@@ -3804,6 +3804,7 @@ export default {
                 text:''
             },
             isLoad:false,
+            str2:''
 
         }
     },
@@ -4110,7 +4111,7 @@ export default {
             }
 
           
-            const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.str}&pageOption=${this.pageOption}&sort=${this.sort}&div=${this.div}&rate=${this.oldrating.index}&sports=${this.sports}&attribute=${this.attribute}&page=${page}`)
+            const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.str}&str2=${this.str2}&pageOption=${this.pageOption}&sort=${this.sort}&div=${this.div}&rate=${this.oldrating.index}&sports=${this.sports}&attribute=${this.attribute}&page=${page}`)
             if(res.status === 200){
                 if(res.data && res.data.mainData && res.data.mainData.data && res.data.mainData.data.length>0){
 
@@ -4165,6 +4166,7 @@ export default {
         this.showStr = this.str
         this.splace = this.place
         let sportss = (this.$route.query.sports)? this.$route.query.sports :''
+        this.str2 = (this.$route.query.str2)? this.$route.query.str2 :''
         if(sportss=="Women's Soccer"){
 
             this.sports.push(sportss)
