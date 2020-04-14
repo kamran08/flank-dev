@@ -185,7 +185,7 @@
                                     <div class="header-details-input">
                                         <label>I'm looking for a coach at</label>
                                         <!-- input e jkn type shuru hobe thkn active class add hobe   -->
-                                        <input type="text" v-on:keyup="SearchByKeySchool" v-model="rData.school"   placeholder="your school">
+                                        <input type="text" @keypress="SearchByKeySchool" v-model="rData.school"   placeholder="your school">
 
                                         <!-- suggestion hisabe eta show hobe. active class add hobe jkn show hobe -->
                                         <div class="header-details-select-dropdown header-details-school-dropdown" :class="(schoolList.length==0 && rData.school)?'no-data active':(rData.school)?'active':''" :style="(schoolList.length==0 && rData.school!='' && selectedSearchData.track==1)?'display:none;':''">
@@ -205,10 +205,10 @@
                                     <div class="header-details-select" :class="(tab1==2)?'active':''" :style="(tab1==2)?'':'display:none;'">
                                         <p>in the</p>
                                         <div class="header-details-select-inner">
-                                            <div class="header-details-select-title" @click="tab2=2" v-if="tab2==0 || tab2==1">
+                                            <div class="header-details-select-title" @click="getSportsType2" v-if="tab2==0 || tab2==1">
                                                 <p>{{sportValue}}</p>
                                             </div>
-                                            <div class="header-details-select-title" @click="tab2=1" v-if="tab2==2">
+                                            <div class="header-details-select-title" @click="getSportsType" v-if="tab2==2">
                                                 <p>{{sportValue}}</p>
                                             </div>
                                             <!-- <div class="header-details-select-title" @click="tab1=1,tab2=0" v-if="tab2==2">
@@ -218,7 +218,8 @@
                                             <div class="header-details-select-dropdown sport-header-details-select-dropdown" :class="(tab2==2)?'active':''">
                                                 <h4>Sport type</h4>
                                                 <ul>
-                                                    <li @click="setValue('Baseball')">Baseball</li>
+                                                   <li @click="setValue(sport.sport)" v-for="(sport,index) in searchSports" :key="index">{{sport.sport}}</li>
+                                                    <!-- <li @click="setValue('Baseball')">Baseball</li>
                                                     <li @click="setValue(`Men's Basketball`)">Basketball(M)</li>
                                                     <li @click="setValue(`Women's Basketball`)">Basketball (W)</li>
                                                     <li @click="setValue(`Football`)">Football</li>
@@ -228,7 +229,7 @@
                                                     <li @click="setValue(`Women's Soccer`)">Soccer(W)</li>
                                                     <li @click="setValue(`Softball`)">Softball</li>
                                                     <li @click="setValue(`Men's Volleyball`)">Volleyball(M)</li>
-                                                    <li @click="setValue(`Women's Volleyball`)">Volleyball(W)</li>
+                                                    <li @click="setValue(`Women's Volleyball`)">Volleyball(W)</li> -->
                                                 </ul>
                                             </div>
                                         </div>
@@ -2366,6 +2367,7 @@ export default {
     },
   data() {
     return {
+        searchSports:[],
         findTaxt:'You could select ANYTHING here.',
         lastTwoPost:[],
         sportValue:'Select',
@@ -2546,6 +2548,22 @@ export default {
     }
   },
   methods: {
+      async getSportsType2(){
+          this.tab2=2
+          const res = await this.callApi('get',`/app/getAllSportsByKey?key=${this.selectedSearchData.schoolName}`)
+          if(res.status==200){
+              this.searchSports = res.data
+                
+
+          }
+        //   this.selectedSearchData.schoolName
+
+        
+      },
+      getSportsType(){
+            this.tab2=1
+        //   this.i("call 1")
+      },
       goToCoachSearchPage(rate,sports){
             this.$router.push(`/coach_search?pageOption=coach&str2=&sports=${sports}&rate=${rate}`)
       },
@@ -2600,14 +2618,13 @@ export default {
      // console.log(mdata)
              let tempData = JSON.parse(JSON.stringify(school))
              this.schoolList =[]
-          this.rData.school = tempData.name
+             this.rData.school = tempData.name
             this.selectedSearchData.schoolName= tempData.name
             // this.rData.key= school.name
             this.selectedSearchData.schoolId= tempData.id
             this.sData.school_id= tempData.id
             this.schoolList =[]
             this.selectedSearchData.track = 1
-
       },
 
     //   new coach add methods 
@@ -2982,13 +2999,15 @@ export default {
         "get",
         `/app/SearchByKeySchoolCoach?key=${this.rData.key}&school_id=${
           this.sData.school_id
-        }`
+        }&name=${this.selectedSearchData.schoolName}`
       );
       if (res.status === 200) {
         this.schoolCoachList = res.data;
       } else {
         this.swr();
       }
+
+    //   if()
     },
     async SearchByKeySchoolCoachNew() {
         this.selectedSearchData.track3=0

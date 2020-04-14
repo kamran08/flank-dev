@@ -350,13 +350,16 @@ class SearchController {
     
     return await School.query()
       .distinct('schoolName as name')
+      // .select(Database.raw('DISTINCT SchoolName as name'), 'city', 'sport', 'state')
       .select('sport')
       .select('city')
       .select('state')
       .select('division')
       .select('id')
       .where('schoolName', 'LIKE', '%' + data.key + '%').
-      limit(10).groupBy('schoolName').fetch()
+      limit(10)
+      .groupBy('schoolName')
+      .fetch()
   }
   // for coach search 
 
@@ -365,10 +368,10 @@ class SearchController {
 }) {
     const data = request.all()
 
-     let school =  await School.query().where('id', data.school_id).first()
+    //  let school =  await School.query().where('id', data.school_id).first()
 
 
-   let schoolss = await School.query().select('id').where('schoolName', school.schoolName).fetch()
+   let schoolss = await School.query().select('id').where('schoolName', data.name).fetch()
      schoolss = schoolss.toJSON()
      // console.log(mdata)
      let tempData = JSON.parse(JSON.stringify(schoolss))
@@ -405,9 +408,29 @@ class SearchController {
       .where('name', 'LIKE', '%' + data.coachName + '%').
       limit(10).fetch()
   }
-  async getAllSports({
-    request
-  }) {
+  async getAllSportsByKey({request}) {
+     const data = request.all()
+    let schoolss = await School.query()
+     .distinct('sport')
+       .select('sport')
+       .select('id')
+       .where('schoolName', 'LIKE', '%' + data.key + '%').
+        limit(12)
+       .groupBy('sport')
+       .fetch()
+    
+    
+    schoolss = schoolss.toJSON()
+    let tempData = JSON.parse(JSON.stringify(schoolss))
+    let arr = []
+    for (let i of tempData) {
+      arr.push({id:i.id,sport:i.sport})
+    }
+    return arr
+  }
+
+
+  async getAllSports({request }) {
     const data = request.all()
     return await Sport.all()
   }

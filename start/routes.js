@@ -92,6 +92,7 @@ Route.get('/app/SearchByKeySchoolCoachNew', 'SearchController.SearchByKeySchoolC
 Route.get('/app/SearchByKeyProduct', 'SearchController.SearchByKeyProduct')
 Route.get('/app/SearchByKeyProduct', 'SearchController.SearchByKeyProduct')
 Route.get('/app/SearchByKeySchool', 'SearchController.SearchByKeySchool')
+Route.get('/app/getAllSportsByKey', 'SearchController.getAllSportsByKey')
 Route.get('/app/SearchByKeySchoolCoach', 'SearchController.SearchByKeySchoolCoach')
 Route.get('/app/getAllSports', 'SearchController.getAllSports')
 Route.get('/app/searchPlace', 'SearchController.searchPlace')
