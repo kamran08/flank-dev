@@ -2535,7 +2535,7 @@ export default {
       lastTwoPost = res7.data
       legendList=res8.data
       allSports=res9.data
-      console.log(highRatedCoach.length)
+    //   console.log(highRatedCoach.length)
     
     // }
      return {
@@ -2547,6 +2547,7 @@ export default {
          highRatedCoach:highRatedCoach,
          lastTwoPost:lastTwoPost,
          legendList:legendList,
+         allSports:allSports,
          
       };
     } catch (error) {
