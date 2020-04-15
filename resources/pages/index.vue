@@ -2495,8 +2495,11 @@ export default {
 
   async asyncData({ app, store, redirect, params }) {
 
+
+    
+
     try {
-    const [res1,res2, res3,res4,res5,res6,res7,res8] = await Promise.all([
+    const [res1,res2, res3,res4,res5,res6,res7,res8,res9] = await Promise.all([
     //  this.callApi("get", `/app/getSchoolcoaches`),
       app.$axios.get(`/app/bannerImage`),
       app.$axios.get( `/app/reviewOfTheDay`),
@@ -2506,7 +2509,8 @@ export default {
       app.$axios.get( `/app/videos`),
       app.$axios.get( `/app/getSchoolCoachByhighRated`),
       app.$axios.get( `/app/getAllBlogPostsTwo`),
-      app.$axios.get(`/legends`)
+      app.$axios.get(`/legends`),
+      app.$axios.get(`/app/getAllSports`)
       
     ])
 
@@ -2518,6 +2522,7 @@ export default {
     var leandingData
     var lastTwoPost
     var legendList
+    var allSports
 
     // if (res1.status==200 && res3.status == 200 && res2.status == 200 && res4.status == 200 && res5.status == 200 && res6.status == 200 && res7.status == 200 && res8.status == 200) { 
     //  this.schoolCoaches = res1.data;
@@ -2529,6 +2534,7 @@ export default {
       highRatedCoach = res6.data;
       lastTwoPost = res7.data
       legendList=res8.data
+      allSports=res9.data
       console.log(highRatedCoach.length)
     
     // }
