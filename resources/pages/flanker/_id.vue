@@ -27,7 +27,7 @@
                                         <!-- <li><a href=""><span><i class="fas fa-user-friends"></i></span><span>Add Friend</span></a></li> -->
                                         <!-- <li><a href=""><span><i class="fas fa-lightbulb"></i></span><span>Compliment</span></a></li> -->
                                         <!-- <li><a @click="messageModal = true"><span><i class="fas fa-envelope"></i></span><span>Send Message</span></a></li> -->
-                                        <li><a @click="$router.push(`/profile_edit/`+authInfo.id)"><span><i class="fas fa-edit"></i></span><span>Edit Profile</span></a></li>
+                                        <li v-if="authInfo"><a @click="$router.push(`/profile_edit/`+authInfo.id)"><span><i class="fas fa-edit"></i></span><span>Edit Profile</span></a></li>
                                         <!-- <li><a href=""><span><i class="fas fa-user-friends"></i></span><span>Follow Bryan B.</span></a></li> -->
                                         <!-- <li><a href=""><span><i class="fas fa-user-friends"></i></span><span>Edit Profile</span></a></li> -->
                                         <!-- <li><a href="#user_review"><span><i class="fas fa-sync"></i></span><span>Simillar Reviews</span></a></li> -->
@@ -96,7 +96,7 @@
                                                 <img class="media-object" :src="item.school.logo" alt="">
                                             </div>
                                             <div class="media-body" id="user_review">
-                                                 <p>Coach Name: <strong>{{item.coach.name}}</strong></p>
+                                                 <p>Coach Name: <strong style="cursor: pointer;" @click="$router.push('/school_coach/'+item.coach.id)" v-if="item.coach">{{item.coach.name}}</strong></p>
                                                 <small>{{item.school.sport}}</small>
                                                 <p>
                                                     <small>{{item.school.division}}</small><br>
@@ -146,9 +146,9 @@
                                                     <p>Was this review ...?</p>
                                                     <div class="review-btn">
                                                         <ul>
-                                                            <li @click="reviewImo('cool',index,item)"   :class="(item.imosall.cool >= 1)? 'active_imo' : ''"    ><img src="/images/ic1.png" alt=""><span>Official</span> &nbsp;&nbsp;{{item.official}}</li>
-                                                            <li  @click="reviewImo('funny',index,item)"   :class="(item.imosall.funny >= 1)? 'active_imo' : ''"  ><img src="/images/ic2.png" alt=""><span>Bravery Badge</span> &nbsp;&nbsp;{{item.bravery}}</li>
-                                                            <li @click="reviewImo('useful',index,item)"  :class="(item.imosall.useful >= 1)? 'active_imo' : ''"   ><img src="/images/ic3.png" alt=""><span>Distinguished</span> &nbsp;&nbsp;{{item.distinguished}}</li>
+                                                            <li v-if="item.imosall && item.imosall.cool" @click="reviewImo('cool',index,item)"   :class="(item.imosall.cool >= 1)? 'active_imo' : ''"    ><img src="/images/ic1.png" alt=""><span>Official</span> &nbsp;&nbsp;{{item.official}}</li>
+                                                            <li v-if="item.imosall && item.imosall.funny"  @click="reviewImo('funny',index,item)"   :class="(item.imosall.funny >= 1)? 'active_imo' : ''"  ><img src="/images/ic2.png" alt=""><span>Bravery Badge</span> &nbsp;&nbsp;{{item.bravery}}</li>
+                                                            <li v-if="item.imosall && item.imosall.useful" @click="reviewImo('useful',index,item)"  :class="(item.imosall.useful >= 1)? 'active_imo' : ''"   ><img src="/images/ic3.png" alt=""><span>Distinguished</span> &nbsp;&nbsp;{{item.distinguished}}</li>
                                                         </ul>
                                                         <div class="review-btn-img">
                                                             <figure>
@@ -161,7 +161,8 @@
                                     </div>
                                 </div>
                                 <div class="profile-fill-more">
-                                    <p><a href="">More reviews by Kat L.</a></p>
+                                    <!-- <p @click="setPage(pages+1)"><a href="">More reviews by {{userData.firstName}} {{userData.lastName}}.</a></p> -->
+                                    <p class="coustom_k_p" @click="setPage(pages+1)">More reviews by {{userData.firstName}} {{userData.lastName}}.</p>
                                 </div>
                             </div>
                         </div>
@@ -368,6 +369,7 @@ import { Promise } from 'q';
 export default {
     data(){
         return{
+            pages:1,
             isEdit:false,
             loginModal:false,
             user_id:0,
@@ -559,6 +561,7 @@ export default {
             }
         },
         async setPage(key){
+            this.pages+=1
             this.page = key
             const res = await  this.callApi('get',`/app/getUserallReview/${this.userData.id}?page=${this.page}`)
             if(res.status == 200){
@@ -607,6 +610,9 @@ export default {
         handleSuccess (res, file) {
             this.userData.img = res.file 
         },
+        async getMoreReview(){
+
+        }
 
     },
     filters:{
@@ -637,3 +643,11 @@ export default {
 
 }
 </script>
+<style >
+.coustom_k_p{
+    font-size: 15px;
+    color: #2323a6;
+    cursor: pointer;
+}
+
+</style>

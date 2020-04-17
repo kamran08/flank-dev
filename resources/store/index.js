@@ -10,10 +10,14 @@ export const state = () => ({
   str: '',
   place: '',
   isMobileSideBar: false,
+  urlcheck:'/'
   
 })
 
 export const getters = {
+  getUrl (state) {
+    return state.urlcheck
+  },
   getIsLoggedIn (state) {
     return !!state.authInfo
   },
@@ -50,6 +54,9 @@ export const getters = {
 }
 
 export const mutations = {
+  setUrl (state, data) {
+    state.urlcheck = data
+  },
   setAuthInfo (state, data) {
     state.authInfo = data
   },

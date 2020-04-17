@@ -17,12 +17,12 @@
                                                 <input type="text" v-model="txt" placeholder="Coach/School Name">
                                             </div>
                                         </div>
-                                        <div class="review-form-item">
+                                        <!-- <div class="review-form-item">
                                             <div class="review-form-item-inner">
                                                 <label for="">Near</label>
                                                 <input type="text" v-model="placetxt" placeholder="Los Angeles, CA">
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="review-form-item">
                                             <div class="review-form-item-inner review-form-item-inner-btn">
                                                 <button class="review-search-icon" @click="searchCoach"> <span ><i class="fas fa-search"></i></span></button>

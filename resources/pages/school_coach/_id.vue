@@ -2346,7 +2346,7 @@ export default {
             this.isLoad = true
             const res = await this.callApi('post', '/app/sendreviewMessage', this.message)
             if(res.status==200 || res.status==204){
-                this.s("Message has been  sent  Successfull !")
+                this.s("Message has been sent Successfully!")
             this.message={
                 email:'',
                 subject: '',

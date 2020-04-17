@@ -312,14 +312,14 @@
                             <div :class="(index>0)?'flex-gap-4':''" class="submission-item"  v-for="(item,index) in recentReview " :key="index" v-if="index<4"  >
                                 <div class="submission-item-inner">
                                     <div class="submission-header">
-                                        <h3>Recent <span>submission</span></h3>
+                                        <h3 @click="directToCoachWall(item)" style="cursor: pointer !important;">Recent <span>submission</span></h3>
                                     </div>
                                     <div class="submission-img" >
                                         <img src="/images/sub1.jpg" alt="">
                                     </div>
                                     <div class="submission-details" >
                                         <!-- @click="directToCoachWall(item)" -->
-                                        <h4 >{{item.coach.name}} </h4>
+                                        <h4 @click="directToCoachWall(item)" style="cursor: pointer !important;">{{item.coach.name}} </h4>
                                         <p>Reviewed by: <span @click="$router.push(`/flanker/${item.reviwer.id}`)" style="cursor: pointer;">{{item.reviwer.firstName}} {{item.reviwer.lastName}}</span></p>
                                         <ul class="sub-rating" v-if="item.coach">
                                             <li :class="(item.coach.avg_rating>0)?'active':''"><span><i class="fas fa-star"></i></span></li>
@@ -440,14 +440,14 @@
                             <div :class="(index>0)?'flex-gap-4':''" class="submission-item"  v-for="(item,index) in recentReview " :key="index" v-if="index<3"  >
                                 <div class="submission-item-inner">
                                     <div class="submission-header">
-                                        <h3>Recent <span>submission</span></h3>
+                                        <h3 @click="directToCoachWall(item)" style="cursor: pointer !important;"> Recent <span>submission</span></h3>
                                     </div>
                                     <div class="submission-img" >
                                         <img src="/images/sub1.jpg" alt="">
                                     </div>
                                     <div class="submission-details" >
                                         <!-- @click="directToCoachWall(item)" -->
-                                        <h4 >{{item.coach.name}} </h4>
+                                        <h4 @click="directToCoachWall(item)" style="cursor: pointer;">{{item.coach.name}} </h4>
                                         <p>Reviewed by: <span @click="$router.push(`/flanker/${item.reviwer.id}`)" style="cursor: pointer;">{{item.reviwer.firstName}} {{item.reviwer.lastName}}</span></p>
                                         <ul class="sub-rating" v-if="item.coach">
                                             <li :class="(item.coach.avg_rating>0)?'active':''"><span><i class="fas fa-star"></i></span></li>
@@ -2367,6 +2367,11 @@ export default {
     },
   data() {
     return {
+         formData:{
+                email:'',
+                password:'',
+                remember: false,
+            },
         searchSports:[],
         findTaxt:'You could select ANYTHING here.',
         lastTwoPost:[],
@@ -2743,7 +2748,7 @@ export default {
             }
             
         },
-                async register(){
+        async register(){
 
              if(this.step2Form.firstName == '') return this.i("Frist name is empty!")
             if(this.step2Form.lastName == '') return this.i("Last name is empty!")
@@ -2777,8 +2782,6 @@ export default {
             if(res.status===200){
                 this.s("Login Successfully !")
                 this.$store.dispatch('setAuthInfo',res.data)
-
-               
                  
                  this.addNew.step = 3
                   
@@ -2791,6 +2794,7 @@ export default {
                 this.swr();
             }
         },
+        
 
            async reviewSubmit(){
             
@@ -2953,10 +2957,10 @@ export default {
     },
     directToCoachWall(item){
        // return this.i();
-       
-        if(item.review_type == 'school') this.$router.push(`/school_coach/${item.coach.id}`)
-        else if(item.review_type == 'product') this.$router.push(`/product/${item.product.id}`)
-        else if(item.review_type == 'legend') this.$router.push(`/profile/${item.legend.id}`)
+       this.$router.push(`/school_coach/${item.coach.id}`)
+        // if(item.review_type == 'school') this.$router.push(`/school_coach/${item.coach.id}`)
+        // else if(item.review_type == 'product') this.$router.push(`/product/${item.product.id}`)
+        // else if(item.review_type == 'legend') this.$router.push(`/profile/${item.legend.id}`)
     },
     closeModal() {
        this.rData.for=0
@@ -3125,6 +3129,8 @@ export default {
 },
 
   async created() {
+      
+      this.$store.commit('setUrl', "/")
     //   const res1 = await this.callApi("get", `/app/bannerImage`)
     //   if(res1.status==200){
     //       this.leandingData = res1.data

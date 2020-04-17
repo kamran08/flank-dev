@@ -45,7 +45,7 @@
                                 <input type="text" v-model="tStr" @enter="SearchByKey">
                             </div>
                             <div class="flank-search-btn">
-                                <button @click="SearchByKey"><span><i class="fas fa-search"></i></span></button>
+                                <button @click="SearchByKey" ><span><i class="fas fa-search"></i></span></button>
                             </div>
                         </div>
                     </div>
@@ -272,6 +272,7 @@
     export default { 
         data(){
             return{
+                urlcheck:this.getUrl,
                 showSideManu:false,
                 slectedTitle:'Coach Name',
                 isStringMenu:[false],
@@ -375,6 +376,7 @@
             
             }, 
             async SearchByKey(){
+                this.$store.commit('setUrl', '/')
                 // this.i('kd')
                 // if(this.pageOption != 'product'){
                 //     if(this.tStr == '' ) return this.i("Please Write a name")
@@ -601,8 +603,9 @@
         },
     watch: { 
       '$route.name': function(newVal, oldVal) { 
-          console.log(newVal)
-        // watch it
+        //   console.log(newVal)
+      
+          
         
         this.$store.commit('setIsMobileSideBar', false )
          this.isCoachSearchPage = true
@@ -613,6 +616,17 @@
         //   this.isCoachSearchPage = false
         // }
 
+      },
+      'getUrl':function(newValue, oldValue) {
+        //   this.i(newValue)
+          if(newValue=='/'){
+
+          }
+          else{
+
+                this.tStr = ''
+          }
+       
       }
     },
     }

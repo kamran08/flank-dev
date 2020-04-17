@@ -4035,6 +4035,9 @@ export default {
             
         },
         chnageType(item , division=''){
+            
+            // this.i("dskkfd")
+            this.$store.commit('setUrl', "new value")
             this.searchOn=false
             this.showStr=''
             this.attribute=''

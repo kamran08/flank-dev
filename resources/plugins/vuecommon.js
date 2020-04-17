@@ -219,7 +219,8 @@ Vue.mixin({
       str: 'getStr',
       place: 'getPlace',
       div: 'getDiv',
-      similar: 'getSimilar'
+      similar: 'getSimilar',
+      getUrl: 'getUrl'
     })
   },
   filters:{
