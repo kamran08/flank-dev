@@ -359,7 +359,7 @@
                                 New to Flank?
                             </span>               
                         </p>
-                          <nuxt-link   to='/signup' > <button class="create-btn">Create your Flank account</button></nuxt-link>
+                          <nuxt-link   :to="'/signup?from=scoach_review/'+$route.params.id" > <button class="create-btn">Create your Flank account</button></nuxt-link>
                         
                     </div>
                         <!-- <div class="signcont-left">

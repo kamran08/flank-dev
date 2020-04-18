@@ -53,7 +53,8 @@
                                 <div class="next-btn">
                                     <button @click="onSubmit"> Save & continue</button>
                                     <!-- <p><nuxt-link   :to="`/nlogin/step3`" >Skip</nuxt-link></p> -->
-                                    <p><nuxt-link   :to="`/`" >Skip</nuxt-link></p>
+                                    <p v-if="!from"><nuxt-link   :to="`/`" >Skip</nuxt-link></p>
+                                    <p v-else><nuxt-link   :to="'/'+from" >Skip</nuxt-link></p>
                                 </div>
                             </form>
                         </div>
@@ -82,6 +83,7 @@ export default {
                 img:'',
             },
             link:'https://graph.facebook.com/me/picture?access_token=',
+            from:false
         }
     },
     methods:{
@@ -92,7 +94,15 @@ export default {
                
                 this.s('Profile have been upadated!')
                 // this.$router.push(`/nlogin/step3`)
-                this.$router.push(`/`)
+
+               
+                 if(this.from!=''){
+                     this.$router.push(`/`+this.from)
+
+                 }
+                 else{
+                     this.$router.push(`/`)
+                 }
             }
             else if (res.status===401){
                 this.e(res.data.message)
@@ -124,6 +134,10 @@ export default {
 
             this.formData.img = this.authInfo.img.trim()
         }
+         if(this.$route.query.from){
+                this.from = this.$route.query.from
+                console.log(this.from)
+            }
         // this.authInfo.img
         // this.formData.img = this.authInfo.img
     }

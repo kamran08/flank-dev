@@ -3,10 +3,10 @@
 
   <!-- <div oncontextmenu="return false;"> -->
     <div >
-<script data-ad-client="ca-pub-5005018703171891" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- <script data-ad-client="ca-pub-5005018703171891" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
     <div id="fb-root"></div>
    <navber />
-   <mobileSideBar v-if="this.loc" />
+   <mobileSideBar v-if="loc" />
     <nuxt />
     <myFooter/>
   </div>

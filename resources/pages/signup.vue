@@ -123,6 +123,7 @@ export default {
                 bColor: '',
             },
             regModal:false,
+            from:''
         }
     },
     methods:{
@@ -149,7 +150,14 @@ export default {
                 // this.s('Registration Completed !')
                 this.s("Start Flanking")
             // return
-                window.location= '/nlogin/step2'
+                if(this.from==''){
+
+                    window.location= '/nlogin/step2'
+                }
+                else if(this.from!=''){
+                    window.location= '/nlogin/step2?from='+this.from
+                    
+                }
                  //this.$router.push('/login')
                  
             }
@@ -196,6 +204,11 @@ export default {
                 this.i('You Already Login!')
                 this.$router.push('/')
                 return
+            }
+
+            if(this.$route.query.from){
+                this.from = this.$route.query.from
+                console.log(this.from)
             }
         this.signInfo.bColor = this.bColor1;
     }

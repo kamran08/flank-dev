@@ -234,10 +234,10 @@
                                     </ul>
                                 </div> -->
 
-                                <div class="about-side-bar">
+                                <!-- <div class="about-side-bar">
                                     <p>Locations</p>
                                     <p class="in-ab">{{userData.address}}</p>
-                                </div>
+                                </div> -->
                                 <div class="about-side-bar">
                                     <p>Flanking Since</p>
                                     <p class="in-ab">{{userData.created_at}}</p>
@@ -246,10 +246,10 @@
                                     <p>Find Me In</p>
                                     <p class="in-ab">a dog park, with no dog, petting all the dogs</p>
                                 </div> -->
-                                <div class="about-side-bar">
+                                <!-- <div class="about-side-bar">
                                     <p>My Hometown</p>
                                     <p class="in-ab">{{userData.address}}</p>
-                                </div>
+                                </div> -->
                                 <!-- <div class="about-side-bar">
                                     <p>Why You Should Read My Reviews</p>
                                     <p class="in-ab">I love food and get extremely excited about the ones that are good</p>
