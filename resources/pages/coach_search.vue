@@ -152,21 +152,24 @@
                                 
                                     <!-- <p><a @click="$router.push(`/school_coach/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p> -->
                                 </div>
-                                <div v-if="searchData[0].avg_rating !=0" class="new-best-rated rated-red mt-15">
+                                <!-- <div v-if="searchData[0].avg_rating !=0" class="new-best-rated rated-red mt-15">
                                     <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
-                                </div>
-                                <div class="new-content-rev-details">
-                                    <div class="new-content-rev-left">
+                                </div> -->
+                                <div class="new-content-rev-details nupd-new-content-rev-details">
+                                    <div v-if="searchData[0].avg_rating !=0" class="new-best-rated rated-red">
+                                        <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
+                                    <div class="new-content-rev-left upd-new-content-rev-left">
                                         
                                         <figure>
                                             <img src="/images/ps.png" alt="">
                                         </figure>
                                     </div>
                                     <div class="new-content-rev-right" v-if="searchData[0].school">
-                                        <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" >{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                        <h2 class="width-260" style="cursor:pointer; margin-bottom: 0 !important;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" >{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
                                         <p>{{ searchData[0].school.schoolName}}</p>
                                         <span class="city-s">{{searchData[0].school.city}}, {{searchData[0].school.state}}</span>
-                                        <div class="new-content-star">
+                                        <div class="new-content-star" style="margin-top: 14px">
                                             <ul>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -176,11 +179,12 @@
                                             </ul>
                                             <!-- <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p> -->
                                         </div>
-                                        <div class="new-comment-para">
-                                            <p>
+                                        <div class="new-comment-para pr-new-comment-para" style="margin-top: 13px">
+                                            <p style="line-height: 18px">
                                                 "{{searchData[0].allreviewLimit.content}}"
-                                                <a href="">read more</a>
+                                                <!-- <a href="">read more</a> -->
                                             </p>
+                                            <p class="pr-new-link"><a href="">read more</a></p>
                                         </div>
                                         <div class="new-comment-btn">
                                             <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
@@ -196,21 +200,24 @@
                                     <h2>Your past reviews</h2>
                                     <!-- <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)">+++++++++++++++++++++++past reviews</a></p> -->
                                 </div>
-                                <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
+                                <!-- <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
                                     <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
-                                </div>
-                                <div class="new-content-rev-details">
-                                    <div class="new-content-rev-left">
+                                </div> -->
+                                <div class="new-content-rev-details nupd-new-content-rev-details">
+                                    <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
+                                        <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
+                                    <div class="new-content-rev-left upd-new-content-rev-left">
                                         
                                         <figure>
                                             <img src="/images/ps.png" alt="">
                                         </figure>
                                     </div>
                                     <div class="new-content-rev-right">
-                                        <h2 style="cursor:pointer;"  @click="$router.push(`/local_instructor/${searchData[0].id}`)" >{{ searchData[0].name}} -  {{ searchData[0].sport}}  </h2>
+                                        <h2 class="width-260" style="cursor:pointer; margin-bottom: 0 !important;"  @click="$router.push(`/local_instructor/${searchData[0].id}`)" >{{ searchData[0].name}} -  {{ searchData[0].sport}}  </h2>
                                         
                                         <span class="city-s">{{searchData[0].city}}, {{searchData[0].state}}</span>
-                                        <div class="new-content-star">
+                                        <div class="new-content-star" style="margin-top: 14px">
                                             <ul>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
@@ -220,11 +227,12 @@
                                             </ul>
                                             <!-- <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p> -->
                                         </div>
-                                        <div class="new-comment-para">
-                                            <p>
+                                        <div class="new-comment-para pr-new-comment-para" style="margin-top: 13px">
+                                            <p style="line-height: 18px">
                                                 "{{searchData[0].allreviewLimit.content}}"
-                                                <a href="">read more</a>
+                                                <!-- <a href="">read more</a> -->
                                             </p>
+                                            <p class="pr-new-link"><a href="">read more</a></p>
                                         </div>
                                         <div class="new-comment-btn">
                                             <button @click="$router.push(`/addreview/${searchData[0].id}`)" >Write a Review</button>
@@ -240,7 +248,7 @@
                         <div v-if="searchData.length>0" >
 
                             <div class="_1coach_items" v-if="pageOption == 'coach'"  v-for="(item,index) in searchData" :key="index"  >
-                                <div class="desk-fl-top">
+                                <div class="desk-fl-top ">
 
                                     <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
                                         <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -404,7 +412,7 @@
                                     </div>
                                     ami ekano kichu edit korsilam 
                                 </div> -->
-                                 <div class="desk-fl-top" v-if="item.avgRating">
+                                 <div class="desk-fl-top " v-if="item.avgRating">
 
                                     <div v-if="item.avgRating.averageRating !=0 || item.avgRating.averageRating!=null" class="new-best-rated rated-yellow">
                                         <p  class="">{{ (item.avgRating.averageRating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -593,7 +601,7 @@
                                     </div>
                                 </div>
                             </div>
-                  <div class="_1coach_items" v-if="pageOption == 'legend'"  v-for="(item,index) in searchData" :key="index"  >
+                            <div class="_1coach_items" v-if="pageOption == 'legend'"  v-for="(item,index) in searchData" :key="index"  >
                                 <div class="desk-fl-top">
 
                                     <p v-if="item.avg_rating !=0" class="worst yellow">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
@@ -627,7 +635,7 @@
 
                                                         <p class="_2card_details_city">{{item.city}}, {{item.state}}</p>
                                                     </div>
-                                                   <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
                                                     <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
                                                     <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
 
@@ -724,12 +732,19 @@
                                             <p class="_1coach_time">Sept,11,2019</p>
 
                                             <p class="_1coach_status">
-                                            There's a human context around this, it's just not the statistics that drive people to see how change 
-                                                is necessary, it's the human context sharing the experience and frustration from player, who were cast
-                                                aside, by coach who didn't care and just focused on their own interest. Often times it's series of tribes,
-                                                flank is the main tribe what won't let a crisis go to waste, crisis force bureaucracy, we force leaders to
-                                                make decisions, when reputations are on the line, resources are on the line. Use this site to drive change.
-                                                Because doing nothing, leads to nothing. These coaches are promoting healthy coaching.
+                                            There’s a human context around this, its just 
+not the statistics that drive people to see how
+change is necessary, it’s the human context –
+sharing the experience and frustration from
+players, who were cast aside, by coaches
+who didn’t care and just focused on their
+own interests.  Often times it’s a series of
+tribes, Flank is the main tribe what won’t let
+a crisis go to waste, crisis force bureaucracy,
+we force leaders to make decisions, when
+reputations are on the line, resources are
+on the line. Use this site to drive change.
+Because doing nothing, leads to nothing.
                                             </p>
                                         </div>
                                     </div>
@@ -739,7 +754,8 @@
                                         <div class="_1card">
                                             <p class="_2title">Our Top Choice</p>
 
-                                              <p class="_1card_subtitle">{{item.name}} - {{item.school.sport}} {{item.school.city}}</p>
+                                              <p class="_1card_subtitle">{{item.name}} - {{item.school.sport}}</p>
+                                              <p class="_1card_subtitle">{{item.school.city}}/{{item.school.state}}</p>
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -1252,13 +1268,13 @@
                         <div class="_1coach_items"  v-if="pageOption != 'product'" >
                             <div class="_1coach_barch desk-fl-top">
                                 <p class="worst worst-col">Flank's <span>Choice</span></p>
-                                <p class="_1title">Higly rated, sustainable instructors that benefit the players communities where they coach</p>
+                                <p class="_1title">Higly rated, sustainable instructors that benefit the players communities where they coach.</p>
                             </div>
 
                             <div class="_2coach_main">
                                 <div class="row flex-row">
                                     <!-- Card -->
-                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1" v-for="(item,index) in mostratedpost" :key="index">
+                                    <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1" v-for="(item,index) in mostratedpost" :key="index" style="padding: 0 10px;">
                                         <div class="_1card">
                                             <p class="_1card_star">{{4-index}} Stars & Up</p>
 
@@ -1267,8 +1283,9 @@
                                             </div>
 
                                             <div class="_1card_details">
-                                                <p class="_3title">{{item.name}} - {{item.school.sport}} {{item.school.city}}/{{item.school.state}}</p>
-                                                <div class="_1rating">
+                                                <p class="_3title">{{item.name}} - {{item.school.sport}}</p>
+                                                <p class="_3title">{{item.school.schoolName}}</p>
+                                                <div class="_1rating" style="margin-top: 7px;">
                                                      <ul class="_1rating_list">
                                                         <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
                                                         <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
@@ -1312,7 +1329,7 @@
                                     <!-- Card -->
                                     <!-- <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1">
                                         <div class="_1card">
-                                            <p class="_1card_star">2 Stars & Up</p>
+                                            <p class="_1card_star">2 Stars & Down</p>
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -1338,7 +1355,7 @@
                                     <!-- Card -->
                                     <!-- <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1">
                                         <div class="_1card">
-                                            <p class="_1card_star">1 Stars & Up</p>
+                                            <p class="_1card_star">1 Stars</p>
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -1894,7 +1911,7 @@
                     </div>
                     <div class="new-flank-content no-margin" v-else  >
                         <div v-if="pageOption == 'coach'">
-                            <div class="new-flank-content-rev new-box-shadow new-pad-lr" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null && isLoggedIn"  style="padding-bottom: 20px;">
+                            <div class="new-flank-content-rev new-box-shadow " v-if=" searchData.length>0 && searchData[0].allreviewLimit != null && isLoggedIn"  style="padding-bottom: 5px;">
                                 <div class="new-content-rev-title">
                                   
                                     <h2 class="pad-border uppercase" >Your past reviews</h2>
@@ -1904,10 +1921,10 @@
                                 <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
                                     <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
-                                <div class="_2card _2card_new new-content-rev-details">
+                                <div class="_2card _2card_new new-content-rev-details new-overflow-x ">
                                     <div class="_2card_pic"><img src="/images/ps.png" alt="" title="" class="_2card_img"></div>
                                     <div class="new-content-rev-right" v-if="searchData[0].school">
-                                        <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
+                                        <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${searchData[0].id}`)" class="font-24 weight-400 width-260">{{ searchData[0].name}} -  {{ (searchData[0].school.sport)? searchData[0].school.sport: ''}}  </h2>
                                         <p class="font-18 weight-400">{{ searchData[0].school.schoolName}}</p>
                                         <span class="city-s">{{searchData[0].school.city}}, {{searchData[0].school.state}}</span>
                                         <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
@@ -1934,7 +1951,7 @@
                         
                         </div>
                         <div v-if="pageOption == 'legend'">
-                            <div class="new-flank-content-rev new-box-shadow new-pad-lr" v-if=" searchData.length>0 && searchData[0].allreviewLimit != null && isLoggedIn"  style="padding-bottom: 20px;">
+                            <div class="new-flank-content-rev new-box-shadow " v-if=" searchData.length>0 && searchData[0].allreviewLimit != null && isLoggedIn"  style="padding-bottom: 5px;">
                                 <div class="new-content-rev-title">
                                     <h2 class="pad-border uppercase" >Your past reviews</h2>
                                     <!-- <p><a @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="new-text-blue">See all past reviews</a></p> -->
@@ -1942,7 +1959,7 @@
                                 <div v-if="searchData[0].avg_rating !==0" class="new-best-rated rated-red mt-15">
                                     <p >{{ (searchData[0].avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
-                                <div class="new-content-rev-details">
+                                <div class="new-content-rev-details new-overflow-x ">
                                     <div class="new-content-rev-left">
                                         
                                         <figure>
@@ -1950,7 +1967,7 @@
                                         </figure>
                                     </div>
                                     <div class="new-content-rev-right">
-                                        <h2 style="cursor:pointer;"  @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="font-24 weight-400">{{ searchData[0].name}} -  {{ searchData[0].sport}}  </h2>
+                                        <h2 style="cursor:pointer;"  @click="$router.push(`/local_instructor/${searchData[0].id}`)" class="font-24 weight-400 width-260">{{ searchData[0].name}} -  {{ searchData[0].sport}}  </h2>
                                         <span class="city-s">{{searchData[0].city}}, {{searchData[0].state}}</span>
                                         <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                             <ul>
@@ -2256,12 +2273,19 @@
                                             <p class="_1coach_time" style="font-style: italic;">Sept,11,2019</p>
 
                                             <p class="_1coach_status">
-                                            There's a human context around this, it's just not the statistics that drive people to see how change 
-                                                is necessary, it's the human context sharing the experience and frustration from player, who were cast
-                                                aside, by coach who didn't care and just focused on their own interest. Often times it's series of tribes,
-                                                flank is the main tribe what won't let a crisis go to waste, crisis force bureaucracy, we force leaders to
-                                                make decisions, when reputations are on the line, resources are on the line. Use this site to drive change.
-                                                Because doing nothing, leads to nothing. These coaches are promoting healthy coaching.
+                                            There’s a human context around this, its just 
+not the statistics that drive people to see how
+change is necessary, it’s the human context –
+sharing the experience and frustration from
+players, who were cast aside, by coaches
+who didn’t care and just focused on their
+own interests.  Often times it’s a series of
+tribes, Flank is the main tribe what won’t let
+a crisis go to waste, crisis force bureaucracy,
+we force leaders to make decisions, when
+reputations are on the line, resources are
+on the line. Use this site to drive change.
+Because doing nothing, leads to nothing.
                                             </p>
                                         </div>
                                     </div>
@@ -2269,15 +2293,16 @@
                                     
                                     <!-- Card Items -->
                                 </div>
-                                <div class="row pl-20 mt-20 new-flanker-top-choice">
-                                    <hooper :itemsToShow="3" :infiniteScroll="true" >
+                                <div class="row  mt-20 new-flanker-top-choice">
+                                    <hooper :settings="editHooperSetting" >
                                     <!-- Card Items -->
                                         <slide v-for="(item,index) in ratedpost" :key="index" >
-                                            <div class=" pad-10-b">
+                                            <div class=" pad-10-b mobile-flanker-top-item">
                                                 <div class="_1card _1card-border">
                                                     <p class="_2title">Our Top Choice</p>
 
-                                                    <p class="_1card_subtitle">{{item.name}} - {{item.school.sport}} {{item.school.city}}</p>
+                                                    <p class="_1card_subtitle weight-400">{{item.name}} - {{item.school.sport}}</p>
+                                                    <p class="_1card_subtitle weight-400">{{item.school.city}}/{{item.school.state}}</p>
 
                                                     <div class="_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -2297,7 +2322,7 @@
                                                             </ul>
                                                         </div>
                                                        <p class="_1card_tag">{{item.averageHealthy}} Health Score</p>
-                                                        <p class="_1text">
+                                                        <p class="_1text" style="line-height: 17px;">
                                                             When you're after a true empowering coach
                                                             , coach Jhon Doe nails all the healthy coaching attributes.
                                                         </p>
@@ -2786,14 +2811,14 @@
 
                                 <div class="_1coach_barch">
                                     <p class="worst worst-col">Flank's <span class="red-col">Choice</span></p>
-                                    <p class="_1title weight-400">Higly rated, sustainable instructors that benefit the players communities where they coach</p>
+                                    <p class="_1title weight-400">Higly rated, sustainable instructors that benefit the players communities where they coach.</p>
                                 </div>
                             </div>
 
-                            <div class="_2coach_main _2coach_main_hooper">
-                                <hooper :itemsToShow="3"  >
+                            <div class="_2coach_main _2coach_main_hooper mobile-flank-choice">
+                                <hooper  :settings="choiceHooperSetting" >
                                         <slide v-for="(item,index) in mostratedpost" :key="index" >
-                                            <div class=" flex-1">
+                                            <div class="mobile-choice-item-list">
                                                 <div class="_1card">
                                                     <p class="_1card_star">{{4-index}} Stars & Up</p>
 
@@ -2802,8 +2827,9 @@
                                                     </div>
 
                                                     <div class="_1card_details _1card_details_mob">
-                                                        <h3 class="_3title">{{item.name}}  - <span>{{item.school.sport}}</span></h3>
+                                                        <h3 class="_3title">{{item.name}}</h3>
                                                         <p class="_3title">{{item.school.schoolName}}</p>
+                                                        <p class="_3title">{{item.school.sport}}</p>
                                                         <div class="_1rating mt-10">
                                                              <ul class="_1rating_list">
                                                                 <li :class="(item.avg_rating>0)?'_1rating_active':''"><i class="fas fa-star"></i></li>
@@ -3721,6 +3747,56 @@ export default {
     },
     data(){
         return{
+            editHooperSetting: {
+                breakpoints: {
+                    700: {
+                        itemsToShow: 2.3
+                    },
+
+                    550: {
+                        itemsToShow: 2.1
+                    },
+
+                    450: {
+                        itemsToShow: 1.6
+                    },
+
+                    350: {
+                        itemsToShow: 1.3
+                    },
+
+                    300: {
+                        itemsToShow: 1.2
+                    },
+                }
+            },
+            choiceHooperSetting: {
+                breakpoints: {
+                    700: {
+                        itemsToShow: 3.3
+                    },
+
+                    600: {
+                        itemsToShow: 3.1
+                    },
+
+                    500: {
+                        itemsToShow: 2.5
+                    },
+
+                    400: {
+                        itemsToShow: 2.1
+                    },
+
+                    349: {
+                        itemsToShow: 1.8
+                    },
+
+                    300: {
+                        itemsToShow: 1.5
+                    },
+                }
+            },
             searchOn:true,
             ratedpost:{},
             tsports:'',
