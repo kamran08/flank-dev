@@ -1126,10 +1126,10 @@
                                     <div class="inner-item-review-title" style="padding: 15px 30px; margin-bottom: 5px;background: transparent;">
                                         <h4 class="pad-border" style="padding-left: 0;">LATEST VIDEOS</h4>
                                     </div>
-                                    <div class="row plus-row up-ch-pad" style="padding-bottom: 15px;">
-                                        <hooper :itemsToShow="3" :infiniteScroll="false">
+                                    <div class="row plus-row up-ch-pad mobile-latest-video" style="padding-bottom: 15px;">
+                                        <hooper :settings="videoHooperSetting">
                                             <slide v-for="(item,index) in coachVideo" :key="index">
-                                                <div class="col-md-3 col-sm-6"  >
+                                                <div class="mobile-video-new-item"  >
                                                     <div class="inner-scandal-video-item" @click="openVideomobile(item.body)">
                                                         <figure >
                                                             <img :src="item.img" alt="">
@@ -2100,6 +2100,29 @@ export default {
    },
     data(){
         return{
+            videoHooperSetting: {
+                breakpoints: {
+                    700: {
+                        itemsToShow: 3.5
+                    },
+
+                    568: {
+                        itemsToShow: 3.25
+                    },
+
+                    468: {
+                        itemsToShow: 2.5
+                    },
+
+                    368: {
+                        itemsToShow: 2.25
+                    },
+
+                    300: {
+                        itemsToShow: 1.5
+                    }
+                }
+            },
             mobileScreen:false,
             twitter_text:"Check out Coach John Doe’s Review on @Flank",
             isSmallScreen:false,

@@ -12,9 +12,9 @@
                                 <form v-on:submit.prevent>
                                     <div class="review-form-box">
                                         <div class="review-form-item">
-                                            <div class="review-form-item-inner">
+                                            <div class="review-form-item-inner up-review-form-item-inner">
                                                 <label for="">Find</label>
-                                                <input type="text" v-model="txt" placeholder="Coach/School Name">
+                                                <input type="text" v-model="txt" placeholder="Coach/School Name" style="padding-top: 0px !important; padding-bottom: 2px !important;">
                                             </div>
                                         </div>
                                         <!-- <div class="review-form-item">
