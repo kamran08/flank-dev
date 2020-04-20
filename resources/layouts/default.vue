@@ -30,7 +30,6 @@ export default {
   data(){
     return{
       header:1,
-      loc:false
     }
   },
 
