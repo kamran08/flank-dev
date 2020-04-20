@@ -349,8 +349,11 @@ class SearchController {
     const data = request.all()
     
     return await School.query()
-      .distinct('schoolName as name')
+      // .distinct('schoolName as name')
+      .distinct('city')
+      // .distinct('state')
       // .select(Database.raw('DISTINCT SchoolName as name'), 'city', 'sport', 'state')
+      .select('schoolName as name')
       .select('sport')
       .select('city')
       .select('state')
@@ -358,7 +361,8 @@ class SearchController {
       .select('id')
       .where('schoolName', 'LIKE', '%' + data.key + '%').
       limit(10)
-      .groupBy('schoolName')
+      .groupBy('city')
+      // .groupBy('schoolName')
       .fetch()
   }
   // for coach search 
