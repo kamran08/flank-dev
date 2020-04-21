@@ -20,7 +20,7 @@ class SchoolCoach extends Model {
     return this.hasOne('App/Models/Review', 'id', 'reviewFor').where('review_type', 'school').limit(1).orderBy('id','desc')
   }
   topAtrribute () {
-    return this.hasMany('App/Models/ReviewAttribute', 'id', 'reviewFor').select( 'reviewFor' , 'attribute_id', Database.raw('COUNT(id) as total')).groupBy('attribute_id').limit(4);
+    return this.hasMany('App/Models/ReviewAttribute', 'id', 'reviewFor').select( 'reviewFor' , 'attribute_id', Database.raw('COUNT(id) as total')).groupBy('attribute_id').orderBy('total','desc').limit(4);
   }
   school () {
     return this.belongsTo('App/Models/School', 'school_id', 'id')

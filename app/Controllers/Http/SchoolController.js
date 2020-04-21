@@ -330,7 +330,7 @@ class SchoolController {
     let last10 = this.countLast10(data)
 
     let healthSore = ((asss[0][0].avgHealthIndex - asss[0][0].avgHarmfulIndex) * 6.66)
-    let PCT = ((asss[0][0].PositiveReview * 100) /  asss[0][0].TotalReview)
+    let PCT = parseFloat((parseFloat(asss[0][0].PositiveReview) * 100) /  parseFloat(asss[0][0].TotalReview))
     PCT = PCT.toFixed(2)
     let STI = streak + asss[0][0].PositiveReview + ((asss[0][0].avgHealthIndex - asss[0][0].avgHarmfulIndex) * 6.66)
     return response.status(200).json({
@@ -339,7 +339,7 @@ class SchoolController {
       metrice: asss[0][0],
       streak: streak,
       ps: ps,
-      PCT: PCT,
+      PCT: parseFloat( PCT),
       totalCorruption: corruption[0][0].totalCorruption,
       last10: last10,
       healthSore: healthSore,
