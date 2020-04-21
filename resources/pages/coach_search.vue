@@ -4,8 +4,12 @@
             
 
             <div class="new-search-flank" id="topId">
-                <div class="new-search-flank-num" v-if="searchOn">
+                <!-- <div class="new-search-flank-num" v-if="searchOn">
                     <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p> 
+                </div> -->
+                <div class="new-search-flank-num" >
+                    <p v-if="str">  1-5 of over {{pagination.total}} results for <span>"{{str}}"</span></p> 
+                    <p v-else>  1-5 of over {{pagination.total}} results for <span></span></p> 
                 </div>
                 <div :class="(isMobileMenu)? 'modal-open': 'flank-filter'" v-if="showMenuButton" >
                     <span @click="isMobileMenu = (isMobileMenu)? false : true"><i class="fas fa-filter"></i></span>
@@ -774,11 +778,14 @@ Because doing nothing, leads to nothing.
                                                         <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                     </ul>
                                                 </div>
-                                                <p class="_1card_tag">{{item.averageHealthy}} Health Score</p>
-                                                <p class="_1text">
+                                                <p class="_1card_tag">{{item.healthScore}} Health Score</p>
+                                                  <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
+                                                <!-- <p class="_1text">
                                                     When you're after a true empowering coach
                                                     , coach {{item.name}} nails all the healthy coaching attributes.
-                                                </p>
+                                                </p> -->
                                             </div>
                                         </div>
                                     </div>
@@ -1276,7 +1283,7 @@ Because doing nothing, leads to nothing.
                                     <!-- Card -->
                                     <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1" v-for="(item,index) in mostratedpost" :key="index" style="padding: 0 10px;">
                                         <div class="_1card">
-                                            <p class="_1card_star">{{4-index}} Stars & Up</p>
+                                            <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star': 'Stars & Up'}}</p>
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -1776,7 +1783,9 @@ Because doing nothing, leads to nothing.
 
             <div class="new-search-flank new-box-shadow" id="topId">
                 <div class="new-search-flank-num">
-                    <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p>
+                    <!-- <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p> -->
+                    <p v-if="str" >  1-5 of over {{pagination.total}} results for <span>"{{str}}"</span></p>
+                    <p v-else >  1-5 of over {{pagination.total}} results for</p>
                 </div>
                
             </div>
@@ -2321,11 +2330,14 @@ Because doing nothing, leads to nothing.
                                                                 <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                             </ul>
                                                         </div>
-                                                       <p class="_1card_tag">{{item.averageHealthy}} Health Score</p>
-                                                        <p class="_1text" style="line-height: 17px;">
+                                                       <p class="_1card_tag">{{item.healthScore}} Health Score</p>
+                                                        <!-- <p class="_1text">
                                                             When you're after a true empowering coach
                                                             , coach Jhon Doe nails all the healthy coaching attributes.
-                                                        </p>
+                                                        </p> -->
+                                                        <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2820,7 +2832,7 @@ Because doing nothing, leads to nothing.
                                         <slide v-for="(item,index) in mostratedpost" :key="index" >
                                             <div class="mobile-choice-item-list">
                                                 <div class="_1card">
-                                                    <p class="_1card_star">{{4-index}} Stars & Up</p>
+                                                    <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star': 'Stars & Up'}}</p>
 
                                                     <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -4094,7 +4106,8 @@ export default {
            // this.reviewData.uploadList = this.uploadList
           //  this.reviewData.AttributeInfo = this.AttributeInfo
 
-            const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
+            const res = await this.callApi('post','/app/storeSchoolCoachTeampReview',this.step3Form)
+            // const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
             if(res.status===200){
                 this.s('Review posted successfully!')
                 this.addNew.step = 4
@@ -4177,6 +4190,7 @@ export default {
             this.SearchByKey()
         },
         async SearchByKey(page=1){
+          
             // this.showStr=''
 
             // if(this.pageOption != 'product'){
@@ -4188,6 +4202,8 @@ export default {
                 this.showStr = ''
                this.$store.commit('setStr', '')
             }
+            
+          
 
           
             const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.str}&str2=${this.str2}&pageOption=${this.pageOption}&sort=${this.sort}&div=${this.div}&rate=${this.oldrating.index}&sports=${this.sports}&attribute=${this.attribute}&page=${page}`)
@@ -4226,6 +4242,7 @@ export default {
 
     },
     async  created(){
+        // this.i("okk")
        
         let tempPlace = (this.$route.query.place)? this.$route.query.place : ''
         
@@ -4272,10 +4289,12 @@ export default {
             this.allSports = res.data
             this.ratedpost = res1.data
             this.mostratedpost = res2.data
+            this.coachAssignRateText(this.ratedpost)
+            this.coachAssignRateText(this.mostratedpost)
         }
        
 
-    this.sort = "Sort By"
+        this.sort = "Sort By"
         // this. showCurrentPage = (Math.ceil(this.pagination.total)/(this.pagination.perPage)-this.pagination.page)
 
     },

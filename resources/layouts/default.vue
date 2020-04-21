@@ -5,6 +5,7 @@
     <div >
   <!-- <script data-ad-client="ca-pub-5005018703171891" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
     <div id="fb-root"></div>
+    <!-- <adsbygoogle />  -->
    <navber />
    <mobileSideBar v-if="loc" />
     <nuxt />
@@ -30,7 +31,6 @@ export default {
   data(){
     return{
       header:1,
-      loc:false
     }
   },
 

@@ -592,7 +592,7 @@
                                                 <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
                                                     <span class="new-meter-font">50</span>
                                                 </div>
-                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore > 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
                                                     <span></span>
                                                 </div>
                                                 <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">
@@ -1035,7 +1035,7 @@
                                         <a class="_1health_more_a" href="">LEARN MORE</a>
                                     </p> -->
                                 </div>
-                                <div class="inner-item-review-sec new-box-shadow new-mt-10" v-if="legendData.topAtrribute">
+                                <div class="inner-item-review-sec new-box-shadow new-mt-10" v-if="legendData.topAtrribute.length">
                                     <div class="inner-item-known-title pad-border" style="padding: 15px 0 10px;">
                                         <h4>Known For</h4>
                                     </div>
@@ -1103,7 +1103,7 @@
                                     </div>
                                 </div>
                                 <!-- new flank -->
-                                <div class="inner-item-review-sec new-box-shadow new-mt-10" style="padding: 0;">
+                                <div class="inner-item-review-sec new-box-shadow new-mt-10" style="padding: 0;" v-if="topReviews.length>0">
                                     <div class="inner-item-review-title" style="padding: 25px 20px 10px; background: transparent;">
                                         <h4 class="pad-border" style="padding-left: 0;">Review Highlights</h4>
                                     </div>
@@ -2450,7 +2450,8 @@ export default {
            // this.reviewData.uploadList = this.uploadList
           //  this.reviewData.AttributeInfo = this.AttributeInfo
 
-            const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
+            const res = await this.callApi('post','/app/storeSchoolCoachTeampReview',this.step3Form)
+            // const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
             if(res.status===200){
                 this.s('Review posted successfully!')
                 this.addNew.step = 4

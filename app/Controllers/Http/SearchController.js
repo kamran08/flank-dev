@@ -349,16 +349,20 @@ class SearchController {
     const data = request.all()
     
     return await School.query()
-      .distinct('schoolName as name')
+      // .distinct('schoolName as name')
+      .distinct('city')
+      // .distinct('state')
       // .select(Database.raw('DISTINCT SchoolName as name'), 'city', 'sport', 'state')
+      .select('schoolName as name')
       .select('sport')
       .select('city')
       .select('state')
       .select('division')
       .select('id')
       .where('schoolName', 'LIKE', '%' + data.key + '%').
-      limit(10)
-      .groupBy('schoolName')
+      limit(15)
+      .groupBy('city')
+      // .groupBy('schoolName')
       .fetch()
   }
   // for coach search 
@@ -368,20 +372,16 @@ class SearchController {
 }) {
     const data = request.all()
 
-    //  let school =  await School.query().where('id', data.school_id).first()
+     let school =  await School.query().where('id', data.school_id).first()
 
 
-   let schoolss = await School.query().select('id').where('schoolName', data.name).fetch()
-     schoolss = schoolss.toJSON()
-     // console.log(mdata)
-     let tempData = JSON.parse(JSON.stringify(schoolss))
-     let arr = []
-      //  return schoolss[0].id
-     for (let i of tempData) {
-      //  return schoolss[i].id
-       arr.push(i.id)
-     }
-    //  return arr
+  //  let schoolss = await School.query().select('id').where('schoolName', data.name).fetch()
+  //    schoolss = schoolss.toJSON()
+  //    let tempData = JSON.parse(JSON.stringify(schoolss))
+  //    let arr = []
+  //    for (let i of tempData) {
+  //      arr.push(i.id)
+  //    }
 
 
 
@@ -390,8 +390,12 @@ class SearchController {
       .select('id')
       .select('school_id')
       .where('name', 'LIKE', '%' + data.key + '%')
-      .whereIn('school_id', arr).
-      limit(10)
+      .whereHas('school', (builder)  =>  {
+        builder.where('city', school.city).where('state', school.state)
+      }).with('school').
+      // .where('school_id', data.school_id).
+      // .whereIn('school_id', arr).
+      limit(15)
       .fetch()
   }
   async SearchByKeySchoolCoachNew({
@@ -406,7 +410,7 @@ class SearchController {
       .with('school')
       
       .where('name', 'LIKE', '%' + data.coachName + '%').
-      limit(10).fetch()
+      limit(15).fetch()
   }
   async getAllSportsByKey({request}) {
      const data = request.all()

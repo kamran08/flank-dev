@@ -1,7 +1,7 @@
 
 <template>
     <div class="pt-120">
-        <div >
+        <div>
  
            
             <!-- <div :class="(this.isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action pk-new-sidebar">
@@ -109,18 +109,12 @@
             </div> -->
             <div class="new-banner-section new-banner-section-black new-banner-width" >
                 <div class="container" style="">
-                     <!-- <adsbygoogle /> -->
                     <div class="inner-banner new-fl-inner-banner">
-                        <figure v-if="leandingData.length>0">
+                        <!-- <figure v-if="leandingData.length>0">
                         <img :src="leandingData[0].url" alt="">
-                    </figure>
-                    <!-- <figure>
-                    <adsbygoogle />
                     </figure> -->
-                            <!-- <Adsense
-                                data-ad-client="ca-pub-1329433058038954"
-                                data-ad-slot="1234567890">
-                            </Adsense> -->
+                        <adsbygoogle /> 
+                          
                     </div>
                 </div>
             </div>
@@ -192,7 +186,7 @@
                                         <!-- :class="(schoolList.length>0)?'active':''" -->
                                             <ul v-if="schoolList.length>0">
                                                     <li v-for="(shcool,index) in schoolList" :key="index" @click="selectSchoolName(shcool)">
-                                                            <p>{{shcool.name}}</p>
+                                                            <p v-if="shcool.name">{{shcool.name}}</p>
                                                             <span>{{shcool.city}}, {{shcool.state}}</span>
                                                             <!-- <span>{{shcool.sport}}</span> -->
                                                     </li>
@@ -246,7 +240,7 @@
                                             <div class="header-details-select-dropdown header-details-school-dropdown" :class="(schoolCoachList.length==0 && rData.key!='' && selectedSearchData.track2==0)?'no-data active':(rData.key!='' && selectedSearchData.track2==0)?'active':''" :style="(schoolCoachList.length==0 && rData.key!='' && selectedSearchData.track2==1)?'display:none;':''">
                                                 <ul v-if="schoolCoachList.length>0">
                                                     <li v-for="(coach,index) in schoolCoachList" :key="index" @click="selectSchoolCoachName(coach)">
-                                                            <p>{{coach.name}}</p>
+                                                            <p v-if="coach.name">{{coach.name}}</p>
                                                             <span v-if="coach.school">{{coach.school.sport}}</span>
                                                     </li>
                                                   
@@ -315,11 +309,14 @@
                                         <h3 @click="directToCoachWall(item)" style="cursor: pointer !important;">Recent <span>submission</span></h3>
                                     </div>
                                     <div class="submission-img" >
-                                        <img src="/images/sub1.jpg" alt="">
+                                        <img src="/images/sub1.jpg" alt="" v-if="index==0">
+                                        <img src="/images/sub2.jpg" alt="" v-if="index==1">
+                                        <img src="/images/sub3.jpg" alt="" v-if="index==2">
+                                        <img src="/images/sub4.jpg" alt="" v-if="index==3">
                                     </div>
                                     <div class="submission-details" >
                                         <!-- @click="directToCoachWall(item)" -->
-                                        <h4 @click="directToCoachWall(item)" style="cursor: pointer !important;">{{item.coach.name}} </h4>
+                                        <h4 @click="directToCoachWall(item)" style="cursor: pointer !important;" v-if="item.coach && item.coach.name">{{item.coach.name}} </h4>
                                         <p>Reviewed by: <span @click="$router.push(`/flanker/${item.reviwer.id}`)" style="cursor: pointer;">{{item.reviwer.firstName}} {{item.reviwer.lastName}}</span></p>
                                         <ul class="sub-rating" v-if="item.coach">
                                             <li :class="(item.coach.avg_rating>0)?'active':''"><span><i class="fas fa-star"></i></span></li>
@@ -341,7 +338,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="red-popup-details">
-                                                        <h3 v-if="item.coach">{{item.coach.name}} / <span v-if="item.school">{{item.school.city}}, {{item.school.state}}</span></h3>
+                                                        <h3 v-if="item.coach && item.coach.name">{{item.coach.name}} / <span v-if="item.school">{{item.school.city}}, {{item.school.state}}</span></h3>
                                                         <p v-if="item.school">{{item.school.schoolName}}</p>
                                                         <div class="red-popup-progress" v-if="item.coach">
                                                             <!-- <div class="red-popup-progress-inner" :style="(item.coach.totalRating==5)?'width:100%;':(item.coach.totalRating>=4)?'width:80% ;':(item.coach.totalRating>=3)?'width:60%;':(item.coach.totalRating>=2)?'width:40% ;':(item.coach.totalRating>=1)?'width:20%;':'width:0%;'"></div> -->
@@ -447,7 +444,7 @@
                                     </div>
                                     <div class="submission-details" >
                                         <!-- @click="directToCoachWall(item)" -->
-                                        <h4 @click="directToCoachWall(item)" style="cursor: pointer;">{{item.coach.name}} </h4>
+                                        <h4 @click="directToCoachWall(item)" style="cursor: pointer;" v-if="item.coach && item.coach.name">{{item.coach.name}} </h4>
                                         <p>Reviewed by: <span @click="$router.push(`/flanker/${item.reviwer.id}`)" style="cursor: pointer;">{{item.reviwer.firstName}} {{item.reviwer.lastName}}</span></p>
                                         <ul class="sub-rating" v-if="item.coach">
                                             <li :class="(item.coach.avg_rating>0)?'active':''"><span><i class="fas fa-star"></i></span></li>
@@ -469,7 +466,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="red-popup-details">
-                                                        <h3 v-if="item.coach">{{item.coach.name}} / <span v-if="item.school">{{item.school.city}}, {{item.school.state}}</span></h3>
+                                                        <h3 v-if="item.coach && item.coach.name">{{item.coach.name}} / <span v-if="item.school">{{item.school.city}}, {{item.school.state}}</span></h3>
                                                         <p v-if="item.school">{{item.school.schoolName}}</p>
                                                         <div class="red-popup-progress" v-if="item.coach">
                                                             <!-- <div class="red-popup-progress-inner" :style="(item.coach.totalRating==5)?'width:100%;':(item.coach.totalRating>=4)?'width:80% ;':(item.coach.totalRating>=3)?'width:60%;':(item.coach.totalRating>=2)?'width:40% ;':(item.coach.totalRating>=1)?'width:20%;':'width:0%;'"></div> -->
@@ -565,9 +562,10 @@
                 <div class="new-banner-section middle-banner-section " >
                     <div class="container" style="">
                         <div class="inner-banner new-fl-inner-banner">
-                            <figure v-if="leandingData.length>0">
+                            <!-- <figure v-if="leandingData.length>0">
                                 <img :src="leandingData[0].url" alt="">
-                            </figure>
+                            </figure> -->
+                             <adsbygoogle /> 
                         </div>
                     </div>
                 </div>
@@ -722,13 +720,18 @@
                 <div class="new-banner-section banner-mb middle-banner-section mobile-no-margin" >
                     <div class="container" style="">
                         <div class="inner-banner new-fl-inner-banner">
-                            <figure v-if="leandingData.length>0">
+                            <!-- <figure v-if="leandingData.length>0">
                                 <img :src="leandingData[0].url" alt="">
-                            </figure>
+                            </figure> -->
+                            <!-- <figure > -->
+                                 <adsbygoogle /> 
+                            <!-- </figure> -->
                         </div>
                     </div>
                 </div>
             </div>
+             <!-- <adsbygoogle />  -->
+            
             
             
             
@@ -1357,9 +1360,10 @@
             <div class="new-banner-section" >
                 <div class="container no-padding">
                     <div class="inner-banner new-fl-inner-banner">
-                          <figure v-if="leandingData.length>0">
+                          <!-- <figure v-if="leandingData.length>0">
                         <img :src="leandingData[0].url" alt="">
-                    </figure>
+                    </figure> -->
+                               <adsbygoogle /> 
                     
                     </div>
                 </div>
@@ -1576,7 +1580,7 @@
                                                 </div>
                                                 <div class="activ-det new-activ-det">
                                                     <div v-if="item.review_type == 'school'" @click="directToCoachWall(item)" style="cursor: pointer;" >
-                                                        <h3 v-if="item.coach" class="cera-bold font-18 weight-400" style="margin-bottom: 10px;">{{item.coach.name}}</h3>
+                                                        <h3 v-if="item.coach && item.coach.name" class="cera-bold font-18 weight-400" style="margin-bottom: 10px;">{{item.coach.name}}</h3>
                                                     </div>
                                                     <p class="cera-medium font-18">{{item.content}}</p>
                                                     <h5 class="itl receiver-na cera-light-italic" style="cursor:pointer;"  @click="$router.push(`/flanker/${item.reviwer.id}`)"><img src="/images/title-logo.png" alt=""> <span>by</span> {{item.reviwer.firstName}} {{item.reviwer.lastName}}</h5>
@@ -1635,7 +1639,8 @@
                                                         <li><span class="rev-ti-im"><img src="/images/mgroup.png" alt=""></span><span class="rev-ti-p">{{review_of_day.bestReview.reviwer.__meta__.totalreviewbyuser}}</span></li>
                                                         <li><span class="rev-ti-im"><img src="/images/mgroup1.png" alt=""></span><span class="rev-ti-p">{{review_of_day.bestReview.reviwer.__meta__.totalreviewbyuser}}</span></li>
                                                     </ul>
-                                                    <h4 class="wr-re" style="" v-if="review_of_day.bestReview.review_type == 'school' ">Review For:  <span @click="directToCoachWall(review_of_day.bestReview)" v-if="review_of_day.bestReview.coach" style="font-size: 20px;">Coach {{review_of_day.bestReview.coach.name}}</span></h4>
+                                                    <h4 class="wr-re" style="" v-if="review_of_day.bestReview.review_type == 'school' ">Review For:  
+                                                        <span @click="directToCoachWall(review_of_day.bestReview)" v-if="review_of_day.bestReview.coach && review_of_day.bestReview.coach.name" style="font-size: 20px;" >Coach {{review_of_day.bestReview.coach.name}}</span></h4>
                                                     <h4 class="wr-re" style="cursor:pointer;" v-if="review_of_day.bestReview.review_type == 'legend' ">Wrote a review for: Coach <span @click="directToCoachWall(review_of_day.bestReview)">{{review_of_day.bestReview.legend.name}}</span></h4>
                                                 </div>
                                                 <div class="review-champ">
@@ -1716,8 +1721,8 @@
                                                                     </div>
                                                                     <div class="drop-inner-cap">
                                                                         <div class="drop-inner-coach">
-                                                                            <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'school' && item.coach" >Coach {{item.coach.name}}</h4>
-                                                                            <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'legend'">Coach {{item.legend.name}}</h4>
+                                                                            <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'school' && item.coach && item.coach.name" >Coach {{item.coach.name}}</h4>
+                                                                            <h4 style="cursor:pointer;" @click="directToCoachWall(item)" v-if="item.review_type == 'legend' && item.legend && item.legend.name">Coach {{item.legend.name}}</h4>
                                                                         </div>
                                                                         <div class="review-star small-review-star">
                                                                             <ul>
@@ -2349,7 +2354,8 @@
                     
                 <div v-if="addNew.step == 4" class="mFooter"  >
                     
-                        <Button class="mNext" @click="addNew.modal=false">Continue Browsing</Button>
+                        <!-- <Button class="mNext" @click="addNew.modal=false">Continue Browsing</Button> -->
+                        <Button class="mNext" @click="closeModalsss">Continue Browsing</Button>
                 </div>
             </div>
         </Modal>
@@ -2560,6 +2566,44 @@ export default {
     }
   },
   methods: {
+
+      closeModalsss(){
+          this.i("ookk")
+        
+        
+            this.step1Form={
+                schoolName:'',
+                city:'',
+                division:'',
+                state:'',
+                sport:'',
+                name:'',
+
+            }
+            this.step2Form={
+                firstName:'',
+                lastName:'',
+                email:'',
+                password:'',
+                
+                password_confirmation :'',
+                birthday:'',
+                packType:''
+            }
+            this.step3Form={
+                reviewFor:'', 
+                school_id:'',
+                review_type:'school',
+                content:"",
+                
+                rating:'',
+            }
+            this.newCoach={}
+             this.addNew.modal=false
+          this.addNew.step=1
+          this.addNew.onHover=false
+          this.addNew.isReg=true
+      },
       async getSportsType2(){
           this.tab2=2
           const res = await this.callApi('get',`/app/getAllSportsByKey?key=${this.selectedSearchData.schoolName}`)
@@ -2822,7 +2866,8 @@ export default {
            // this.reviewData.uploadList = this.uploadList
           //  this.reviewData.AttributeInfo = this.AttributeInfo
 
-            const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
+            const res = await this.callApi('post','/app/storeSchoolCoachTeampReview',this.step3Form)
+            // const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
             if(res.status===200){
                 this.s('Review posted successfully!')
                 this.addNew.step = 4
@@ -3179,3 +3224,10 @@ export default {
   
 };
 </script>
+
+<style scoped>
+    .adsbygoogle {
+        max-height: 106px;
+        height: 100% !important;
+    }
+</style>

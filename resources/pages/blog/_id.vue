@@ -4,12 +4,12 @@
         <div class="new-banner-section blog-mobile-banner-full" >
             <div class="container" style="">
                 <div class="inner-banner new-fl-inner-banner">
-                    <figure v-if="leandingData.length>0">
+                    <!-- <figure v-if="leandingData.length>0">
                       <img :src="leandingData[0].url" alt="">
-                  </figure>
-                   <!-- <figure >
-                      <script data-ad-client="ca-pub-1329433058038954" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                   </figure> -->
+                   <figure >
+                  </figure>
+                  
                 </div>
             </div>
         </div>

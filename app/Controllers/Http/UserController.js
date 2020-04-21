@@ -586,16 +586,48 @@ class UserController {
         else{
           alldata.push(three)
         }
-        return alldata
+        for (let d of alldata) {
+          d.isSeeMore = false
+          if (d.avgRating == null) {
+            d.avgRating = {
+              averageRating: 0
+            };
+          }
+         
+          let a = (d.averageHealthy) ? d.averageHealthy : 0;
+          let b = (d.averageHarmful) ? d.averageHarmful : 0;
+          d.healthScore = parseFloat((parseFloat(a).toFixed(2) - parseFloat(b).toFixed(2)) * 6.66).toFixed(2)
+ 
+        }
+ 
+        return alldata;
 
     }
     async getSchoolCoachByMostRated ({ request, response, auth }) {
 
-      return await SchoolCoach.query()
+      let data = await SchoolCoach.query()
         .with('allreviewLimit').with('school')
         .with('topAtrribute.info')
         .withCount('allreview as allreview')
        .orderBy('totalRating', 'desc').limit(4).fetch()
+
+       data = JSON.parse(JSON.stringify(data))
+       for (let d of data) {
+         d.isSeeMore = false
+         if (d.avgRating == null) {
+           d.avgRating = {
+             averageRating: 0
+           };
+         }
+        
+         let a = (d.averageHealthy) ? d.averageHealthy : 0;
+         let b = (d.averageHarmful) ? d.averageHarmful : 0;
+         d.healthScore = parseFloat((parseFloat(a).toFixed(2) - parseFloat(b).toFixed(2)) * 6.66).toFixed(2)
+
+       }
+
+       return data;
+     
         // .whereHas('school', (builder) => {
         //   builder.where('city', 'LIKE', '%' + place + '%')
         // })

@@ -11,15 +11,15 @@ module.exports = {
     '@nuxtjs/axios',
 
     // With options
-    // ['@nuxtjs/google-adsense', {
-    //   id: 'ca-pub-1329433058038954'
-    // }]
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-1329433058038954'
+    }]
     
 
   ],
   
   axios: {
-    //  baseURL: 'https://goflank.com/'             
+    //  baseURL: 'https://goflank.com/'     
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360
@@ -78,7 +78,7 @@ module.exports = {
 
     ],
     script: [
-      { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', body: true },
+      // { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js', body: true },
       { src: '/js/plugin-js/jquery-1.12.0.min.js', body: true },
       // { src: '/js/plugin-js/owl.carousel.min.js' },
       { src: '/js/script.js', body: true },
