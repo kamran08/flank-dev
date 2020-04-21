@@ -607,7 +607,9 @@
       '$route.name': function(newVal, oldVal) { 
         //   console.log(newVal)
       
-          
+          if(newVal=='index'){
+               this.tStr = ''
+          }
         
         this.$store.commit('setIsMobileSideBar', false )
          this.isCoachSearchPage = true

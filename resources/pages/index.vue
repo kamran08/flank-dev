@@ -1,7 +1,7 @@
 
 <template>
     <div class="pt-120">
-        <div >
+        <div>
  
            
             <!-- <div :class="(this.isMobileSideBar==true)? 'new-sidebar active':'new-sidebar'" class="new-sidebar new-sidebar-flan new-sidebar-flan-action pk-new-sidebar">
@@ -3224,3 +3224,10 @@ export default {
   
 };
 </script>
+
+<style scoped>
+    .adsbygoogle {
+        max-height: 106px;
+        height: 100% !important;
+    }
+</style>
