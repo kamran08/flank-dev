@@ -57,14 +57,29 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
                         <h2 class="coaches-title">Have you ever played for these coaches?</h2>
-                        <div class="row">
+                        <div class="row write-review-row">
                             <!-- Item -->
-                            <div class="col-sm-6" v-for="(item,index) in data.data" :key="index">
+                            <div class="col-sm-6 write-review-row-item" v-for="(item,index) in data.data" :key="index">
                                 <div class="single-coaches">
-                                    <div class="row">
+                                    <div class="single-coaches-left">
+                                        <!-- <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img :src="item.school.logo" alt=""></div> -->
+                                        <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img src="/images/sticker-3.png" alt=""></div>
+                                    </div>
+                                    <div class="single-coaches-right">
+                                        <h4 class="single-coaches-right-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)">{{item.name}} - {{item.school.sport}}</h4>
+                                        <p class="single-coaches-right-sub">{{item.school.schoolName}}, {{item.school.city}}/{{item.school.state}}</p>
+                                        <ul class="review-star-list">
+                                            <li :class="(item.avg_rating>0)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.avg_rating>1)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.avg_rating>2)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.avg_rating>3)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
+                                            <li :class="(item.avg_rating>4)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
+                                        </ul>
+                                    </div>
+                                    <!-- <div class="row">
                                         <div class="col-sm-4 padding-right-0">
                                            <div class="single-coaches-left">
-                                               <!-- <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img :src="item.school.logo" alt=""></div> -->
+                                               <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img :src="item.school.logo" alt=""></div>
                                                <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img src="/images/sticker-3.png" alt=""></div>
                                            </div> 
                                         </div>
@@ -81,7 +96,7 @@
                                                </ul>
                                            </div> 
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

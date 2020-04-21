@@ -530,7 +530,7 @@
                                                     </div>
                                                 </form>
                                             </div>
-                                            <div class="new-flank-sort">
+                                            <div class="new-flank-sort mob-new-flank-sort">
                                                 <div class="new-flank-select">
                                                     <h4>Sort by</h4>
                                                     <select v-model="sort" @change="SearchReviewResult">

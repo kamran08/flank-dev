@@ -1,6 +1,6 @@
 
 <template>
-    <div class="pt-120">
+    <div class="pt-120 blog-pt-120">
         <div class="new-banner-section blog-mobile-banner-full" >
             <div class="container" style="">
                 <div class="inner-banner new-fl-inner-banner">
@@ -75,7 +75,7 @@
                                 <h2>Also <span>on flank</span></h2>
                               </div>
                               <div class="flank-blog-slider-inner">
-                                <hooper>
+                                <hooper :settings="blogHooperSetting">
                                  
                                   <slide v-for="(post,index) in posts" :key="index">
                                     <div class="flank-blog-slider-item" @click="assignSignlePost(post)">
@@ -229,6 +229,29 @@ export default {
     },
   data() {
     return {
+      blogHooperSetting: {
+        breakpoints: {
+          992: {
+            itemsToShow: 2.25,
+          },
+
+          768: {
+            itemsToShow: 2.25,
+          },
+
+          568: {
+            itemsToShow: 1.75,
+          },
+
+          400: {
+            itemsToShow: 1.25,
+          },
+
+          300: {
+            itemsToShow: 1,
+          },
+        }
+      },
       url:'',
       identifier:'dsq-count-scr',
       local:'',
