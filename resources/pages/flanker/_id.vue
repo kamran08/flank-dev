@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-3 col-xs-12" v-if="tab!=2">
-                            <div class="profile-about card-box">
+                            <div class="profile-about card-box new-fl-profile-about">
                                 <h3>About {{userData.firstName}} {{userData.lastName}}</h3>
                                 <p>Rating Distribution</p>
 

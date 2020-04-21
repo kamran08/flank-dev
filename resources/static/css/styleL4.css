@@ -811,6 +811,24 @@ body {
     }
 }
 
+@media only screen and (max-width:399px) {
+    .profile-thumb-section .profile-thumb {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .profile-thumb-section .profile-thumb figure {
+      width: 100%;
+      height: auto;
+    }
+
+    .profile-thumb-section .profile-thumb figure img {
+      width: 100%;
+      height: auto;
+    }
+}
+
 .profile-link {
     margin-top: 80px
 }
@@ -2095,9 +2113,13 @@ body {
     color: #000
 }
 
-@media only screen and (max-width:991px) {
+@media only screen and (max-width:992px) {
     .sign-up-content {
-        padding: 15px 40px
+        padding: 15px 40px;
+    }
+
+    .signcont-left {
+        margin-bottom: 40px;
     }
 }
 
@@ -2109,4 +2131,12 @@ body {
 
 .mob-forget-password {
     margin-top: 5px;
+}
+
+.new-fl-profile-about h3 {
+    margin-bottom: 5px;
+}
+
+.new-fl-profile-about p {
+    margin-bottom: 5px;
 }

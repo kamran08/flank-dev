@@ -106,7 +106,7 @@
                         </div>
                         <div class="profile-edit-item">
                             <h3>Change password</h3>
-                            <div class="profile-edit-input-box flex-col">
+                            <div class="profile-edit-input-box">
                                 <div class="profile-edit-input-field">
                                     <label for="">Current password <sup>*</sup></label>
                                     <input v-model="passData.oldpassword" type="password" class="f-input">

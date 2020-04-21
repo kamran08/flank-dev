@@ -2766,8 +2766,9 @@ html.modal-open {
 }
 
 .new-flanker-photo-soc {
-    flex: 0 0 27%;
-    width: 27%
+    flex: 0 0 80px;
+    width: 80px;
+    max-width: 80px;
 }
 
 .new-profile-thumb-box figure img {
@@ -2936,8 +2937,9 @@ html.modal-open {
         margin-top: 10px
     }
     .new-flanker-photo-soc {
-        flex: 0 0 27%;
-        width: 27%
+        flex: 0 0 80px;
+        width: 80px;
+        max-width: 80px;
     }
     .next-btn {
         flex-wrap: wrap

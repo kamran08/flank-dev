@@ -392,6 +392,7 @@ class SearchController {
       .where('name', 'LIKE', '%' + data.key + '%')
       .whereHas('school', (builder)  =>  {
         builder.where('city', school.city).where('state', school.state)
+        .where('schoolName', school.schoolName)
       }).with('school').
       // .where('school_id', data.school_id).
       // .whereIn('school_id', arr).

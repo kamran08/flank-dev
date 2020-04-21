@@ -269,7 +269,7 @@
         </section>
         <h2 class="isloadingClass" v-else >Content is Loading....</h2>
         <Modal title="Answer Question" v-model="answerModal">
-           <div class="">
+           <div class="pr-question-modal">
             <Form  :label-width="80">
               
                <FormItem label="answer">

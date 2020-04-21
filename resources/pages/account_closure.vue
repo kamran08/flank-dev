@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="section-content">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-3 col-sm-3">
                             <div class="abp-list-box">
                                 <h3>About Flank</h3>
                                 <ul class="abp-list-box-link">
@@ -24,7 +24,7 @@
                                 </div> -->
                             </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-9 col-sm-9">
                             <div>
                                 <h2 class="fl-abs">How do I close my account?</h2>
                                 <div class="new-about-header mt-30">

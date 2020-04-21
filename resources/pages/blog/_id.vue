@@ -8,6 +8,7 @@
                       <img :src="leandingData[0].url" alt="">
                   </figure> -->
                    <figure >
+                      <adsbygoogle /> 
                   </figure>
                   
                 </div>

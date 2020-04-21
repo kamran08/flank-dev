@@ -42,7 +42,8 @@
                                 </div>
                             </div>
                             <div class="flank-search-input">
-                                <input type="text" v-model="tStr" @enter="SearchByKey">
+                                <!-- <input type="text" v-model="tStr" @enter="SearchByKey" > -->
+                                <input type="text" v-model="tStr" @keyup.enter="SearchByKey">
                             </div>
                             <div class="flank-search-btn">
                                 <button @click="SearchByKey" ><span><i class="fas fa-search"></i></span></button>

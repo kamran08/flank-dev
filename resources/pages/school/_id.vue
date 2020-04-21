@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
 
-                                <div class="inner-item-reco-sec inner-item-reco-sec-one">
+                                <div class="inner-item-reco-sec inner-item-reco-sec-one mt-20">
                                     <div class="inner-item-reco-title">
                                         <h4>Ask The Community</h4>
                                     </div>

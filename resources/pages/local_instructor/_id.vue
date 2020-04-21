@@ -242,7 +242,8 @@
                                         <div class="latest-img-slider-carousel" v-if="uploadList.length>0" >
                                             <div class="latest-img-slider-item" >
                                                 <figure>
-                                                    <img :src="'https://dashboard.goflank.com'+uploadList[this.img_index].url" alt="">
+                                                    <!-- <img :src="'https://dashboard.goflank.com'+uploadList[this.img_index].url" alt=""> -->
+                                                    <img :src="uploadList[img_index].url" alt="">
                                                 </figure>
                                             </div>
                                         </div>
