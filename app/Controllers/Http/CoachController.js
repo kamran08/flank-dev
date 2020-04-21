@@ -65,7 +65,7 @@ class CoachController {
     // sadek.hkm@gmail.com
       await Mail.send('emails.coatch', data, (message) => {
         message
-          .to('ahmedkamran265@gmail.com')
+          .to('sadek.hkm@gmail.com')
           .from('Support@goflank.com', `new mail`)
           .subject('Flank – Urgent New Coach/School')
       })

@@ -14,6 +14,7 @@ const Place = use('App/Models/Place')
 const ReviewImage = use('App/Models/ReviewImage')
 const Review = use('App/Models/Review')
 const TempSchoolCoachReview = use('App/Models/TempSchoolCoachReview')
+const TempSchoolCoach = use('App/Models/TempSchoolCoach')
 const ReviewAttribute = use('App/Models/ReviewAttribute')
 const Mail = use('Mail')
 const Database = use('Database')
@@ -189,9 +190,7 @@ class SchoolController {
   }
 
   async storeSchoolCoachTeampReview({ request, response, auth }) {
-    // return "somethings";
     let data = request.all()
-    // return data
     let user_id = -1
     if (auth.user){
 
@@ -200,6 +199,20 @@ class SchoolController {
     }
     // let uploadList = []
     const rdata = await TempSchoolCoachReview.create(data)
+    let avg = await TempSchoolCoach.query().where('id', data.reviewFor).first()
+     avg = JSON.parse(JSON.stringify(avg))
+      if (data.rating >= 3) {
+        avg.totalgood += 1
+      } else {
+        avg.totalbad += 1
+      }
+      await TempSchoolCoach.query().where('id', data.reviewFor).update({
+        avg_rating: avg.avg_rating,
+        totalgood: avg.totalgood,
+        totalbad: avg.totalbad,
+      })
+
+
     return rdata
     
   }
