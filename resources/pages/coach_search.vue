@@ -758,11 +758,14 @@
                                                         <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                     </ul>
                                                 </div>
-                                                <p class="_1card_tag">{{item.averageHealthy}} Health Score</p>
-                                                <p class="_1text">
+                                                <p class="_1card_tag">{{item.healthScore}} Health Score</p>
+                                                  <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
+                                                <!-- <p class="_1text">
                                                     When you're after a true empowering coach
                                                     , coach {{item.name}} nails all the healthy coaching attributes.
-                                                </p>
+                                                </p> -->
                                             </div>
                                         </div>
                                     </div>
@@ -1260,7 +1263,7 @@
                                     <!-- Card -->
                                     <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1" v-for="(item,index) in mostratedpost" :key="index">
                                         <div class="_1card">
-                                            <p class="_1card_star">{{4-index}} Stars & Up</p>
+                                            <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star': 'Stars'}} & Up</p>
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -2296,11 +2299,14 @@
                                                                 <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
                                                             </ul>
                                                         </div>
-                                                       <p class="_1card_tag">{{item.averageHealthy}} Health Score</p>
-                                                        <p class="_1text">
+                                                       <p class="_1card_tag">{{item.healthScore}} Health Score</p>
+                                                        <!-- <p class="_1text">
                                                             When you're after a true empowering coach
                                                             , coach Jhon Doe nails all the healthy coaching attributes.
-                                                        </p>
+                                                        </p> -->
+                                                        <p :class="(item.isSeeMore)? '_2card_status open _2taxt' : '_2card_status _2taxt'">{{item.ratingText}}</p>
+                                                    <p v-if="item.isSeeMore"><a @click="item.isSeeMore = false" class="see_more">See less</a></p>
+                                                    <p v-else-if="!item.isSeeMore"><a @click="item.isSeeMore = true" class="see_more">See more</a></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2795,7 +2801,7 @@
                                         <slide v-for="(item,index) in mostratedpost" :key="index" >
                                             <div class=" flex-1">
                                                 <div class="_1card">
-                                                    <p class="_1card_star">{{4-index}} Stars & Up</p>
+                                                    <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star': 'Stars'}} & Up</p>
 
                                                     <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -4196,10 +4202,12 @@ export default {
             this.allSports = res.data
             this.ratedpost = res1.data
             this.mostratedpost = res2.data
+            this.coachAssignRateText(this.ratedpost)
+            this.coachAssignRateText(this.mostratedpost)
         }
        
 
-    this.sort = "Sort By"
+        this.sort = "Sort By"
         // this. showCurrentPage = (Math.ceil(this.pagination.total)/(this.pagination.perPage)-this.pagination.page)
 
     },
