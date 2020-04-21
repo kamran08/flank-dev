@@ -4,8 +4,12 @@
             
 
             <div class="new-search-flank" id="topId">
-                <div class="new-search-flank-num" v-if="searchOn">
+                <!-- <div class="new-search-flank-num" v-if="searchOn">
                     <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p> 
+                </div> -->
+                <div class="new-search-flank-num" >
+                    <p v-if="str">  1-5 of over {{pagination.total}} results for <span>"{{str}}"</span></p> 
+                    <p v-else>  1-5 of over {{pagination.total}} results for <span></span></p> 
                 </div>
                 <div :class="(isMobileMenu)? 'modal-open': 'flank-filter'" v-if="showMenuButton" >
                     <span @click="isMobileMenu = (isMobileMenu)? false : true"><i class="fas fa-filter"></i></span>
@@ -1779,7 +1783,9 @@ Because doing nothing, leads to nothing.
 
             <div class="new-search-flank new-box-shadow" id="topId">
                 <div class="new-search-flank-num">
-                    <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p>
+                    <!-- <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p> -->
+                    <p v-if="str" >  1-5 of over {{pagination.total}} results for <span>"{{str}}"</span></p>
+                    <p v-else >  1-5 of over {{pagination.total}} results for</p>
                 </div>
                
             </div>
@@ -4184,6 +4190,7 @@ export default {
             this.SearchByKey()
         },
         async SearchByKey(page=1){
+          
             // this.showStr=''
 
             // if(this.pageOption != 'product'){
@@ -4195,6 +4202,8 @@ export default {
                 this.showStr = ''
                this.$store.commit('setStr', '')
             }
+            
+          
 
           
             const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.str}&str2=${this.str2}&pageOption=${this.pageOption}&sort=${this.sort}&div=${this.div}&rate=${this.oldrating.index}&sports=${this.sports}&attribute=${this.attribute}&page=${page}`)
@@ -4233,6 +4242,7 @@ export default {
 
     },
     async  created(){
+        // this.i("okk")
        
         let tempPlace = (this.$route.query.place)? this.$route.query.place : ''
         

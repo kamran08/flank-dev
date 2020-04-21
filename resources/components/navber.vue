@@ -377,6 +377,7 @@
             }, 
             async SearchByKey(){
                 this.$store.commit('setUrl', '/')
+                this.$store.commit('setStr', this.tStr )
                 // this.i('kd')
                 // if(this.pageOption != 'product'){
                 //     if(this.tStr == '' ) return this.i("Please Write a name")
@@ -428,6 +429,7 @@
                    
                 }
                 console.log(this.searchData,'maindata')
+                
             }, 
             async SearchByKeyV2(page = 'coach',div = '',attribute=''){
                 // this.isStringMenu = false

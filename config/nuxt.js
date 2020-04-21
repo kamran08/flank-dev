@@ -11,15 +11,15 @@ module.exports = {
     '@nuxtjs/axios',
 
     // With options
-    // ['@nuxtjs/google-adsense', {
-    //   id: 'ca-pub-1329433058038954'
-    // }]
+    ['@nuxtjs/google-adsense', {
+      id: 'ca-pub-1329433058038954'
+    }]
     
 
   ],
   
   axios: {
-     baseURL: 'https://goflank.com/'             
+     baseURL: 'https://goflank.com/'     
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360
