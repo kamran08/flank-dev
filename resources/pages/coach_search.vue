@@ -1276,7 +1276,8 @@ Because doing nothing, leads to nothing.
                                     <!-- Card -->
                                     <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1" v-for="(item,index) in mostratedpost" :key="index" style="padding: 0 10px;">
                                         <div class="_1card">
-                                            <p class="_1card_star">{{4-index}} Stars & Up</p> {{item.avg_rating}}
+                                            <p class="_1card_star">{{4-index}} Stars & Up</p> 
+                                            <!-- {{item.avg_rating}} -->
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -2820,7 +2821,8 @@ Because doing nothing, leads to nothing.
                                         <slide v-for="(item,index) in mostratedpost" :key="index" >
                                             <div class="mobile-choice-item-list">
                                                 <div class="_1card">
-                                                    <p class="_1card_star">{{4-index}} Stars & Up {{item.avg_rating}}</p>
+                                                    <p class="_1card_star">{{4-index}} Stars & Up </p>
+                                                    <!-- {{item.avg_rating}} -->
 
                                                     <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -4094,7 +4096,8 @@ export default {
            // this.reviewData.uploadList = this.uploadList
           //  this.reviewData.AttributeInfo = this.AttributeInfo
 
-            const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
+            const res = await this.callApi('post','/app/storeSchoolCoachTeampReview',this.step3Form)
+            // const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
             if(res.status===200){
                 this.s('Review posted successfully!')
                 this.addNew.step = 4

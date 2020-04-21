@@ -2352,7 +2352,8 @@
                     
                 <div v-if="addNew.step == 4" class="mFooter"  >
                     
-                        <Button class="mNext" @click="addNew.modal=false">Continue Browsing</Button>
+                        <!-- <Button class="mNext" @click="addNew.modal=false">Continue Browsing</Button> -->
+                        <Button class="mNext" @click="closeModalsss">Continue Browsing</Button>
                 </div>
             </div>
         </Modal>
@@ -2563,6 +2564,44 @@ export default {
     }
   },
   methods: {
+
+      closeModalsss(){
+          this.i("ookk")
+        
+        
+            this.step1Form={
+                schoolName:'',
+                city:'',
+                division:'',
+                state:'',
+                sport:'',
+                name:'',
+
+            }
+            this.step2Form={
+                firstName:'',
+                lastName:'',
+                email:'',
+                password:'',
+                
+                password_confirmation :'',
+                birthday:'',
+                packType:''
+            }
+            this.step3Form={
+                reviewFor:'', 
+                school_id:'',
+                review_type:'school',
+                content:"",
+                
+                rating:'',
+            }
+            this.newCoach={}
+             this.addNew.modal=false
+          this.addNew.step=1
+          this.addNew.onHover=false
+          this.addNew.isReg=true
+      },
       async getSportsType2(){
           this.tab2=2
           const res = await this.callApi('get',`/app/getAllSportsByKey?key=${this.selectedSearchData.schoolName}`)
@@ -2825,7 +2864,8 @@ export default {
            // this.reviewData.uploadList = this.uploadList
           //  this.reviewData.AttributeInfo = this.AttributeInfo
 
-            const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
+            const res = await this.callApi('post','/app/storeSchoolCoachTeampReview',this.step3Form)
+            // const res = await this.callApi('post','/app/storeSchoolCoachReview',this.step3Form)
             if(res.status===200){
                 this.s('Review posted successfully!')
                 this.addNew.step = 4

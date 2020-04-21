@@ -13,6 +13,7 @@ const Legend = use('App/Models/Legend')
 const Place = use('App/Models/Place')
 const ReviewImage = use('App/Models/ReviewImage')
 const Review = use('App/Models/Review')
+const TempSchoolCoachReview = use('App/Models/TempSchoolCoachReview')
 const ReviewAttribute = use('App/Models/ReviewAttribute')
 const Mail = use('Mail')
 const Database = use('Database')
@@ -188,11 +189,19 @@ class SchoolController {
   }
 
   async storeSchoolCoachTeampReview({ request, response, auth }) {
+    // return "somethings";
     let data = request.all()
-    const user_id = await auth.user.id
-    data.reviwer_id = user_id
-    let uploadList = []
-    const rdata = await Review.create(data)
+    // return data
+    let user_id = -1
+    if (auth.user){
+
+      user_id = await auth.user.id
+      data.reviwer_id = user_id
+    }
+    // let uploadList = []
+    const rdata = await TempSchoolCoachReview.create(data)
+    return rdata
+    
   }
 
   async storeSchoolCoachReview({ request, response, auth }) {
