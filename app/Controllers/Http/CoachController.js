@@ -4,6 +4,8 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 const School = use('App/Models/School')
+const TempSchoolCoach = use('App/Models/TempSchoolCoach')
+const TempSchool = use('App/Models/TempSchool')
 const SchoolCoach = use('App/Models/SchoolCoach')
 const Attribute = use('App/Models/Attribute')
 const ReviewImage = use('App/Models/ReviewImage')
@@ -53,7 +55,7 @@ class CoachController {
     let name = data.name;
     delete data.name;
     data.isConfirmed = false;
-    let school = await School.create(data)
+    let school = await TempSchool.create(data)
     school = JSON.parse(JSON.stringify(school))
     let coachob = {
       'school_id': school.id,
@@ -64,10 +66,31 @@ class CoachController {
         message
           .to('sadek.hkm@gmail.com')
           .from('Support@goflank.com', `new mail`)
-          .subject('Flank – Urgent New Coach/School ')
+          .subject('Flank – Urgent New Coach/School')
       })
-    return   await SchoolCoach.create(coachob)
+    return await TempSchoolCoach.create(coachob)
   }
+  // async store ({ request, response }) {
+
+  //   let data = request.all()
+  //   let name = data.name;
+  //   delete data.name;
+  //   data.isConfirmed = false;
+  //   let school = await School.create(data)
+  //   school = JSON.parse(JSON.stringify(school))
+  //   let coachob = {
+  //     'school_id': school.id,
+  //     'name': name
+  //   }
+  //   // sadek.hkm@gmail.com
+  //     await Mail.send('emails.coatch', data, (message) => {
+  //       message
+  //         .to('sadek.hkm@gmail.com')
+  //         .from('Support@goflank.com', `new mail`)
+  //         .subject('Flank – Urgent New Coach/School ')
+  //     })
+  //   return   await SchoolCoach.create(coachob)
+  // }
 
   /**
    * Display a single coach.

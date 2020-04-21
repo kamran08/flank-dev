@@ -360,7 +360,7 @@ class SearchController {
       .select('division')
       .select('id')
       .where('schoolName', 'LIKE', '%' + data.key + '%').
-      limit(10)
+      limit(15)
       .groupBy('city')
       // .groupBy('schoolName')
       .fetch()
@@ -395,7 +395,7 @@ class SearchController {
       .select('school_id')
       .where('name', 'LIKE', '%' + data.key + '%')
       .whereIn('school_id', arr).
-      limit(10)
+      limit(15)
       .fetch()
   }
   async SearchByKeySchoolCoachNew({
@@ -410,7 +410,7 @@ class SearchController {
       .with('school')
       
       .where('name', 'LIKE', '%' + data.coachName + '%').
-      limit(10).fetch()
+      limit(15).fetch()
   }
   async getAllSportsByKey({request}) {
      const data = request.all()

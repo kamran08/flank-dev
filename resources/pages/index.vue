@@ -315,7 +315,10 @@
                                         <h3 @click="directToCoachWall(item)" style="cursor: pointer !important;">Recent <span>submission</span></h3>
                                     </div>
                                     <div class="submission-img" >
-                                        <img src="/images/sub1.jpg" alt="">
+                                        <img src="/images/sub1.jpg" alt="" v-if="index==0">
+                                        <img src="/images/sub2.jpg" alt="" v-if="index==1">
+                                        <img src="/images/sub3.jpg" alt="" v-if="index==2">
+                                        <img src="/images/sub4.jpg" alt="" v-if="index==3">
                                     </div>
                                     <div class="submission-details" >
                                         <!-- @click="directToCoachWall(item)" -->

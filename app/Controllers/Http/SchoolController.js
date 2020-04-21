@@ -187,6 +187,14 @@ class SchoolController {
     })
   }
 
+  async storeSchoolCoachTeampReview({ request, response, auth }) {
+    let data = request.all()
+    const user_id = await auth.user.id
+    data.reviwer_id = user_id
+    let uploadList = []
+    const rdata = await Review.create(data)
+  }
+
   async storeSchoolCoachReview({ request, response, auth }) {
     let data = request.all()
     const user_id = await auth.user.id
