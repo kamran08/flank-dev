@@ -608,8 +608,11 @@
       '$route.name': function(newVal, oldVal) { 
         //   console.log(newVal)
       
-          if(newVal=='index'){
-               this.tStr = ''
+          if(newVal=='coach_search'){
+               
+          }
+          else{
+              this.tStr = ''
           }
         
         this.$store.commit('setIsMobileSideBar', false )

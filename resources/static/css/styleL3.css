@@ -1205,7 +1205,8 @@ a.sign-social-facebook:focus {
     -webkit-appearance: none;
     background: url(../images/custom-select.png) right .75rem center no-repeat #e8ecef;
     color: #000;
-    font-size: 14px
+    font-size: 14px;
+    cursor: pointer;
 }
 
 .new-flank-container-fluid {
@@ -1619,13 +1620,13 @@ a.sign-social-facebook:focus {
     overflow: visible
 }
 
-.new-comment-para.mo-new-comment-para p span {
+/* .new-comment-para.mo-new-comment-para p span {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     line-height: 30px
-}
+} */
 
 @media only screen and (max-width:767px) {
     .new-comment-para.mo-new-comment-para p span {

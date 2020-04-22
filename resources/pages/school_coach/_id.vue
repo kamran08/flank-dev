@@ -1720,7 +1720,7 @@
                                 </div>
                                 <div class="group-item flex_item">
                                     <label >Message</label>
-                                    <textarea id="" v-model="message.message" rows="5"></textarea>
+                                    <textarea id="" v-model="message.message" rows="5" style="padding:6px;"></textarea>
                                 </div>
                                 
                             </form>

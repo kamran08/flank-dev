@@ -184,12 +184,16 @@
                                             </ul>
                                             <!-- <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p> -->
                                         </div>
-                                        <div class="new-comment-para pr-new-comment-para" style="margin-top: 13px">
+                                        <div class="new-comment-para pr-new-comment-para" :class="(isonSee)?'mo-new-comment-para':''" style="margin-top: 13px">
                                             <p style="line-height: 18px">
                                                 "{{searchData[0].allreviewLimit.content}}"
                                                 <!-- <a href="">read more</a> -->
                                             </p>
-                                            <p class="pr-new-link"><a href="">read more</a></p>
+
+                                             
+
+                                            <p @click="isonSee=false" class="pr-new-link"  v-if="isonSee"><a >read less</a></p>
+                                            <p @click="isonSee=true" class="pr-new-link" v-else><a >read more</a></p>
                                         </div>
                                         <div class="new-comment-btn">
                                             <button @click="$router.push(`/scoach_review/${searchData[0].id}`)" >Write a Review</button>
@@ -232,12 +236,16 @@
                                             </ul>
                                             <!-- <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p> -->
                                         </div>
-                                        <div class="new-comment-para pr-new-comment-para" style="margin-top: 13px">
+                                        <div class="new-comment-para pr-new-comment-para" :class="(isonSee)?'mo-new-comment-para':''" style="margin-top: 13px">
                                             <p style="line-height: 18px">
                                                 "{{searchData[0].allreviewLimit.content}}"
                                                 <!-- <a href="">read more</a> -->
                                             </p>
-                                            <p class="pr-new-link"><a href="">read more</a></p>
+                                            
+                                            <p @click="isonSee=false" class="pr-new-link"  v-if="isonSee"><a >read less</a></p>
+                                            <p @click="isonSee=true" class="pr-new-link" v-else><a >read more</a></p>
+
+                                            <!-- <p class="pr-new-link"><a href="">read more</a></p> -->
                                         </div>
                                         <div class="new-comment-btn">
                                             <button @click="$router.push(`/addreview/${searchData[0].id}`)" >Write a Review</button>
@@ -1291,7 +1299,7 @@ Because doing nothing, leads to nothing.
                                             </div>
 
                                             <div class="_1card_details">
-                                                <p class="_3title">{{item.name}} - {{item.school.sport}}</p>
+                                                <p class="_3title" style="font-weight: 600;">{{item.name}} - {{item.school.sport}}</p>
                                                 <p class="_3title">{{item.school.schoolName}}</p>
                                                 <div class="_1rating" style="margin-top: 7px;">
                                                      <ul class="_1rating_list">
@@ -1782,11 +1790,11 @@ Because doing nothing, leads to nothing.
         <div v-else-if="mobileScreen" class="flank-container flank-container-mobile ">
         
 
-            <div class="new-search-flank new-box-shadow" id="topId">
+            <div class="new-search-flank new-box-shadow" id="topId" style="padding-top: 20px;">
                 <div class="new-search-flank-num">
                     <!-- <p v-if="showStr" >  1-5 of over {{pagination.total}} results for <span>"{{showStr}}"</span></p> -->
                     <p v-if="str" >  1-5 of over {{pagination.total}} results for <span>"{{str}}"</span></p>
-                    <p v-else >  1-5 of over {{pagination.total}} results for</p>
+                    <p v-else >  1-5 of over {{pagination.total}} results </p>
                 </div>
                
             </div>
@@ -1946,10 +1954,17 @@ Because doing nothing, leads to nothing.
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                             </ul>
                                         </div>
-                                        <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
+                                        <div class="new-comment-para" :class="(isonSee)?'mo-new-comment-para':''" style="margin-top: 25px;">
                                             <p class="font-24 weight-400">
                                                 <span>"{{searchData[0].allreviewLimit.content}}"</span>
-                                                <a href="" class="new-text-blue">read more</a>
+
+                                               
+                                            </p>
+                                            <p @click="isonSee=false" v-if="isonSee">
+                                                <a  class="new-text-blue">read less</a>
+                                             </p>
+                                            <p @click="isonSee=true" v-else>
+                                                <a  class="new-text-blue" >read more</a>
                                             </p>
                                         </div>
                                         <div class="new-comment-btn mob-new-comment-btn">
@@ -1988,10 +2003,17 @@ Because doing nothing, leads to nothing.
                                                 <li><span :class="( searchData[0].allreviewLimit.rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                             </ul>
                                         </div>
-                                        <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
+                                         <div class="new-comment-para" :class="(isonSee)?'mo-new-comment-para':''" style="margin-top: 25px;">
                                             <p class="font-24 weight-400">
                                                 <span>"{{searchData[0].allreviewLimit.content}}"</span>
-                                                <a href="" class="new-text-blue">read more</a>
+
+                                               
+                                            </p>
+                                            <p @click="isonSee=false" v-if="isonSee">
+                                                <a  class="new-text-blue">read less</a>
+                                             </p>
+                                            <p @click="isonSee=true" v-else>
+                                                <a  class="new-text-blue" >read more</a>
                                             </p>
                                         </div>
                                         <div class="new-comment-btn">
@@ -3760,6 +3782,7 @@ export default {
     },
     data(){
         return{
+            isonSee:false,
             editHooperSetting: {
                 breakpoints: {
                     700: {
