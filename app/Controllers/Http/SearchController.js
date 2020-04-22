@@ -306,15 +306,21 @@ class SearchController {
       .withCount('allreview as allreview')
       .with('school')
 
-    if (place) {
-      data.whereHas('school', (builder) => {
-        builder.where('city', 'LIKE', '%' + place + '%')
-        // builder.orWhere('state', place)
+    // if (place) {
+    //   data.whereHas('school', (builder) => {
+    //     builder.where('city', 'LIKE', '%' + place + '%')
+    //     // builder.orWhere('state', place)
 
-      })
-    }
+    //   })
+    // }
+    
     if (txt) {
       data.where('name', 'LIKE', '%' + txt + '%')
+    }
+    if (txt) {
+      data.orWhereHas('school', (builder) => {
+        builder.where('schoolName', 'LIKE', '%' + txt + '%')
+      })
     }
 
     return await data.paginate(page, 20)
