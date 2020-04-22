@@ -63,10 +63,10 @@
                                 <div class="single-coaches">
                                     <div class="single-coaches-left">
                                         <!-- <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img :src="item.school.logo" alt=""></div> -->
-                                        <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)"><img src="/images/sticker-3.png" alt=""></div>
+                                        <div class="single-coaches-left-title" style="cursor:pointer" @click="$router.push(`/school_coach/${item.id}`)"><img src="/images/sticker-3.png" alt=""></div>
                                     </div>
                                     <div class="single-coaches-right">
-                                        <h4 class="single-coaches-right-title" style="cursor:pointer" @click="$router.push(`/scoach_review/${item.id}`)">{{item.name}} - {{item.school.sport}}</h4>
+                                        <h4 class="single-coaches-right-title" style="cursor:pointer" @click="$router.push(`/school_coach/${item.id}`)">{{item.name}} - {{item.school.sport}}</h4>
                                         <p class="single-coaches-right-sub">{{item.school.schoolName}}, {{item.school.city}}/{{item.school.state}}</p>
                                         <ul class="review-star-list">
                                             <li :class="(item.avg_rating>0)? 'review-star-5' : ''"><span><i class="fas fa-star"></i></span></li>
