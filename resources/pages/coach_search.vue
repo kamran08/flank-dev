@@ -9,7 +9,7 @@
                 </div> -->
                 <div class="new-search-flank-num" >
                     <p v-if="str">  1-5 of over {{pagination.total}} results for <span>"{{str}}"</span></p> 
-                    <p v-else>  1-5 of over {{pagination.total}} results for <span></span></p> 
+                    <p v-else>  1-5 of over {{pagination.total}} results  <span></span></p> 
                 </div>
                 <div :class="(isMobileMenu)? 'modal-open': 'flank-filter'" v-if="showMenuButton" >
                     <span @click="isMobileMenu = (isMobileMenu)? false : true"><i class="fas fa-filter"></i></span>
@@ -18,6 +18,7 @@
                     <span @click="submitSupport"><i class="fas fa-filter"></i></span>
                 </div> --> 
                 <div class="new-search-flank-sort" v-if="searchOn">
+                <!-- <div class="new-search-flank-sort" > -->
                     <select name="" id="" v-model="sort" @change="sortBySelect($event)">
                         <option value="Sort By" disabled>Sort By</option>
                         <option value="1">Review: Low to High</option>
@@ -4127,7 +4128,7 @@ export default {
             
             // this.i("dskkfd")
             this.$store.commit('setUrl', "new value")
-            this.searchOn=false
+            // this.searchOn=false
             this.showStr=''
             this.attribute=''
             this.$store.commit('setPageOption', item )

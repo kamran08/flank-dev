@@ -658,7 +658,7 @@ class UserController {
         // goflank @yahoo.com
         await Mail.send('emails.legal', data, (message) => {
           message
-            .to('sadek.hkm@gmail.com')
+            .to('goflank@yahoo.com')
             .from(data.email, `Legal Inquiries`)
             .subject('Flank – Urgent Legal Inquiry Request')
         })
@@ -706,7 +706,7 @@ class UserController {
           await Mail.send('emails.messageFromReview', data, (message) => {
             message
             // goflank @yahoo.com
-              .to('sadek.hkm@gmail.com')
+              .to('goflank@yahoo.com')
               .from(data.email, `New Email`)
               .subject(data.subject)
           })
@@ -731,7 +731,7 @@ class UserController {
           await auth.logout()
           await Mail.send('emails.accountCloser', data, (message) => {
             message
-              .to('ahmedkamran265@gmail.com')
+              .to('goflank@yahoo.com')
               .from('Support@goflank.com', `New Email`)
               .subject('Flank – Urgent Account Closure Request')
           })

@@ -29,13 +29,15 @@ class HomeController {
               })
               // return this.errorResponse(response, 401, validation.messages())
             }
-        await EmailSubscription.create(data)
+      let d=  await EmailSubscription.create(data)
         if (data.email) {
           // goflank @yahoo.com
           await Mail.send('emails.invitation', data, (message) => {
             message
-              .to('sadek.hkm@gmail.com')
-              .from(data.email, `new mail`)
+              // .to('sadek.hkm@gmail.com')
+              .to('goflank@yahoo.com')
+              // .from(data.email, `new mail`)
+              .from("Support@goflank.com", `new mail`)
               .subject('Flank Daily – New Submission')
           })
         } else {
@@ -43,6 +45,8 @@ class HomeController {
                 'msg': "given email is invalid"
               })
             }
+
+            // return d
     }
     async sendSupportMessege({request}){
         let data = request.all();
@@ -50,7 +54,7 @@ class HomeController {
           // sadek.hkm@gmail.com
           await Mail.send('emails.suggestion', data, (message) => {
             message
-              .to('sadek.hkm@gmail.com')
+              .to('goflank@yahoo.com')
               .from(`Support@goflank.com`, `New Mail`)
               .subject('Flank – Improvement Inquiry Submitted')
           })

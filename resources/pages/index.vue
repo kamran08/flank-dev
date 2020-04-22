@@ -2568,7 +2568,7 @@ export default {
   methods: {
 
       closeModalsss(){
-          this.i("ookk")
+        //   this.i("ookk")
         
         
             this.step1Form={

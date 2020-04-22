@@ -129,7 +129,7 @@ class SchoolController {
     // sadek.hkm@gmail.com
     await Mail.send('emails.coatch', data, (message) => {
       message
-        .to('sadek.hkm@gmail.com')
+        .to('goflank@yahoo.com')
         .from('Support@goflank.com', `new`)
         .subject('Flank – Urgent New Coach/School ')
     })

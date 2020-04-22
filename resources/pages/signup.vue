@@ -63,8 +63,11 @@
                                         <div class="new-group-item">
                                             <select name="" id="" v-model="birthday.year">
                                                 <option value="" disabled selected>Year</option>
-                                                <option v-for="item in 120" :value="item" :key="item">{{item+1900}}</option>
+                                                <option v-for="item in 120" :value="2021-item"  :key="item">{{2021-item}}</option>
+                                                <!-- <option v-for="item in 120" :value="item" :key="item">{{item+1900}}</option> -->
                                             </select>
+                                            <!-- {{birthday.year}} -->
+                                            <!-- {{121-birthday.year}} -->
                                         </div>
                                     </div>
                                 </div>
@@ -135,6 +138,8 @@ export default {
             if(this.formData.email == '') return this.i("Email  is empty!")
             if(this.formData.password == '') return this.i("Password  is empty!")
             if(this.formData.zip == '') return this.i("Zip  is empty!")
+
+
             // if(this.formData.zip == '') return this.i("Zip  is empty!")
             //  if(this.formData.password_confirmation  !==  this.formData.password) return this.i("Password Doesn't match !")
             
@@ -142,8 +147,12 @@ export default {
             // if(this.birthday.day == '') return this.i("Day  is empty!")
             // if(this.birthday.year == '') return this.i("Year  is empty!")
             this.formData.birthday= `${this.birthday.year}-${this.birthday.month}-${this.birthday.day}`
+            console.log(this.formData.birthday)
             this.formData.packType = 1
             this.formData.password_confirmation = this.formData.password
+
+
+            // return
             
             const res = await this.callApi('post','/users',this.formData)
             if(res.status==200){
