@@ -134,11 +134,11 @@
                       </ul>
                       <span
                         v-if="onHover"
-                        style="font-weight: 400; color: #000; margin-left: 5px;font-family: CeraPro"
+                        style="font-weight: 400; color: #000; margin-left: 0;font-family: CeraPro"
                       >{{(drating.text)? drating.text : 'Select your rating'}}</span>
                       <span
                         v-else
-                        style="font-weight: 400; color: #000; margin-left: 5px;font-family: CeraPro"
+                        style="font-weight: 400; color: #000; margin-left: 0;font-family: CeraPro"
                       >{{(oldrating.text)? oldrating.text : 'Select your rating'}}</span>
                     </div>
                     <!-- <ul class="write-review-box-cont mar_b20">

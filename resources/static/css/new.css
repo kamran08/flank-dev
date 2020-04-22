@@ -885,7 +885,8 @@ a.sign-social-facebook:focus {
 
 .write-review-box-top {
     display: flex;
-    align-items: center
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .write-review-input-box textarea {
@@ -924,7 +925,7 @@ a.sign-social-facebook:focus {
 }
 
 .write-review-box-top .review-star-list {
-    margin-right: 5px;
+    margin-right: 10px;
     cursor: pointer
 }
 
@@ -1101,7 +1102,8 @@ footer {
     overflow: auto;
     flex: 0 0 100%;
     padding-right: 20px;
-    width: 100%
+    width: 100%;
+    padding-bottom: 100px;
 }
 
 .review-sidebar-arrow {
@@ -1415,11 +1417,16 @@ footer {
 
 .play-coach {
     display: flex;
-    align-items: baseline
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.play-coach p {
+    margin-right: 15px;
 }
 
 .play-coach-input {
-    margin-left: 15px
+    /* margin-left: 15px */
 }
 
 .play-coach-input ul {

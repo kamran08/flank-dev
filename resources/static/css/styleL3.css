@@ -3991,3 +3991,9 @@ html.modal-open {
 .new-flanker-top-choice .hooper-list {
     overflow: hidden;
 }
+
+@media only screen and (max-width: 349px) {
+    .next-btn button {
+        font-size: 13px;
+    }
+}
