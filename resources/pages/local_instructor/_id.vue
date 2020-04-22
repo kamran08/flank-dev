@@ -2134,8 +2134,9 @@ export default {
 } */
 
 .modal-image-carousel {
-  width: 50%;
-  margin: auto;
+    width: 65%;
+    margin: auto;
+    padding-bottom: 40px;
 }
 
 .ivu-modal {

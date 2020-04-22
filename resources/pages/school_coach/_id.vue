@@ -275,7 +275,7 @@
                                             <!-- <p><a href="">26 More Attributes</a></p> -->
                                         </div>
                                     </div> 
-                                    <div class="inner-item-reco-sec inner-item-reco-sec-one">
+                                    <!-- <div class="inner-item-reco-sec inner-item-reco-sec-one">
                                         <div class="inner-item-reco-title">
                                             <h4 style="text-transform: none;">Ask the Community</h4>
                                         </div>
@@ -286,7 +286,7 @@
                                             </figure>
                                             <div class="top-con-cap one-top-cont-cap">
                                                 <p>Don't see your question? <span style="cursor:pointer; color: #2380bb; font-family: ceraProMedium;padding-left: 20px;" @click="$router.push(`/coachquestionlist/${legendData.id}`)">Ask your verified audience! (Click here) </span> </p>
-                                                <!-- <a >(Click Here)</a> -->
+                                                <a >(Click Here)</a>
                                             </div>
                                         </div>
                                         <div class="new-flank-form" v-if="legendData.question && !isMoreQuestion"  >
@@ -296,9 +296,9 @@
                                                 <div class="new-qu-text">
                                                     <p>{{legendData.question.content}}</p>
                                                 </div>
-                                                <!-- <div class="new-qu-img">
+                                                <div class="new-qu-img">
                                                     <img src="/images/nf.png" alt="">
-                                                </div> -->
+                                                </div>
                                             </div>
                                             <div class="new-flank-coach-rev" v-if="legendData.question.user">
                                                 <div class="coach-rev-con">
@@ -384,7 +384,7 @@
                                             <p v-if="!isMoreQuestion"><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
                                             <p  v-else-if="isMoreQuestion"><a @click="isMoreQuestion= !isMoreQuestion"><span><i class="fas fa-chevron-up"></i></span>Show less activity</a></p>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- <GChart
                                         type="LineChart"
                                         :data="chartData"
@@ -622,15 +622,15 @@
 
                                     <div class="switch-link-content"></div>
 
-                                    <div class="switch-link-content">
+                                    <!-- <div class="switch-link-content">
                                         <div class="switch-link-title">
                                             <h4 class="mb-6">Latest videos</h4>
                                         </div>
                                         <div class="flank-video" v-if="playingVideo">
                                             
                                            <p v-html="playingVideo"></p>
-                                           <!-- {{ coachVideo[isPlayingItemId].body }} -->
-                                            <!-- <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
+                                           {{ coachVideo[isPlayingItemId].body }}
+                                            <iframe src="https://www.youtube.com/embed/Vz738aqEI5w" width="640" height="268" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
                                         </div>
 
                                         <div class="playing-list">
@@ -647,7 +647,7 @@
                                                         </ul>
                                                     </div>
                                                 </li>
-                                                <!-- <li>
+                                                <li>
                                                     <div class="playing-btn">
                                                         <span><i class="fas fa-play"></i></span>
                                                     </div>
@@ -679,7 +679,7 @@
                                                             <li><p>3:55</p></li>
                                                         </ul>
                                                     </div>
-                                                </li> -->
+                                                </li>
                                             </ul>
                                         </div>
                                         <div class="video-foot-img">
@@ -687,7 +687,7 @@
                                                 <img src="/images/flank.png" alt="">
                                             </figure>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- this is my div to work -->
                                     <div class="flank-banner-two">
                                         <figure>
@@ -1122,7 +1122,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="inner-scandal-video new-box-shadow" style="padding: 0px;">
+                                <!-- <div class="inner-scandal-video new-box-shadow" style="padding: 0px;">
                                     <div class="inner-item-review-title" style="padding: 15px 30px; margin-bottom: 5px;background: transparent;">
                                         <h4 class="pad-border" style="padding-left: 0;">LATEST VIDEOS</h4>
                                     </div>
@@ -1133,7 +1133,7 @@
                                                     <div class="inner-scandal-video-item" @click="openVideomobile(item.body)">
                                                         <figure >
                                                             <img :src="item.img" alt="">
-                                                            <!-- <p v-html="item.body"></p> -->
+                                                            <p v-html="item.body"></p>
                                                             <div class="play-caption">
                                                                 <span><i class="fas fa-play"></i></span>
                                                             </div>
@@ -1150,7 +1150,7 @@
                                                     </div>
                                                 </div>
                                             </slide>
-                                            <!-- <slide >
+                                            <slide >
                                                 <div class="col-md-3 col-sm-6"  >
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(1)">
@@ -1170,8 +1170,8 @@
                                                     </div>
                                                     </div>
                                                 </div>
-                                            </slide> -->
-                                            <!-- <slide >
+                                            </slide>
+                                            <slide >
                                                 <div class="col-md-3 col-sm-6"  >
                                                     <div class="inner-scandal-video-item">
                                                         <figure @click="openVideo(1)">
@@ -1212,11 +1212,11 @@
                                                     </div>
                                                     </div>
                                                 </div>
-                                            </slide> -->
+                                            </slide>
                                             <hooper-navigation slot="hooper-addons"></hooper-navigation>
                                         </hooper>
                                         
-                                        <!-- <div class="col-md-3 col-sm-6 new-min-height">
+                                        <div class="col-md-3 col-sm-6 new-min-height">
                                             <div class="inner-scandal-video-item" style="margin-top: 0;">
                                                 <figure @click="openVideo(1)">
                                                     <img src="/newFile/1.png" alt="">
@@ -1234,8 +1234,8 @@
                                                     <img src="/image/flank.png" alt="">
                                                 </div>
                                             </div>
-                                        </div> -->
-                                        <!-- <div class="col-md-3 col-sm-6 new-min-height">
+                                        </div>
+                                        <div class="col-md-3 col-sm-6 new-min-height">
                                             <div class="inner-scandal-video-item">
                                                 <div class="inner-video-iframe">
                                                     <iframe src="https://www.youtube.com/embed/rdVEag98q6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -1278,8 +1278,8 @@
                                                     <img src="/images/flank.png" alt="">
                                                 </div>
                                             </div>
-                                        </div> -->
-                                        <!-- <div class="col-md-3 col-sm-6">
+                                        </div>
+                                        <div class="col-md-3 col-sm-6">
                                             <div class="inner-scandal-video-item">
                                                 <figure @click="openVideo(3)">
                                                     <img src="/newFile/3.png" alt="">
@@ -1291,11 +1291,11 @@
                                                     <img src="/images/flank.png" alt="">
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
                                         
                                     </div>
-                                </div>
-                                <div class="inner-item-reco-sec inner-item-reco-sec-one new-box-shadow" style="padding: 0; padding-bottom: 10px;">
+                                </div> -->
+                                <!-- <div class="inner-item-reco-sec inner-item-reco-sec-one new-box-shadow" style="padding: 0; padding-bottom: 10px;">
                                     <div class="inner-item-reco-title" style="padding: 25px 20px 10px;">
                                         <h4 class="pad-border">Ask The Community</h4>
                                     </div>
@@ -1305,7 +1305,7 @@
                                         </figure>
                                        <div class="top-con-cap one-top-cont-cap">
                                             <p>Don't see your question? <span style="cursor:pointer; color: #2380bb; font-family: ceraProMedium;padding-left: 20px;" @click="$router.push(`/coachquestionlist/${legendData.id}`)">Ask your verified audience! (Click here) </span> </p>
-                                            <!-- <a >(Click Here)</a> -->
+                                            <a >(Click Here)</a>
                                         </div>
                                     </div>
                                     <div class="new-flank-form"  v-if="legendData.question && !isMoreQuestion" style="padding: 0 20px;">
@@ -1370,7 +1370,7 @@
                                         <p v-if="!isMoreQuestion"><a @click="isMoreQuestion= true"><span><i class="fas fa-chevron-down"></i></span>Show more activity</a></p>
                                         <p  v-else-if="isMoreQuestion"><a @click="isMoreQuestion= false"><span><i class="fas fa-chevron-up"></i></span>Show less activity</a></p>
                                     </div>
-                                </div>
+                                </div> -->
                                     <!-- <GChart
                                     type="LineChart"
                                     :data="chartData"

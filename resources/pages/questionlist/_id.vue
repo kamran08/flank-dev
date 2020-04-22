@@ -231,7 +231,7 @@
             </div>
         </section>
         <Modal title="Ask the Community" v-model="askModal">
-           <div class="">
+           <div class="pr-question-modal">
             <Form  :label-width="80">
               
                <FormItem label="Question">
@@ -239,9 +239,9 @@
                </FormItem>
             </Form>
            </div>
-           <div class="_footer">
+           <div class="_modal_footer" style="padding: 10px 15px 15px;">
                 <Button  @click="askModal=false">Cancle</Button>
-                <Button type="info" @click="askQuestion">Ask</Button>
+                <Button style="margin-left:5px;" type="info" @click="askQuestion">Ask</Button>
             </div>
         </Modal>
     </div>
