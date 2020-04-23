@@ -1955,8 +1955,8 @@ Because doing nothing, leads to nothing.
                                             </ul>
                                         </div>
                                         <div class="new-comment-para" :class="(isonSee)?'mo-new-comment-para':''" style="margin-top: 25px;">
-                                            <p class="font-24 weight-400">
-                                                <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                            <p class="font-24 weight-400">"{{searchData[0].allreviewLimit.content}}"
+                                                <!-- <span>"{{searchData[0].allreviewLimit.content}}"</span> -->
 
                                                
                                             </p>
@@ -2004,8 +2004,8 @@ Because doing nothing, leads to nothing.
                                             </ul>
                                         </div>
                                          <div class="new-comment-para" :class="(isonSee)?'mo-new-comment-para':''" style="margin-top: 25px;">
-                                            <p class="font-24 weight-400">
-                                                <span>"{{searchData[0].allreviewLimit.content}}"</span>
+                                            <p class="font-24 weight-400">"{{searchData[0].allreviewLimit.content}}"
+                                                <!-- <span>"{{searchData[0].allreviewLimit.content}}"</span> -->
 
                                                
                                             </p>

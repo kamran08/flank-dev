@@ -21,7 +21,8 @@
                                         <li>&bull;</li>
                                         <li>{{legendData.school.sport}}</li>
                                     </ul>
-                                    <div class="flank-head-btn"  @click="$router.push(`/scoach_review/${legendData.id}`)"> 
+                                    <!-- <div class="flank-head-btn"  @click="$router.push(`/scoach_review/${legendData.id}`)"  @click="gotoReviewPage(legendData.id)">  -->
+                                    <div class="flank-head-btn"    @click="gotoReviewPage(legendData.id)"> 
                                         <button>Review</button>
                                     </div>
                                 </div>
@@ -848,7 +849,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="flank-head-btn mt-10"  @click="$router.push(`/scoach_review/${legendData.id}`)"> 
+                                    <!-- <div class="flank-head-btn mt-10"  @click="$router.push(`/scoach_review/${legendData.id}`)">  -->
+                                    <div class="flank-head-btn mt-10"  @click="gotoReviewPage(legendData.id)"> 
                                         <button>Review</button>
                                     </div>
                                 </div>
@@ -2081,6 +2083,40 @@
 
             </div>
         </Modal>
+         <Modal title="Sign-In" v-model="loginModal2"> 
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="signcont-left" style="border: 0;">
+                        <h3 class="create-account">Sign-In</h3>
+                        <form v-on:submit.prevent>
+                            <div class="group-item">
+                                <label >Email</label>
+                                <input type="email" v-model="formData2.email">
+                            </div>
+                            <div class="group-item">
+                                <label >Password</label>
+                                <nuxt-link  class="group-item-right red-alert group-item-forgot-pass"  to='/authentication/resetpassword' >Forgot your password?</nuxt-link>
+                                <input type="password" v-model="formData2.password">
+                            </div>
+                            <div class="group-item">
+                                <input type="submit" @click="onSubmit2" value="Sign-In" class="g-btn">
+                            </div>
+                        </form>
+                        <p class="mar_b20" style="font-weight: 400;font-family: CeraPro;line-height: 19px;font-size: 14px;">By continuing, you agree to Flank's <nuxt-link to="/guidlines">Conditions of Use</nuxt-link> and <nuxt-link to="/policy">Privacy Notice</nuxt-link>.</p>
+                        <h5 class="mar_b30 new-input-check-box"><input type="checkbox" name="vehicle1" value="Bike" id="new-ch"> <label for="new-ch">Keep me Signed in.</label> <a href="#" class="sign-in" style="color: #e51837 !important; font-family: CeraPro;">Details</a></h5>
+                        <p class="new-flank">
+                            <span class="new-flank-cont">
+                                New to Flank?
+                            </span>               
+                        </p>
+                          <nuxt-link   :to="'/signup?from=scoach_review/'+coId" > <button class="create-btn">Create your Flank account</button></nuxt-link>
+                        <!-- scoach_review  this.coId -->
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </Modal>
 
         
     </div>
@@ -2188,6 +2224,11 @@ export default {
                 password:'',
                 remember: false,
             },
+             formData2:{
+                email:'',
+                password:'',
+                remember: false,
+            },
             isVideo:{
                 modal :false,
                 header:'',
@@ -2266,6 +2307,8 @@ export default {
             isPlayingItemId:-1,
             playingVideo:'',
             isLoad:false,
+            loginModal2:false,
+            coId:'',
        
         }
     },
@@ -2352,6 +2395,23 @@ export default {
         }
     },
     methods:{
+        gotoReviewPage(id){
+        
+            this.coId = id
+            if(this.authInfo){
+                this.$router.push(`/scoach_review/${id}`)
+            }
+            else{
+                this.i('Please login first !')
+                this.coId = id
+                this.loginModal2 = true
+
+                // this.i("please login")
+            }
+
+
+
+        },
          copyToClipBoard(){
            this.$clipboard(this.embededText);
             this.$Message.info('code copied');
@@ -2644,6 +2704,26 @@ export default {
                  
                   this.loginModal =false
                   
+                
+            }
+            else if(res.status==401){
+                this.e(res.data.message)
+            }
+            else{
+                this.swr();
+            }
+        },
+         async onSubmit2(){
+            if(this.formData2.email == '') return this.i("email is empty")
+            if(this.formData2.password == '') return this.i("Password is empty")
+            const res = await this.callApi('post','authentication/login',this.formData2) 
+            if(res.status===200){
+                this.s("Login Successfully !")
+                this.$store.dispatch('setAuthInfo',res.data)
+
+                this.$router.push(`/scoach_review/${coId}`)
+                 
+                  this.loginModal2 =false
                 
             }
             else if(res.status==401){

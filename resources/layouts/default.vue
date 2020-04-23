@@ -1,8 +1,8 @@
 <template >
 <client-only>
 
-  <div oncontextmenu="return false;">
-    <!-- <div > -->
+  <!-- <div oncontextmenu="return false;"> -->
+    <div >
   <!-- <script data-ad-client="ca-pub-5005018703171891" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
     <div id="fb-root"></div>
     <!-- <adsbygoogle />  -->
