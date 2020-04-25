@@ -732,7 +732,7 @@
                                 <div class="_1coach_top_right">
                                     <p class="_1title">Editorial recommendations</p>
 
-                                    <p class="_1coach_top_by">By <a href="">Flank</a> | </p>
+                                    <p class="_1coach_top_by">By Flank | </p>
                                 </div>
                             </div>
 
@@ -1299,8 +1299,8 @@ Because doing nothing, leads to nothing.
                                             </div>
 
                                             <div class="_1card_details">
-                                                <p class="_3title" style="font-weight: 600;">{{item.name}} - {{item.school.sport}}</p>
-                                                <p class="_3title">{{item.school.schoolName}}</p>
+                                                <p class="_3title text-ellipis" style="font-weight: 600;cursor: pointer;" @click="$router.push('/school_coach/'+item.id)">{{item.name}} - {{item.school.sport}}</p>
+                                                <p class="_3title text-ellipis">{{item.school.schoolName}}</p>
                                                 <div class="_1rating" style="margin-top: 7px;">
                                                      <ul class="_1rating_list">
                                                         <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
@@ -2292,7 +2292,7 @@ Because doing nothing, leads to nothing.
                                 <div class="_1coach_top_right">
                                     <p class="_1title font-24 weight-400 vs-text-size" style="text-transform: uppercase;">Editorial recommendations</p>
 
-                                    <p class="_1coach_top_by font-18">By <a href="">Flank</a> | </p>
+                                    <p class="_1coach_top_by font-18">By Flank | </p>
                                 </div>
                             </div>
 
@@ -2860,10 +2860,9 @@ Because doing nothing, leads to nothing.
                                                     <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                                     </div>
-
                                                     <div class="_1card_details _1card_details_mob">
-                                                        <h3 class="_3title">{{item.name}}</h3>
-                                                        <p class="_3title">{{item.school.schoolName}}</p>
+                                                        <h3 class="_3title text-ellipis" @click="$router.push('/school_coach/'+item.id)" style="cursor: pointer;">{{item.name}}</h3>
+                                                        <p class="_3title text-ellipis">{{item.school.schoolName}}</p>
                                                         <p class="_3title">{{item.school.sport}}</p>
                                                         <div class="_1rating mt-10">
                                                              <ul class="_1rating_list">

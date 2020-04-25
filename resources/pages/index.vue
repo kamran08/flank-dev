@@ -113,7 +113,10 @@
                         <!-- <figure v-if="leandingData.length>0">
                             <img :src="leandingData[0].url" alt="">
                          </figure> -->
-                        <adsbygoogle /> 
+                         <figure >
+                                 <adsbygoogle /> 
+                            </figure>
+                        <!-- <adsbygoogle />  -->
                           
                     </div>
                 </div>
@@ -565,7 +568,10 @@
                             <!-- <figure v-if="leandingData.length>0">
                                 <img :src="leandingData[0].url" alt="">
                             </figure> -->
-                             <adsbygoogle /> 
+                            <figure >
+                                 <adsbygoogle /> 
+                            </figure>
+                             <!-- <adsbygoogle />  -->
                         </div>
                     </div>
                 </div>
@@ -723,9 +729,9 @@
                             <!-- <figure v-if="leandingData.length>0">
                                 <img :src="leandingData[0].url" alt="">
                             </figure> -->
-                            <!-- <figure > -->
+                            <figure >
                                  <adsbygoogle /> 
-                            <!-- </figure> -->
+                            </figure>
                         </div>
                     </div>
                 </div>
@@ -1363,7 +1369,10 @@
                           <!-- <figure v-if="leandingData.length>0">
                         <img :src="leandingData[0].url" alt="">
                     </figure> -->
-                               <adsbygoogle /> 
+                    <figure >
+                            <adsbygoogle /> 
+                     </figure>
+                               <!-- <adsbygoogle />  -->
                     
                     </div>
                 </div>

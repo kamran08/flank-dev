@@ -2721,9 +2721,9 @@ export default {
                 this.s("Login Successfully !")
                 this.$store.dispatch('setAuthInfo',res.data)
 
-                this.$router.push(`/scoach_review/${coId}`)
+                this.loginModal2 =false
+                this.$router.push(`/scoach_review/${this.coId}`)
                  
-                  this.loginModal2 =false
                 
             }
             else if(res.status==401){
