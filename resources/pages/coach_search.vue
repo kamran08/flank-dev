@@ -1302,12 +1302,20 @@ Because doing nothing, leads to nothing.
                                                 <p class="_3title text-ellipis" style="font-weight: 600;cursor: pointer;" @click="$router.push('/school_coach/'+item.id)">{{item.name}} - {{item.school.sport}}</p>
                                                 <p class="_3title text-ellipis">{{item.school.schoolName}}</p>
                                                 <div class="_1rating" style="margin-top: 7px;">
-                                                     <ul class="_1rating_list">
+                                                     <!-- <ul class="_1rating_list">
                                                         <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
                                                         <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
                                                         <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
                                                         <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
                                                         <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.totalRating}}</li>
+                                                    </ul> -->
+                                                     <ul class="_1rating_list">
+                                                        <li :class="(4-index>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
+                                                        <li :class="(4-index>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(4-index>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(4-index>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(4-index>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
                                                         <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.totalRating}}</li>
                                                     </ul>
                                                 </div>
