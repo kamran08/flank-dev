@@ -110,10 +110,10 @@
             <div class="new-banner-section new-banner-section-black new-banner-width" >
                 <div class="container" style="">
                     <div class="inner-banner new-fl-inner-banner">
-                        <figure v-if="leandingData.length>0">
+                        <!-- <figure v-if="leandingData.length>0">
                             <img :src="leandingData[0].url" alt="">
-                         </figure>
-                        <!-- <adsbygoogle />  -->
+                         </figure> -->
+                        <adsbygoogle /> 
                           
                     </div>
                 </div>
@@ -562,10 +562,10 @@
                 <div class="new-banner-section middle-banner-section " >
                     <div class="container" style="">
                         <div class="inner-banner new-fl-inner-banner">
-                            <figure v-if="leandingData.length>0">
+                            <!-- <figure v-if="leandingData.length>0">
                                 <img :src="leandingData[0].url" alt="">
-                            </figure>
-                             <!-- <adsbygoogle />  -->
+                            </figure> -->
+                             <adsbygoogle /> 
                         </div>
                     </div>
                 </div>
@@ -720,11 +720,11 @@
                 <div class="new-banner-section banner-mb middle-banner-section mobile-no-margin" >
                     <div class="container" style="">
                         <div class="inner-banner new-fl-inner-banner">
-                            <figure v-if="leandingData.length>0">
+                            <!-- <figure v-if="leandingData.length>0">
                                 <img :src="leandingData[0].url" alt="">
-                            </figure>
+                            </figure> -->
                             <!-- <figure > -->
-                                 <!-- <adsbygoogle />  -->
+                                 <adsbygoogle /> 
                             <!-- </figure> -->
                         </div>
                     </div>
@@ -1360,10 +1360,10 @@
             <div class="new-banner-section" >
                 <div class="container no-padding">
                     <div class="inner-banner new-fl-inner-banner">
-                          <figure v-if="leandingData.length>0">
+                          <!-- <figure v-if="leandingData.length>0">
                         <img :src="leandingData[0].url" alt="">
-                    </figure>
-                               <!-- <adsbygoogle />  -->
+                    </figure> -->
+                               <adsbygoogle /> 
                     
                     </div>
                 </div>
