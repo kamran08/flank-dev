@@ -220,7 +220,8 @@ Vue.mixin({
       place: 'getPlace',
       div: 'getDiv',
       similar: 'getSimilar',
-      getUrl: 'getUrl'
+      getUrl: 'getUrl',
+      getState: 'getState',
     })
   },
   filters:{

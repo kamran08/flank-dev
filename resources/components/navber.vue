@@ -435,7 +435,7 @@
             async SearchByKeyV2(page = 'coach',div = '',attribute=''){
                 // this.isStringMenu = false
                 //  this.$set(this.isStringMenu, false);
-               
+               this.tStr = ''
                 
                 const res = await this.callApi('get', `/app/SearchData?place=${this.place}&str=${this.tStr}&pageOption=${page}&div=${div}&attribute=${attribute}`)
                 if(res.status === 200){
@@ -625,15 +625,12 @@
         // }
 
       },
-      'getUrl':function(newValue, oldValue) {
-        //   this.i(newValue)
-          if(newValue=='/'){
+      'str':function(newValue, oldValue) {
 
+          if(newValue==''){
+              this.tStr = ''
           }
-          else{
-
-                this.tStr = ''
-          }
+      
        
       }
     },

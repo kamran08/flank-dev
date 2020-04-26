@@ -605,11 +605,62 @@ class UserController {
     }
     async getSchoolCoachByMostRated ({ request, response, auth }) {
 
-      let data = await SchoolCoach.query()
+      // let data = await SchoolCoach.query()
+      //   .with('allreviewLimit').with('school')
+      //   .with('topAtrribute.info')
+      //   .withCount('allreview as allreview')
+      //  .orderBy('totalRating', 'desc').limit(4).fetch()
+      let data =[]
+    
+      let d1 = await SchoolCoach.query()
         .with('allreviewLimit').with('school')
         .with('topAtrribute.info')
-        .withCount('allreview as allreview')
-       .orderBy('totalRating', 'desc').limit(4).fetch()
+        .withCount('allreview as allreview').where('avg_rating' >= 4).
+        first()
+      let d2 = await SchoolCoach.query()
+        .with('allreviewLimit').with('school')
+        .with('topAtrribute.info')
+        .withCount('allreview as allreview').where('avg_rating' <= 3 && 'avg_rating'>2)
+        .first()
+      let d3 = await SchoolCoach.query()
+        .with('allreviewLimit').with('school')
+        .with('topAtrribute.info')
+        .withCount('allreview as allreview').where('avg_rating' <= 2 && 'avg_rating'>1)
+        .first()
+      let d4 = await SchoolCoach.query()
+        .with('allreviewLimit').with('school')
+        .with('topAtrribute.info')
+        .withCount('allreview as allreview').where('avg_rating',1)
+        .first()
+      if (d1){
+        d1.trace = true
+        data.push(d1)
+      }
+      else{
+        data.push({trace:false})
+      }
+      if (d2){
+        d2.trace = true
+        data.push(d2)
+      }
+       else{
+        data.push({trace:false})
+      }
+      if (d3){
+        d3.trace = true
+        data.push(d3)
+      }
+       else{
+        data.push({trace:false})
+      }
+      if (d4){
+        d4.trace = true
+
+        data.push(d4)
+      }
+       else{
+        data.push({trace:false})
+      }
 
        data = JSON.parse(JSON.stringify(data))
        for (let d of data) {

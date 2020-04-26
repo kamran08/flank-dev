@@ -193,7 +193,6 @@ class SchoolController {
     let data = request.all()
     let user_id = -1
     if (auth.user){
-
       user_id = await auth.user.id
       data.reviwer_id = user_id
     }
@@ -339,7 +338,7 @@ class SchoolController {
       metrice: asss[0][0],
       streak: streak,
       ps: ps,
-      PCT: parseFloat( PCT),
+      PCT: PCT?parseFloat(PCT):0,
       totalCorruption: corruption[0][0].totalCorruption,
       last10: last10,
       healthSore: healthSore,

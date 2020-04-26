@@ -1291,8 +1291,38 @@ Because doing nothing, leads to nothing.
                                 <div class="row flex-row">
                                     <!-- Card -->
                                     <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1" v-for="(item,index) in mostratedpost" :key="index" style="padding: 0 10px;">
-                                        <div class="_1card">
-                                            <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star': 'Stars & Up'}}</p>
+                                        <div class="_1card" v-if="!item.trace">
+                                            <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star':(4-index==4)?'Stars & Up':'Stars & Down'}}</p>
+
+                                            <div class="_1card_pic">
+                                                <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                            </div>
+
+                                            <div class="_1card_details">
+                                                <p class="_3title text-ellipis" style="font-weight: 600;" >{{"no coach found"}} - {{"sports"}}</p>
+                                                <p class="_3title text-ellipis">{{"no School found"}}</p>
+                                                <div class="_1rating" style="margin-top: 7px;">
+                                                     <!-- <ul class="_1rating_list">
+                                                        <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(item.avg_rating>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.totalRating}}</li>
+                                                    </ul> -->
+                                                     <ul class="_1rating_list">
+                                                        <li :class="(4-index>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
+                                                        <li :class="(4-index>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(4-index>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(4-index>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li :class="(4-index>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                        <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 0</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="_1card" v-else>
+                                            <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star':(4-index==4)?'Stars & Up':'Stars & Down'}}</p>
 
                                             <div class="_1card_pic">
                                                 <img class="_1card_img" src="/images/ps.png" alt="" title="">
@@ -3435,7 +3465,12 @@ Because doing nothing, leads to nothing.
                                                     </div>
                                                     <div class="build-input">
                                                         <label for="">State <span class="required">*</span></label>
-                                                        <input type="text" v-model="step1Form.state" >
+
+                                                        <select name="" id="" v-model="step1Form.state" >
+                                                            <option :value="item.state" v-for="(item,index) in getState" :key="index">{{item.name2}}</option>
+                                                         
+                                                        </select>
+                                                        <!-- <input type="text" v-model="step1Form.state" > -->
                                                     </div>
                                                     <div class="build-input">
                                                         <label for="">Sport <span class="required">*</span> </label>
@@ -3662,6 +3697,36 @@ Because doing nothing, leads to nothing.
                                                         They don't take you seriously.                                                                                                                                                                                                                                                                     
                                                         You owe this to yourself"></textarea>
                                                     </div>
+
+                                                         <div class="play-coach" style="padding-top: 10%;">
+                                        <p
+                                        style="font-size: 14px; font-weight: 100;font-family: CeraPro"
+                                        >Do you actively play for this coach?</p>
+                                        <div class="play-coach-input">
+                                        <ul>
+                                        <li>
+                                        <input
+                                        type="radio"
+                                        id="coach1"
+                                        v-model="step3Form.is_active"
+                                        value="1"
+                                        name="coach"
+                                        />
+                                        <label for="coach1">Yes</label>
+                                        </li>
+                                        <li>
+                                        <input
+                                        type="radio"
+                                        id="coach2"
+                                        v-model="step3Form.is_active"
+                                        value="0"
+                                        name="coach"
+                                        />
+                                        <label for="coach2">No</label>
+                                        </li>
+                                        </ul>
+                                        </div>
+                                        </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -3910,7 +3975,7 @@ export default {
                 school_id:'',
                 review_type:'school',
                 content:"",
-                
+                is_active:0,
                 rating:'',
             },
             newCoach:{},
@@ -3987,6 +4052,7 @@ export default {
            
         },
         changeOldRating(index){
+            this.$store.commit('setStr', '')
              this.attribute=''
              this.tsports=''
              this.oldrating.index = index
@@ -4157,6 +4223,7 @@ export default {
         chnageType(item , division=''){
             
             // this.i("dskkfd")
+            this.$store.commit('setStr', '')
             this.$store.commit('setUrl', "new value")
             // this.searchOn=false
             this.showStr=''
@@ -4204,6 +4271,7 @@ export default {
             this.SearchByKey()
         },
         async AttributesSearchByKey(){
+            this.$store.commit('setStr', '')
             this.sort = 0
             this.searchOn = false
             this.oldrating=[]
@@ -4212,6 +4280,8 @@ export default {
             this.SearchByKey()
         },
         async SpoprtsSearchByKey(key){
+
+            this.$store.commit('setStr', '')
              this.searchOn = false
             //  this.showStr = ''
              this.oldrating=[]
@@ -4329,6 +4399,21 @@ export default {
         // this. showCurrentPage = (Math.ceil(this.pagination.total)/(this.pagination.perPage)-this.pagination.page)
 
     },
+
+     watch: { 
+
+         'str':function(newValue, oldValue) {
+
+          if(newValue!=''){
+               this.oldrating=[]
+                this.tsports=''
+                this.sports = [];
+                this.attribute =''
+          }
+      
+       
+      }
+     },
     mounted(){
        
          if(window.innerWidth < 1050){

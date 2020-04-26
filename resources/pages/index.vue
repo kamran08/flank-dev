@@ -2045,7 +2045,10 @@
                                                     </div>
                                                     <div class="build-input">
                                                         <label for="">State <span class="required">*</span></label>
-                                                        <input type="text" v-model="step1Form.state" >
+                                                        <select name="" id="" v-model="step1Form.state" >
+                                                            <option :value="item.state" v-for="(item,index) in getState" :key="index">{{item.name2}}</option>
+                                                        </select>
+                                                        <!-- <input type="text" v-model="step1Form.state" > -->
                                                     </div>
                                                     <div class="build-input">
                                                         <label for="">Sport <span class="required">*</span> </label>
@@ -2272,6 +2275,35 @@
                                                         They don't take you seriously.                                                                                                                                                                                                                                                                     
                                                         You owe this to yourself"></textarea>
                                                     </div>
+                                        <div class="play-coach" style="padding-top: 10%;">
+                                        <p
+                                        style="font-size: 14px; font-weight: 100;font-family: CeraPro"
+                                        >Do you actively play for this coach?</p>
+                                        <div class="play-coach-input">
+                                        <ul>
+                                        <li>
+                                        <input
+                                        type="radio"
+                                        id="coach1"
+                                        v-model="step3Form.is_active"
+                                        value="1"
+                                        name="coach"
+                                        />
+                                        <label for="coach1">Yes</label>
+                                        </li>
+                                        <li>
+                                        <input
+                                        type="radio"
+                                        id="coach2"
+                                        v-model="step3Form.is_active"
+                                        value="0"
+                                        name="coach"
+                                        />
+                                        <label for="coach2">No</label>
+                                        </li>
+                                        </ul>
+                                        </div>
+                                        </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -2508,7 +2540,7 @@ export default {
                 school_id:'',
                 review_type:'school',
                 content:"",
-                
+                is_active:0,
                 rating:'',
             },
             newCoach:{},
@@ -2620,8 +2652,8 @@ export default {
                 school_id:'',
                 review_type:'school',
                 content:"",
-                
-                rating:'',
+                is_active:0,
+                rating:''
             }
             this.newCoach={}
              this.addNew.modal=false
