@@ -3,6 +3,8 @@
 
   <!-- <div oncontextmenu="return false;"> -->
     <div >
+      
+       <!-- <script data-ad-client="ca-pub-1329433058038954" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
   <!-- <script data-ad-client="ca-pub-5005018703171891" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
     <div id="fb-root"></div>
     <!-- <adsbygoogle />  -->
