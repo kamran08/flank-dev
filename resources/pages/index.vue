@@ -3300,7 +3300,8 @@ export default {
 	margin: 0 auto;
 }
 .adsense:before { display: none !important; }
-.adsense ins	{ width: 100%; height: 100% !important; display: block !important; }
+.adsense ins	{ width: 100%; height: 90px !important; display: block !important; }
+.adsense ins iframe	{ width: 100%; height: 90px !important; display: block !important; }
 
 .adsense {
 	position: relative;
@@ -3324,25 +3325,31 @@ export default {
 
 @media screen and ( max-width: 64em ) /* <= 1024 */
 {
-	.adsense { width: 728px; height: 90px; }
+	.adsense { width: 728px; height: 90px !important; }
 	.adsense:before	{ content: '1024'; }			
 }
 
 @media screen and ( max-width: 50em ) /* <= 800 */
 {
-	.adsense { width: 468px; height: 60px; }
+	.adsense { width: 468px; height: 60px !important; }
 	.adsense:before	{ content: '800'; }
+    .adsense ins	{ width: 468px; height: 60px !important;  }
+    .adsense ins iframe	{ width: 468px; height: 60px !important;  }
 }
 
 @media screen and ( max-width: 33.75em ) /* <= 540 */
 {
-	.adsense { width: 336px; height: 280px; }
+	.adsense { width: 336px; height: 280px !important; }
 	.adsense:before	{ content: '540'; }
+    .adsense ins	{ width: 336px; height: 280px !important;  }
+    .adsense ins iframe	{ width: 336px; height: 280px !important;  }
 }
 
 @media screen and ( max-width: 26.25em ) /* <= 420 */
 {
-	.adsense { width: 250px; height: 250px; }
+	.adsense { width: 250px; height: 250px !important; }
 	.adsense:before	{ content: '420'; }
+    .adsense ins	{ width: 250px; height: 250px !important;   }
+    .adsense ins iframe	{ width: 250px; height: 250px !important;   }
 }
 </style>
