@@ -240,7 +240,7 @@ class SearchController {
           .whereIn('school_id', ids)
           .whereHas('school', (builder) => {
             builder.where('city', 'LIKE', '%' + place + '%')
-          })
+          }).with('school')
 
           .limit(10).fetch()
       }

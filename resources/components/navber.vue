@@ -320,6 +320,7 @@
                 sort:'',
                 
                 isMenuOpen:false,
+                forPageoption:'coach'
                 
             }
         },
@@ -370,13 +371,16 @@
                 //  this.i(this.slectedTitle)
                 
                 // this.SearchByKey()
-                this.$store.commit('setPageOption', item)
+                this.forPageoption = item
+                // this.$store.commit('setPageOption', this.forPageoption)
+                
                
                 // this.isStringMenu = false
                 // this.i(this.isStringMenu)
             
             }, 
             async SearchByKey(){
+                this.$store.commit('setPageOption', this.forPageoption)
                 this.$store.commit('setUrl', '/')
                 this.$store.commit('setStr', this.tStr )
                 // this.i('kd')
@@ -398,6 +402,7 @@
                              this.schoolAssignRateTExt(res.data.mainData.data)
                              this.$store.commit('setSearchData', res.data.mainData.data)
                              console.log(res.data.mainData)
+                            this.coachAssignRateText(res.data.similarData)
                          }
                          else if(res.data && res.data.data){
                              this.schoolAssignRateTExt(res.data.data)

@@ -12,7 +12,8 @@ module.exports = {
 
     // With options
     ['@nuxtjs/google-adsense', {
-      id: 'ca-pub-1329433058038954'
+      id: 'ca-pub-4152194397350622'
+      // id: 'ca-pub-1329433058038954'
     }]
     
 

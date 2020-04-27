@@ -1011,7 +1011,7 @@
                                                 <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 26 && allTableData.healthSore <=50 )? '_1health_numbers_text_active' : ''">
                                                     <span class="new-meter-font">50</span>
                                                 </div>
-                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore >= 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
+                                                <div class="_1health_numbers_text" :class="(allTableData.healthSore > 0 && allTableData.healthSore <=25 )? '_1health_numbers_text_active' : ''">
                                                     <span></span>
                                                 </div>
                                                 <div  class="_1health_numbers_text" :class="(allTableData.healthSore==0)? '_1health_numbers_text_active' : ''">

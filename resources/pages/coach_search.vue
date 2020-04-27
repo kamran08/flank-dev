@@ -282,7 +282,7 @@
                                                     <div class="_2card_details_top">
                                                         <div class="_2card_details_left">
                                                             <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school_coach/${item.id}`)" >{{item.name}} -  {{(item.school)? item.school.sport: ''}}  </p>
-                                                            <p style="color: #000;">{{ item.school.schoolName}}</p>
+                                                            <p style="color: #000;" v-if="item.school.schoolName">{{ item.school.schoolName}}</p>
                                                             <div class="_1rating">
                                                                 <ul class="_1rating_list">
                                                                     <li :class="(item.avg_rating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
@@ -414,6 +414,7 @@
                             </div>
                             
                             <div class="_1coach_items" v-if="pageOption == 'school'"  v-for="(item,index) in searchData" :key="index"  >
+                              
                                 <!-- <div class="desk-fl-top">
                                     <p v-if="item.avgRating.averageRating !=0" class="worst yellow">{{ (item.avgRating.averageRating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
@@ -469,7 +470,7 @@
                                                 <div class="_2card_details" >
                                                     <div class="_2card_details_top">
                                                         <div class="_2card_details_left">
-                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school/${item.id}`)">{{item.schoolName}} {{item.sport}} </p>
+                                                            <p class="_2title" style=" cursor: pointer; "  @click="$router.push(`/school/${item.id}`)" v-if="item.schoolName">{{item.schoolName}} {{item.sport}} </p>
                                                             <div class="_1rating">
                                                                 <ul class="_1rating_list">
                                                                     <li :class="(item.avgRating.averageRating>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
@@ -1289,7 +1290,7 @@ Because doing nothing, leads to nothing.
 
                             <div class="_2coach_main">
                                 <div class="row flex-row">
-                                    <!-- Card -->
+                                    <!-- Card not -->
                                     <div class="col-xl-12 col-md-3 col-lg-3 col-sm-6 flex-1" v-for="(item,index) in mostratedpost" :key="index" style="padding: 0 10px;">
                                         <div class="_1card" v-if="!item.trace">
                                             <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star':(4-index==4)?'Stars & Up':'Stars & Down'}}</p>
@@ -2151,22 +2152,28 @@ Because doing nothing, leads to nothing.
                                     </div>
                                 </div>
                             </div>
-                            <div class="_1coach_items" v-if="pageOption == 'school'"  v-for="(item,index) in searchData" :key="index"  >
-                                <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
-                                    <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                            <div class="_1coach_items new-box-shadow" v-if="pageOption == 'school'"  v-for="(item,index) in searchData" :key="index"  >
+
+                                <div class="new-fl-top" v-if="item.avgRating">
+
+                                    <div v-if="item.avgRating.averageRating !=0" class="new-best-rated rated-yellow">
+                                        <p  class="">{{ (item.avgRating.averageRating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
                                 </div>
+                                
+                                
 
                                 <div class="_2coach_main">
                                     <div class="row">
                                        
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-7 _2coach_main_left">
-                                            <div class="_2card">
+                                            <div class="_2card _2card_new">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
-                                                <div class="new-content-rev-right" v-if="item.school">
+                                                <!-- <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
                                                     <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
                                                     <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
@@ -2177,6 +2184,33 @@ Because doing nothing, leads to nothing.
                                                             <li><span :class="( item.avg_rating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                             <li><span :class="( item.avg_rating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                             <li><span :class="( item.avg_rating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                        </ul>
+                                                        <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
+                                                    </div>
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
+                                                        <p class="font-24 weight-400">
+                                                            <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
+                                                            <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
+                                                            <a v-else-if="!item.isSeeMore"  @click="item.isSeeMore = true" class="new-text-blue">See more</a>
+                                                        </p>
+                                                    </div>
+                                                    <div class="new-comment-btn mob-new-comment-btn">
+                                                        <button @click="$router.push(`/scoach_review/${item.id}`)" >Write a Review</button>
+                                                    </div>
+                                                </div> previous design -->
+
+
+                                                <div class="new-content-rev-right" >
+                                                    <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.sport)? item.sport: ''}}  </h2>
+                                                    <p class="font-18 weight-400">{{ item.schoolName}}</p>
+                                                    <span class="city-s">{{item.city}}, {{item.state}}</span>
+                                                    <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
+                                                        <ul v-if="item.avgRating">
+                                                            <li><span :class="( item.avgRating.averageRating>0)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avgRating.averageRating>1)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avgRating.averageRating>2)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avgRating.averageRating>3)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
+                                                            <li><span :class="( item.avgRating.averageRating>4)? 'bg' : ''" ><i class="fas fa-star"></i></span></li>
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
@@ -2213,7 +2247,7 @@ Because doing nothing, leads to nothing.
                                     </div>
                                 </div>
                             </div>
-                            <div class="_1coach_items" v-if="pageOption == 'legend'"  v-for="(item,index) in searchData" :key="index"  >
+                            <div class="_1coach_items new-box-shadow" v-if="pageOption == 'legend'"  v-for="(item,index) in searchData" :key="index"  >
                                 <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
                                     <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
@@ -2222,7 +2256,7 @@ Because doing nothing, leads to nothing.
                                     <div class="row">
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-7 _2coach_main_left">
-                                            <div class="_2card">
+                                            <div class="_2card _2card_new">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
@@ -2635,9 +2669,14 @@ Because doing nothing, leads to nothing.
                                 </div>
                             </div>
 
-                            <div class="_1coach_items"   v-for="(item,index) in similar" :key="index" v-if="pageOption == 'school' && ((index%2) == 0)"  >
-                                <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
-                                    <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                            <div class="_1coach_items new-box-shadow"   v-for="(item,index) in similar" :key="index" v-if="pageOption == 'school' && ((index%2) == 0)"  >
+                                
+
+                                <div class="new-fl-top" v-if="item.avgRating">
+
+                                    <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
+                                        <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
+                                    </div>
                                 </div>
 
                                 <div class="_2coach_main">
@@ -2651,7 +2690,7 @@ Because doing nothing, leads to nothing.
 
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <p class="font-18 weight-400" v-if="item.school.schoolNam">{{ item.school.schoolName}}</p>
                                                     <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
@@ -2663,7 +2702,7 @@ Because doing nothing, leads to nothing.
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
-                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;" v-if="item.ratingText">
                                                         <p class="font-24 weight-400">
                                                               <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
                                                             <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
@@ -2784,7 +2823,7 @@ Because doing nothing, leads to nothing.
                                 </div>
                             </div>
                             
-                            <div class="_1coach_items" v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) == 0)   "  >
+                            <div class="_1coach_items new-box-shadow" v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) == 0)   "  >
                                 <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
                                     <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
@@ -2793,7 +2832,7 @@ Because doing nothing, leads to nothing.
                                     <div class="row">
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-7 _2coach_main_left">
-                                            <div class="_2card">
+                                            <div class="_2card _2card_new">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
@@ -2891,26 +2930,61 @@ Because doing nothing, leads to nothing.
                             <div class="_2coach_main _2coach_main_hooper mobile-flank-choice">
                                 <hooper  :settings="choiceHooperSetting" >
                                         <slide v-for="(item,index) in mostratedpost" :key="index" >
-                                            <div class="mobile-choice-item-list">
-                                                <div class="_1card">
-                                                    <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star': 'Stars & Up'}}</p>
+                                            <div class="mobile-choice-item-list" v-if="!item.trace">
+                                                <div class="_1card" >
+                                                    <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star':(4-index==4)?'Stars & Up':'Stars & Down'}}</p>
+
+                                                    <div class="_1card_pic _new_1card_pic">
+                                                        <img class="_1card_img" src="/images/ps.png" alt="" title="">
+                                                    </div>
+                                                    <div class="_1card_details _1card_details_mob">
+                                                        <h3 class="_3title text-ellipis" >{{"no school found"}}</h3>
+                                                        <p class="_3title text-ellipis"  >{{"no coach found"}}</p>
+                                                        <p class="_3title">{{"sports"}}</p>
+                                                        <div class="_1rating mt-10">
+
+                                                              <ul class="_1rating_list">
+                                                                <li :class="(4-index>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
+                                                                <li :class="(4-index>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li :class="(4-index>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li :class="(4-index>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li :class="(4-index>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> 0</li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mobile-choice-item-list" v-else>
+                                                <div class="_1card" v-if="item.school">
+                                                    <p class="_1card_star">{{4-index}} {{(4-index==1)?'Star':(4-index==4)?'Stars & Up':'Stars & Down'}}</p>
 
                                                     <div class="_1card_pic _new_1card_pic">
                                                         <img class="_1card_img" src="/images/ps.png" alt="" title="">
                                                     </div>
                                                     <div class="_1card_details _1card_details_mob">
                                                         <h3 class="_3title text-ellipis" @click="$router.push('/school_coach/'+item.id)" style="cursor: pointer;">{{item.name}}</h3>
-                                                        <p class="_3title text-ellipis">{{item.school.schoolName}}</p>
+                                                        <p class="_3title text-ellipis" v-if="item.school.schoolName" >{{item.school.schoolName}}</p>
                                                         <p class="_3title">{{item.school.sport}}</p>
                                                         <div class="_1rating mt-10">
-                                                             <ul class="_1rating_list">
+
+                                                              <ul class="_1rating_list">
+                                                                <li :class="(4-index>0)? '_1rating_active' : ''"><i class="fas fa-star"></i></li>
+                                                                <li :class="(4-index>1)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li :class="(4-index>2)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li :class="(4-index>3)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li :class="(4-index>4)? '_1rating_active' : ''" ><i class="fas fa-star"></i></li>
+                                                                <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
+                                                            </ul>
+                                                             <!-- <ul class="_1rating_list">
                                                                 <li :class="(item.avg_rating>0)?'_1rating_active':''"><i class="fas fa-star"></i></li>
                                                                 <li :class="(item.avg_rating>1)?'_1rating_active':''"><i class="fas fa-star"></i></li>
                                                                 <li :class="(item.avg_rating>2)?'_1rating_active':''"><i class="fas fa-star"></i></li>
                                                                 <li :class="(item.avg_rating>2)?'_1rating_active':''"><i class="fas fa-star"></i></li>
                                                                 <li :class="(item.avg_rating==5)?'_1rating_active':''"><i class="fas fa-star"></i></li>
                                                                 <li class="_1rating_num"><span> <i class="fas fa-chevron-down"></i> </span> {{item.avg_rating}}</li>
-                                                            </ul>
+                                                            </ul> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -3152,23 +3226,24 @@ Because doing nothing, leads to nothing.
                                     </div>
                                 </div>
                             </div>
-                            <div class="_1coach_items"  v-for="(item,index) in similar" :key="index" v-if="(pageOption == 'school') && ((index%2) != 0)"   >
+                            <div class="_1coach_items new-box-shadow"  v-for="(item,index) in similar" :key="index" v-if="(pageOption == 'school') && ((index%2) != 0)"   >
+                                
                                 <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
                                     <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
 
                                 <div class="_2coach_main">
-                                    <div class="row">
+                                    <div class="row new-row">
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_left">
-                                            <div class="_2card">
+                                            <div class="_2card _2card_new">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
 
                                                 <div class="new-content-rev-right" v-if="item.school">
                                                     <h2 style="cursor:pointer;"  @click="$router.push(`/school_coach/${item.id}`)" class="font-24 weight-400">{{ item.name}} -  {{ (item.school.sport)? item.school.sport: ''}}  </h2>
-                                                    <p class="font-18 weight-400">{{ item.school.schoolName}}</p>
+                                                    <p class="font-18 weight-400" v-if="item.school.schoolNam">{{ item.school.schoolName}}</p>
                                                     <span class="city-s">{{item.school.city}}, {{item.school.state}}</span>
                                                     <div class="new-content-star lg-content-star"  style="margin-top: 20px;">
                                                         <ul>
@@ -3180,7 +3255,7 @@ Because doing nothing, leads to nothing.
                                                         </ul>
                                                         <p><span><i class="fas fa-chevron-down"></i></span><a >{{(item.__meta__)? item.__meta__.allreview:0}}</a></p>
                                                     </div>
-                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;">
+                                                    <div class="new-comment-para mo-new-comment-para" style="margin-top: 25px;" v-if="item.ratingText">
                                                         <p class="font-24 weight-400">
                                                               <span :class="(item.isSeeMore)? ' open' : ''" >"{{item.ratingText}}"</span>
                                                             <a v-if="item.isSeeMore" @click="item.isSeeMore = false" class="new-text-blue">See less</a>
@@ -3301,16 +3376,16 @@ Because doing nothing, leads to nothing.
                                 </div>
                             </div>
                             
-                            <div class="_1coach_items"  v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) != 0)" >
+                            <div class="_1coach_items new-box-shadow"  v-for="(item,index) in similar" :key="index"  v-if="pageOption == 'legend' && ((index%2) != 0)" >
                                 <div v-if="item.avg_rating !=0" class="new-best-rated rated-yellow">
                                     <p  class="">{{ (item.avg_rating>=3)? 'Best Rated' : 'Worst Rated'}}</p>
                                 </div>
 
                                 <div class="_2coach_main">
-                                    <div class="row">
+                                    <div class="row new-row">
                                         <!-- Left -->
                                         <div class="col-xl-12 col-md-12 col-lg-7 _2coach_main_left">
-                                            <div class="_2card">
+                                            <div class="_2card _2card_new">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
                                                 </div>
