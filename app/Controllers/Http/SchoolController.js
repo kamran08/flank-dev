@@ -127,12 +127,12 @@ class SchoolController {
       'name': name
     }
     // sadek.hkm@gmail.com
-    await Mail.send('emails.coatch', data, (message) => {
-      message
-        .to('goflank@yahoo.com')
-        .from('Support@goflank.com', `new`)
-        .subject('Flank – Urgent New Coach/School ')
-    })
+    // await Mail.send('emails.coatch', data, (message) => {
+    //   message
+    //     .to('goflank@yahoo.com')
+    //     .from('Support@goflank.com', `new`)
+    //     .subject('Flank – Urgent New Coach/School ')
+    // })
     return   await SchoolCoach.create(coachob)
   }
 
@@ -209,6 +209,18 @@ class SchoolController {
         avg_rating: avg.avg_rating,
         totalgood: avg.totalgood,
         totalbad: avg.totalbad,
+      })
+      let d = await TempSchoolCoach.query().where('id', data.reviewFor).first()
+
+      let obb={
+        name: d.name
+      }
+
+      await Mail.send('emails.coatch', obb, (message) => {
+        message
+          .to('goflank@yahoo.com')
+          .from('Support@goflank.com', `new mail`)
+          .subject('Flank – Urgent New Coach/School')
       })
 
 
