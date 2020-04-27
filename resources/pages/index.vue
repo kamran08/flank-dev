@@ -118,9 +118,10 @@
                             </figure> -->
                            
                           <div class="adsense">
-			<ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
-			<p class="adsense__loading"><span>Loading&hellip;</span></p>
-		</div>
+                              <adsbygoogle /> 
+                                <!-- <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
+                                <p class="adsense__loading"><span>Loading&hellip;</span></p> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -574,10 +575,12 @@
                             <!-- <figure >
                                  <adsbygoogle /> 
                             </figure> -->
-                                        <div class="adsense">
-                            <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
-                            <p class="adsense__loading"><span>Loading&hellip;</span></p>
-                        </div>
+                            <div class="adsense">
+                                <adsbygoogle /> 
+                                    <!-- <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
+                                    <p class="adsense__loading"><span>Loading&hellip;</span></p> -->
+                            </div>
+                                       
                              <!-- <adsbygoogle />  -->
                         </div>
                     </div>
@@ -740,9 +743,10 @@
                                  <adsbygoogle /> 
                             </figure> -->
                             <div class="adsense">
-                            <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
-                            <p class="adsense__loading"><span>Loading&hellip;</span></p>
-                        </div>
+                                <adsbygoogle /> 
+                                    <!-- <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
+                                    <p class="adsense__loading"><span>Loading&hellip;</span></p> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1383,11 +1387,11 @@
                     <!-- <figure >
                             <adsbygoogle /> 
                      </figure> -->
-
-                                 <div class="adsense">
-			<ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
-			<p class="adsense__loading"><span>Loading&hellip;</span></p>
-		</div>
+                     <div class="adsense">
+                            <adsbygoogle /> 
+                            <!-- <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
+                            <p class="adsense__loading"><span>Loading&hellip;</span></p> -->
+                    </div>
                                <!-- <adsbygoogle />  -->
                     
                     </div>
@@ -3288,7 +3292,7 @@ export default {
         height: 100% !important;
     } */
 
-    .adsense {
+.adsense {
 	width: 970px;
 	height: 90px;
 	background-color: #fff;
@@ -3296,7 +3300,7 @@ export default {
 	margin: 0 auto;
 }
 .adsense:before { display: none !important; }
-.adsense ins	{ width: 100%; height: 100%; display: block; }
+.adsense ins	{ width: 100%; height: 100%; display: block !important; }
 
 .adsense {
 	position: relative;

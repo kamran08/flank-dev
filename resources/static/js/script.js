@@ -17,13 +17,13 @@
 $(document).ready(function () {
 
   // jQuery
-   $( '.adsense' ).adsenseLoader(
-  {
-  	onLoad: function( $ad )
-  	{
-  		$ad.addClass( 'adsense--loaded' );
-  	}
-  }); 
+  //  $( '.adsense' ).adsenseLoader(
+  // {
+  // 	onLoad: function( $ad )
+  // 	{
+  // 		$ad.addClass( 'adsense--loaded' );
+  // 	}
+  // }); 
   // $('.inner-button-main').toggleClass('inner-button-main-full')
   // $('.inner-button-main').first().toggleClass('active-header-1').toggleClass('inner-button-main-full')
   // $('.inner-dropdown').first().slideDown().toggleClass('openAccordion-1')

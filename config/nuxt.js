@@ -19,7 +19,7 @@ module.exports = {
   ],
   
   axios: {
-     baseURL: 'https://goflank.com/'     
+    //  baseURL: 'https://goflank.com/'     
   },
   // build: { 
     // mdsadek1 Juan_goFlank@360
@@ -82,7 +82,7 @@ module.exports = {
       { src: '/js/plugin-js/jquery-1.12.0.min.js', body: true },
       // { src: '/js/plugin-js/owl.carousel.min.js' },
       { src: '/js/script.js', body: true },
-      { src: '/js/adsenseloader.js', body: true },
+      // { src: '/js/adsenseloader.js', body: true },
        { src:"https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=379991066218611&autoLogAppEvents=1"},
        { src:"https://platform.twitter.com/widgets.js" },
        { src:"//folank.disqus.com/count.js" , body: true}
