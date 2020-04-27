@@ -3294,13 +3294,13 @@ export default {
 
 .adsense {
 	width: 970px;
-	height: 90px;
+	height: 90px !important;
 	background-color: #fff;
 	display: block;
 	margin: 0 auto;
 }
 .adsense:before { display: none !important; }
-.adsense ins	{ width: 100%; height: 100%; display: block !important; }
+.adsense ins	{ width: 100%; height: 100% !important; display: block !important; }
 
 .adsense {
 	position: relative;
