@@ -11,8 +11,10 @@
                       <adsbygoogle /> 
                   </figure> -->
                               <div class="adsense">
-			<ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
-			<p class="adsense__loading"><span>Loading&hellip;</span></p>
+			<!-- <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
+			<p class="adsense__loading"><span>Loading&hellip;</span></p> -->
+
+       <adsbygoogle /> 
 		</div>
                   
                 </div>
@@ -353,3 +355,71 @@ export default {
   
 };
 </script>
+
+<style >
+    /* .adsbygoogle {
+        max-height: 106px;
+        height: 100% !important;
+    } */
+
+.adsense {
+	width: 970px;
+	height: 90px !important;
+	background-color: #fff;
+	display: block;
+	margin: 0 auto;
+}
+.adsense:before { display: none !important; }
+.adsense ins	{ width: 100%; height: 90px !important; display: block !important; }
+.adsense ins iframe	{ width: 100%; height: 90px !important; display: block !important; }
+
+.adsense {
+	position: relative;
+}
+	.adsense__loading {
+		width: 100%;
+		height: 100%;
+		background-color: rgba( 255, 255, 255, .9 );
+		display: table;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.adsense--loaded .adsense__loading { display: none; }
+
+		.adsense__loading span {
+			text-align: center;
+			vertical-align: middle;
+			display: table-cell;
+		}
+
+@media screen and ( max-width: 64em ) /* <= 1024 */
+{
+	.adsense { width: 728px; height: 90px !important; }
+	.adsense:before	{ content: '1024'; }			
+}
+
+@media screen and ( max-width: 50em ) /* <= 800 */
+{
+	.adsense { width: 468px; height: 60px !important; }
+	.adsense:before	{ content: '800'; }
+    .adsense ins	{ width: 468px; height: 60px !important;  }
+    .adsense ins iframe	{ width: 468px; height: 60px !important;  }
+}
+
+@media screen and ( max-width: 33.75em ) /* <= 540 */
+{
+	.adsense { width: 336px; height: 280px !important; }
+	.adsense:before	{ content: '540'; }
+    .adsense ins	{ width: 336px; height: 280px !important;  }
+    .adsense ins iframe	{ width: 336px; height: 280px !important;  }
+}
+
+@media screen and ( max-width: 26.25em ) /* <= 420 */
+{
+	.adsense { width: 250px; height: 250px !important; }
+	.adsense:before	{ content: '420'; }
+    .adsense ins	{ width: 250px; height: 250px !important;   }
+    .adsense ins iframe	{ width: 250px; height: 250px !important;   }
+}
+</style>
