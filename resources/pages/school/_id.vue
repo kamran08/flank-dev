@@ -882,6 +882,35 @@
                                                             They don't take you seriously.                                                                                                                                                                                                                                                                     
                                                             You owe this to yourself"></textarea>
                                                 </div>
+                                                     <div class="play-coach" style="padding-top: 10%;">
+                                        <p
+                                        style="font-size: 14px; font-weight: 100;font-family: CeraPro"
+                                        >Do you actively play for this coach?</p>
+                                        <div class="play-coach-input">
+                                        <ul>
+                                        <li>
+                                        <input
+                                        type="radio"
+                                        id="coach1"
+                                        v-model="step3Form.is_active"
+                                        value="1"
+                                        name="coach"
+                                        />
+                                        <label for="coach1">Yes</label>
+                                        </li>
+                                        <li>
+                                        <input
+                                        type="radio"
+                                        id="coach2"
+                                        v-model="step3Form.is_active"
+                                        value="0"
+                                        name="coach"
+                                        />
+                                        <label for="coach2">No</label>
+                                        </li>
+                                        </ul>
+                                        </div>
+                                        </div>
                                             </form>
                                         </div>
                                     </div>
@@ -1092,6 +1121,7 @@ export default {
                 school_id:'',
                 content:"",
                 review_type:'school',
+                is_active:0,
                 rating:'',
             },
             location:{},
@@ -1278,7 +1308,8 @@ export default {
             if(this.step1Form.sport == '') return this.i("All Fields are required!")
             if(this.step1Form.state == '') return this.i("All Fields are required!")
             this.step1Form.id = this.legendData.id
-            const res = await this.callApi('post','/schools',this.step1Form)
+            const res = await this.callApi('post','/coaches',this.step1Form)
+            // const res = await this.callApi('post','/schools',this.step1Form)
 
             if(res.status == 200){
                 this.newCoach = res.data

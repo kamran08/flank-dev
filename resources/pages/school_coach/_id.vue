@@ -2500,7 +2500,8 @@ export default {
             if(this.step1Form.sport == '') return this.i("All Fields are required!")
             if(this.step1Form.state == '') return this.i("All Fields are required!")
             this.step1Form.id = this.legendData.id
-            const res = await this.callApi('post','/schools',this.step1Form)
+            const res = await this.callApi('post','/coaches',this.step1Form)
+            // const res = await this.callApi('post','/schools',this.step1Form)
 
             if(res.status == 200){
                 this.similarCoaches.push(res.data)
