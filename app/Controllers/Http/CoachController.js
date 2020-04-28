@@ -102,6 +102,15 @@ class CoachController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
+  async coachesAddView ({ params, request, response, view }) {
+    // return 1
+    let data = await SchoolCoach.query().where('id', params.id).first()
+    let ob={
+      views: parseInt(data.views)+1
+    }
+    return await SchoolCoach.query().where('id', params.id).update(ob)
+
+  }
   async show ({ params, request, response, view }) {
     const legendData = await SchoolCoach.query()
     .where('id', params.id)

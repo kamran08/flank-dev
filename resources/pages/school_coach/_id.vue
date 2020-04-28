@@ -39,7 +39,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Profile views:</td>
-                                                <td>123 views</td>
+                                                <td>{{legendData.views?legendData.views:0}} views</td>
                                             </tr>
                                             <tr>
                                                 <td>Status:</td>
@@ -47,7 +47,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Streak:</td>
-                                                <td>W5</td>
+                                                <td v-if="allTableData">W{{allTableData.streak?allTableData.streak:0}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -836,7 +836,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><span>Profile views:</span></td>
-                                                    <td>123 views</td>
+                                                    <td>{{legendData.views?legendData.views:0}} views</td>
                                                 </tr>
                                                 <tr>
                                                     <td><span>Status:</span></td>
@@ -844,7 +844,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td><span>Streak:</span></td>
-                                                    <td>W5</td>
+                                                    <td v-if="allTableData">W{{allTableData.streak?allTableData.streak:0}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -3021,6 +3021,8 @@ export default {
     },
    
    async created(){
+       let ddddd = await this.callApi('get',`/app/coachesAddView/${this.$route.params.id}`)
+    //    console.log(this.legendData)
        this.location = window.location.href
        this.twitter_location = `https%3A%2F%2Fgoflank.com%2Fschool_coach%2F${this.$route.params.id}`
        this.twitter_text = `Check out Coach ${this.legendData.name}’s Review on @Flank`

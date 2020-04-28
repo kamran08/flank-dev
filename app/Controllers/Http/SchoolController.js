@@ -127,12 +127,12 @@ class SchoolController {
       'name': name
     }
     // sadek.hkm@gmail.com
-    // await Mail.send('emails.coatch', data, (message) => {
-    //   message
-    //     .to('goflank@yahoo.com')
-    //     .from('Support@goflank.com', `new`)
-    //     .subject('Flank – Urgent New Coach/School ')
-    // })
+    await Mail.send('emails.coatch', data, (message) => {
+      message
+        .to('goflank@yahoo.com')
+        .from('Support@goflank.com', `new`)
+        .subject('Flank – Urgent New Coach/School ')
+    })
     return   await SchoolCoach.create(coachob)
   }
 
