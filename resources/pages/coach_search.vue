@@ -436,7 +436,7 @@
                                 <div class="_2coach_main">
                                     <div class="row">
                                         <!-- Left -->
-                                        <div class="col-xl-12 col-md-12 col-lg-7 _2coach_main_left">
+                                        <div class="col-xl-12 col-md-12 col-lg-6 _2coach_main_left">
                                             <div class="_2card">
                                                 <div class="_2card_pic">
                                                     <img class="_2card_img" src="/images/ps.png" alt="" title="">
@@ -2153,7 +2153,6 @@ Because doing nothing, leads to nothing.
                                 </div>
                             </div>
                             <div class="_1coach_items new-box-shadow" v-if="pageOption == 'school'"  v-for="(item,index) in searchData" :key="index"  >
-
                                 <div class="new-fl-top" v-if="item.avgRating">
 
                                     <div v-if="item.avgRating.averageRating !=0" class="new-best-rated rated-yellow">

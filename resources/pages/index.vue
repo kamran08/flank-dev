@@ -3111,6 +3111,10 @@ export default {
       this.schoolList = [];
     },
     async SearchByKeySchoolCoach() {
+        if(this.sData.school_id==0){
+            this.selectedSearchData.schoolName =''
+           return  this.i("please first select a school")
+        }
         this.selectedSearchData.track2=0
         
         // this.i(this.rData.key)
@@ -3166,6 +3170,9 @@ export default {
       }
     },
     async SearchByKeySchool() {
+        // this.selectedSearchData.schoolName =''
+        this.rData.key =''
+        
         this.selectedSearchData.track=0
       const res = await this.callApi(
         "get",
