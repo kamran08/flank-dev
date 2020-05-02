@@ -118,7 +118,7 @@
                             </figure> -->
                            
                           <div class="adsense">
-                              <adsbygoogle  /> 
+                              <adsbygoogle /> 
                                 <!-- <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
                                 <p class="adsense__loading"><span>Loading&hellip;</span></p> -->
                         </div>

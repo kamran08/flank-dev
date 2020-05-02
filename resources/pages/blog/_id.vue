@@ -100,7 +100,7 @@
                                             
                                             </li>
                                           </ul>
-                                          <h2>Why can't i lose weight (What no one else lorem ipsum dolor sit ammet)</h2>
+                                          <h2>{{post.title}}</h2>
                                         </div>
                                       </div>
                                     </div>
