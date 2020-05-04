@@ -110,6 +110,9 @@
             <div class="new-banner-section new-banner-section-black new-banner-width" >
                 <div class="container" style="">
                     <div class="inner-banner new-fl-inner-banner">
+                        <figure >
+                            <img src="/image/imgpsh_fullsize_anim.png" alt="">
+                         </figure>
                         <!-- <figure v-if="leandingData.length>0">
                             <img :src="leandingData[0].url" alt="">
                          </figure> -->
@@ -117,11 +120,9 @@
                                  <adsbygoogle /> 
                             </figure> -->
                            
-                          <div class="adsense">
+                          <!-- <div class="adsense">
                               <adsbygoogle /> 
-                                <!-- <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
-                                <p class="adsense__loading"><span>Loading&hellip;</span></p> -->
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -569,17 +570,19 @@
                 <div class="new-banner-section middle-banner-section " >
                     <div class="container" style="">
                         <div class="inner-banner new-fl-inner-banner">
+                            
+                             <figure >
+                            <img src="/image/imgpsh_fullsize_anim.png" alt="">
+                         </figure>
                             <!-- <figure v-if="leandingData.length>0">
                                 <img :src="leandingData[0].url" alt="">
                             </figure> -->
                             <!-- <figure >
                                  <adsbygoogle /> 
                             </figure> -->
-                            <div class="adsense">
+                            <!-- <div class="adsense">
                                 <adsbygoogle /> 
-                                    <!-- <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
-                                    <p class="adsense__loading"><span>Loading&hellip;</span></p> -->
-                            </div>
+                            </div> -->
                                        
                              <!-- <adsbygoogle />  -->
                         </div>
@@ -739,14 +742,15 @@
                             <!-- <figure v-if="leandingData.length>0">
                                 <img :src="leandingData[0].url" alt="">
                             </figure> -->
+                             <figure >
+                            <img src="/image/imgpsh_fullsize_anim.png" alt="">
+                         </figure>
                             <!-- <figure >
                                  <adsbygoogle /> 
                             </figure> -->
-                            <div class="adsense">
+                            <!-- <div class="adsense">
                                 <adsbygoogle /> 
-                                    <!-- <ins data-ad-client="ca-pub-1329433058038954" data-ad-slot="5741144487"></ins>
-                                    <p class="adsense__loading"><span>Loading&hellip;</span></p> -->
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -3294,12 +3298,14 @@ export default {
 </script>
 
 <style >
+
+/* ami edit korsi in new style .new-fl-inner-banner.inner-banner figure{heigh:auto} */
     /* .adsbygoogle {
         max-height: 106px;
         height: 100% !important;
     } */
 
-.adsense {
+/* .adsense {
 	width: 970px;
 	height: 90px !important;
 	background-color: #fff;
@@ -3328,15 +3334,15 @@ export default {
 			text-align: center;
 			vertical-align: middle;
 			display: table-cell;
-		}
-
-@media screen and ( max-width: 64em ) /* <= 1024 */
+		} */
+/* <= 1024 */
+/* @media screen and ( max-width: 64em ) 
 {
 	.adsense { width: 728px; height: 90px !important; }
 	.adsense:before	{ content: '1024'; }			
-}
-
-@media screen and ( max-width: 50em ) /* <= 800 */
+} */
+/* <= 800 */
+/* @media screen and ( max-width: 50em ) 
 {
 	.adsense { width: 468px; height: 60px !important; }
 	.adsense:before	{ content: '800'; }
@@ -3344,19 +3350,19 @@ export default {
     .adsense ins iframe	{ width: 468px; height: 60px !important;  }
 }
 
-@media screen and ( max-width: 33.75em ) /* <= 540 */
+@media screen and ( max-width: 33.75em ) 
 {
 	.adsense { width: 336px; height: 280px !important; }
 	.adsense:before	{ content: '540'; }
     .adsense ins	{ width: 336px; height: 280px !important;  }
     .adsense ins iframe	{ width: 336px; height: 280px !important;  }
-}
-
-@media screen and ( max-width: 26.25em ) /* <= 420 */
+} */
+/* <= 420 */
+/* @media screen and ( max-width: 26.25em ) 
 {
 	.adsense { width: 250px; height: 250px !important; }
 	.adsense:before	{ content: '420'; }
     .adsense ins	{ width: 250px; height: 250px !important;   }
     .adsense ins iframe	{ width: 250px; height: 250px !important;   }
-}
+} */
 </style>
