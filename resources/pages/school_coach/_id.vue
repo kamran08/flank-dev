@@ -117,7 +117,8 @@
                 <div class="container-fluid">
                     <div class="inner-banner inner-banner-2">
                         <figure>
-                            <img src="/images/long-form-example.png" alt="">
+                            <img src="/image/imgpsh_fullsize_anim.png" alt="">
+                            <!-- <img src="/images/long-form-example.png" alt=""> -->
                         </figure>
                     </div>
                 </div>
@@ -692,7 +693,8 @@
                                     <!-- this is my div to work -->
                                     <div class="flank-banner-two">
                                         <figure>
-                                            <img src="/images/worstbanner.png" alt=""> 
+                                            <!-- <img src="/images/worstbanner.png" alt="">  -->
+                                            <img src="/image/imgpsh_fullsize_anim_sh.png" alt="">
                                         </figure>
                                     </div>
                                 </div>
@@ -920,7 +922,8 @@
                 <div class="container-fluid no-padding">
                     <div class="inner-banner inner-banner-2">
                         <figure style="height: auto;">
-                            <img src="/images/long-form-example.png" alt="">
+                            <!-- <img src="/images/long-form-example.png" alt=""> -->
+                            <img src="/image/imgpsh_fullsize_anim.png" alt="">
                         </figure>
                     </div>
                 </div>
