@@ -1916,7 +1916,8 @@ Because doing nothing, leads to nothing.
             
             
                 <div style="width: 100%;">
-                    <div class=" col-md-10" v-if="str != '' && place != '' && searchData.length == 0  ">
+                    <!-- <div class=" col-md-10" v-if="str != '' && place != '' && searchData.length == 0  "> -->
+                    <div class="col-md-10" style="padding: 0 25px;" v-if="str != '' && searchData.length == 0  ">
                         <div>
                             <div class="new-find-section">
                                 <div class="">
