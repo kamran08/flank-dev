@@ -311,7 +311,7 @@ class SchoolController {
     let rawps = await Review.query().where('reviewFor', params.id).where('review_type','school').where('is_active', 1).count();
     rawps = JSON.parse(JSON.stringify(rawps))
     let ps = rawps[0]['count(*)'];
-    console.log(ps)
+    // console.log(ps)
     let healthSoreIndex = await Review.query().where('reviewFor', params.id).where('review_type','school')
       .select(Database.raw('cast(AVG(healthyIndex) as decimal(10,2)) AS healthyIndex'), Database.raw('cast(AVG(harmfulIndex) as decimal(10,2)) AS harmfulIndex'))
       .first();
@@ -342,7 +342,8 @@ class SchoolController {
 
     let healthSore = ((asss[0][0].avgHealthIndex - asss[0][0].avgHarmfulIndex) * 6.66)
     let PCT = parseFloat((parseFloat(asss[0][0].PositiveReview) * 100) /  parseFloat(asss[0][0].TotalReview))
-    PCT = PCT.toFixed(2)
+    if(PCT>0) PCT = PCT.toFixed(2)
+
     let STI = streak + asss[0][0].PositiveReview + ((asss[0][0].avgHealthIndex - asss[0][0].avgHarmfulIndex) * 6.66)
     return response.status(200).json({
       
